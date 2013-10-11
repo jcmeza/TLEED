@@ -1,0 +1,32 @@
+#JCM 7/24/13
+#Added tleed executable line
+###############################################################
+F77          = gfortran 
+FLINKER     = $(F77)
+FFLAGS	=	
+PROBDIR	=	TLEED
+###############################################################
+OFILES =	tleed1.o \
+		tleedlibGPS.o\
+		kleed.o
+
+PROBFILES =	maketleed tleed1.f tleed2.f tleedlibGPS.f kleed.f kleedlibGPS.f
+
+.f.o:	
+	$(F77) $(FFLAGS) -c $*.f
+
+compile_f:	$(OFILES)
+#
+#	Create TLEED Standalone Executables
+#
+tleed1:	tleed1.o tleedlibGPS.o
+	$(F77) $(FFLAGS) -o tleed1.exe tleed1.o tleedlibGPS.o
+
+tleed2:	tleed2.o tleedlibGPS.o
+	$(F77) $(FFLAGS) -o tleed2.exe tleed2.o tleedlibGPS.o
+
+kleed:	kleed.o kleedlibGPS.o
+	$(F77) $(FFLAGS) -o kleed.exe kleed.o kleedlibGPS.o
+
+clean:
+	rm -f *.o

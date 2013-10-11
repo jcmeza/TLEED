@@ -1,0 +1,32 @@
+#! /bin/tcsh
+#
+# Simple script to check progress of Nomad/TLEED run
+#
+#
+# Call Aran's awk script to get all lines containing rfac and dump to file foo
+awk '/rfactortleed =/{lin7=NR} {if (NR ==lin7+2 && lin7 > 0) print "rf_tleed",$1}' tmp.log > foo
+#
+# Now sort the file using the second column (rfactor values)
+# Sorting in reverse order so that the best (lowest) rfactor is last in the file
+#
+sort -r -k 2 foo > sortedfoo
+echo -n 'Best :  '
+tail -r -n 1 sortedfoo
+#
+# Count total number of lines (which should be the total number of
+# calls to TLEED
+#
+echo -n 'Number of function evals:  '
+cat foo | wc -l
+#
+# Now count the number of rfactors that contain 1.6 (corresponding
+# to invalid structure)
+#
+echo -n 'Number of invalid structures:  '
+grep 1.6 foo | wc -l
+#grep 1.64 foo | wc -l
+
+#
+# Clean up 
+#
+/bin/rm foo sortedfoo

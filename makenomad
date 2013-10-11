@@ -1,0 +1,56 @@
+EXE                 = basic_lib.exe
+
+COMPILATOR          = g++
+SUNAME = $(shell uname)
+OSS=$(findstring MINGW32,$(SUNAME)) 
+ifneq "$(strip $(OSS))" ""
+COMPILATOR_MPI = g++
+endif
+
+COMPILATOR_OPTIONS  = -O2 -ansi 
+L1                  = $(NOMAD_HOME)/lib/nomad.a
+LIBS                = $(L1) -lm
+INCLUDE             = -I$(NOMAD_HOME)/src -I.
+COMPILE             = $(COMPILATOR) $(COMPILATOR_OPTIONS) $(INCLUDE) -c
+OBJS                = basic_lib.o eval_kleed_fort.o
+
+
+ifndef NOMAD_HOME
+define ECHO_NOMAD
+	@echo Please set NOMAD_HOME environment variable!
+	@false
+endef
+endif
+
+
+$(EXE): $(L1) $(OBJS)
+	$(ECHO_NOMAD)
+	@echo "   building the scalar version ..."
+	@echo "   exe file : "$(EXE)
+#	@$(COMPILATOR) -o  $(EXE) $(OBJS) $(LIBS) $(COMPILATOR_OPTIONS)
+	g++ -o  $(EXE) $(OBJS) $(LIBS) -lgfortran $(COMPILATOR_OPTIONS)
+	@strip  $(EXE)
+
+basic_lib.o: basic_lib.cpp
+	$(ECHO_NOMAD)
+	@$(COMPILE) basic_lib.cpp
+
+eval_kleed_fort.o: eval_kleed_fort.f
+	$(ECHO_NOMAD)
+	gfortran -c eval_kleed_fort.f
+
+all: $(EXE) 
+
+clean: ;
+	@echo "   cleaning obj files"
+	@rm -f $(OBJS) $(OBJS_MPI)
+
+del: ;
+	@echo "   cleaning trash files"
+	@rm -f core *~
+	@echo "   cleaning obj files"
+	@rm -f $(OBJS) $(OBJS_MPI)
+	@echo "   cleaning exe file"
+	@rm -f $(EXE) $(EXE_MPI)
+
+
