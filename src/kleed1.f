@@ -618,7 +618,7 @@ c  Experimental results stored in ivexp# files
      & INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
      & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
 
-	write(*,*) 'kleed1: rfactor',rfactor
+c	write(*,*) 'kleed1: rfactor',rfactor
 c	CLOSE(4)
 c	CLOSE(5)
 

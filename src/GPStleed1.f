@@ -209,7 +209,7 @@ C alone (not touched by any atom).
       if (itimes.gt.0) then
 c         write(0,*) PROCID,' :returning with penalty'
          fitval = penalty
-         write(0,*) '	invalid structure'
+cjcm         write(0,*) '	invalid structure'
          return
       endif
 c      write(0,*) PROCID,' :calling valuate'
@@ -223,7 +223,7 @@ c     write(0,*) PROCID,' :GRAVSTUC finished',itimes
          GOTO 20
       ELSE
 CGPS
-         write(0,*) 'valid structure'
+cjcm         write(0,*) 'valid structure'
 C         DO I=1,NMAX
 C            IF ((PARM(I,1).LT.MINB(I,1)).OR.
 C     &           (PARM(I,1).GT.MAXB(I,1)).OR.
@@ -297,7 +297,7 @@ C          Otherwise the file was not closed in time by the OS for tleed2
 C          to read a complete file. 
            OPEN (UNIT=2,FILE=SEARCHS,STATUS='UNKNOWN')
 C#ifndef EVALUATE_OFF          
-           write(*,*) 'GPStleed1: Calling tleed2'
+cjcm           write(*,*) 'GPStleed1: Calling tleed2'
            CALL tleed2(problem_dir, WORKID,PROCID,FITVAL)
 C#endif
            CLOSE(2)       
@@ -325,7 +325,7 @@ C     &          " ...Returned tleed2 fitval=",fitval
      &          " ...Returned tleed2 fitval=",fitval
            CLOSE (UNIT=99)
         ENDIF
-        write(*,*) 'GPStleed1: Returning: fitval = ', fitval
+c        write(*,*) 'GPStleed1: Returning: fitval = ', fitval
         RETURN
         END
 C********************************************************

@@ -235,7 +235,7 @@ C
 123   FORMAT (' ERROR: The parameter IPCUT must be at least',I4 )
 124   FORMAT (' ERROR: The parameter JSMAX must be at least',I4 )
 C
-      write(*,*) 'tleed2GPS: Entering tleed2'
+cjcm      write(*,*) 'tleed2GPS: Entering tleed2'
 C ============================================================================
 C
 C Open I/O channels.
@@ -244,9 +244,9 @@ C ============================================================================
 C
 CC
 cjcm
-      write(*,*) 'tleed2GPS: problem_dir = ', problem_dir
-      write(*,*) 'tleed2GPS: dir         = ', dir 
-      write(*,*) 'tleed2GPS: rank        = ', rank
+cjcm      write(*,*) 'tleed2GPS: problem_dir = ', problem_dir
+cjcm      write(*,*) 'tleed2GPS: dir         = ', dir 
+cjcm      write(*,*) 'tleed2GPS: rank        = ', rank
 cjcm 
 c First input channels
 C
@@ -314,7 +314,7 @@ c      OPEN (UNIT=15,FILE='/dev/null',STATUS='UNKNOWN')
 c      OPEN (UNIT=10,FILE='/dev/null',STATUS='UNKNOWN')
 
 
-      write(*,*) 'tleed2GPS: start of executable code'
+cjcm      write(*,*) 'tleed2GPS: start of executable code'
 C
 C ============================================================================
 C
@@ -523,7 +523,7 @@ C MFLAG=2   Powell direction-set method
 C MFLAG=3   Powell modified to compute principal directions 
 C MFLAG=4   Evaluation of the rfactor along the principal direction
 C           determined by 3 to check error
-      write(*,*) 'tleed2GPS: MFLAG = ', MFLAG
+cjcm      write(*,*) 'tleed2GPS: MFLAG = ', MFLAG
       IF (MFLAG.EQ.1) THEN
 C
 C Start off by performing a simplex search until convergence by
@@ -556,7 +556,7 @@ C                write(29,*) P(i)
 C                write(*,*) P(i)
 C        enddo
 Cga       CALL POWELL(P,XI,NLAYTOT,NDIM,DISP,NNDIM,ADISP,FTOL2,ASTEP,
-         write(*,*) 'tleed2GPS: Calling Powell'
+cjcm         write(*,*) 'tleed2GPS: Calling Powell'
        rfactor = POWELL(P,XI,NLAYTOT,NDIM,DISP,NNDIM,ADISP,
      & FTOL2,ASTEP,  
      & VSTEP,ITMAX,ISTART,IPR,PTT,PT,XIT,ILOOK,ACOORD,MICUT,MJCUT,
@@ -585,7 +585,7 @@ C Use principal direction method
 C
 Cga make a function call for the GA
 Cga       CALL POWELL2(P,XI,NLAYTOT,NDIM,DISP,NNDIM,ADISP,FTOL2,ASTEP,
-         write(*,*) 'tleed2GPS: Calling Powell2'
+cjcm         write(*,*) 'tleed2GPS: Calling Powell2'
          rfactor = POWELL2(P,XI,NLAYTOT,NDIM,DISP,NNDIM,ADISP,
      & FTOL2,ASTEP,
      & VSTEP,ITMAX,ISTART,IPR,PTT,XIT,ILOOK,ACOORD,MICUT,MJCUT,
@@ -628,7 +628,7 @@ c      call ieee_flags("clear", "exception", "all", out)
       close(12)
       close(22)
 
-      write(*,*) 'tleed2GPS: Leaving tleed2'
+cjcm      write(*,*) 'tleed2GPS: Leaving tleed2'
 
       return
       END

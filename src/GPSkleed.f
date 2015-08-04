@@ -236,7 +236,7 @@ C alone (not touched by any atom).
       if (itimes.gt.0) then
 c         write(0,*) PROCID,' :returning with penalty'
          fitval = penalty
-         write(0,*) '    invalid structure'
+c         write(0,*) '    invalid structure'
          return
       endif
 c      write(0,*) PROCID,' :calling valuate'
@@ -251,7 +251,7 @@ c     write(0,*) PROCID,' :GRAVSTUC finished',itimes
          GOTO 20
       ELSE
 CGPS
-         write(0,*) '    valid structure'
+C         write(0,*) '    valid structure'
 C         DO I=1,NMAX
 C            IF ((PARM(I,1).LT.MINB(I,1)).OR.
 C     &           (PARM(I,1).GT.MAXB(I,1)).OR.
@@ -541,7 +541,7 @@ cAGL Hurrengo 4 lerroak nik jarri ditut
 	   nerror=0
 	   if (klayer.eq.1.and.kk.ne.58) then
 		nerror=1
-	        write(*,*) 'nerror',nerror
+c	        write(*,*) 'nerror',nerror
 c	        goto 344 
 	   else
 		nerror=0
@@ -763,7 +763,7 @@ C********************************************************
            ENDIF
         ENDDO
         write(1,*) 'NU,N1,NTYP=',NU,N1,(NTA(I),I=1,N1)
-        PAUSE
+C        PAUSE
         RETURN
         END
 C********************************************************

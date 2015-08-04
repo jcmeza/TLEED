@@ -1,10 +1,10 @@
 EXE                 = basic_lib.exe
 
-COMPILATOR          = g++
+COMPILATOR          = g++-5
 SUNAME = $(shell uname)
 OSS=$(findstring MINGW32,$(SUNAME)) 
 ifneq "$(strip $(OSS))" ""
-COMPILATOR_MPI = g++
+COMPILATOR_MPI = mpicc
 endif
 
 COMPILATOR_OPTIONS  = -O2 -ansi 
@@ -28,7 +28,7 @@ $(EXE): $(L1) $(OBJS)
 	@echo "   building the scalar version ..."
 	@echo "   exe file : "$(EXE)
 #	@$(COMPILATOR) -o  $(EXE) $(OBJS) $(LIBS) $(COMPILATOR_OPTIONS)
-	g++ -o  $(EXE) $(OBJS) $(LIBS) -lgfortran $(COMPILATOR_OPTIONS)
+	g++-5 -o  $(EXE) $(OBJS) $(LIBS) $(COMPILATOR_OPTIONS)
 	@strip  $(EXE)
 
 basic_lib.o: basic_lib.cpp

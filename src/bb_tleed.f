@@ -45,7 +45,7 @@ c      write(*,*) 'bb_tleed: '
          do i=1,NMAX
             kindex = i + (j-1)*NMAX
             parm_f(I,J)=xparm(kindex)
-cc            write(*,*) 'k, x(k):', kindex, xparm(kindex)
+c            write(*,*) 'k, x(k):', kindex, xparm(kindex)
             minb_f(I,J)=xparm(kindex) - DELTA*xparm(kindex)
             maxb_f(I,J)=xparm(kindex) + DELTA*xparm(kindex)
          enddo                
@@ -59,23 +59,7 @@ cjcm
       call GPStleed1(problem_dir,dir,rank,parm_f,minb_f,maxb_f,
      &     ntype,fitval_f)
       fx(1) = fitval_f
-cjcm      write(*,*) 'bb_tleed: fitval = ', fitval_f
+c      write(*,*) 'bb_tleed: fitval from GPSTleed1  = ', fitval_f
       
       return
       end
-c
-c     JCM: stub routine
-c      
-c      SUBROUTINE GPSkleed1(problem_dir,DIR,RANK,PARM,MINB,MAXB,
-c     &     NTYPE,FITVAL)
-c      
-c      PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
-c      character*(*) problem_dir
-c
-c      REAL PARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FITVAL
-c      INTEGER DIR,RANK,NTYPE(NMAX)
-c      
-c      fitval = PENALTY
-c
-c      return
-c      end

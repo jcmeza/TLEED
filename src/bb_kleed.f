@@ -2,19 +2,15 @@
       real*8  xparm(42)
       real*8  fx(1)
       integer i
-
 c
 c     kleed variables
 c
       PARAMETER (NMAX=14,NDIM=3)
       REAL*8 PARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FITVAL
-      REAL PARM_f(NMAX,NDIM),MINB_f(NMAX,NDIM),MAXB_f(NMAX,NDIM),
-     & FITVAL_f
+      REAL PARM_f(NMAX,NDIM),MINB_f(NMAX,NDIM),MAXB_f(NMAX,NDIM),FITVAL_f
       INTEGER DIR,RANK,NTYPE(NMAX)
       character*28 problem_dir
       problem_dir = "/Users/meza/MyProjects/TLEED"
-C
-C
 C
       DIR = 0
       DELTA = 0.4
@@ -37,7 +33,6 @@ c     first 5 atoms are Li = 1
       do i = 1, 5
          ntype(i) = 1
       enddo
-
 c
 c     Apparently KLEED/TLEED need the coordinates in the format [z, x, y]
 c     Our convention was to place them in a 1-d array with all z coordinates, followed by x and y
@@ -55,26 +50,11 @@ cc            write(*,*) 'k, x(k):', kindex, xparm(kindex)
 c      write(*,*) 'bb_kleed: before GPSkleed'
 c      write(*,*) NTYPE
 
-      call GPSkleed(problem_dir,dir,rank,parm_f,minb_f,maxb_f,
-     &     ntype,fitval_f)
+      call GPSkleed(problem_dir,dir,rank,parm_f,minb_f,
+     &              maxb_f,ntype,fitval_f)
       fx(1) = fitval_f
 c      write(*,*) 'bb_kleed: after GPSkleed: fitval = ', fitval_f
       
       return
       end
-c
-c     JCM: stub routine
-c      
-c      SUBROUTINE GPSkleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,
-c     &     NTYPE,FITVAL)
-c      
-c      PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
-c      character*(*) problem_dir
-c
-c      REAL PARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FITVAL
-c      INTEGER DIR,RANK,NTYPE(NMAX)
-c      
-c      fitval = PENALTY
-c
-c      return
-c      end
+

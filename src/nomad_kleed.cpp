@@ -93,8 +93,6 @@ int main ( int argc , char ** argv ) {
 			 0.0, 0.0, 5.03550005000000, 5.04020023000000, 
 			 0.0, 2.43709993000000};
 
-    //cout << "nomad_kleed: Initializing x0\n";
-
     for ( i = 0 ; i < 42 ; ++i ) {
       x0[i] = xstart[i];  // cout << i << "    " << x0[i] << "\n" ;
     }
@@ -110,7 +108,7 @@ int main ( int argc , char ** argv ) {
     p.set_UPPER_BOUND (ub);
     p.set_INITIAL_MESH_SIZE(1.0);
 
-    p.set_MAX_BB_EVAL (1000);     // the algorithm terminates after
+    p.set_MAX_BB_EVAL (2000);     // the algorithm terminates after
                                  // 500 black-box evaluations
     // p.set_TMP_DIR ("/tmp");      // repertory for
                                    // temporary files
