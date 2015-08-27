@@ -1,10 +1,11 @@
 EXE                 = nomad_kleed.exe
 EXE2                = nomad_tleed.exe
 COMPILATOR          = g++
+LINKER              = gfortran
 FCOMPILATOR         = gfortran
 COMPILATOR_OPTIONS  = -Wall -g
 L1                  = $(NOMAD_HOME)/lib/nomad.a
-LIBS                = $(L1) -lm
+LIBS                = $(L1) -L/usr/local/lib/gcc/5 -lgfortran -lm
 INCLUDE             = -I$(NOMAD_HOME)/src -I.
 COMPILE             = $(COMPILATOR) $(COMPILATOR_OPTIONS) $(INCLUDE) -c
 FCOMPILE            = $(FCOMPILATOR) -g -c
@@ -25,12 +26,16 @@ all:	$(EXE) $(EXE2)
 
 $(EXE): $(L1) nomad_kleed.o $(KLEEDOBJS)
 	$(ECHO_NOMAD)
-	$(COMPILATOR) -o $(EXE) $(OBJS) nomad_kleed.o $(KLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
+	$(COMPILATOR) -o $(EXE) $(OBJS) nomad_kleed.o $(KLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS)
 
 $(EXE2): $(L1) nomad_tleed.o $(TLEEDOBJS) $(KLEEDOBJS)
 	$(ECHO_NOMAD)
+<<<<<<< Updated upstream:src/makefile
 #	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o bb_tleed.o bb_kleed.o GPStleed1.o GPSkleed.o tleed1GPS.o tleed2GPS.o kleed1.o tleedlibGPS.o kleedlibGPS.o $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
 	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o $(TLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
+=======
+	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o bb_tleed.o bb_kleed.o GPStleed1.o GPSkleed.o tleed1GPS.o tleed2GPS.o kleed1.o tleedlibGPS.o kleedlibGPS.o $(LIBS) $(COMPILATOR_OPTIONS)
+>>>>>>> Stashed changes:makefile
 
 #
 # LEED objs
