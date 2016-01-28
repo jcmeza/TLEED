@@ -1,32 +1,41 @@
+      program tstlen
+      character*100 :: problem_dir
+      integer dir, rank
+      dir = 0
+      rank = 1
+      problem_dir = '.'
+      call evaltleed(problem_dir,dir,rank)
 
+      end
 
-
-
-
-
-
-      subroutine gpstleed1(problem_dir,dir,rank)
-      integer dir,rank
-      character*100 tleed4,tleed5
+      subroutine evaltleed(problem_dir,dir,rank)
       character*(*) problem_dir
-      character*100 tleed4doti, tleed5doti
-      character*3 procid
-      character*3 workid
+      integer dir,rank
+
+      character (LEN=100) :: tleed4,tleed5
+      character (LEN=100) ::tleed4doti, tleed5doti
+      character(3) :: procid
+      character(3) :: workid
       
       CALL INT2CHAR(DIR,WORKID,3)
       CALL INT2CHAR(RANK,PROCID,3)
 
-      TLEED4 = problem_dir//'/work' // WORKID // '/tleed4i' // PROCID
-      TLEED5 = problem_dir//'/work' // WORKID // '/tleed5i' // PROCID
-      tleed4doti=problem_dir//'/tleed4.i'
-      tleed5doti=problem_dir//'/tleed5.i'
+      write(6,*) 'workid = ', workid
+      write(6,*) 'procid = ', procid
+      
+      TLEED4 = trim(problem_dir)//"/work"//WORKID//"/tleed4.i"
+      tleed4doti=trim(problem_dir)//"/tleed4.i"
 
+      write(6,*) 'problem_dir = ', problem_dir
+      write(6,*) 'tleed4 = ', tleed4
+      write(6,*) 'tleed4doti = ', tleed4doti
+      
       OPEN(UNIT=8,FILE=tleed4doti,status='old')
       OPEN(UNIT=9,FILE=TLEED4,STATUS='UNKNOWN') 
 
       return
       end
-      C======================================================================
+C======================================================================
 C     SUBROUTINE INT2CHAR
 C     Converts integer "x" to char string "c" of length "length"
 C======================================================================
