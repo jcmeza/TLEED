@@ -348,10 +348,10 @@ C ============================================================================
 C
 C First input channels
 C
-c      tleed4i = problem_dir//'/work'//dir//'/tleed4i'//rank
-c      tleed5i = problem_dir//'/work'//dir//'/tleed5i'//rank
-      tleed4i = './workbb1/tleed4i000'
-      tleed5i = './workbb1/tleed5i000'
+      tleed4i = trim(problem_dir)//'/work'//dir//'/tleed4i'//rank
+      tleed5i = trim(problem_dir)//'/work'//dir//'/tleed5i'//rank
+C      tleed4i = './workbb1/tleed4i000'
+C      tleed5i = './workbb1/tleed5i000'
 
       OPEN (UNIT=4,FILE=tleed4i,STATUS='OLD')
       OPEN (UNIT=5,FILE=tleed5i,STATUS='OLD')
@@ -360,11 +360,11 @@ c      tleed5i = problem_dir//'/work'//dir//'/tleed5i'//rank
 C
 C Now output channels
 C
-c      tleedo = problem_dir//'/work'//dir//'/tleedo'//rank
-c      shortt = problem_dir//'/work'//dir//'/shortt'//rank
+      tleedo = trim(problem_dir)//'/work'//dir//'/tleedo'//rank
+      shortt = trim(problem_dir)//'/work'//dir//'/shortt'//rank
 
-      tleedo = './workbb1/tleedo000'
-      shortt = './workbb1/shortt000'
+C      tleedo = './workbb1/tleedo000'
+C      shortt = './workbb1/shortt000'
 
       OPEN (UNIT=1,FILE=tleedo,STATUS='unknown')
       OPEN (UNIT=22,FILE=shortt,STATUS='unknown',FORM='unformatted')

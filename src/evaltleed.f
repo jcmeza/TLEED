@@ -93,7 +93,7 @@ C#define EVALUATE_OFF
 
 CGPS      SUBROUTINE EVALUATE(DIR,RANK,PARM,MINB,MAXB,NTYPE,FITVAL)
 CGPS      SUBROUTINE GSStleed1(DIR,RANK,PARM,MINB,MAXB,NTYPE,FITVAL)
-      SUBROUTINE GPStleed1(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+      SUBROUTINE evaltleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
      & FITVAL)
       
       PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
@@ -155,13 +155,13 @@ CGPS      TLEED4 = 'work' // WORKID // '/tleed4i' // PROCID
 CGPS      TLEED5 = 'work' // WORKID // '/tleed5i' // PROCID
 CGPS      SEARCHS = 'work' // WORKID // '/searchs' // PROCID
 CGPS      TRACE = 'work' // WORKID // '/trace' // PROCID
-      TLEED4 = problem_dir//'/work' // WORKID // '/tleed4i' // PROCID
-      TLEED5 = problem_dir//'/work' // WORKID // '/tleed5i' // PROCID
-      SEARCHS = problem_dir//'/work' // WORKID // '/searchs' // PROCID
-      TRACE = problem_dir//'/work' // WORKID // '/trace' // PROCID
+      TLEED4 = trim(problem_dir)//'/work' // WORKID // '/tleed4i' // PROCID
+      TLEED5 = trim(problem_dir)//'/work' // WORKID // '/tleed5i' // PROCID
+      SEARCHS = trim(problem_dir)//'/work' // WORKID // '/searchs' // PROCID
+      TRACE = trim(problem_dir)//'/work' // WORKID // '/trace' // PROCID
 
-         tleed4doti=problem_dir//'/tleed4.i'
-         tleed5doti=problem_dir//'/tleed5.i'
+         tleed4doti=trim(problem_dir)//'/tleed4.i'
+         tleed5doti=trim(problem_dir)//'/tleed5.i'
 CGPS
            OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
            WRITE (99,*) "ID: ",PROCID," original Parms passed to evaluat

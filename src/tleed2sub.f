@@ -251,17 +251,17 @@ cjcm
 c First input channels
 C
 cjcm
-c      tleed4i  = problem_dir//'/work'//dir//'/tleed4i'//rank
-c      tleed5i  = problem_dir//'/work'//dir//'/tleed5i'//rank
-c      expdotd  = problem_dir//'/exp.d'
-c      rfacdotd = problem_dir//'/rfac.d'
-c      shortt   = problem_dir//'/work'//dir//'/shortt'//rank
+      tleed4i  = trim(problem_dir)//'/work'//dir//'/tleed4i'//rank
+      tleed5i  = trim(problem_dir)//'/work'//dir//'/tleed5i'//rank
+      expdotd  = trim(problem_dir)//'/exp.d'
+      rfacdotd = trim(problem_dir)//'/rfac.d'
+      shortt   = trim(problem_dir)//'/work'//dir//'/shortt'//rank
 
-      tleed4i  = './workbb1/tleed4i000'
-      tleed5i  = './workbb1/tleed5i000'
-      expdotd  = './workbb1/exp.d'
-      rfacdotd = './workbb1/rfac.d'
-      shortt   = './workbb1/shortt000'
+c      tleed4i  = './workbb1/tleed4i000'
+c      tleed5i  = './workbb1/tleed5i000'
+c      expdotd  = './workbb1/exp.d'
+c      rfacdotd = './workbb1/rfac.d'
+c      shortt   = './workbb1/shortt000'
 
       OPEN (UNIT=4,FILE=tleed4i,STATUS='OLD')
       OPEN (UNIT=5,FILE=tleed5i,STATUS='OLD')
@@ -289,15 +289,15 @@ CGPS      gleedo = 'work'//dir//'/gleedo'//rank
 CGPS      searchs = 'work'//dir//'/searchs'//rank
 CGPS      prdird = 'work'//dir//'/prdird'//rank
 CGPS      restartd = 'work'//dir//'/restartd'//rank
-c      gleedo = problem_dir//'/work'//dir//'/gleedo'//rank
-c      searchs = problem_dir//'/work'//dir//'/searchs'//rank
-c      prdird = problem_dir//'/work'//dir//'/prdird'//rank
-c      restartd = problem_dir//'/work'//dir//'/restartd'//rank
+      gleedo = trim(problem_dir)//'/work'//dir//'/gleedo'//rank
+      searchs = trim(problem_dir)//'/work'//dir//'/searchs'//rank
+      prdird = trim(problem_dir)//'/work'//dir//'/prdird'//rank
+      restartd = trim(problem_dir)//'/work'//dir//'/restartd'//rank
 
-      gleedo   = './workbb1/gleedo000'
-      searchs  = './workbb1/searchs000'
-      prdird   = './workbb1/prdird000'
-      restartd = './workbb1/restartd000'
+c      gleedo   = './workbb1/gleedo000'
+c      searchs  = './workbb1/searchs000'
+c      prdird   = './workbb1/prdird000'
+c      restartd = './workbb1/restartd000'
 
       OPEN (UNIT=1,FILE=gleedo,STATUS='unknown')
 C      OPEN (UNIT=2,FILE=searchs,STATUS='UNKNOWN')

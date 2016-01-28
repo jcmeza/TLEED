@@ -1,32 +1,31 @@
-#JCM 7/10/15
-#Added tleed executable line
-###############################################################
-F77          = gfortran 
-FLINKER     = $(F77)
-FFLAGS	=	
-###############################################################
-OFILES =	tleed1.o \
-		tleedlibGPS.o\
-		kleed.o
-
-PROBFILES =	maketleed tleed1.f tleed2.f tleedlibGPS.f kleed.f kleedlibGPS.f
-
-.f.o:	
-	$(F77) $(FFLAGS) -c $*.f
-
-
-all:	tleed1 tleed2 kleed
 #
-#	Create TLEED Standalone Executables
+#	Create TLEED/KLEED Standalone Executables
 #
-tleed1:	tleed1.o tleedlibGPS.o
-	$(F77) $(FFLAGS) -o tleed1.exe tleed1.o tleedlibGPS.o
+###############################################################
+FC     = gfortran 
+FLINKER = $(FC)
+FFLAGS	= 	
+###############################################################
 
-tleed2:	tleed2.o tleedlibGPS.o
-	$(F77) $(FFLAGS) -o tleed2.exe tleed2.o tleedlibGPS.o
+SOURCES = tleed1.f tleed2.f tleedlib.f kleed.f kleedlib.f
+EXECS   = tleed1 tleed2 kleed runtleed
 
-kleed:	kleed.o kleedlibGPS.o
-	$(F77) $(FFLAGS) -o kleed.exe kleed.o kleedlibGPS.o
+%.o:	%.f	
+	$(FC) $(FFLAGS) -c $< -o $@
+
+all:	$(EXECS)
+
+tleed1:	tleed1.o tleedlib.o
+	$(FC) $(FFLAGS) -o tleed1.exe tleed1.o tleedlib.o
+
+tleed2:	tleed2.o tleedlib.o
+	$(FC) $(FFLAGS) -o tleed2.exe tleed2.o tleedlib.o
+
+kleed:	kleed.o kleedlib.o
+	$(FC) $(FFLAGS) -o kleed.exe kleed.o kleedlib.o
+
+runtleed: runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
+	$(FC) $(FFLAGS) -o runtleed.exe runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
 
 clean:
-	rm -f *.o
+	rm -f *.o *~
