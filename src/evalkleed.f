@@ -84,7 +84,7 @@ CGPS  10/05/04 (Zhengji Zhao) changed file to GPStleed1.f to use NOMADm
 CGPS      to solve optimization problem instead of genetic optimization
 C********************************************************
 
-      SUBROUTINE GPSkleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+      SUBROUTINE evalkleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
      & FITVAL)
       
       PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
@@ -106,7 +106,7 @@ C********************************************************
 
       CHARACTER*100 KLEED4,KLEED5,SEARCHS,TRACE 
       character*(*) problem_dir
-      character*100 kleed4doti, kleed5doti
+      character*100 kleed4doti, kleed5doti, workdir
       character*100 XPIN,XPIN3
       CHARACTER*3 PROCID
       CHARACTER*3 WORKID
@@ -146,14 +146,20 @@ C     Setup input files and write structure to the trace file
       CALL INT2CHAR(RANK,PROCID,3)
 c
 c     JCM 7/28/13: had to hardcode the problem_dir
-c
-      problem_dir = '/Users/meza/MyProjects/TLEED'
+c     JCM 1/18/16: fixed the problem of unwanted blanks by using trim function
+      workdir = trim(problem_dir)//'/kwork'//WORKID
 
-      KLEED4 = '/Users/meza/MyProjects/TLEED/workbbk001/kleed4i000'
-      KLEED5 = '/Users/meza/MyProjects/TLEED/workbbk001/kleed5i000'
-      SEARCHS= '/Users/meza/MyProjects/TLEED/workbbk001/searchs000'
-      TRACE  = '/Users/meza/MyProjects/TLEED/workbbk001/trace000'
-      XPIN   = '/Users/meza/MyProjects/TLEED/workbbk001/xpin'
+c      KLEED4 = '/Users/meza/MyProjects/TLEED/workbbk001/kleed4i000'
+c      KLEED5 = '/Users/meza/MyProjects/TLEED/workbbk001/kleed5i000'
+c      SEARCHS= '/Users/meza/MyProjects/TLEED/workbbk001/searchs000'
+c      TRACE  = '/Users/meza/MyProjects/TLEED/workbbk001/trace000'
+c      XPIN   = '/Users/meza/MyProjects/TLEED/workbbk001/xpin'
+
+      KLEED4  = trim(workdir)// '/kleed4i' // PROCID
+      KLEED5  = trim(workdir)// '/kleed5i' // PROCID
+      SEARCHS = trim(workdir)// '/searchs' // PROCID
+      TRACE   = trim(workdir)//'/trace' // PROCID
+      XPIN    = trim(workdir)//'/xpin' // PROCID
 
 c	write(*,*) 'problem_dir',problem_dir
 c	write(*,*) kleed4
@@ -161,15 +167,12 @@ c	write(*,*) kleed5
 c	write(*,*) searchs
 c	write(*,*) trace
 
-      kleed4doti='/Users/meza/MyProjects/TLEED/workbbk001/kleed4.i'
-      kleed5doti='/Users/meza/MyProjects/TLEED/workbbk001/kleed5.i'
-CGPS
+      kleed4doti=trim(workdir)//'/kleed4.i'
+      kleed5doti=trim(workdir)//'/kleed5.i'
 
-c	write(*,*) 'honarte heltzen da ala ez??'
-c	goto 700
-           OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
-           WRITE (99,*) "ID: ",PROCID," original Parms passed to evaluat
-     &e.f "
+      OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
+      WRITE (99,*) "ID: ",PROCID," original Parms passed to evaluat
+     &     e.f "
 c           DO I=1,NMAX
 c              WRITE (99,"(I4,3F8.4)") NTYPE(I),PARM(I,1),
 c     &                  PARM(I,2),PARM(I,3)
@@ -179,7 +182,7 @@ c700	continue
 
 cjcm	print*, 1
 
-	   XPIN3 = problem_dir// '/XPIN2'
+	   XPIN3 = trim(workdir)// '/XPIN2'
            OPEN(UNIT=98,FILE=XPIN3,STATUS='UNKNOWN',ACCESS='APPEND')
            WRITE (98,*) "ID: ",PROCID," original Parms passed to evaluat
      &e.f "
@@ -299,7 +302,7 @@ C           WRITE (0,*) PROCID," Calling tleed1: ",PROCID
            WRITE (99,*) PROCID," Calling kleed: ",PROCID
            CLOSE (UNIT=99)
 
-	   XPIN3 = problem_dir// '/XPIN2'
+	   XPIN3 = trim(workdir)// '/XPIN2'
            OPEN(UNIT=98,FILE=XPIN3,STATUS='OLD',ACCESS='APPEND')
            WRITE (98,*) "ID: ",PROCID," Parms passed to tleed codes: 
      &(may be changed by VALUATE)"
