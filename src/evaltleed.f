@@ -114,7 +114,7 @@ CGPS      SUBROUTINE GSStleed1(DIR,RANK,PARM,MINB,MAXB,NTYPE,FITVAL)
 CGPS      CHARACTER*32 TLEED4,TLEED5,SEARCHS,TRACE 
       CHARACTER*100 TLEED4,TLEED5,SEARCHS,TRACE 
       character*(*) problem_dir
-      character*100 tleed4doti, tleed5doti
+      character*100 tleed4doti, tleed5doti, workdir
       CHARACTER*3 PROCID
       CHARACTER*3 WORKID
      
@@ -155,13 +155,14 @@ CGPS      TLEED4 = 'work' // WORKID // '/tleed4i' // PROCID
 CGPS      TLEED5 = 'work' // WORKID // '/tleed5i' // PROCID
 CGPS      SEARCHS = 'work' // WORKID // '/searchs' // PROCID
 CGPS      TRACE = 'work' // WORKID // '/trace' // PROCID
-      TLEED4 = trim(problem_dir)//'/work' // WORKID // '/tleed4i' // PROCID
-      TLEED5 = trim(problem_dir)//'/work' // WORKID // '/tleed5i' // PROCID
-      SEARCHS = trim(problem_dir)//'/work' // WORKID // '/searchs' // PROCID
-      TRACE = trim(problem_dir)//'/work' // WORKID // '/trace' // PROCID
+      workdir = trim(problem_dir)//'/work'//WORKID
+      TLEED4  = trim(workdir)// '/tleed4i' // PROCID
+      TLEED5  = trim(workdir)// '/tleed5i' // PROCID
+      SEARCHS = trim(workdir)// '/searchs' // PROCID
+      TRACE   = trim(workdir)//'/trace' // PROCID
 
-         tleed4doti=trim(problem_dir)//'/tleed4.i'
-         tleed5doti=trim(problem_dir)//'/tleed5.i'
+      tleed4doti=trim(workdir)//'/tleed4.i'
+      tleed5doti=trim(workdir)//'/tleed5.i'
 CGPS
            OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
            WRITE (99,*) "ID: ",PROCID," original Parms passed to evaluat
