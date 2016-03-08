@@ -13426,7 +13426,7 @@ C
       SUBROUTINE READE(AE,EE,NBED,NEE,NBEA,BENAME,IPR,IEERG)
 C
       DIMENSION AE(NBED,IEERG),EE(NBED,IEERG),NEE(NBED),NBEA(NBED)
-      DIMENSION BENAME(5,NBED),FMT(20)
+      DIMENSION BENAME(5,NBED), FMT(20)
       COMMON /REXP/EEINCR
 C
 30    FORMAT (5(25I3,/))
@@ -15375,7 +15375,7 @@ C for the Pendry Rfactor)
 C
 CGPS+
       I=1
-888      if (tleed4i(I:(I+6)).NE.'tleed4i') then
+888      if (tleed4i(I:(I+7)).NE.'tleed4.i') then
              I=I+1
              goto 888
          else

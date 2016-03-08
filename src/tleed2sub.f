@@ -4,8 +4,6 @@ C***************************************************************************
 C  Symmetrized Automated Tensor LEED (SATLEED):  program TLEED2.FOR
 C  Version 4.1 of Automated Tensor LEED
 C
-Cga      PROGRAM TLEED2V4
-CGPS      subroutine tleed2(dir,rank,rfactor)
       subroutine tleed2(problem_dir, dir,rank,rfactor)
       character*(*) problem_dir
       character*(*) dir
@@ -241,27 +239,13 @@ C
 C Open I/O channels.
 C
 C ============================================================================
-C
-CC
-cjcm
-cjcm      write(*,*) 'tleed2GPS: problem_dir = ', problem_dir
-cjcm      write(*,*) 'tleed2GPS: dir         = ', dir 
-cjcm      write(*,*) 'tleed2GPS: rank        = ', rank
-cjcm 
 c First input channels
 C
-cjcm
-      tleed4i  = trim(problem_dir)//'/work'//dir//'/tleed4i'//rank
-      tleed5i  = trim(problem_dir)//'/work'//dir//'/tleed5i'//rank
+      tleed4i  = trim(problem_dir)//'/tleed4.i'
+      tleed5i  = trim(problem_dir)//'/tleed5.i'
       expdotd  = trim(problem_dir)//'/exp.d'
       rfacdotd = trim(problem_dir)//'/rfac.d'
-      shortt   = trim(problem_dir)//'/work'//dir//'/shortt'//rank
-
-c      tleed4i  = './workbb1/tleed4i000'
-c      tleed5i  = './workbb1/tleed5i000'
-c      expdotd  = './workbb1/exp.d'
-c      rfacdotd = './workbb1/rfac.d'
-c      shortt   = './workbb1/shortt000'
+      shortt   = trim(problem_dir)//'/shortt'
 
       OPEN (UNIT=4,FILE=tleed4i,STATUS='OLD')
       OPEN (UNIT=5,FILE=tleed5i,STATUS='OLD')
@@ -277,42 +261,19 @@ c      shortt   = './workbb1/shortt000'
 C
 C Now output channels
 C
-Cga+      OPEN (UNIT=1,FILE='gleed.o',STATUS='NEW')
-C      OPEN (UNIT=2,FILE='search.s',STATUS='NEW')
-C      OPEN (UNIT=15,FILE='prdir.d',STATUS='UNKNOWN')
-Cga-      OPEN (UNIT=10,FILE='restart.d',STATUS='UNKNOWN')
-c      gleedo = dir // '/gleedo' // rank
-c      searchs = dir // '/searchs' // rank
-c      prdird = dir // '/prdird' // rank
-c      restartd = dir // '/restartd' // rank
-CGPS      gleedo = 'work'//dir//'/gleedo'//rank
-CGPS      searchs = 'work'//dir//'/searchs'//rank
-CGPS      prdird = 'work'//dir//'/prdird'//rank
-CGPS      restartd = 'work'//dir//'/restartd'//rank
-      gleedo = trim(problem_dir)//'/work'//dir//'/gleedo'//rank
-      searchs = trim(problem_dir)//'/work'//dir//'/searchs'//rank
-      prdird = trim(problem_dir)//'/work'//dir//'/prdird'//rank
-      restartd = trim(problem_dir)//'/work'//dir//'/restartd'//rank
-
-c      gleedo   = './workbb1/gleedo000'
-c      searchs  = './workbb1/searchs000'
-c      prdird   = './workbb1/prdird000'
-c      restartd = './workbb1/restartd000'
+      gleedo = trim(problem_dir)//'/gleedo'
+      searchs = trim(problem_dir)//'/searchs'
+      prdird = trim(problem_dir)//'/prdird'
+      restartd = trim(problem_dir)//'/restartd'
 
       OPEN (UNIT=1,FILE=gleedo,STATUS='unknown')
-C      OPEN (UNIT=2,FILE=searchs,STATUS='UNKNOWN')
+      OPEN (UNIT=2,FILE=searchs,STATUS='UNKNOWN')
       OPEN (UNIT=15,FILE=prdird,STATUS='UNKNOWN')
       OPEN (UNIT=10,FILE=restartd,STATUS='UNKNOWN')
       rewind(1)
       rewind(2)
       rewind(15)
       rewind(10)
-
-c      OPEN (UNIT=1,FILE=,STATUS='unknown')
-c      OPEN (UNIT=2,FILE='/dev/null',STATUS='UNKNOWN')
-c      OPEN (UNIT=15,FILE='/dev/null',STATUS='UNKNOWN')
-c      OPEN (UNIT=10,FILE='/dev/null',STATUS='UNKNOWN')
-
 
 cjcm      write(*,*) 'tleed2GPS: start of executable code'
 C

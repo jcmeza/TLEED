@@ -1,4 +1,3 @@
-
 C  file LEEDSATL.M1  Feb. 29, 1996
 C
 C***************************************************************************
@@ -6,16 +5,7 @@ C  Symmetrized Automated Tensor LEED (SATLEED):  program TLEED1.FOR
 C  Version 4.1 of Automated Tensor LEED
 C
       PROGRAM TLEED1V4
-CGPS      subroutine tleed1(dir,rank)
-CJCM      subroutine tleed1(problem_dir,dir,rank,nerror_report)
-
-c      character*(*) problem_dir
-c      character*(*) dir
-c      character*(*) rank
       character*80 problem_dir, dir, rank
-
-c      subroutine tleed1(tleed5i,shortt)
-CGPS      character*32 tleed4i, tleed5i, shortt, tleedo
       character*100 tleed4i, tleed5i, shortt, tleedo
       integer nerror_report
 C 
@@ -350,12 +340,9 @@ C ============================================================================
 C
 C First input channels
 C
-      problem_dir = ''
-      dir = '000'
-      rank = '1'
-
-      tleed4i = './work001/tleed4i000'
-      tleed5i = './work001/tleed5i000'
+      problem_dir = "./twork000"
+      tleed4i = trim(problem_dir)//'/tleed4.i'
+      tleed5i = trim(problem_dir)//'/tleed5.i'
 
       OPEN (UNIT=4,FILE=tleed4i,STATUS='OLD')
       OPEN (UNIT=5,FILE=tleed5i,STATUS='OLD')
@@ -364,8 +351,8 @@ C
 C
 C Now output channels
 C
-      tleedo = './work001/tleedo000'
-      shortt = './work001/shortt000'
+      tleedo = trim(problem_dir)//'/tleedo'
+      shortt = trim(problem_dir)//'/shortt'
 
       OPEN (UNIT=1,FILE=tleedo,STATUS='unknown')
       OPEN (UNIT=22,FILE=shortt,STATUS='unknown',FORM='unformatted')
@@ -473,7 +460,7 @@ Cga this variable must be initialized for repeated calls
 	 GOTO 1400
       ENDIF
       NBULK=NST1-NSTEF
-      IF (NDTENS.NE.1.AND.NDTENS.NE.3) pause 'NDTENS must be 1 or 3'
+c      IF (NDTENS.NE.1.AND.NDTENS.NE.3) pause 'NDTENS must be 1 or 3'
       READ (5,101) (LAFLAG(I), I=1,NST1)
       DO 348 I=1,NST1
 	 IF (LAFLAG(I).GT.NLAY) NLAY=LAFLAG(I)

@@ -2390,7 +2390,6 @@ C XVAL can be < or > of X(1) because of the shifts in X due to a varying
 C VOPT. For purpose of interpolation however we want it to be > than X(1)
             XMIN=XMIN+EINCR
             XVAL=XMIN
-            IF(XVAL.LT.X(1)) PAUSE 'AGAIN!!'
             KLO=1
             KHI=2
 C this shift allows all points in the grid to be included in the energy 
@@ -2403,7 +2402,6 @@ C interval for which we have data
 28          IF(XVAL.GE.X(KLO).AND.XVAL.LT.X(KHI))GOTO 27 
                   KLO=KLO+1
                   KHI=KHI+1
-                  IF(KHI.GT.NEM)PAUSE 'PROBLEM'
                   GOTO 28
 27             CALL SPLINT(X,WORYT,WORYT2,NEM,XVAL,A(IB,I),
      %            AP(IB,I),KLO,KHI)

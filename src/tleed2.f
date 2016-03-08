@@ -5,24 +5,11 @@ C  Symmetrized Automated Tensor LEED (SATLEED):  program TLEED2.FOR
 C  Version 4.1 of Automated Tensor LEED
 C
       PROGRAM TLEED2V4
-CGPS      subroutine tleed2(dir,rank,rfactor)
-CJCM      subroutine tleed2(problem_dir, dir,rank,rfactor)
-c      character*(*) problem_dir
-c      character*(*) dir
-c      character*(*) rank
-c      character*80 problem_dir, dir, rank
-cjcm
       character*80 problem_dir, dir, rank
       real rfactor
-
-CGPS      character*32, tleed4i,tleed5i,shortt,gleedo,searchs,prdird,
       character*100 tleed4i,tleed5i,shortt,gleedo,searchs,prdird,
      &restartd
       character*100 expdotd, rfacdotd
-
-c      subroutine tleed2(tleed5i,shortt,rfactor)
-c      character*(*), tleed5i, shortt
-
 C 
 C PROGRAM DESCRIPTION: 
 C -------------------
@@ -246,7 +233,7 @@ C
 C ============================================================================
 C
 CC
-      problem_dir = './'
+      problem_dir = './twork000'
       dir = '000'
       rank = '1'
       write(*,*) 'tleed2GPS: problem_dir = ', problem_dir
@@ -255,18 +242,11 @@ CC
  
 c First input channels
 C
-cjcm
-c      tleed4i  = problem_dir//'/work'//dir//'/tleed4i'//rank
-c      tleed5i  = problem_dir//'/work'//dir//'/tleed5i'//rank
-c      expdotd  = problem_dir//'/exp.d'
-c      rfacdotd = problem_dir//'/rfac.d'
-c      shortt   = problem_dir//'/work'//dir//'/shortt'//rank
-cjcm
-      tleed4i  = './work001/tleed4i000'
-      tleed5i  = './work001/tleed5i000'
-      expdotd  = './work001/exp.d'
-      rfacdotd = './work001/rfac.d'
-      shortt   = './work001/shortt000'
+      tleed4i  = trim(problem_dir)//'/tleed4.i'
+      tleed5i  = trim(problem_dir)//'/tleed5.i'
+      expdotd  = trim(problem_dir)//'/exp.d'
+      rfacdotd = trim(problem_dir)//'/rfac.d'
+      shortt   = trim(problem_dir)//'/shortt'
 
       OPEN (UNIT=5,FILE=tleed5i,STATUS='OLD')
       OPEN (UNIT=4,FILE=tleed4i,STATUS='OLD')

@@ -84,17 +84,8 @@ CGPS  10/05/04 (Zhengji Zhao) changed file to GPStleed1.f to use NOMADm
 CGPS      to solve optimization problem instead of genetic optimization
 C********************************************************
 
-C Indicate whether you are using the f90 or f77 compiler.
-C#define F90
-C#define f77
-
-C Turn off calling tleed1 and tleed2 for testing 
-C#define EVALUATE_OFF
-
-CGPS      SUBROUTINE EVALUATE(DIR,RANK,PARM,MINB,MAXB,NTYPE,FITVAL)
-CGPS      SUBROUTINE GSStleed1(DIR,RANK,PARM,MINB,MAXB,NTYPE,FITVAL)
       SUBROUTINE evaltleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
-     & FITVAL)
+     &     FITVAL)
       
       PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
       
@@ -151,10 +142,7 @@ c          write(*,*) 'COORSUB=',(coorsub(i,j),j=1,3)
 C     Setup input files and write structure to the trace file
       CALL INT2CHAR(DIR,WORKID,3)
       CALL INT2CHAR(RANK,PROCID,3)
-CGPS      TLEED4 = 'work' // WORKID // '/tleed4i' // PROCID
-CGPS      TLEED5 = 'work' // WORKID // '/tleed5i' // PROCID
-CGPS      SEARCHS = 'work' // WORKID // '/searchs' // PROCID
-CGPS      TRACE = 'work' // WORKID // '/trace' // PROCID
+
       workdir = trim(problem_dir)//'/twork'//WORKID
       TLEED4  = trim(workdir)// '/tleed4i' // PROCID
       TLEED5  = trim(workdir)// '/tleed5i' // PROCID
@@ -163,9 +151,9 @@ CGPS      TRACE = 'work' // WORKID // '/trace' // PROCID
 
       tleed4doti=trim(workdir)//'/tleed4.i'
       tleed5doti=trim(workdir)//'/tleed5.i'
-CGPS
-           OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
-           WRITE (99,*) "ID: ",PROCID," original Parms passed to evaluat
+
+      OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
+      WRITE (99,*) "ID: ",PROCID," original Parms passed to evaluat
      &e.f "
            DO I=1,NMAX
               WRITE (99,"(I4,3F8.4)") NTYPE(I),PARM(I,1),
@@ -270,23 +258,14 @@ C           WRITE (0,*) PROCID," Calling tleed1: ",PROCID
            WRITE (99,*) PROCID," Calling tleed1: ",PROCID
            CLOSE (UNIT=99)
 
-C           #ifndef EVALUATE_OFF
-cjcm           write(*,*) 'GPStleed1: Calling tleed1'
-           CALL tleed1(problem_dir, WORKID,PROCID,nerror_report)
-C           #endif
+           write(*,*) 'GPStleed1: Calling tleed1'
+           CALL tleed1(workdir, WORKID,PROCID,nerror_report)
 
-c           if (nerror_report==1) then
            if (nerror_report.eq.1) then
                fitval=1.64 
                return
            else
-C           #ifdef F77           
            OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
-C           #endif
-C           #ifdef F90
-C           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')   
-C           #endif  
-
 C           WRITE (0,*) WORKID,":",PROCID,
 C     &          "...Returned tleed1 : Calling tleed2..."
            WRITE (99,*) WORKID,":",PROCID,
@@ -297,28 +276,19 @@ C          PROBLEM: Handle opening and closing the the searchs file here.
 C          Otherwise the file was not closed in time by the OS for tleed2
 C          to read a complete file. 
            OPEN (UNIT=2,FILE=SEARCHS,STATUS='UNKNOWN')
-C#ifndef EVALUATE_OFF          
-cjcm           write(*,*) 'GPStleed1: Calling tleed2'
-           CALL tleed2(problem_dir, WORKID,PROCID,FITVAL)
-C#endif
+           write(*,*) 'GPStleed1: Calling tleed2'
+           CALL tleed2(workdir, WORKID,PROCID,FITVAL)
            CLOSE(2)       
            end if
  
 C          Assign penalty when r-factor is less than .1
-Cgss           IF (FITVAL.LT.0.1) FITVAL = PENALTY
-C           IF (FITVAL.LT.0.1) FITVAL = PENALTY+1
            IF (FITVAL.LT.0.1) then
               FITVAL = PENALTY+1
            else if (fitval.eq. 100.) then
               Fitval=1.62
            else
            end if
-C#ifdef F77
            OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
-C#endif
-C#ifdef F90
-C           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
-C#endif
 
 C           WRITE (0,*) WORKID,":",PROCID,
 C     &          " ...Returned tleed2 fitval=",fitval
@@ -326,7 +296,7 @@ C     &          " ...Returned tleed2 fitval=",fitval
      &          " ...Returned tleed2 fitval=",fitval
            CLOSE (UNIT=99)
         ENDIF
-c        write(*,*) 'GPStleed1: Returning: fitval = ', fitval
+        write(*,*) 'GPStleed1: Returning: fitval = ', fitval
         RETURN
         END
 C********************************************************
@@ -377,22 +347,22 @@ c
 c ===========================================================
 c Modify the rondom structure to a symmetrical structure. 
        
-c        write(99,*) 'Call MODSTRUCT'
+        write(99,*) 'Call MODSTRUCT'
         CALL MODSTRUCT(SYMC,COORD,NTYPE,NCODE,NMAX,RMIN,RMAX,
      %NIDEN,AA)
 
 c VALUATE the structure, returns penalty or success.
-c        write(99,*) 'Call VALUAT'
+        write(99,*) 'Call VALUAT'
         CALL VALUAT(COORD,NTYPE,NMAX,RMIN,RMAX,NIDEN,RESULT,
      &COORSUB,NTYPSUB,NSUB)
 c Sort the coordinates in a increasing order. 
         CALL SORTLOCAL(NMAX,COORD,NTYPE,NCODE)
-c        write(99,*) 'Put the parameter in order, finished'
+        write(99,*) 'Put the parameter in order, finished'
         IF(RESULT.EQ.'PENALTY') THEN 
-c          write(*,*) 'Invalid structure, return for GRAVSTUC'
+           write(*,*) 'Invalid structure, return for GRAVSTUC'
            RETURN
         ENDIF
-c       write(*,*) 'Valid structure'
+       write(*,*) 'Valid structure'
 c Separate the surface into several composite layers,
 c DSPC IS THE MINIMUM SPACING BETWEEN TWO COMPOSITE LAYERS.
         DO I=1,NLAY
@@ -403,11 +373,13 @@ c Interlayer spacing parameter: 1.5<=DSPC<=2.0
         DSPC=1.90
         KLAYER=1
         CALL SEPSURF(COORD,NMAX,KLAY,SPAC,NLAY,KLAYER,DSPC)
-c       write(*,*) 'Separate the structure finished' 
-c       write(*,*) klayer,klay,spac
+        write(*,*) 'Separate the structure finished' 
+        write(*,*) klayer,klay,spac
+
 c Write the coordinates into input file tleed5a.i.
+        write(*,*) 'Write coordinates into input file tleed5a.i'
         CALL WRITCOOR(COORD,NTYPE,NCODE,NMAX,KLAY,SPAC,NLAY,
-     *KLAYER)
+     *       KLAYER)
         RETURN       
         END
 C********************************************************
