@@ -1,94 +1,36 @@
-EXE                 = nomad_kleed.exe
-EXE2                = nomad_tleed.exe
-COMPILATOR          = g++
-LINKER              = gfortran
-FCOMPILATOR         = gfortran
-COMPILATOR_OPTIONS  = -Wall -g
-L1                  = $(NOMAD_HOME)/lib/nomad.a
-LIBS                = $(L1) -L/usr/local/lib/gcc/5 -lgfortran -lm
-INCLUDE             = -I$(NOMAD_HOME)/src -I.
-COMPILE             = $(COMPILATOR) $(COMPILATOR_OPTIONS) $(INCLUDE) -c
-FCOMPILE            = $(FCOMPILATOR) -g -c
-#OBJS                = nomad_kleed.o bb_kleed.o GPSkleed.o GPStleed.o
-#OBJS                = nomad_kleed.o nomad_tleed.o
-OBJS		    =
-KLEEDOBJS	    = bb_kleed.o GPSkleed.o kleed1.o kleedlibGPS.o
-TLEEDOBJS	    = bb_tleed.o GPStleed1.o tleed1GPS.o tleed2GPS.o tleedlibGPS.o
-
-ifndef NOMAD_HOME
-define ECHO_NOMAD
-	@echo Please set NOMAD_HOME environment variable!
-	@false
-endef
-endif
-
-all:	$(EXE) $(EXE2)
-
-$(EXE): $(L1) nomad_kleed.o $(KLEEDOBJS)
-	$(ECHO_NOMAD)
-	$(COMPILATOR) -o $(EXE) $(OBJS) nomad_kleed.o $(KLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS)
-
-$(EXE2): $(L1) nomad_tleed.o $(TLEEDOBJS) $(KLEEDOBJS)
-	$(ECHO_NOMAD)
-<<<<<<< Updated upstream:src/makefile
-#	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o bb_tleed.o bb_kleed.o GPStleed1.o GPSkleed.o tleed1GPS.o tleed2GPS.o kleed1.o tleedlibGPS.o kleedlibGPS.o $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
-	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o $(TLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
-=======
-	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o bb_tleed.o bb_kleed.o GPStleed1.o GPSkleed.o tleed1GPS.o tleed2GPS.o kleed1.o tleedlibGPS.o kleedlibGPS.o $(LIBS) $(COMPILATOR_OPTIONS)
->>>>>>> Stashed changes:makefile
-
 #
-# LEED objs
+#	Create TLEED/KLEED Standalone Executables
 #
-nomad_kleed.o: nomad_kleed.cpp $(KLEEDOBJS)
-	$(COMPILE) nomad_kleed.cpp
+###############################################################
+#FC     = gfortran 
+FC     = ifort 
+FLINKER = $(FC)
+FFLAGS	= -O3 -assume fpe_summary 	
+#FFLASG  = -ax<processor>,  -ftz, -ip, -ipo, -march=<processor>, -mtune=<processor>, -O[n], -openmp, -parallel, -prof-gen, -prof-use, -x<processor>
+###############################################################
 
-nomad_tleed.o: nomad_tleed.cpp $(TLEEDOBJS)
-	$(COMPILE) nomad_tleed.cpp
+SOURCES = evaltleed.f evalkleed.f tleed1.f tleed2.f tleedlib.f kleed.f tleed1sub.f tleed2sub.f kleedsub.f kleedlib.f
+EXECS   = tleed1 tleed2 kleed runtleed.exe runkleed.exe
 
-bb_kleed.o: bb_kleed.f
-	$(FCOMPILE) bb_kleed.f
+%.o:	%.f	
+	$(FC) $(FFLAGS) -c $< -o $@
 
-bb_tleed.o: bb_tleed.f
-	$(FCOMPILE) bb_tleed.f
+all:	$(EXECS)
 
-GPSkleed.o: GPSkleed.f
-	$(FCOMPILE) GPSkleed.f
+tleed1:	tleed1.o tleedlib.o
+	$(FC) $(FFLAGS) -o tleed1.exe tleed1.o tleedlib.o
 
-GPStleed1.o: GPStleed1.f
-	$(FCOMPILE) GPStleed1.f
+tleed2:	tleed2.o tleedlib.o
+	$(FC) $(FFLAGS) -o tleed2.exe tleed2.o tleedlib.o
 
-kleed1.o: kleed1.f
-	$(FCOMPILE) kleed1.f
+kleed:	kleed.o kleedlib.o
+	$(FC) $(FFLAGS) -o kleed.exe kleed.o kleedlib.o
 
-kleedlibGPS.o: kleedlibGPS.F
-	$(FCOMPILE) kleedlibGPS.F
+runtleed.exe: runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
+	$(FC) $(FFLAGS) -o runtleed.exe runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
 
-tleed1GPS.o: tleed1GPS.F
-	$(FCOMPILE) tleed1GPS.F
-
-tleed2GPS.o: tleed2GPS.F
-	$(FCOMPILE) tleed2GPS.F
-
-tleedlibGPS.o: tleedlibGPS.F
-	$(FCOMPILE) tleedlibGPS.F
-
-$(L1): ;
-	$(ECHO_NOMAD)
+runkleed.exe: runkleed.o evalkleed.o kleedsub.o kleedlib.o
+	$(FC) $(FFLAGS) -o runkleed.exe runkleed.o evalkleed.o kleedsub.o kleedlib.o
 
 clean:
-	@echo "   cleaning obj files"
-	@rm -f $(OBJS) $(KLEEDOBJS) $(TLEEDOBJS)
-
-realclean: clean
-	@echo "   cleaning all obj and exe files"
-	@rm -f $(OBJS) $(KLEEDOBJS) $(TLEEDOBJS)
-	@rm -f $(EXE) $(EXE2) 
-
-del:
-	@echo "   cleaning trash files"
-	@rm -f core *~
-	@echo "   cleaning obj files"
-	@rm -f $(OBJS)
-	@echo "   cleaning exe file"
-	@rm -f $(EXE)
+	rm -f *.o *.exe *~

@@ -216,15 +216,17 @@ C ============================================================================
 C
 C First input channels
 C
-c      write(*,*) problem_dir,dir
-      kleed4i = problem_dir//'/works'//dir//'/kleed4i'//rank
+      write(*,*) "kleedsub: problem_dir: ", trim(problem_dir)
+      kleed4i = trim(problem_dir)//'/kleed4i000'
+      kleed5i = trim(problem_dir)//'/kleed5i000'
       OPEN (UNIT=4,FILE=kleed4i,STATUS='OLD')
-      kleed5i = problem_dir//'/works'//dir//'/kleed5i'//rank
       OPEN (UNIT=5,FILE=kleed5i,STATUS='OLD')
-      expdotd=problem_dir//'/exp.d'
-      rfacdotd=problem_dir//'/rfac.d'
+
+      expdotd=trim(problem_dir)//'/exp.d'
+      rfacdotd=trim(problem_dir)//'/rfac.d'
       OPEN (UNIT=11,FILE=expdotd,STATUS='OLD')
       OPEN (UNIT=12,FILE=rfacdotd,STATUS='OLD')
+
       rewind(4)
       rewind(5)
       rewind(11)
@@ -232,11 +234,13 @@ c      write(*,*) problem_dir,dir
 C
 C Now output channels
 C
-      tleedo = problem_dir//'/works'//dir//'/tleedo'//rank
+      tleedo = trim(problem_dir)//'/tleedo'
       OPEN (UNIT=1,FILE=tleedo,STATUS='unknown')
       rewind(1)
-      searchs = problem_dir//'/works'//dir//'/searchs'//rank
+
+      searchs = trim(problem_dir)//'/searchs'
       OPEN (UNIT=2,FILE=searchs,STATUS='unknown')
+
       rewind(1)
       rewind(2)
 c      rewind(7)
@@ -328,7 +332,7 @@ C Read in additional data for composite layer.
 C
       CALL READCT(NLAY,VPOS,CPVPOS,NTAUAW,LPSAW,LMMAX,IPR,
      & LAFLAG,NST1,ASB,VICL,VCL,FRCL,TST,TSTS,ASA,INVECT)
-	write(*,*) 'after READCT'
+cjcm	write(*,*) 'after READCT'
 
 c	do 1101 i=1,nst1
 c	do 1102 j=1,laflag(i)
@@ -351,7 +355,7 @@ C
       CALL READPL(NT0,NSET,PQFEX,NINSET,NDIM,DISP,ICOORD,
      & NSTEP,ANSTEP,NLAYTOT,IPR,ALPHA,BETA,GAMMA,ITMAX,FTOL1,
      & FTOL2,MFLAG,LLFLAG,NGRID)
-        write(*,*) 'after READPL'
+cjcm        write(*,*) 'after READPL'
 C
 C Calculate Clebsch-Gordan coefficients
 C
@@ -376,7 +380,7 @@ cjcm
       NN=N*N
       NLM=NLMS(LMAX)
       CALL CELMG(CLM,NLM,YLM,FAC2,NN,FAC1,N,LMAX)
-	write(*,*) 'after CELMG'
+cjcm	write(*,*) 'after CELMG'
 cjcm
 c	do 1389 i=1,nlaytot
 c	write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
@@ -386,7 +390,7 @@ C
 C  Calculate permutations of (L-M) sequence.
 C
       CALL LXGENT(LX,LXI,LT,LXM,LMAX,LMMAX)
-	write(*,*) 'after LXGENT'
+cjcm	write(*,*) 'after LXGENT'
 cjcm
 c	do 1289 i=1,nlaytot
 c	write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
@@ -407,8 +411,9 @@ C
 C  PPP= Clebsch Gordan coefficients for computation of temperature
 C       dependant phase shifts. (Skipped if not needed).
 C
-	write(*,*) 'before CPPP'
+cjcm	write(*,*) 'before CPPP'
          CALL CPPP(PPP,NN1,NN2,NN3)
+cjcm	write(*,*) 'after CPPP'
       ENDIF
 
 C
@@ -445,10 +450,9 @@ C
 c Reorder the subplanes of each composite layer according to
 c increasing position along the +X axis
 
-cjcm	write(*,*) 'before SORT'
-
-
+cjcm         write(*,*) 'before SORT'
 	 CALL SORT(FPOS,NLAY)
+cjcm         write(*,*) 'after SORT'
 
       WRITE(2,1103)
 	DO 948 I=1,NLAY
@@ -496,8 +500,9 @@ c	do 189 i=1,nlaytot
 c	write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
 c189	continue
 cjcm
-
+cjcm        write(*,*) 'before SLPOS'
 	CALL SLPOS(ASB,VPOS,LAFLAG,ASE,NST1,NLAYTOT,SPOSTF)
+cjcm        write(*,*) 'after SLPOS'
 
 
 
@@ -506,6 +511,7 @@ cjcm
 	SPOSTF1(i,j) = SPOSTF(1,I,J)
 289	CONTINUE
 288	CONTINUE	
+cjcm        write(*,*) 'begin loop over energy'
 C
 C
 C =============================================================================
@@ -516,7 +522,9 @@ C =============================================================================
 C
 C  Read energy range and step.
 C
+cjcm        write(*,*) 'read energy range, EI, EF, DE'
 	 READ (5,100) EI,EF,DE
+cjcm        write(*,*) EI, EF, DE
          NERG=INT((EF-EI)/DE+1.01)
 	 IF (EI.LT.0) THEN
 	    WRITE (1,*) ' EI MUST BE > 0 '
@@ -525,11 +533,14 @@ C
 C Generate required beamsets
 C
 	    DFLAG=0
+cjcm            write(*,*) 'before BEMGEN'
 	    CALL BEMGEN(TST,EF,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,
      &       IPR,TVA,DFLAG,NROM,G)
+cjcm            write(*,*) 'after BEMGEN'
 C
 C  Start loop over given energy range.
 C
+cjcm            write(*,*) 'loop over energy range'
 	    NGAW=INT((EF-EI)/DE)+1
 	    WRITE (1,109)
 	    WRITE (1,110)
@@ -550,12 +561,13 @@ C Calculate atomic T matrix elements for all atom types.
 C
 C =============================================================================
 C
-
+cjcm               write(*,*) 'before TSCATF'
 	       DO 247 INNEL=1,NEL
 		  CALL TSCATF_TOY(INNEL,L1,ES,PHSS,PHSS2,NPSI,IT1,E,0.,
      &             PPP,NN1,NN2,NN3,DR01,DRPER1,DRPAR1,T0,T,TSF0,TSF,
      &             AF,CAF,NFLAGINT,PHS,DEL,NERG,IEEV,NEL,PHSSEL)
 247            CONTINUE
+cjcm               write(*,*) 'after TSCATF'
 
 
 	       IF(NFLAGINT.eq.1) THEN
@@ -576,8 +588,10 @@ C =============================================================================
 C
 	       NEXIT=0
 C
+cjcm               write(*,*) 'before WAVE2'
 	       CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
      &          NT0,RAR1,RAR2,PQFEX,PSQ,NEXIT,SPQF,1,NBIN)
+cjcm               write(*,*) 'after WAVE2'
 
 C
 C =============================================================================
@@ -594,11 +608,13 @@ C
 
 C Read in experimental IV curves and information relevant to the R-factor
 C calculation.
-
+      write(*,*) 'kleedsub: reading experimental IV curves'
 
        CALL RFIN(IBP,NT0,WB,WR,1,IPR)
+cjcm       write(*,*) 'kleedsub: after rfin'
        CALL EXPAN(INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,XPL,YPL,NNN,
      & AP,APP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,VPIS)
+cjcm       write(*,*) 'kleedsub: after expan'
 c  Calculate the amplitude of the diffracted beams in 
 c  the kinematic limit.
 c  Theoretical results stored in ivth# files
@@ -614,12 +630,14 @@ c  Experimental results stored in ivexp# files
 98	CONTINUE
 99	CONTINUE
 	
+cjcm       write(*,*) 'kleedsub: compute rfactor in vintentf'
        rfactor = VINTENTF(INLTOT,DISP,PSQ,INTAU,NT0,PHSSEL,EI,EF,DE,
      & NL1,NL2,IELEMOL2,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
      & INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
      & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
+cjcm       write(*,*) 'kleedsub: after vintentf'
 
-c	write(*,*) 'rfactor',rfactor
+	write(*,*) 'kleedsub: rfactor = ',rfactor
 c	CLOSE(4)
 c	CLOSE(5)
 

@@ -145,15 +145,7 @@ C     Setup input files and write structure to the trace file
       CALL INT2CHAR(DIR,WORKID,3)
       CALL INT2CHAR(RANK,PROCID,3)
 c
-c     JCM 7/28/13: had to hardcode the problem_dir
-c     JCM 1/18/16: fixed the problem of unwanted blanks by using trim function
       workdir = trim(problem_dir)//'/kwork'//WORKID
-
-c      KLEED4 = '/Users/meza/MyProjects/TLEED/workbbk001/kleed4i000'
-c      KLEED5 = '/Users/meza/MyProjects/TLEED/workbbk001/kleed5i000'
-c      SEARCHS= '/Users/meza/MyProjects/TLEED/workbbk001/searchs000'
-c      TRACE  = '/Users/meza/MyProjects/TLEED/workbbk001/trace000'
-c      XPIN   = '/Users/meza/MyProjects/TLEED/workbbk001/xpin'
 
       KLEED4  = trim(workdir)// '/kleed4i' // PROCID
       KLEED5  = trim(workdir)// '/kleed5i' // PROCID
@@ -162,7 +154,7 @@ c      XPIN   = '/Users/meza/MyProjects/TLEED/workbbk001/xpin'
       XPIN    = trim(workdir)//'/xpin' // PROCID
 
 c	write(*,*) 'problem_dir',problem_dir
-c	write(*,*) kleed4
+c	write(*,>*) kleed4
 c	write(*,*) kleed5
 c	write(*,*) searchs
 c	write(*,*) trace
@@ -172,15 +164,12 @@ c	write(*,*) trace
 
       OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
       WRITE (99,*) "ID: ",PROCID," original Parms passed to evaluat
-     &     e.f "
+     &e.f "
 c           DO I=1,NMAX
 c              WRITE (99,"(I4,3F8.4)") NTYPE(I),PARM(I,1),
 c     &                  PARM(I,2),PARM(I,3)
 c           ENDDO
            CLOSE (UNIT=99)
-c700	continue
-
-cjcm	print*, 1
 
 	   XPIN3 = trim(workdir)// '/XPIN2'
            OPEN(UNIT=98,FILE=XPIN3,STATUS='UNKNOWN',ACCESS='APPEND')
@@ -194,12 +183,9 @@ c	   PARM_out(I,2)=PARM(I,2)
 c	   PARM_out(I,3)=PARM(I,3)
 c	   ENDDO
               WRITE (98,"(14I4)") (NTYPE(I),I=1,NMAX)
-c              WRITE (98,"(42F8.4)") (PARM_out(I,1),I=1,NMAX),
               WRITE (98,"(42F16.10)") (PARM(I,1),I=1,NMAX),
      &     (PARM(I,2),I=1,NMAX),(PARM(I,3),I=1,NMAX)
            CLOSE (UNIT=98)
-
-cjcm	print*, 2
 
            DO I=1,NMAX
               ntype_t(I)= NTYPE(I)
@@ -207,26 +193,6 @@ cjcm	print*, 2
                   parm_t(I,J)=PARM(I,J)
 9876          enddo            
            ENDDO
-
-c      IF (RANK.LE.1) THEN
-c         WRITE (0,*) "KLEED4: ",KLEED4,"KLEED5: ",KLEED5
-c         WRITE (0,*) "SEARCHS: ",SEARCHS,"TRACE: ",TRACE
-c         WRITE (0,*) "ID: ",PROCID," Parms passed: "
-c         DO I=1,NMAX
-c            WRITE (0,"(I4,3F8.4)") NTYPE(I),PARM(I,1),
-c     &           PARM(I,2),PARM(I,3)
-c         ENDDO
-c         WRITE (0,*) "MINB="
-c         DO I=1,NMAX
-c            WRITE (0,"(3F8.4)") MINB(I,1),MINB(I,2),MINB(I,3)
-c         ENDDO
-c         WRITE (0,*) "MAXB="
-c         DO I=1,NMAX
-c            WRITE (0,"(3F8.4)") MAXB(I,1),MAXB(I,2),MAXB(I,3)
-c         ENDDO
-c      ENDIF
-
-cjcm	print*, 3
 
 C VALUATE turns the random surface structure(usually invalid) into a valid 
 C structure with defined symmetry 'SYMC' by moving atoms laterally. 
@@ -237,24 +203,25 @@ C alone (not touched by any atom).
       itimes = 0
  20   continue
       if (itimes.gt.0) then
-c         write(0,*) PROCID,' :returning with penalty'
+         write(*,*) 'evalkleed: invalid structure'
          fitval = penalty
-c         write(0,*) '    invalid structure'
          return
       endif
-c      write(0,*) PROCID,' :calling valuate'
+      write(*,*) 'evalkleed: calling valuate'
+
       CALL VALUATE(PARM,NTYPE,NCODE,NMAX,SYMC,RESULT,RMIN,RMAX,NIDEN,
      &     COORSUB,NTYPSUB,NSUB,AA,nerror)
-cORIG      IF(RESULT.NE.'SUCCESS') THEN
+
       IF(RESULT.NE.'SUCCESS'.or.nerror.eq.1) THEN
 c     CALL GRAVSTUC(PARM,NTYPE,NMAX,RMIN,RMAX,RMID,NIDEN,
 c     &          COORSUB,NTYPSUB,NSUB)
-c     write(0,*) PROCID,' :GRAVSTUC finished',itimes 
+c     write(*,*) PROCID,' :GRAVSTUC finished',itimes 
          itimes = itimes + 1
          GOTO 20
       ELSE
 CGPS
-C         write(0,*) '    valid structure'
+         write(*,*) 'evalkleed: valid structure'
+C         return
 C         DO I=1,NMAX
 C            IF ((PARM(I,1).LT.MINB(I,1)).OR.
 C     &           (PARM(I,1).GT.MAXB(I,1)).OR.
@@ -281,9 +248,8 @@ C     WRITE (0,"(I4,3F8.4)") NTYPE(I),PARM(I,1),PARM(I,2),
 C     &             PARM(I,3)
 c     enddo
 
-CGPS           OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
-           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
-           WRITE (99,*) "ID: ",PROCID," Parms passed to tleed codes: 
+         OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
+         WRITE (99,*) "ID: ",PROCID," Parms passed to tleed codes: 
      &(may be changed by VALUATE)"
            DO I=1,NMAX
               WRITE (99,"(I4,3F8.4)") NTYPE(I),PARM(I,1),
@@ -297,8 +263,6 @@ C write into the differecne of parms
      &             PARM(I,2)-parm(I,2),PARM(I,3)-parm_t(I,3)
            ENDDO
 
-
-C           WRITE (0,*) PROCID," Calling tleed1: ",PROCID
            WRITE (99,*) PROCID," Calling kleed: ",PROCID
            CLOSE (UNIT=99)
 
@@ -310,84 +274,50 @@ c           DO I=1,NMAX
 c              WRITE (98,"(I4,3F8.4)") NTYPE(I),PARM(I,1),
 c     &             PARM(I,2),PARM(I,3)
 c           ENDDO
-              WRITE (98,"(14I4)") (NTYPE(I),I=1,NMAX)
-              WRITE (98,"(42F16.10)") (PARM(I,1),I=1,NMAX),
-     &     (PARM(I,2),I=1,NMAX),(PARM(I,3),I=1,NMAX)
+
+           WRITE (98,"(14I4)") (NTYPE(I),I=1,NMAX)
+           WRITE (98,"(42F16.10)") (PARM(I,1),I=1,NMAX),
+     &          (PARM(I,2),I=1,NMAX),(PARM(I,3),I=1,NMAX)
 	   CLOSE (UNIT=98) 
-
-
 
 cAGL Now open trace file before the kleed subroutine
            OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
-cAGL In KLEED only one subroutine is called: kleed (instead of
-cAGL tleed1.f and tleed2.f in TLEED)
-C           #ifndef EVALUATE_OFF           
+c
+c In KLEED only one subroutine is called: kleed (instead of
+c  tleed1.f and tleed2.f in TLEED)
            OPEN (UNIT=2,FILE=SEARCHS,STATUS='UNKNOWN')
-c           OPEN (UNIT=7,FILE=XPIN,STATUS='UNKNOWN')
-c           CALL kleed(problem_dir, WORKID,PROCID,nerror_report)
-cjcm           write(*,*) 'GPSkleed: calling kleed'
-           CALL kleed(problem_dir, WORKID,PROCID,fitval)
+
+           write(*,*) 'evalkleed: calling kleed'
+           CALL kleed(workdir, WORKID,PROCID,fitval)
            OPEN(UNIT=98,FILE=XPIN3,STATUS='OLD',ACCESS='APPEND')
-           WRITE (98,*) 'R-factor (kleed)',fitval
+           WRITE (98,*) 'evalkeed: R-factor (kleed)',fitval
 	   CLOSE(98)
-cjcm	write(*,*) 'fitval after kleed',fitval
-C           #endif
-	CLOSE(4)
-	CLOSE(5)
-        CLOSE(2)       
-	CLOSE(7)
+           write(*,*) 'evalkeed: fitval =',fitval
 
-c           if (nerror_report==1) then
-cORIG           if (nerror_report.eq.1) then
-cORIG               fitval=1.64 
-cORIG               return
-cORIG           else
-C           #ifdef F77           
-C           #endif
-C           #ifdef F90
-CORIG           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')   
-C           #endif  
+           CLOSE(4)
+           CLOSE(5)
+           CLOSE(2)       
+           CLOSE(7)
 
-C           WRITE (0,*) WORKID,":",PROCID,
-C     &          "...Returned tleed1 : Calling tleed2..."
            WRITE (99,*) WORKID,":",PROCID,
      &          "...returned kleed..."
            CLOSE (UNIT=99)
            
-C          PROBLEM: Handle opening and closing the the searchs file here.
-C          Otherwise the file was not closed in time by the OS for tleed2
-C          to read a complete file. 
-c           OPEN (UNIT=2,FILE=SEARCHS,STATUS='UNKNOWN')
-C#ifndef EVALUATE_OFF          
-c           CALL tleed2(problem_dir, WORKID,PROCID,FITVAL)
-C#endif
-c           CLOSE(2)       
-c           end if
- 
 C          Assign penalty when r-factor is less than .1
-Cgss           IF (FITVAL.LT.0.1) FITVAL = PENALTY
-C           IF (FITVAL.LT.0.1) FITVAL = PENALTY+1
+C          IF (FITVAL.LT.0.1) FITVAL = PENALTY JCM: ?????
+
            IF (FITVAL.LT.0.1) then
                FITVAL = PENALTY+1
            else if (fitval.eq. 100.) then
 		write(*,*) 'fitval handia',fitval
-               Fitval=1.62
+                Fitval=1.62
            else
            end if
-C#ifdef F77
-            OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
-C#endif
-C#ifdef F90
-C           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
-C#endif
-
-C           WRITE (0,*) WORKID,":",PROCID,
-C     &          " ...Returned tleed2 fitval=",fitval
+           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
            WRITE (99,*) WORKID,":",PROCID,
      &          " ...Returned tleed2 fitval=",fitval
            CLOSE (UNIT=99)
         ENDIF
-
 
         RETURN
         END
@@ -451,7 +381,7 @@ c Sort the coordinates in a increasing order.
         CALL SORTLOCAL(NMAX,COORD,NTYPE,NCODE)
 c        write(99,*) 'Put the parameter in order, finished'
         IF(RESULT.EQ.'PENALTY') THEN 
-c          write(*,*) 'Invalid structure, return for GRAVSTUC'
+          write(*,*) 'Invalid structure, return for GRAVSTUC'
            RETURN
         ENDIF
 c       write(*,*) 'Valid structure'

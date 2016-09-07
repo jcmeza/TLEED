@@ -991,5 +991,5 @@ c      call ieee_flags("clear", "exception", "all", out)
       close(22)
 
 
-      return
+c      return
       END

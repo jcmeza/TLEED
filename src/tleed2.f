@@ -616,5 +616,5 @@ c      call ieee_flags("clear", "exception", "all", out)
 
       write(*,*) 'tleed2GPS: Leaving tleed2'
 
-      return
+c      return
       END

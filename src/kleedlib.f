@@ -250,7 +250,9 @@ C
 C
 C  ALMR IS MATRIX RELATING SUBSTRATE TO OVERLAYER LATTICES
 C
+
       DET=LATMAT(1,1)*LATMAT(2,2)-LATMAT(1,2)*LATMAT(2,1)
+cjcm      write(*,*) 'BEMGEN: DET = ', DET	
       IF (ABS(DET).GE.1.E-5) THEN
          ALMR(1,1)=FLOAT(LATMAT(2,2))/DET
          ALMR(2,2)=FLOAT(LATMAT(1,1))/DET
@@ -304,11 +306,12 @@ C
                SPQF(2,KNT)=ALMR(1,2)*II1+ALMR(2,2)*II2
             ENDIF
 280      CONTINUE
-290      IF (NI2.LE.NIT) GOTO 190
+ 290	 IF (NI2.LE.NIT) GOTO 190
          IF (NOP.EQ.1) GOTO 180
 C
 C  ORDER BEAMS BY INCREASING ABS(G)
 C
+cjcm	 write(*,*) 'order beams by abs(g)'
          KNT1=KNT-1
          DO 320 I=1,KNT1
             AM=G(1,I)*G(1,I)+G(2,I)*G(2,I)
@@ -338,6 +341,8 @@ C
 C
 C  ORDER BEAMS BY BEAM SET
 C
+cjcm	 write(*,*) 'BEMGEN: Order beams by beam set'
+	 
          TWPI=2.*3.1415926535
          I=1
          KNBS=1
@@ -398,12 +403,16 @@ C
 20          CONTINUE
 10       CONTINUE
          RETURN
-260      WRITE (1,270)
+	 
+ 260	 CONTINUE
+cjcm	 write(*,*) 'BEMGEN: at 260'
+	 WRITE (1,270)
       ELSE
          WRITE (1,165)
       ENDIF
-      STOP
-      END
+cjcm      write(*,*) 'BEMGEN: Should not be here'
+	STOP
+	END
 
 C=====================================================================
 C
@@ -986,6 +995,7 @@ C
       COMPLEX F(3)
 
       COMMON /VINY/VMIN,VMAX,DV,EINCR,THETA(1),FI(1)
+cjcm	write(*,*) 'entering delxgentfol'
 
 C
 C Set constants
@@ -1007,15 +1017,18 @@ C
             IELEM=1
          DO 100 IJK=1,NLAY
 
+cjcm	    write(*,*) 'inside do loop, ijk = ', ijk, ' nlay = ', nlay
 
 C Assign element type to each sublayer 
 	    IEL=IELEMOLTF(IELEM)
+cjcm	    write(*,*) 'iel = ', iel
 
 C WPOSTF gives the reference structure, i.e., the input atomic
 C positions in unit cell 
 C ADISP gives the displacements of overlayer atoms from
 C initial positions
 
+cjcm	write(*,*) '120 do loop'
 	DO 120 K=1,3
 	   C(K)=ADISP(IJK,K)/0.529
 120	CONTINUE
@@ -1024,17 +1037,20 @@ C initial positions
 	POS(2)=WPOSTF(IJK,2) + C(2) 
 	POS(3)=WPOSTF(IJK,3) + C(3) 
 
+cjcm	write(*,*) 'compute cdeltakpos'
 	CDELTAKPOS=(CDELTAKZ*POS(1))+(DELTAK2*POS(2))+
      1                  (DELTAK3*POS(3))
 
 
+cjcm	write(*,*) 'compute atoyf'
 	ATOYF=F(IEL)*CEXP(CI*CDELTAKPOS)
 	ATOYF=ATOYF*(-CI/((AAJ)*TVA*FLOAT(NL)))
 
         XISTF=XISTF+ATOYF
 
 	 IELEM=IELEM+1
-100      CONTINUE
+ 100	CONTINUE
+
       RETURN
       END
 
@@ -1994,6 +2010,7 @@ C
 510   FORMAT (3F12.8,I4)
 
 
+cjcm	write(*,*) 'entering  vintentf'
 C
 C Set constants
 C
@@ -2142,10 +2159,13 @@ c --------------
 c Initialize OL contribution to diffracted amplitude
 	      XISTFOL=CMPLX(0.0,0.0)
 
+cjcm	      write(*,*) 'before delxgentfol'
+
              CALL DELXGENTFOL_TEMP(NLAY,E,VPIS,
      &		AK2,AK3,AK2M,AK3M,
      &	       NL1,NL2,IELEMOLTF,AAK,AAJ,WPOSTF,TVA,ADISP,
      &	       XISTFOL,F)
+cjcm	      write(*,*) 'after delxgentfol'
 
 
 c SUBSTRATE (SL)
@@ -2184,6 +2204,7 @@ c (SPOSTF1) along +X axis, using the interlayer vector ASA
 756      CONTINUE
 
 
+cjcm	write(*,*) 'before delxgentfsl'
         CALL DELXGENTFSL_TEMP(E,VPIS,NLAY,AK2,AK3,AK2M,AK3M,
      &      NL1,NL2,AAK,AAJ,TVA,POSTF,XISTFS1,FS)
 
@@ -2275,6 +2296,7 @@ c Generate the R-factor for the current structure.
 251     CONTINUE
 252     CONTINUE
 
+cjcm	write(*,*) 'before rfactf'
       CALL RFACTF(AT2,ETH,INBED,IEERG,AE,EE,NEE,NBEA,BENAME,
      & IPR,XPL,
      & YPL,NNN,AP,APP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,
@@ -2294,7 +2316,8 @@ c1111  CONTINUE
 
 	WRITE (2,500)
       WRITE (2,501)
-      CALL WRIVTF(AT2,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,
+cjcm	write(*,*) 'before wrivtf'
+	CALL WRIVTF(AT2,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,
      & IBK,WR,WB,
      & ROS,R1,R2,RP1,RP2,RPP1,RPP2,RRZJ,RMZJ,RPE,BENAME,
      & NBE,NST1,NST2)
@@ -5533,8 +5556,8 @@ C
           IF (NOUT.LE.NBB) THEN
 c              IF (I.LT.10) IVNAME='/scratch/aran/run1/'//IV//NC(I)
 c              IF (I.GE.10) IVNAME='/scratch/aran/run1/'//IV//NC2(I-9)
-              IF (I.LT.10) IVNAME='./workbbk001/'//IV//NC(I)
-              IF (I.GE.10) IVNAME='./workbbk001/'//IV//NC2(I-9)
+              IF (I.LT.10) IVNAME='./kleedIV/'//IV//NC(I)
+              IF (I.GE.10) IVNAME='./kleedIV/'//IV//NC2(I-9)
               OPEN(UNIT=NOUT,FILE=IVNAME,STATUS='UNKNOWN')
               WRITE (NOUT,110) (TITLE(II),II=1,5),
      &        (BENAME(II,I),II=1,5),NRFAC,RFAC(I) 
@@ -5570,8 +5593,8 @@ C
  	  IF (NOUT2.LE.NBB) THEN
 c              IF (I.LT.10) IVNAME2='/scratch/aran/run1/'//IV2//NC(I)
 c              IF (I.GE.10) IVNAME2='/scratch/aran/run1/'//IV2//NC2(I-9)
-              IF (I.LT.10) IVNAME2='./workbbk001/' //IV2//NC(I)
-              IF (I.GE.10) IVNAME2='./workbbk001/'//IV2//NC2(I-9)
+              IF (I.LT.10) IVNAME2='./kleedIV/' //IV2//NC(I)
+              IF (I.GE.10) IVNAME2='./kleedIV/'//IV2//NC2(I-9)
               OPEN(UNIT=NOUT2,FILE=IVNAME2,STATUS='UNKNOWN')
               WRITE (NOUT2,110) (TITLE(II),II=1,5),
      &        (BENAME(II,I),II=1,5),NRFAC,RFAC(I)

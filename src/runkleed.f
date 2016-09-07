@@ -11,21 +11,24 @@ c
 
       character(100) problem_dir, data_dir
       real  xparm(42),minb(42), maxb(42)
-      real  fx
+      real  fx, t1, t2
       integer ntype(nmax), dir, rank
 
       data_dir = "./tleed_data"
       problem_dir = "."
       dir   = 0
       rank  = 0
+      write(*,*) 'runkleed: data_dir = ', data_dir
       call setuptleed(data_dir,ntype,xparm,minb,maxb)
 
+      call cpu_time(t1)
       call evalkleed(problem_dir,dir,rank,xparm,minb,maxb,
      &     ntype,fx)
+      call cpu_time(t2)
 
       write(*,*) 'runkleed: fitval = ', fx
+      write(*,*) 'cputime : ', t2-t1
       
-      return
       end
       subroutine setuptleed(data_dir,ntype,xparm,minb,maxb)
       implicit none

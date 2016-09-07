@@ -1,4 +1,3 @@
-
 C  file TOYF_230605.FOR
 C-----------------------------------------------------------------------
       PROGRAM KINLEED
@@ -219,10 +218,10 @@ C
 C First input channels
 C
 c      write(*,*) problem_dir,dir
-      kleed4i  = '/Users/jcmeza/MyProjects/TLEED/kleed001/kleed4i000'
-      kleed5i  = '/Users/jcmeza/MyProjects/TLEED/kleed001/kleed5i000'
-      expdotd  = '/Users/jcmeza/MyProjects/TLEED/kleed001/exp.d'
-      rfacdotd = '/Users/jcmeza/MyProjects/TLEED/kleed001/rfac.d'
+      kleed4i  = '/Users/meza/MyProjects/TLEED/kwork000/kleed4i000'
+      kleed5i  = '/Users/meza/MyProjects/TLEED/kwork000/kleed5i000'
+      expdotd  = '/Users/meza/MyProjects/TLEED/kwork000/exp.d'
+      rfacdotd = '/Users/meza/MyProjects/TLEED/kwork000/rfac.d'
 
       OPEN (UNIT=4,FILE=kleed4i,STATUS='OLD')
       OPEN (UNIT=5,FILE=kleed5i,STATUS='OLD')
@@ -236,8 +235,8 @@ c      write(*,*) problem_dir,dir
 C
 C Now output channels
 C
-      tleedo = '/Users/jcmeza/MyProjects/TLEED/kleed001/tleedo000'
-      searchs ='/Users/jcmeza/MyProjects/TLEED/kleed001/searchs000'
+      tleedo = '/Users/meza/MyProjects/TLEED/kwork000/tleedo000'
+      searchs ='/Users/meza/MyProjects/TLEED/kwork000/searchs000'
 
       OPEN (UNIT=1,FILE=tleedo,STATUS='unknown')
       OPEN (UNIT=2,FILE=searchs,STATUS='unknown')
@@ -620,9 +619,9 @@ c  Experimental results stored in ivexp# files
      & INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
      & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
 
-	write(*,*) 'kleed: rfactor',rfactor
+	write(*,*) 'kleed: rfactor = ',rfactor
 c	CLOSE(4)
 c	CLOSE(5)
 
-      RETURN 
+C      RETURN 
       END

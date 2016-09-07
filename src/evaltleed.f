@@ -258,7 +258,7 @@ C           WRITE (0,*) PROCID," Calling tleed1: ",PROCID
            WRITE (99,*) PROCID," Calling tleed1: ",PROCID
            CLOSE (UNIT=99)
 
-           write(*,*) 'GPStleed1: Calling tleed1'
+           write(*,*) 'evaltleed: Calling tleed1'
            CALL tleed1(workdir, WORKID,PROCID,nerror_report)
 
            if (nerror_report.eq.1) then
@@ -276,7 +276,7 @@ C          PROBLEM: Handle opening and closing the the searchs file here.
 C          Otherwise the file was not closed in time by the OS for tleed2
 C          to read a complete file. 
            OPEN (UNIT=2,FILE=SEARCHS,STATUS='UNKNOWN')
-           write(*,*) 'GPStleed1: Calling tleed2'
+           write(*,*) 'evaltleed: Calling tleed2'
            CALL tleed2(workdir, WORKID,PROCID,FITVAL)
            CLOSE(2)       
            end if
@@ -296,7 +296,7 @@ C     &          " ...Returned tleed2 fitval=",fitval
      &          " ...Returned tleed2 fitval=",fitval
            CLOSE (UNIT=99)
         ENDIF
-        write(*,*) 'GPStleed1: Returning: fitval = ', fitval
+        write(*,*) 'evaltleed: fitval = ', fitval
         RETURN
         END
 C********************************************************
@@ -347,22 +347,22 @@ c
 c ===========================================================
 c Modify the rondom structure to a symmetrical structure. 
        
-        write(99,*) 'Call MODSTRUCT'
+c        write(99,*) 'Call MODSTRUCT'
         CALL MODSTRUCT(SYMC,COORD,NTYPE,NCODE,NMAX,RMIN,RMAX,
      %NIDEN,AA)
 
 c VALUATE the structure, returns penalty or success.
-        write(99,*) 'Call VALUAT'
+c        write(99,*) 'Call VALUAT'
         CALL VALUAT(COORD,NTYPE,NMAX,RMIN,RMAX,NIDEN,RESULT,
      &COORSUB,NTYPSUB,NSUB)
 c Sort the coordinates in a increasing order. 
         CALL SORTLOCAL(NMAX,COORD,NTYPE,NCODE)
-        write(99,*) 'Put the parameter in order, finished'
+c        write(99,*) 'Put the parameter in order, finished'
         IF(RESULT.EQ.'PENALTY') THEN 
            write(*,*) 'Invalid structure, return for GRAVSTUC'
            RETURN
         ENDIF
-       write(*,*) 'Valid structure'
+       write(*,*) 'valuate: Valid structure'
 c Separate the surface into several composite layers,
 c DSPC IS THE MINIMUM SPACING BETWEEN TWO COMPOSITE LAYERS.
         DO I=1,NLAY
@@ -373,11 +373,11 @@ c Interlayer spacing parameter: 1.5<=DSPC<=2.0
         DSPC=1.90
         KLAYER=1
         CALL SEPSURF(COORD,NMAX,KLAY,SPAC,NLAY,KLAYER,DSPC)
-        write(*,*) 'Separate the structure finished' 
-        write(*,*) klayer,klay,spac
+cjcm        write(*,*) 'Separate the structure finished' 
+cjcm        write(*,*) klayer,klay,spac
 
 c Write the coordinates into input file tleed5a.i.
-        write(*,*) 'Write coordinates into input file tleed5a.i'
+cjcm        write(*,*) 'Write coordinates into input file tleed5.i'
         CALL WRITCOOR(COORD,NTYPE,NCODE,NMAX,KLAY,SPAC,NLAY,
      *       KLAYER)
         RETURN       

@@ -2,16 +2,17 @@
 #	Create TLEED/KLEED Standalone Executables
 #
 ###############################################################
-FC     = gfortran 
+#FC     = gfortran 
+FC     = ifort 
 FLINKER = $(FC)
-FFLAGS	= 	
+FFLAGS	= -g -assume fpe_summary 	
 ###############################################################
 
-SOURCES = tleed1.f tleed2.f tleedlib.f kleed.f tleed1sub.f tleed2sub.f kleedsub.f kleedlib.f
-EXECS   = tleed1 tleed2 kleed runtleed runkleed
+SOURCES = evaltleed.f evalkleed.f tleed1.f tleed2.f tleedlib.f kleed.f tleed1sub.f tleed2sub.f kleedsub.f kleedlib.f
+EXECS   = tleed1 tleed2 kleed runtleed.exe runkleed.exe
 
 %.o:	%.f	
-	$(FC) $(FFLAGS) -c -g $< -o $@
+	$(FC) $(FFLAGS) -c $< -o $@
 
 all:	$(EXECS)
 
@@ -24,11 +25,11 @@ tleed2:	tleed2.o tleedlib.o
 kleed:	kleed.o kleedlib.o
 	$(FC) $(FFLAGS) -o kleed.exe kleed.o kleedlib.o
 
-runtleed: runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
+runtleed.exe: runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
 	$(FC) $(FFLAGS) -g -o runtleed.exe runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
 
-runkleed: runkleed.o evalkleed.o kleedsub.o kleedlib.o
+runkleed.exe: runkleed.o evalkleed.o kleedsub.o kleedlib.o
 	$(FC) $(FFLAGS) -o runkleed.exe runkleed.o evalkleed.o kleedsub.o kleedlib.o
 
 clean:
-	rm -f *.o *~
+	rm -f *.o *.exe *~

@@ -1,6 +1,6 @@
 EXE                 = basic_lib.exe
 
-COMPILATOR          = g++-5
+COMPILATOR          = g++
 SUNAME = $(shell uname)
 OSS=$(findstring MINGW32,$(SUNAME)) 
 ifneq "$(strip $(OSS))" ""
