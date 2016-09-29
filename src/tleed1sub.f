@@ -348,8 +348,8 @@ C ============================================================================
 C
 C First input channels
 C
-      tleed4i = trim(problem_dir)//'/tleed4.i'
-      tleed5i = trim(problem_dir)//'/tleed5.i'
+      tleed4i = trim(problem_dir)//'/tleed4i000'
+      tleed5i = trim(problem_dir)//'/tleed5i000'
 
       OPEN (UNIT=4,FILE=tleed4i,STATUS='OLD')
       OPEN (UNIT=5,FILE=tleed5i,STATUS='OLD')

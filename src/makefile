@@ -2,11 +2,17 @@
 #	Create TLEED/KLEED Standalone Executables
 #
 ###############################################################
-#FC     = gfortran 
-FC     = ifort 
+# gcc compilers
+FC     = gfortran 
+FFLAGS  = -O0 
+#FFLAGS  = -O0 -fimplicit-none -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wimplicit-interface -Wunused-parameter -std=f2008 -pedantic -fbacktrace
+#FFLAGS  = -O0 -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wunused-parameter -std=f2008 -pedantic -fbacktrace
+# Intel compiler
+#FC     = ifort 
+#FFLAGS	= -O3 -assume fpe_summary 	
+#FFLAGS  = -ax<processor>,  -ftz, -ip, -ipo, -march=<processor>, -mtune=<processor>, -O[n], -openmp, -parallel, -prof-gen, -prof-use, -x<processor>
+
 FLINKER = $(FC)
-FFLAGS	= -O3 -assume fpe_summary 	
-#FFLASG  = -ax<processor>,  -ftz, -ip, -ipo, -march=<processor>, -mtune=<processor>, -O[n], -openmp, -parallel, -prof-gen, -prof-use, -x<processor>
 ###############################################################
 
 SOURCES = evaltleed.f evalkleed.f tleed1.f tleed2.f tleedlib.f kleed.f tleed1sub.f tleed2sub.f kleedsub.f kleedlib.f

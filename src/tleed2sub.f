@@ -241,8 +241,8 @@ C
 C ============================================================================
 c First input channels
 C
-      tleed4i  = trim(problem_dir)//'/tleed4.i'
-      tleed5i  = trim(problem_dir)//'/tleed5.i'
+      tleed4i  = trim(problem_dir)//'/tleed4i000'
+      tleed5i  = trim(problem_dir)//'/tleed5i000'
       expdotd  = trim(problem_dir)//'/exp.d'
       rfacdotd = trim(problem_dir)//'/rfac.d'
       shortt   = trim(problem_dir)//'/shortt'
