@@ -220,8 +220,8 @@ C
       DIMENSION IKRED(NKR),IIKRED(NKR)
       DIMENSION INDK3(KNT),PH3(36,KNT),PQ3(2,KNT)
 C
-705   FORMAT (1H0,1I3,23H SYMMETRIC BEAMS USED  ,8I4)
-706   FORMAT (1H ,10(9(2X,2F6.3),/))
+705   FORMAT (' ',1I3,' SYMMETRIC BEAMS USED  ',8I4)
+706   FORMAT (' ',10(9(2X,2F6.3),/))
 C
 C generate PH3, PQ3, INDK3 ect in the off normal incidence case.   
 C
@@ -417,7 +417,7 @@ C
 C
 1001  FORMAT (' BEAMGENERATION CODE')
 1002  FORMAT (' ===================')
-165   FORMAT (28H LATMAT HAS ZERO DETERMINANT)
+165   FORMAT (' LATMAT HAS ZERO DETERMINANT')
 266   FORMAT (' ERROR in parameters. NROM2R should equal ',
      & I7)
 268   FORMAT (' The mirror plane in the off normal incidence case
@@ -1558,7 +1558,7 @@ C
       DOUBLEPRECISION a,b,bn,c,cn
 C                                ,blmt
 C
-40    FORMAT (28H INVALID ARGUMENTS FOR BLMT ,6(I3,1H,))
+40    FORMAT (' INVALID ARGUMENTS FOR BLMT ',6(I3,','))
 C
       PI=3.14159265
       IF (M1+M2+M3.EQ.0) THEN
@@ -3639,7 +3639,7 @@ C
       COMPLEX RB(NROM,NM),TB(NROM,NM)
       DIMENSION NSL(NL),IKRED(N)
 C
-6     FORMAT (23H0***THIS ORDER TOO DEEP)
+6     FORMAT ('***THIS ORDER TOO DEEP')
 C
       CZ=CMPLX(0.0,0.0)
       BNORM=0.0
@@ -3946,8 +3946,8 @@ C
       COMMON /X4/E,VPI,BK2,BK3
 C
 89    FORMAT (/,' RFS CONVERGENCE TEST ')
-32    FORMAT (8H IMAX = ,I2,5X,8HBNORM = ,E12.4,9H ANORM = ,E12.4)
-38    FORMAT (/,24H ***NO CONVERGENCE AFTER,1I4,11H ITERATIONS)
+ 32   FORMAT (' IMAX = ',I2,5X,'BNORM = ',E12.4,' ANORM = ',E12.4)
+38    FORMAT (/,' ***NO CONVERGENCE AFTER',1I4,' ITERATIONS')
 C
       IF (IPR.GT.0) WRITE (1,89)
 C
@@ -6104,7 +6104,7 @@ C
       DOUBLEPRECISION a,b,bn,c,cn
 C                                ,blmt
 C
-40    FORMAT (28H INVALID ARGUMENTS FOR BLMT ,6(I3,1H,))
+40    FORMAT (' INVALID ARGUMENTS FOR BLMT ',6(I3,','))
 C
       PI=3.14159265
       IF (M1+M2+M3.EQ.0) THEN
@@ -6533,7 +6533,7 @@ C
       COMPLEX AGG,DET,CONST,SIGN,TEMP
       DIMENSION A(NC,NTOT),X(150)
 C
-310   FORMAT (//,1X,16HSINGULAR MATRIX ,//)
+310   FORMAT (//,1X,'SINGULAR MATRIX ',//)
 C
 C     PRESET PARAMETERS
 C
@@ -7188,9 +7188,8 @@ C
      & (40),PHIR,PHIM1,PHIM2
 C
 1000  FORMAT (//,
-     & 57H PARAMETER OUT OF RANGE OF DEFINED Z MATRIX  $$$ STOP $$$)
-1001  FORMAT (9H0NATOMS(=,I4,12H) .NE.NLAY(=,I4,
-     & 21H) IN GEOMV  *********)
+     & ' PARAMETER OUT OF RANGE OF DEFINED Z MATRIX  $$$ STOP $$$')
+1001  FORMAT ('NATOMS(=',I4,') .NE.NLAY(=',I4,') IN GEOMV  *********')
 C
       DO 111 I=1,3
          BL(I)=.0
@@ -7289,18 +7288,18 @@ C
       DATA TORAD/1.74532925199E-02/
       DATA PI/3.141592654/
 C
-1000  FORMAT (//,15X,11HCOORDINATES,/,13X,1HX,14X,1HY,14X,1HZ)
+1000  FORMAT (//,15X,'COORDINATES',/,13X,'X',14X,'Y',14X,'Z')
 1010  FORMAT (1X,1I4,2X,F10.5,2(5X,F10.5))
-1020  FORMAT (//,30X,8HZ MATRIX//1X,9HIN IN1 AN,3X,2HZ1,4X,2HBL,19X,
-     & 2HZ2,2X,5HALPHA,17X,2HZ3,3X,4HBETA,17X,2HZ4,/)
+1020  FORMAT (//,30X,'Z MATRIX'//1X,'IN IN1 AN',3X,'Z1',4X,'BL',19X,
+     & 'Z2',2X,'ALPHA',17X,'Z3',3X,'BETA',17X,'Z4',/)
 1030  FORMAT (3I3)
-1040  FORMAT (3I3,I5,G14.7,1H(,I3,1H))
-1050  FORMAT (3I3,I5,G14.7,1H(,I3,4H)   ,I5,G14.7,1H(,I3,1H))
-1060  FORMAT (3I3,I5,G14.7,1H(,I3,4H)   ,I5,G14.7,1H(,I3,4H)   ,I5,
-     & G14.7,1H(,I3,4H)   ,I5)
+1040  FORMAT (3I3,I5,G14.7,'(',I3,')')
+1050  FORMAT (3I3,I5,G14.7,'(',I3,')   ',I5,G14.7,'(',I3,')')
+1060  FORMAT (3I3,I5,G14.7,'(',I3,')   ',I5,G14.7,'(',I3,')   ',I5,
+     & G14.7,'(',I3,')   ',I5)
 5000  FORMAT (11X,15I7)
 5003  FORMAT (5X,I3,5X,15F7.3)
-5001  FORMAT (//5X,15HDISTANCE MATRIX,/)
+ 5001 FORMAT (//5X,'DISTANCE MATRIX',/)
 C
       DO 5004 I=1,3
          DO 510 J=1,4
@@ -7886,7 +7885,7 @@ C
       COMPLEX RB(NROM,NM),TB(NROM,NM)
       DIMENSION NSL(NL)
 C
-6     FORMAT (23H0***THIS ORDER TOO DEEP)
+6     FORMAT ('***THIS ORDER TOO DEEP')
 C
       CZ=CMPLX(0.0,0.0)
       BNORM=0.0
@@ -7986,13 +7985,16 @@ C  DIMENSIONS ARE SET FOR N3.LE.11, N2.LE.11, N1.LE.21
       PI = 3.14159265
       CI = CMPLX(0.0,1.0)
       DO 170 J = 1, N2
-  170 DEL(J) = (0.0,0.0)
+         DEL(J) = (0.0,0.0)
+ 170  CONTINUE
       ALFA = DR * DR * TEMP/T0
       ALFA = 0.166667 * SQRT(ALFA * ALFA + DR0)
       FALFE =  - 4.0 * ALFA * E
       IF (ABS(FALFE)-1.0E-3)  180, 200, 200
-  180 DO 190 J = 1, N3
-  190 DEL(J) = CMPLX(PHS(J),0.0)
+ 180  CONTINUE
+      DO 190 J = 1, N3
+         DEL(J) = CMPLX(PHS(J),0.0)
+ 190  CONTINUE
       GO TO 360
 C
 COMMENT BJ(N1) IS LOADED WITH SPHERICAL BESSEL FUNCTIONS OF
@@ -8009,23 +8011,27 @@ cc    WRITE(6,*) 'i=',i,' BJ(i)=',BJ(i)
       BJ(I) = EXP(FALFE) * FL * CS * BJ(I)
 cc    WRITE(6,*) 'i=',i,' BJ(i)=',BJ(i)
       FL = FL + 2.0
-  280 CS = CS * CI
+      CS = CS * CI
+  280 CONTINUE
 C
       FL = 1.0
       DO 290 I = 1, N3
       CTAB(I) = (CEXP(2.0 * PHS(I) * CI) - (1.0,0.0)) * FL
-  290 FL = FL + 2.0
+      FL = FL + 2.0
+  290 CONTINUE
 C
       ITEST = 0
       LLLMAX = N2
       FL = 1.0
       DO 350 LLL = 1, N2
-      SUM(LLL) = CMPLX(0.0,0.0)
-      DO 300 L = 1, N3
-      LLMIN = IABS(L - LLL) + 1
-      LLMAX = L + LLL - 1
-      DO 300 LL = LLMIN, LLMAX
-  300 SUM(LLL) = SUM(LLL) + PPP(LL,LLL,L) * CTAB(L) * BJ(LL)
+         SUM(LLL) = CMPLX(0.0,0.0)
+         DO 305 L = 1, N3
+         LLMIN = IABS(L - LLL) + 1
+         LLMAX = L + LLL - 1
+         DO 300 LL = LLMIN, LLMAX
+            SUM(LLL) = SUM(LLL) + PPP(LL,LLL,L) * CTAB(L) * BJ(LL)
+ 300     CONTINUE
+ 305  CONTINUE
       DEL(LLL) =  - CI * CLOG(SUM(LLL) + (1.0,0.0))/(2.0,0.0)
       ABSDEL = CABS(DEL(LLL))
       IL = LLL - 1
@@ -8035,8 +8041,9 @@ C
   320 IF (ITEST-1)  340, 330, 340
   330 LLLMAX = LLL
       GO TO 360
-  340 ITEST = 1
-  350 FL = FL + 2.0
+ 340  ITEST = 1
+      FL = FL + 2.0
+  350 CONTINUE
   360 RETURN
       END
 C======================================================================
@@ -8258,14 +8265,14 @@ C
 C
 160   FORMAT (3F7.4)
 161   FORMAT (3F7.2)
-180   FORMAT (/4H ASB,1I3,3X,3F9.4)
+180   FORMAT (/' ASB',1I3,3X,3F9.4)
 200   FORMAT (500I3)
-215   FORMAT (/26H COMPOSITE LAYER VECTOR   ,3F9.4)
-216   FORMAT (8H NTAU = ,20I3)
-217   FORMAT (/46H PHASE SHIFT ASSIGNMENT IN COMPOSITE LAYER No.,1I2,
+215   FORMAT (/' COMPOSITE LAYER VECTOR   ',3F9.4)
+216   FORMAT (' NTAU = ',20I3)
+217   FORMAT (' PHASE SHIFT ASSIGNMENT IN COMPOSITE LAYER No.',1I2,
      & 3X,200I3)
-444   FORMAT (//21H COMPOSITE LAYER No. ,1I3)
-445   FORMAT (21H =================== )
+444   FORMAT (//' COMPOSITE LAYER No. ',1I3)
+445   FORMAT (' =================== ')
 1020  FORMAT (I3,I4,F11.6,I4,F11.6,I4,F11.6,I4)
 C
       IF (NLAY.NE.0) THEN
@@ -8538,29 +8545,29 @@ C
       COMMON /LO/CPARB1,CPARB2
 C
 130   FORMAT (5F9.4)
-140   FORMAT (/25H PARAMETERS FOR INTERIOR )
+140   FORMAT (/' PARAMETERS FOR INTERIOR ')
 160   FORMAT (3F7.4)
 166   FORMAT (3F11.8)
 161   FORMAT (3F7.2)
-170   FORMAT (/10H SURF VECS,2(5X,2F8.4))
+170   FORMAT (/' SURF VECS',2(5X,2F8.4))
 171   FORMAT (15X,2F8.4)
 172   FORMAT (/' Interlayer Vectors ')
-180   FORMAT (/4H ASA,1I3,3X,3F7.4)
+180   FORMAT (/' ASA',1I3,3X,3F7.4)
 200   FORMAT (24I3)
-210   FORMAT (/6H FR = ,F7.4,7H ASE = ,F7.4)
-280   FORMAT (1H ,1I4,F10.3,F7.3,4X,4I3)
-281   FORMAT (7H TST = ,1F7.4)
+210   FORMAT (/' FR = ',F7.4,' ASE = ',F7.4)
+280   FORMAT (' ',1I4,F10.3,F7.3,4X,4I3)
+281   FORMAT (' TST = ',1F7.4)
 285   FORMAT (' THETA  FI = ',2F7.2)
-290   FORMAT (2HVV,4X,F7.2,4HVPIS,4X,F7.2)
-305   FORMAT (7H IT1 = ,3I3)
-325   FORMAT (8H THDB = ,1F9.4,6H AM = ,1F9.4,8H FPER = ,1F9.4,
-     & 8H FPAR = ,1F9.4,7H DR0 = ,1F9.4)
+290   FORMAT ('VV',4X,F7.2,'VPIS',4X,F7.2)
+305   FORMAT (' IT1 = ',3I3)
+325   FORMAT (' THDB = ',1F9.4,' AM = ',1F9.4,' FPER = ',1F9.4,
+     & ' FPAR = ',1F9.4,' DR0 = ',1F9.4)
 340   FORMAT (16F7.4)
-350   FORMAT (/6X,12HPHASE SHIFTS)
-355   FORMAT (8H LMAX = ,1I3)
-360   FORMAT (4HE = ,1F7.4,13H  1ST ELEMENT,3X,16F8.4)
-361   FORMAT (1H ,11X,11H ELEMENT # ,I2,3X,16F8.4)
-362   FORMAT (1H ,11X,13H  3RD ELEMENT,3X,16F8.4)
+350   FORMAT (/6X,'PHASE SHIFTS')
+355   FORMAT (' LMAX = ',1I3)
+360   FORMAT ('E = ',1F7.4,'  1ST ELEMENT',3X,16F8.4)
+361   FORMAT (' ',11X,' ELEMENT # ',I2,3X,16F8.4)
+362   FORMAT (' ',11X,'  3RD ELEMENT',3X,16F8.4)
 C
       PI=3.14159265
       IF (IPR.GT.0) WRITE (1,140)
@@ -8613,7 +8620,9 @@ C
       READ (5,200) NEL
       IF (NEL.GT.5) THEN
          WRITE (1,*) ' CURRENT CODE NOT DIMENSIONED FOR NEL.GT.5'
-         CALL ABORT()
+c     jcm replace abort with stop
+c     jcm         CALL ABORT()
+         STOP
       ENDIF
 C
 C  IT1(I)=1,(0) MEANS  DO (NOT) INCLUDE THERMAL VIBRATION EFFECTS
@@ -8791,25 +8800,25 @@ C
       COMMON /LO/CPARB1,CPARB2
 C
 130   FORMAT (5F9.4)
-140   FORMAT (/25H PARAMETERS FOR INTERIOR )
+140   FORMAT (/' PARAMETERS FOR INTERIOR ')
 160   FORMAT (3F7.4)
 161   FORMAT (3F7.2)
-170   FORMAT (/10H SURF VECS,2(5X,2F8.4))
+170   FORMAT (/' SURF VECS',2(5X,2F8.4))
 171   FORMAT (15X,2F8.4)
 200   FORMAT (24I3)
-210   FORMAT (/6H FR = ,F7.4,7H ASE = ,F7.4)
-280   FORMAT (1H ,1I4,F10.3,F7.3,4X,4I3)
-281   FORMAT (7H TST = ,1F7.4)
+210   FORMAT (/' FR = ',F7.4,' ASE = ',F7.4)
+280   FORMAT (' ',1I4,F10.3,F7.3,4X,4I3)
+281   FORMAT (' TST = ',1F7.4)
 285   FORMAT (' THETA  FI = ',2F7.2)
-290   FORMAT (2HVV,4X,F7.2,4HVPIS,4X,F7.2)
-305   FORMAT (7H IT1 = ,3I3)
-325   FORMAT (8H THDB = ,1F9.4,6H AM = ,1F9.4,8H FPER = ,1F9.4,
-     & 8H FPAR = ,1F9.4,7H DR0 = ,1F9.4)
+290   FORMAT ('VV',4X,F7.2,'VPIS',4X,F7.2)
+305   FORMAT (' IT1 = ',3I3)
+325   FORMAT (' THDB = ',1F9.4,' AM = ',1F9.4,' FPER = ',1F9.4,
+     & ' FPAR = ',1F9.4,' DR0 = ',1F9.4)
 340   FORMAT (16F7.4)
-350   FORMAT (/6X,12HPHASE SHIFTS)
-355   FORMAT (8H LMAX = ,1I3)
-360   FORMAT (4HE = ,1F7.4,13H  1ST ELEMENT,3X,16F8.4)
-361   FORMAT (1H ,11X,11H ELEMENT # ,I2,3X,16F8.4)
+350   FORMAT (/6X,'PHASE SHIFTS')
+355   FORMAT (' LMAX = ',1I3)
+360   FORMAT ('E = ',1F7.4,'  1ST ELEMENT',3X,16F8.4)
+361   FORMAT (' ',11X,' ELEMENT # ',I2,3X,16F8.4)
 C
       PI=3.14159265
       IF (IPR.GT.0) WRITE (1,140)
@@ -8862,7 +8871,8 @@ C
       READ (5,200) NEL
       IF (NEL.GT.5) THEN
          WRITE (1,*) ' CURRENT CODE NOT DIMENSIONED FOR NEL.GT.5'
-         CALL ABORT()
+c     jcm replace abort with stop CALL ABORT()
+         STOP
       ENDIF
 C
 C  IT1(I)=1,(0) MEANS  DO (NOT) INCLUDE THERMAL VIBRATION EFFECTS
@@ -9015,7 +9025,7 @@ C
 C
 166   FORMAT (3F11.8)
 172   FORMAT (/' Interlayer Vectors ')
-180   FORMAT (/4H ASA,1I3,3X,3F7.4)
+180   FORMAT (/' ASA',1I3,3X,3F7.4)
 C
 C
 C  INVECT IS NUMBER OF INTERLAYER VECTORS IN INPUT FILE
@@ -9100,23 +9110,27 @@ c>> check NL1-NL2 combinations consistent with NL
             INL2 = NL/INL1
 
 cccc          preset matrix IMAT
-              DO 101 I1=-50,50
+              DO 102 I1=-50,50
               DO 101 I2=-50,50
-101           IMAT(I1,I2)=0
+                 IMAT(I1,I2)=0
+101           CONTINUE
+ 102          CONTINUE
 
 
 c>>   check all points in the area spanned by +- 2*ARB1 +- 2*ARB2
 c>>   around the origin
 
-          DO 201 IC1=-2,2
-          DO 201 IC2=-2,2
+          DO 211 IC1=-2,2
+             DO 201 IC2=-2,2
                VECTS(1) = FLOAT(IC1)*ARB1(1) + FLOAT(IC2)*ARB2(1)
                VECTS(2) = FLOAT(IC1)*ARB1(2) + FLOAT(IC2)*ARB2(2)
 
-          DO 202 IC3=0,INL1-1
-          DO 202 IC4=0,INL2-1
-               VECT(1) = VECTS(1)+FLOAT(IC3)*ARA1(1)+FLOAT(IC4)*ARA2(1)
-               VECT(2) = VECTS(2)+FLOAT(IC3)*ARA1(2)+FLOAT(IC4)*ARA2(2)
+               DO 212 IC3=0,INL1-1
+                  DO 202 IC4=0,INL2-1
+                     VECT(1) = VECTS(1)+FLOAT(IC3)*ARA1(1)+
+     &                    FLOAT(IC4)*ARA2(1)
+                     VECT(2) = VECTS(2)+FLOAT(IC3)*ARA1(2)+
+     &                    FLOAT(IC4)*ARA2(2)
 
 
 c>>    solve the equation system
@@ -9124,31 +9138,32 @@ cccc        VECT(1) = COEFF1*ARA1(1) + COEFF2*ARA2(1)
 cccc        VECT(2) = COEFF1*ARA1(2) + COEFF2*ARA2(2)
 
 cccc        calculate determinants of (ARA2,VECT) and (ARA1,VECT)
-            DET1 = ARA2(1)*VECT(2) - ARA2(2)*VECT(1)
-            DET2 = ARA1(1)*VECT(2) - ARA1(2)*VECT(1)
+                     DET1 = ARA2(1)*VECT(2) - ARA2(2)*VECT(1)
+                     DET2 = ARA1(1)*VECT(2) - ARA1(2)*VECT(1)
 
-            COEFF1 = NINT(-DET1 / DETA)
-            COEFF2 = NINT(DET2 / DETA)
+                     COEFF1 = NINT(-DET1 / DETA)
+                     COEFF2 = NINT(DET2 / DETA)
 
-            IF ((COEFF1.GT.50).OR.(COEFF2.GT.50).OR.
-     &           (COEFF1.LT.-50).OR.(COEFF2.LT.-50)) THEN
-             WRITE (1,'(A28,A25)') ' ERROR: check dimensions of ',
-     &         'IMAT in SUBROUTINE NL1NL2'
-             STOP
-            ENDIF
+                     IF ((COEFF1.GT.50).OR.(COEFF2.GT.50).OR.
+     &                    (COEFF1.LT.-50).OR.(COEFF2.LT.-50)) THEN
+                        WRITE (1,'(A28,A25)') ' ERROR: check ',
+     &                   'dimensions of IMAT in SUBROUTINE NL1NL2'
+                        STOP
+                     ENDIF
 
 
 c>>   check whether point was pointed at before, if so:
 c>>   current INL1 and INL2 don't work...
 
-            IF (IMAT(COEFF1,COEFF2) .GT. 0) THEN
-               GOTO 100
-            ELSE
-               IMAT(COEFF1,COEFF2) = 1
-            ENDIF
-
-202      CONTINUE
-201      CONTINUE
+                     IF (IMAT(COEFF1,COEFF2) .GT. 0) THEN
+                        GOTO 100
+                     ELSE
+                        IMAT(COEFF1,COEFF2) = 1
+                     ENDIF
+ 202              CONTINUE
+ 212           CONTINUE
+ 201        CONTINUE
+ 211     CONTINUE
 
 c-----------------------------------------------------------------------
 
@@ -9212,7 +9227,7 @@ C
       DIMENSION HH(N3)
       COMPLEX ZJ(20),ZY(20),ZJS(20)
 C
-330   FORMAT (1H0,11HSB INFINITE)
+330   FORMAT ('SB INFINITE')
 C  
 C LSTART determines where to start the downward recursion relation for
 C ZJ using Miller's device. (see BESSEL)
@@ -9523,8 +9538,8 @@ C
 C
       DIMENSION POS(NLMX,3),POSS(NLMX,3),POSA(3)
 C
-1000  FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/,13X,1HX,14X,1HY,14X,
-     & 1HZ)
+1000  FORMAT (/,10X,'COORDINATES AFTER SORTING',/,13X,'X',14X,'Y',14X,
+     & 'Z')
 1010  FORMAT (7X,F10.4,2(5X,F10.4))
 C
       DO 1112 I=1,NLAY
@@ -10107,7 +10122,7 @@ C
 C
       COMMON /X4/E,VPI,CK2,CK3
 C
-10    FORMAT (3H E=,1F10.4,7H THETA=,1F10.4,4H FI=,1F10.4,/)
+10    FORMAT (' E=',1F10.4,' THETA=',1F10.4,' FI=',1F10.4,/)
 20    FORMAT ('    PQ1    PQ2      REF INT ')
 30    FORMAT (2F7.3,1E13.5,I7)
 C
@@ -10201,7 +10216,7 @@ C
       DIMENSION DR0(5),DRPER(5),DRPAR(5),IT(5)
 C
 C
-700   FORMAT (42H TOO LOW ENERGY FOR AVAILABLE PHASE SHIFTS)
+700   FORMAT (' TOO LOW ENERGY FOR AVAILABLE PHASE SHIFTS')
 C     
       NFLAGINT=0
       CI=(0.0,1.0)
@@ -11264,7 +11279,7 @@ C
       DIMENSION AE(NBED,IEERG),EE(NBED,IEERG),NEE(NBED),NBEA(NBED)
       DIMENSION A(IEERG),NV(IEERG),BENAME(5,NBED)
 C
-110   FORMAT (48H EXP. ENERG. AND INTENS. AFTER AVERAGING IN BEAM,1I4,
+110   FORMAT (' EXP. ENERG. AND INTENS. AFTER AVERAGING IN BEAM',1I4,
      & /,50(5(1F7.2,1E13.4,3X),/))
 C
       NBE=1
@@ -11802,8 +11817,8 @@ C interpolation
 C
       COMMON /ENY/EI,EF,DE,NERG,NSYM,NDOM,VV,VPIS
 6     FORMAT (
-     & 59H0** IN PRESENT BEAM TOO FEW ENERGY VALUES FOR INTERPOLATION)
-80    FORMAT (40H0INTENSITIES AFTER INTERPOLATION IN BEAM,1I4,/,50(5
+     & '** IN PRESENT BEAM TOO FEW ENERGY VALUES FOR INTERPOLATION')
+80    FORMAT ('INTENSITIES AFTER INTERPOLATION IN BEAM',1I4,/,50(5
      & (1F7.2,1E13.4,3X),/))
 C
       ITIL=0
@@ -12674,13 +12689,13 @@ C
 C
 C Set coordinate matrix ADISP from temporary store P
 C
-C	write(0,*)'before first setcor2'
+C      write(0,*)'before first setcor2'
 C      write(0,*) 'P=',P
 C      write(0,*) 'DISP=',DISP
 C      write(0,*) 'ADISP=',ADISP
       CALL SETCOR2(LSFLAG,NDIML,DIREC,P,DISP,ADISP,
      & NLAY,NNDIM)
-C	write(0,*)'after first setcor2'
+C      write(0,*)'after first setcor2'
 C      write(0,*) 'P=',P
 C      write(0,*) 'DISP=',DISP
 C      write(0,*) 'ADISP=',ADISP
@@ -13426,18 +13441,19 @@ C
       SUBROUTINE READE(AE,EE,NBED,NEE,NBEA,BENAME,IPR,IEERG)
 C
       DIMENSION AE(NBED,IEERG),EE(NBED,IEERG),NEE(NBED),NBEA(NBED)
-      DIMENSION BENAME(5,NBED), FMT(20)
+      DIMENSION BENAME(5,NBED)
+      CHARACTER(LEN=20) FMT
       COMMON /REXP/EEINCR
 C
 30    FORMAT (5(25I3,/))
-40    FORMAT (I4,25H EXP. BEAMS TO BE READ IN)
-50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
+40    FORMAT (I4,' EXP. BEAMS TO BE READ IN')
+50    FORMAT ('AVERAGING SCHEME OF EXP. BEAMS',5(25I3,/))
 60    FORMAT (20A4)
 10    FORMAT (20A4)
-70    FORMAT (10HEXP. BEAM ,1I3,2H (,5A4,1H))
+70    FORMAT ('EXP. BEAM ',1I3,' (',5A4,')')
 35    FORMAT (1I3,1E13.4)
 36    FORMAT (5F7.4)
-80    FORMAT (31H  EXP. ENERGIES AND INTENSITIES,/,50(5(1F7.2,1E13.4,
+80    FORMAT ('  EXP. ENERGIES AND INTENSITIES',/,50(5(1F7.2,1E13.4,
      & 3X),/))
 C
 C  READ IN EXP. BEAM AVERAGING INFORMATION. IF NBEA(I)=NBEA(J), EXP.
@@ -13453,7 +13469,8 @@ C
 C
 C  READ INPUT FORMAT OF EXP. INTENSITIES
 C
-      READ (11,60) (FMT(I),I=1,20)
+C      READ (11,60) (FMT(I),I=1,20)
+      READ (11,60) FMT
       READ (11,36) EEINCR
 C
       DO 90 IB=1,NBED
@@ -13474,7 +13491,10 @@ C
 C
 C  READ (AND MAYBE PRINT) EXP. INTENSITIES
 C
-         READ (11,FMT) (EE(IB,IE),AE(IB,IE),IE=1,N)
+
+cjcm replace FMT with 99 and 2F12.3 which is what is in the exp.d file 9/29/2016
+         READ (11,99) (EE(IB,IE),AE(IB,IE),IE=1,N)
+ 99      FORMAT(2F12.3)
          IF (IPR.GE.0) THEN
             WRITE (1,80) (EE(IB,IE),AE(IB,IE),IE=1,N)
          ENDIF
@@ -13496,9 +13516,9 @@ C
 C
       DIMENSION A(NBD,IEERG),NE(NBD),E(NBD,IEERG),Y(IEERG)
 C
-15    FORMAT (16H RENORM. IN BEAM,1I4,7H - AA =,1E15.4,8H, ALPH =,
+15    FORMAT (' RENORM. IN BEAM',1I4,' - AA =',1E15.4,', ALPH =',
      & 1E15.4)
-60    FORMAT (49H0ENERG. AND INTENS. AFTER RENORMALIZATION IN BEAM,1I3,
+60    FORMAT ('ENERG. AND INTENS. AFTER RENORMALIZATION IN BEAM',1I3,
      & /,50(5(1F7.2,1E13.4,3X),/))
 C
       DO 30 IB=1,NB
@@ -14480,7 +14500,7 @@ C
       DIMENSION LPOINT(NLTIN)
 C++++ 
       DIMENSION AP(INBED,IEERG),APP(INBED,IEERG),YE(INBED,IEERG)
-C      DIMENSION XI(NNDIM,NNDIM)
+      DIMENSION XI(NNDIM,NNDIM)
 C++++
 C     COMPLEX JYLM(LSMMAX),BJ(LSMAX1)
       COMPLEX JYLM(LSMMAX)
@@ -14943,7 +14963,7 @@ C
 C
       DIMENSION AE(NBED,IEERG),EE(NBED,IEERG),NEE(NBE)
 C 
-60    FORMAT (48H0EXP. ENERG. AND INTENS. AFTER SMOOTHING IN BEAM,1I3,
+60    FORMAT ('EXP. ENERG. AND INTENS. AFTER SMOOTHING IN BEAM',1I3,
      & /,50(5(1F7.2,1E13.4,3X),/))
       DO 40 IB=1,NBE
          N=NEE(IB)-1
@@ -15102,7 +15122,8 @@ C
       DO 10 K = 1, 4
       N = K + I - 1
       TEMP(1,K) = WORX(N)
-10    TEMP(2, K) = WORY(N)
+      TEMP(2, K) = WORY(N)
+10    CONTINUE
       X0 = TEMP(1, 1)
       X1 = TEMP(1, 2)
       X2 = TEMP(1, 3)
@@ -15315,9 +15336,9 @@ C
       DIMENSION RPP2(NT0),RRZJ(NT0),RMZJ(NT0),RPE(NT0),RFAC(30)
       DIMENSION BENAME(5,NBED),WR(10)
       CHARACTER NC(9)
-      CHARACTER*2 IV,NC2(21)
+      CHARACTER(LEN=2) IV,NC2(21)
 CGPS      CHARACTER*4 IVNAME
-      CHARACTER*100 IVNAME,tleed4i
+      CHARACTER(LEN=100) IVNAME,tleed4i
 C
       common /pdir/tleed4i
       COMMON /WIV/NBMAX,EEAVE(30),EEAVT(30)
@@ -15330,9 +15351,9 @@ C
       DATA NC2(5)/'14'/NC2(6)/'15'/NC2(7)/'16'/NC2(8)/'17'/
       DATA NC2(9)/'18'/NC2(10)/'19'/NC2(11)/'20'/
 C
-110   FORMAT (11HTitleText: ,5A4,6H Beam ,5A4,5H Rfac,I2,
-     & 1H=,F6.4)
-111   FORMAT (5H RFAC,I2)
+110   FORMAT ('TitleText: ',5A4,' Beam ',5A4,' Rfac',I2,
+     & '=',F6.4)
+111   FORMAT (' RFAC',I2)
 500   FORMAT (/' THE NUMBER OF THEORETICAL AND EXPERIMENTAL BEAMS 
      & DISAGREE ')
 100   FORMAT(20A4)
@@ -15375,7 +15396,7 @@ C for the Pendry Rfactor)
 C
 CGPS+
       I=1
-888      if (tleed4i(I:(I+7)).NE.'tleed4.i') then
+888      if (tleed4i(I:(I+6)).NE.'tleed4i') then
              I=I+1
              goto 888
          else
@@ -15467,7 +15488,7 @@ C
       COMMON /VINY/VMIN,VMAX,DV,EINCR,THETA,FI
       COMMON /WIV2/PERSH,NIV,NSE1(30),NSE2(30)
 C
-40    FORMAT (26H PENDRY Y FUNCTION IN BEAM,1I3,/,50(5(1F7.2,1E13.4,3X)
+40    FORMAT (' PENDRY Y FUNCTION IN BEAM',1I3,/,50(5(1F7.2,1E13.4,3X)
      & ,/))
 C 
 C THEORETICAL AND EXPERIMENTAL ENERGIES IN E() ARE IN EV's

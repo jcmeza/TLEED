@@ -1,0 +1,408 @@
+gfortran  -O0 -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wunused-parameter -std=f2008 -pedantic -fbacktrace -c tleed1.f -o tleed1.o
+gfortran  -O0 -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wunused-parameter -std=f2008 -pedantic -fbacktrace -c tleedlib.f -o tleedlib.o
+tleedlib.f:6011:16:
+
+       complex*16 acc
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:6850:16:
+
+       complex*16 acs
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:7980:16:
+
+       COMPLEX*16 BJ(30)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:7993:72: Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:8011:14:
+
+       BJ(I) = EXP(FALFE) * FL * CS * BJ(I)
+              1
+Error: Statement function at (1) is recursive
+tleedlib.f:8038:72: Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:8041:72: Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:10493:16:
+
+       complex*16 acc
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:10635:16:
+
+       COMPLEX*16 BJ(LMAX1),BJ0,BJS(20),CI
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:10644:72: Error: Unexpected STATEMENT FUNCTION statement at (1)
+tleedlib.f:10645:6:
+
+       BJS(LSTART-1)=CMPLX(1.0,0.0)
+      1
+Error: Unclassifiable statement at (1)
+tleedlib.f:10652:9:
+
+          BJS(L+1)=FLOAT(2*(L+1)+1)*BJS(L+2)/Z-BJS(L+3)
+         1
+Error: Unclassifiable statement at (1)
+tleedlib.f:10662:9:
+
+          BJ(L+1)=BJS(L+1)*BJ0/BJS(1)
+         1
+Error: Unclassifiable statement at (1)
+tleedlib.f:10798:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:10997:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:11042:17:
+
+                  BJ(L+1)=CMPLX(0.0,0.0)
+                 1
+Error: Unclassifiable statement at (1)
+tleedlib.f:11044:14:
+
+               BJ(1)=CMPLX(1.0,0.0)
+              1
+Error: Unclassifiable statement at (1)
+tleedlib.f:11455:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:11632:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:12117:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:12270:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:12593:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:13041:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:13472:18:
+
+       READ (11,60) (FMT(I),I=1,20)
+                  1
+Error: Expected variable in READ statement at (1)
+tleedlib.f:13515:101: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+tleedlib.f:13517:21:
+
+ 60    FORMAT (49H0ENERG. AND INTENS. AFTER RENORMALIZATION IN BEAM,1I3,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+tleedlib.f:14503:16:
+
+       COMPLEX*16 BJ(LSMAX1)
+                1
+Error: GNU Extension: Nonstandard type declaration COMPLEX*16 at (1)
+tleedlib.f:14962:21:
+
+ 60    FORMAT (48H0EXP. ENERG. AND INTENS. AFTER SMOOTHING IN BEAM,1I3,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+tleedlib.f:15487:21:
+
+ 40    FORMAT (26H PENDRY Y FUNCTION IN BEAM,1I3,/,50(5(1F7.2,1E13.4,3X)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+tleedlib.f:629:2:
+
+ 66            IF(J+KMAX.GT.KNT) THEN
+  1
+Warning: Label 66 at (1) defined but not used
+tleedlib.f:6289:9:
+
+ 1590  CA=((-1.0)**(MA1+MA3))*YINT
+         1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:986:3:
+
+ 177   FORMAT(2F7.4)
+   1
+Warning: Label 177 at (1) defined but not used
+tleedlib.f:996:24:
+
+              LLFLAG2(I)=1.
+                        1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+tleedlib.f:997:23:
+
+              LLFLAG(I)=1.
+                       1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+tleedlib.f:1666:36:
+
+                               BLMT2=((-1.0)**IC)*A*B*C
+                                    1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:2965:4:
+
+ 1610  FORMAT (' NO SYMMETRY in MTNVSYM for GLIDE SYMMETRY. Lower
+    1
+Warning: Label 1610 at (1) defined but not used
+tleedlib.f:6049:10:
+
+       ACC=CZERO
+          1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6051:10:
+
+       ACC=ACC+CLM(N)*FLM(JLM)
+          1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:4094:3:
+
+ 777   I=I-1
+   1
+Warning: Label 777 at (1) defined but not used
+tleedlib.f:4280:2:
+
+ 52    WRITE (1,*) ' Put the mirror plane along the z axis, symmetry
+  1
+Warning: Label 52 at (1) defined but not used
+tleedlib.f:6212:35:
+
+                               BLMT=((-1.0)**IC)*A*B*C
+                                   1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6333:17:
+
+          FAC1(L)=ASG*SQRT((2.0*CL+1.0)*A/(4.0*PI*B*B))
+                 1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6488:29:
+
+                PPP(I1,I2,I3)=A
+                             1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6757:4:
+
+ 1010  FORMAT (30(2E13.5,/))
+    1
+Warning: Label 1010 at (1) defined but not used
+tleedlib.f:6756:4:
+
+ 1000  FORMAT (3F7.4)
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:6977:22:
+
+                   ACS=CSIN(Z)
+                      1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:7013:25:
+
+                      ACS=(2.0*AL+3.0)*RTAB(4)/Z-RTAB(3)
+                         1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:8007:5:
+
+   270 CS = CMPLX(1.0,0.0)
+     1
+Warning: Label 270 at (1) defined but not used
+tleedlib.f:10640:9:
+
+       CI=CMPLX(0.0,1.0)
+         1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:10657:10:
+
+       BJ0=CSIN(Z)/Z
+          1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:8005:18:
+
+       call bessel(BJ,Z,N1-1,N1)
+                  1
+Error: Invalid procedure argument at (1)
+tleedlib.f:8445:3:
+
+ 350   FORMAT (/' Line Search Requested')
+   1
+Warning: Label 350 at (1) defined but not used
+tleedlib.f:8438:3:
+
+ 260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
+   1
+Warning: Label 260 at (1) defined but not used
+tleedlib.f:8437:3:
+
+ 250   FORMAT (/' Moving Atom Identifiers; ')
+   1
+Warning: Label 250 at (1) defined but not used
+tleedlib.f:8436:3:
+
+ 240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
+   1
+Warning: Label 240 at (1) defined but not used
+tleedlib.f:8435:3:
+
+ 230   FORMAT (' ======================= ')
+   1
+Warning: Label 230 at (1) defined but not used
+tleedlib.f:8434:3:
+
+ 220   FORMAT (/' Line Search Information ')
+   1
+Warning: Label 220 at (1) defined but not used
+tleedlib.f:8570:3:
+
+ 362   FORMAT (' ',11X,'  3RD ELEMENT',3X,16F8.4)
+   1
+Warning: Label 362 at (1) defined but not used
+tleedlib.f:9427:4:
+
+ 1000  FORMAT (500(2E13.5,/))
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:10530:10:
+
+       ACC=CZERO
+          1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:10532:10:
+
+       ACC=ACC+CLM(N)*FLM(JLM)
+          1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:10695:3:
+
+ 102   IL = LENGTH - 1
+   1
+Warning: Label 102 at (1) defined but not used
+tleedlib.f:11054:27:
+
+                CALL BESSEL(BJ,Z,LSMAX,LSMAX1)
+                           1
+Error: Invalid procedure argument at (1)
+tleedlib.f:11547:54:
+
+             CALL DELX2(QS,ACOORD,MICUT,MJCUT,NLAY,YLM,BJ,
+                                                      1
+Error: Expected a procedure for argument ‘bj’ at (1)
+tleedlib.f:13453:2:
+
+ 70    FORMAT ('EXP. BEAM ',1I3,' (',5A4,')')
+  1
+Warning: Label 70 at (1) defined but not used
+tleedlib.f:11648:3:
+
+ 515   FORMAT (' OPTIMUM VALUE OF INNER POTENTIAL =',1F7.4)
+   1
+Warning: Label 515 at (1) defined but not used
+tleedlib.f:11647:3:
+
+ 514   FORMAT (1F7.4)
+   1
+Warning: Label 514 at (1) defined but not used
+tleedlib.f:11646:3:
+
+ 510   FORMAT (3F9.4)
+   1
+Warning: Label 510 at (1) defined but not used
+tleedlib.f:11645:3:
+
+ 506   FORMAT (/' COORDINATES AT MINIMUM;'/)
+   1
+Warning: Label 506 at (1) defined but not used
+tleedlib.f:11644:3:
+
+ 505   FORMAT (/' CONVERGENCE TOLERANCE ACHIEVED =',F7.6)
+   1
+Warning: Label 505 at (1) defined but not used
+tleedlib.f:11643:3:
+
+ 501   FORMAT (' ======================= ')
+   1
+Warning: Label 501 at (1) defined but not used
+tleedlib.f:12165:2:
+
+ 99     do 12 j=1,NNDIM
+  1
+Warning: Label 99 at (1) defined but not used
+tleedlib.f:12618:3:
+
+ 523   FORMAT (I4,F7.4,70F7.4)
+   1
+Warning: Label 523 at (1) defined but not used
+tleedlib.f:12617:3:
+
+ 522   FORMAT (' R-FACTOR =',1F7.4)
+   1
+Warning: Label 522 at (1) defined but not used
+tleedlib.f:12616:3:
+
+ 521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
+   1
+Warning: Label 521 at (1) defined but not used
+tleedlib.f:12774:3:
+
+ 300   CONTINUE
+   1
+Warning: Label 300 at (1) defined but not used
+tleedlib.f:12925:4:
+
+  152  CONTINUE
+    1
+Warning: Label 152 at (1) defined but not used
+tleedlib.f:15355:3:
+
+ 100   FORMAT(20A4)
+   1
+Warning: Label 100 at (1) defined but not used
+tleedlib.f:13069:3:
+
+ 523   FORMAT (I4,F7.4,70F7.4)
+   1
+Warning: Label 523 at (1) defined but not used
+tleedlib.f:13068:3:
+
+ 522   FORMAT (' R-FACTOR =',1F7.4)
+   1
+Warning: Label 522 at (1) defined but not used
+tleedlib.f:13067:3:
+
+ 521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
+   1
+Warning: Label 521 at (1) defined but not used
+tleedlib.f:13601:4:
+
+ 1010  FORMAT (500(2E13.5,/))
+    1
+Warning: Label 1010 at (1) defined but not used
+tleedlib.f:13600:4:
+
+ 1000  FORMAT (3F7.4)
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:14135:3:
+
+ 190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+   1
+Warning: Label 190 at (1) defined but not used
+tleedlib.f:14129:3:
+
+ 110   FORMAT (40F7.4)
+   1
+Warning: Label 110 at (1) defined but not used
+make: *** [tleedlib.o] Error 1
