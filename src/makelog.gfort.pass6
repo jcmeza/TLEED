@@ -1,0 +1,1115 @@
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c tleed1.f -o tleed1.o
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c tleedlib.f -o tleedlib.o
+tleedlib.f:7993:72: Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:8038:72: Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:8041:72: Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:629:2:
+
+ 66            IF(J+KMAX.GT.KNT) THEN
+  1
+Warning: Label 66 at (1) defined but not used
+tleedlib.f:6289:9:
+
+ 1590  CA=((-1.0)**(MA1+MA3))*YINT
+         1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:986:3:
+
+ 177   FORMAT(2F7.4)
+   1
+Warning: Label 177 at (1) defined but not used
+tleedlib.f:996:24:
+
+              LLFLAG2(I)=1.
+                        1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+tleedlib.f:997:23:
+
+              LLFLAG(I)=1.
+                       1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+tleedlib.f:1666:36:
+
+                               BLMT2=((-1.0)**IC)*A*B*C
+                                    1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:2965:4:
+
+ 1610  FORMAT (' NO SYMMETRY in MTNVSYM for GLIDE SYMMETRY. Lower
+    1
+Warning: Label 1610 at (1) defined but not used
+tleedlib.f:4094:3:
+
+ 777   I=I-1
+   1
+Warning: Label 777 at (1) defined but not used
+tleedlib.f:4280:2:
+
+ 52    WRITE (1,*) ' Put the mirror plane along the z axis, symmetry
+  1
+Warning: Label 52 at (1) defined but not used
+tleedlib.f:6212:35:
+
+                               BLMT=((-1.0)**IC)*A*B*C
+                                   1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6333:17:
+
+          FAC1(L)=ASG*SQRT((2.0*CL+1.0)*A/(4.0*PI*B*B))
+                 1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6488:29:
+
+                PPP(I1,I2,I3)=A
+                             1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6757:4:
+
+ 1010  FORMAT (30(2E13.5,/))
+    1
+Warning: Label 1010 at (1) defined but not used
+tleedlib.f:6756:4:
+
+ 1000  FORMAT (3F7.4)
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:8007:5:
+
+   270 CS = CMPLX(1.0,0.0)
+     1
+Warning: Label 270 at (1) defined but not used
+tleedlib.f:8445:3:
+
+ 350   FORMAT (/' Line Search Requested')
+   1
+Warning: Label 350 at (1) defined but not used
+tleedlib.f:8438:3:
+
+ 260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
+   1
+Warning: Label 260 at (1) defined but not used
+tleedlib.f:8437:3:
+
+ 250   FORMAT (/' Moving Atom Identifiers; ')
+   1
+Warning: Label 250 at (1) defined but not used
+tleedlib.f:8436:3:
+
+ 240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
+   1
+Warning: Label 240 at (1) defined but not used
+tleedlib.f:8435:3:
+
+ 230   FORMAT (' ======================= ')
+   1
+Warning: Label 230 at (1) defined but not used
+tleedlib.f:8434:3:
+
+ 220   FORMAT (/' Line Search Information ')
+   1
+Warning: Label 220 at (1) defined but not used
+tleedlib.f:8570:3:
+
+ 362   FORMAT (' ',11X,'  3RD ELEMENT',3X,16F8.4)
+   1
+Warning: Label 362 at (1) defined but not used
+tleedlib.f:9427:4:
+
+ 1000  FORMAT (500(2E13.5,/))
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:10695:3:
+
+ 102   IL = LENGTH - 1
+   1
+Warning: Label 102 at (1) defined but not used
+tleedlib.f:13453:2:
+
+ 70    FORMAT ('EXP. BEAM ',1I3,' (',5A4,')')
+  1
+Warning: Label 70 at (1) defined but not used
+tleedlib.f:11648:3:
+
+ 515   FORMAT (' OPTIMUM VALUE OF INNER POTENTIAL =',1F7.4)
+   1
+Warning: Label 515 at (1) defined but not used
+tleedlib.f:11647:3:
+
+ 514   FORMAT (1F7.4)
+   1
+Warning: Label 514 at (1) defined but not used
+tleedlib.f:11646:3:
+
+ 510   FORMAT (3F9.4)
+   1
+Warning: Label 510 at (1) defined but not used
+tleedlib.f:11645:3:
+
+ 506   FORMAT (/' COORDINATES AT MINIMUM;'/)
+   1
+Warning: Label 506 at (1) defined but not used
+tleedlib.f:11644:3:
+
+ 505   FORMAT (/' CONVERGENCE TOLERANCE ACHIEVED =',F7.6)
+   1
+Warning: Label 505 at (1) defined but not used
+tleedlib.f:11643:3:
+
+ 501   FORMAT (' ======================= ')
+   1
+Warning: Label 501 at (1) defined but not used
+tleedlib.f:12165:2:
+
+ 99     do 12 j=1,NNDIM
+  1
+Warning: Label 99 at (1) defined but not used
+tleedlib.f:12618:3:
+
+ 523   FORMAT (I4,F7.4,70F7.4)
+   1
+Warning: Label 523 at (1) defined but not used
+tleedlib.f:12617:3:
+
+ 522   FORMAT (' R-FACTOR =',1F7.4)
+   1
+Warning: Label 522 at (1) defined but not used
+tleedlib.f:12616:3:
+
+ 521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
+   1
+Warning: Label 521 at (1) defined but not used
+tleedlib.f:12774:3:
+
+ 300   CONTINUE
+   1
+Warning: Label 300 at (1) defined but not used
+tleedlib.f:12925:4:
+
+  152  CONTINUE
+    1
+Warning: Label 152 at (1) defined but not used
+tleedlib.f:15359:3:
+
+ 100   FORMAT(20A4)
+   1
+Warning: Label 100 at (1) defined but not used
+tleedlib.f:13069:3:
+
+ 523   FORMAT (I4,F7.4,70F7.4)
+   1
+Warning: Label 523 at (1) defined but not used
+tleedlib.f:13068:3:
+
+ 522   FORMAT (' R-FACTOR =',1F7.4)
+   1
+Warning: Label 522 at (1) defined but not used
+tleedlib.f:13067:3:
+
+ 521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
+   1
+Warning: Label 521 at (1) defined but not used
+tleedlib.f:13605:4:
+
+ 1010  FORMAT (500(2E13.5,/))
+    1
+Warning: Label 1010 at (1) defined but not used
+tleedlib.f:13604:4:
+
+ 1000  FORMAT (3F7.4)
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:14139:3:
+
+ 190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+   1
+Warning: Label 190 at (1) defined but not used
+tleedlib.f:14133:3:
+
+ 110   FORMAT (40F7.4)
+   1
+Warning: Label 110 at (1) defined but not used
+tleedlib.f:11431:13:
+
+      & BENAME,IPR,XPL,YPL,NNN,AP,APP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,
+             1
+Warning: Unused dummy argument ‘bename’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:11454:32:
+
+       COMPLEX JYLM(LSMMAX),DELXI,AAK,AAJ,PRE,CI
+                                1
+Warning: Unused variable ‘delxi’ declared at (1) [-Wunused-variable]
+tleedlib.f:11430:66:
+
+      & PSQ,JYLM,BJ,YLM,QS,XISTS,XIST,AT,INBED,IEERG,AE,EE,NEE,NBEA,
+                                                                  1
+Warning: Unused dummy argument ‘nbea’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:11431:29:
+
+      & BENAME,IPR,XPL,YPL,NNN,AP,APP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,
+                             1
+Warning: Unused dummy argument ‘nnn’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:10765:46:
+
+      & RPP2,RRZJ,RMZJ,RPE,EET,NET,AR,YT,LLFLAG,LSFLAG,IPR,
+                                              1
+Warning: Unused dummy argument ‘llflag’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:10760:11:
+
+      & NDIM,DISP,NNDIM,ADISP,ILOOK,ACOORD,MICUT,
+           1
+Warning: Unused dummy argument ‘ndim’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:12242:46:
+
+      & RPP2,RRZJ,RMZJ,RPE,EET,NET,AR,YT,LLFLAG,LSFLAG,IPR,
+                                              1
+Warning: Unused dummy argument ‘llflag’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:12236:67:
+
+       SUBROUTINE MNBRAK(XMIN,ax,bx,cx,fa,fb,fc,pcom,xicom,NLAY,NDIM,
+                                                                   1
+Warning: Unused dummy argument ‘ndim’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:10998:19:
+
+       COMPLEX DELXI,CAPPA,Z,CI,ST,PRE
+                   1
+Warning: Unused variable ‘delxi’ declared at (1) [-Wunused-variable]
+tleedlib.f:7981:28:
+
+       COMPLEX  Z, CI, CS, CL
+                            1
+Warning: Unused variable ‘cl’ declared at (1) [-Wunused-variable]
+tleedlib.f:4454:39:
+
+      & ZRED,TSF,LAN,NINEQ,LL1,NLMAX,NK3)
+                                       1
+Warning: Unused dummy argument ‘nk3’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:4824:29:
+
+       SUBROUTINE GHDSYM(IZ,IS,LMMAX,S,LMS,Y,L2M,DRL,NLAY2,K0,DCUT,
+                             1
+Warning: Unused dummy argument ‘is’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:6245:30:
+
+       DOUBLEPRECISION yint,del,pref,prefa,prefb,preft,sum
+                              1
+Warning: Unused variable ‘del’ declared at (1) [-Wunused-variable]
+tleedlib.f:2969:18:
+
+       COMMON /MFB/GP,L1,LAY1
+                  1
+Warning: Named COMMON block ‘mfb’ at (1) shall be of the same size as elsewhere (16 vs 12 bytes)
+tleedlib.f:2927:17:
+
+      & NBLK,INDK3,PQ3,PH3,NK3,KSNB,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
+                 1
+Warning: Unused dummy argument ‘indk3’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:2927:25:
+
+      & NBLK,INDK3,PQ3,PH3,NK3,KSNB,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
+                         1
+Warning: Unused dummy argument ‘ph3’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:2927:21:
+
+      & NBLK,INDK3,PQ3,PH3,NK3,KSNB,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
+                     1
+Warning: Unused dummy argument ‘pq3’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:4206:28:
+
+      & INST1B,ARA1,ARA2,NST1,NBULK,VEC)
+                            1
+Warning: Unused dummy argument ‘nst1’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:5066:18:
+
+       COMMON /MFB/GP,L1,LAY1
+                  1
+Warning: Named COMMON block ‘mfb’ at (1) shall be of the same size as elsewhere (12 vs 16 bytes)
+tleedlib.f:8785:53:
+
+       SUBROUTINE READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,
+                                                     1
+Warning: Unused dummy argument ‘ideg’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:8785:44:
+
+       SUBROUTINE READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,
+                                            1
+Warning: Unused dummy argument ‘invect’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:9934:43:
+
+       SUBROUTINE TAUT2(TAUG,TAUGM,LTAUG,LMT,LEV,CYLM,NT,LMMAX,LT,
+                                           1
+Warning: Unused dummy argument ‘lmt’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:11594:41:
+
+       function GRID(ZSTEP,MSTEP,NLAY,NDIM,DISP,XI,
+                                         1
+Warning: Unused dummy argument ‘ndim’ at (1) [-Wunused-dummy-argument]
+tleedlib.f:12842:0:
+
+       RETURN
+ ^
+Warning: control reaches end of non-void function [-Wreturn-type]
+tleedlib.f:13343:0:
+
+       RETURN
+ ^
+Warning: control reaches end of non-void function [-Wreturn-type]
+tleedlib.f:14860:0:
+
+       RETURN
+ ^
+Warning: control reaches end of non-void function [-Wreturn-type]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -o tleed1.exe tleed1.o tleedlib.o
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c tleed2.f -o tleed2.o
+tleed2.f:133:40:
+
+       DIMENSION ES(90),PHSS(90,80),PHSS2(90,80),ETH(INT0,IEERG)
+                                        1
+Warning: Unused variable ‘phss2’ declared at (1) [-Wunused-variable]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -o tleed2.exe tleed2.o tleedlib.o
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c kleed.f -o kleed.o
+kleed.f:198:34:
+
+ 1103   FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/)
+                                  1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleed.f:192:3:
+
+ 340   FORMAT (16F7.4)
+   1
+Warning: Label 340 at (1) defined but not used
+kleed.f:196:3:
+
+ 103   FORMAT (' VPIS = ',F9.4,' VPIO = ',F9.4,' DCUTS = ',F9.4,
+   1
+Warning: Label 103 at (1) defined but not used
+kleed.f:11:40:
+
+       character(len=80) problem_dir, dir, rank
+                                        1
+Warning: Unused variable ‘dir’ declared at (1) [-Wunused-variable]
+kleed.f:13:54:
+
+       character(len=100) kleed4i,kleed5i,tleedo,gleedo,searchs,prdird,
+                                                      1
+Warning: Unused variable ‘gleedo’ declared at (1) [-Wunused-variable]
+kleed.f:126:59:
+
+       DIMENSION FPOS(60,3),VPOS(INST1,INLAY,3),LPS(60),LPSS(60)
+                                                           1
+Warning: Unused variable ‘lpss’ declared at (1) [-Wunused-variable]
+kleed.f:118:26:
+
+       DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
+                          1
+Warning: Unused variable ‘nb’ declared at (1) [-Wunused-variable]
+kleed.f:17:27:
+
+       integer nerror_report
+                           1
+Warning: Unused variable ‘nerror_report’ declared at (1) [-Wunused-variable]
+kleed.f:146:35:
+
+       COMPLEX PHSSEL0(IINERG,INTAU),PHS(16)
+                                   1
+Warning: Unused variable ‘phssel0’ declared at (1) [-Wunused-variable]
+kleed.f:119:18:
+
+       DIMENSION PQ(2,NROM),NTAUAW(INST1)
+                  1
+Warning: Unused variable ‘pq’ declared at (1) [-Wunused-variable]
+kleed.f:118:59:
+
+       DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
+                                                           1
+Warning: Unused variable ‘pqf’ declared at (1) [-Wunused-variable]
+kleed.f:13:69:
+
+       character(len=100) kleed4i,kleed5i,tleedo,gleedo,searchs,prdird,
+                                                                     1
+Warning: Unused variable ‘prdird’ declared at (1) [-Wunused-variable]
+kleed.f:11:35:
+
+       character(len=80) problem_dir, dir, rank
+                                   1
+Warning: Unused variable ‘problem_dir’ declared at (1) [-Wunused-variable]
+kleed.f:11:46:
+
+       character(len=80) problem_dir, dir, rank
+                                              1
+Warning: Unused variable ‘rank’ declared at (1) [-Wunused-variable]
+kleed.f:14:14:
+
+      &restartd
+              1
+Warning: Unused variable ‘restartd’ declared at (1) [-Wunused-variable]
+kleed.f:16:29:
+
+       character(len=100) xpin
+                             1
+Warning: Unused variable ‘xpin’ declared at (1) [-Wunused-variable]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c kleedlib.f -o kleedlib.o
+f951: Warning: Nonconforming tab character in column 1 of line 1963 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 1965 [-Wtabs]
+kleedlib.f:40:22:
+
+         PARAMETER (PI=3.141592653589793D+00)
+                      1
+Warning: Change of value in conversion from  ‘REAL(8)’ to ‘REAL(4)’ at (1) [-Wconversion]
+kleedlib.f:147:37:
+
+ 705   FORMAT (1H0,1I3,13H BEAMS USED  ,8I4)
+                                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:148:19:
+
+ 706   FORMAT (1H ,10(9(2X,2F6.3),/))
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:229:21:
+
+ 165   FORMAT (28H LATMAT HAS ZERO DETERMINANT)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:230:21:
+
+ 270   FORMAT (23H MORE BEAMS THAN KNBMAX)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:481:93: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1191:21:
+
+ 50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1323:21:
+
+ 110   FORMAT (48H EXP. ENERG. AND INTENS. AFTER AVERAGING IN BEAM,1I4,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1520:73: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1522:73: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1624:107: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1627:0:
+
+      & 2HZ2,2X,5HALPHA,17X,2HZ3,3X,4HBETA,17X,2HZ4,/)
+ 1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1629:59: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1630:105: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1632:97: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1635:31:
+
+ 5001  FORMAT (//5X,15HDISTANCE MATRIX,/)
+                               1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:2000:71: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:2369:73: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:2370:21:
+
+ 80    FORMAT (40H0INTENSITIES AFTER INTERPOLATION IN BEAM,1I4,/,50(5
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3191:21:
+
+ 180   FORMAT (/4H ASB,1I3,3X,3F7.4)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3193:23:
+
+ 215   FORMAT (/26H COMPOSITE LAYER VECTOR   ,3F7.4)
+                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3194:19:
+
+ 216   FORMAT (8H NTAU = ,60I3)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3195:23:
+
+ 217   FORMAT (/46H PHASE SHIFT ASSIGNMENT IN COMPOSITE LAYER No.,1I2,
+                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3197:25:
+
+ 444   FORMAT (//21H COMPOSITE LAYER No. ,1I3)
+                         1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3198:21:
+
+ 445   FORMAT (21H =================== )
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3353:27:
+
+ 40    FORMAT (I4,25H EXP. BEAMS TO BE READ IN)
+                           1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3354:21:
+
+ 50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3357:73: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3360:21:
+
+ 80    FORMAT (31H  EXP. ENERGIES AND INTENSITIES,/,50(5(1F7.2,1E13.4,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3558:23:
+
+ 140   FORMAT (/25H PARAMETERS FOR INTERIOR )
+                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3562:23:
+
+ 170   FORMAT (/10H SURF VECS,2(5X,2F8.4))
+                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3565:21:
+
+ 180   FORMAT (/4H ASA,1I3,3X,3F7.4)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3567:49: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3568:19:
+
+ 280   FORMAT (1H ,1I4,F10.3,F7.3,4X,4I3)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3569:19:
+
+ 281   FORMAT (7H TST = ,1F7.4)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3571:45: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3572:19:
+
+ 305   FORMAT (7H IT1 = ,3I3)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3574:105: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3576:29:
+
+ 350   FORMAT (/6X,12HPHASE SHIFTS)
+                             1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3577:19:
+
+ 355   FORMAT (8H LMAX = ,1I3)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3578:47:
+
+ 360   FORMAT (4HE = ,1F7.4,13H  1ST ELEMENT,3X,16F8.4)
+                                               1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3579:37:
+
+ 361   FORMAT (1H ,11X,11H ELEMENT # ,I2,3X,16F8.4)
+                                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3784:101: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3786:21:
+
+ 60    FORMAT (49H0ENERG. AND INTENS. AFTER RENORMALIZATION IN BEAM,1I3,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:4850:21:
+
+ 60    FORMAT (48H0EXP. ENERG. AND INTENS. AFTER SMOOTHING IN BEAM,1I3,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:4896:71: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5031:72: Warning: Obsolescent feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+kleedlib.f:5111:21:
+
+ 700   FORMAT (42H TOO LOW ENERGY FOR AVAILABLE PHASE SHIFTS)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5228:21:
+
+ 700   FORMAT (42H TOO LOW ENERGY FOR AVAILABLE PHASE SHIFTS)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5514:71: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5515:19:
+
+ 111   FORMAT (5H RFAC,I2)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5722:21:
+
+ 40    FORMAT (26H PENDRY Y FUNCTION IN BEAM,1I3,/,50(5(1F7.2,1E13.4,3X)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:63:27:
+
+             angle_rad_2d = angle_rad_2d + 2.0D+00 * pi
+                           1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:446:3:
+
+ 102   IL = LENGTH - 1
+   1
+Warning: Label 102 at (1) defined but not used
+kleedlib.f:713:9:
+
+ 1590  CA=((-1.0)**(MA1+MA3))*YINT
+         1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:757:17:
+
+          FAC1(L)=ASG*SQRT((2.0*CL+1.0)*A/(4.0*PI*B*B))
+                 1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:828:25:
+
+                      ALM=((-1.0)**L)*4.0*PI*BLMT(L1,M1,L2,M2,L3,-M3,
+                         1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:949:29:
+
+                PPP(I1,I2,I3)=A
+                             1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:1191:2:
+
+ 50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
+  1
+Warning: Label 50 at (1) defined but not used
+kleedlib.f:3357:2:
+
+ 70    FORMAT (10HEXP. BEAM ,1I3,2H (,5A4,1H))
+  1
+Warning: Label 70 at (1) defined but not used
+kleedlib.f:1325:2:
+
+ 30    FORMAT (5(25I3,/))
+  1
+Warning: Label 30 at (1) defined but not used
+kleedlib.f:2001:4:
+
+ 1010  FORMAT (7X,F10.7,2(5X,F10.7))
+    1
+Warning: Label 1010 at (1) defined but not used
+kleedlib.f:1999:4:
+
+ 1000  FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/,13X,1HX,14X,1HY,14X,
+    1
+Warning: Label 1000 at (1) defined but not used
+kleedlib.f:2178:23:
+
+             DELXISLTOT=CMPLX(0.0,0.0)
+                       1
+Warning: Possible change of value in conversion from COMPLEX(4) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:5515:3:
+
+ 111   FORMAT (5H RFAC,I2)
+   1
+Warning: Label 111 at (1) defined but not used
+kleedlib.f:5518:3:
+
+ 100   FORMAT(20A4)
+   1
+Warning: Label 100 at (1) defined but not used
+kleedlib.f:3010:3:
+
+ 401        CONTINUE
+   1
+Warning: Label 401 at (1) defined but not used
+kleedlib.f:3457:3:
+
+ 350   FORMAT (/' Line Search Requested')
+   1
+Warning: Label 350 at (1) defined but not used
+kleedlib.f:3450:3:
+
+ 260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
+   1
+Warning: Label 260 at (1) defined but not used
+kleedlib.f:3449:3:
+
+ 250   FORMAT (/' Moving Atom Identifiers; ')
+   1
+Warning: Label 250 at (1) defined but not used
+kleedlib.f:3448:3:
+
+ 240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
+   1
+Warning: Label 240 at (1) defined but not used
+kleedlib.f:3447:3:
+
+ 230   FORMAT (' ======================= ')
+   1
+Warning: Label 230 at (1) defined but not used
+kleedlib.f:3446:3:
+
+ 220   FORMAT (/' Line Search Information ')
+   1
+Warning: Label 220 at (1) defined but not used
+kleedlib.f:4311:3:
+
+ 190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+   1
+Warning: Label 190 at (1) defined but not used
+kleedlib.f:4389:3:
+
+ 190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+   1
+Warning: Label 190 at (1) defined but not used
+kleedlib.f:4653:18:
+
+               MS1=FLOAT(MNS1/2)-NS1
+                  1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+kleedlib.f:4654:18:
+
+               MS2=FLOAT(MNS2/2)-NS2
+                  1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+kleedlib.f:4704:14:
+
+         MOD12=SQRT(PROD12*PROD12)
+              1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+kleedlib.f:2858:14:
+
+         REAL P, Q1,Q2,Q3,Q4
+              1
+Warning: Unused variable ‘p’ declared at (1) [-Wunused-variable]
+kleedlib.f:2859:42:
+
+         REAL RX,RY,RXM11,RXP11,RYP12,RXM12
+                                          1
+Warning: Unused variable ‘rxm12’ declared at (1) [-Wunused-variable]
+kleedlib.f:2860:36:
+
+         REAL RXM21,RXP21,RYP22,RXM22
+                                    1
+Warning: Unused variable ‘rxm22’ declared at (1) [-Wunused-variable]
+kleedlib.f:5484:44:
+
+       SUBROUTINE WRIVTF(AT,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,IBK,
+                                            1
+Warning: Unused dummy argument ‘nee’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:5484:40:
+
+       SUBROUTINE WRIVTF(AT,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,IBK,
+                                        1
+Warning: Unused dummy argument ‘net’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:5484:64:
+
+       SUBROUTINE WRIVTF(AT,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,IBK,
+                                                                1
+Warning: Unused dummy argument ‘vopt’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:5485:12:
+
+      & WR,WB,ROS,R1,R2,RP1,RP2,RPP1,RPP2,RRZJ,RMZJ,RPE,BENAME,
+            1
+Warning: Unused dummy argument ‘wb’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3840:64:
+
+       SUBROUTINE RFACTF(AT,ETH,INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,
+                                                                1
+Warning: Unused dummy argument ‘bename’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3840:57:
+
+       SUBROUTINE RFACTF(AT,ETH,INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,
+                                                         1
+Warning: Unused dummy argument ‘nbea’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3841:18:
+
+      & XPL,YPL,NNN,AEP,AEPP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,
+                  1
+Warning: Unused dummy argument ‘nnn’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3842:25:
+
+      & WR,WB,IBP,NT0,TSEY,ATP,ATPP,TST,TSTY2,NST1,NST2,RAV,IBK,ROS,R1,
+                         1
+Warning: Unused dummy argument ‘tsey’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:5713:31:
+
+       SUBROUTINE YPEND(A,AP,APP,NBD,NB,NE,E,Y,VI,IPR,IEERG,EEAVE)
+                               1
+Warning: Unused dummy argument ‘app’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:76:45:
+
+       SUBROUTINE AVEINT(A,AP,NBD,NE1,NE2,NB,E,IEERG,EEAVE,NFL)
+                                             1
+Warning: Unused dummy argument ‘e’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:1086:17:
+
+       DIMENSION C(3)
+                 1
+Warning: Unused variable ‘c’ declared at (1) [-Wunused-variable]
+kleedlib.f:1088:19:
+
+       COMPLEX CAPPA,CI
+                   1
+Warning: Unused variable ‘cappa’ declared at (1) [-Wunused-variable]
+kleedlib.f:1082:35:
+
+       SUBROUTINE DELXGENTFSL_TEMP(E,VPIS,NLAY,
+                                   1
+Warning: Unused dummy argument ‘e’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:1082:45:
+
+       SUBROUTINE DELXGENTFSL_TEMP(E,VPIS,NLAY,
+                                             1
+Warning: Unused dummy argument ‘nlay’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:1082:40:
+
+       SUBROUTINE DELXGENTFSL_TEMP(E,VPIS,NLAY,
+                                        1
+Warning: Unused dummy argument ‘vpis’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:984:40:
+
+       SUBROUTINE DELXGENTFOL_TEMP(NLAY,E,VPIS,AK2,AK3,AK2M,AK3M,
+                                        1
+Warning: Unused dummy argument ‘e’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:984:45:
+
+       SUBROUTINE DELXGENTFOL_TEMP(NLAY,E,VPIS,AK2,AK3,AK2M,AK3M,
+                                             1
+Warning: Unused dummy argument ‘vpis’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:1615:19:
+
+       COMMON /ZMAT/IANZ(60),IZ(60,4),BL(60),ALPH(60),BET(60),NZ,IPAR
+                   1
+Warning: Named COMMON block ‘zmat’ at (1) shall be of the same size as elsewhere (3008 vs 2128 bytes)
+kleedlib.f:1608:33:
+
+       SUBROUTINE GEOMXY(IP,C,NLAY)
+                                 1
+Warning: Unused dummy argument ‘nlay’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3345:65:
+
+       SUBROUTINE READE(AE,EE,NBED,NEE,NBEA,BENAME,IPR,IEERG,NBMAX)
+                                                                 1
+Warning: Unused dummy argument ‘nbmax’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:669:30:
+
+       DOUBLEPRECISION yint,del,pref,prefa,prefb,preft,sum
+                              1
+Warning: Unused variable ‘del’ declared at (1) [-Wunused-variable]
+kleedlib.f:217:70:
+
+       SUBROUTINE BEMGEN(TST,EF,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVA,
+                                                                      1
+Warning: Unused dummy argument ‘tva’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:1953:19:
+
+      & PHSSEL,EI,EF,DE,
+                   1
+Warning: Unused dummy argument ‘ef’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:1976:20:
+
+       DIMENSION LPS2(NLAY),IELEMOLTF(NLAY)
+                    1
+Warning: Unused variable ‘lps2’ declared at (1) [-Wunused-variable]
+kleedlib.f:1956:9:
+
+      & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
+         1
+Warning: Unused dummy argument ‘se’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:1985:19:
+
+       COMPLEX XISTF,XISTFOL,XISTFS,XISTFSTOT,XISTFS1
+                   1
+Warning: Unused variable ‘xistf’ declared at (1) [-Wunused-variable]
+kleedlib.f:3177:59:
+
+       SUBROUTINE READCT(NLAY,VPOS,CPVPOS,NTAUAW,LPSAW,LMMAX,
+                                                           1
+Warning: Unused dummy argument ‘lmmax’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3436:19:
+
+       COMMON /WIV2/PERSH,NIV
+                   1
+Warning: Named COMMON block ‘wiv2’ at (1) shall be of the same size as elsewhere (8 vs 248 bytes)
+kleedlib.f:3430:19:
+
+      & NSTEP,ANSTEP,NLAY,IPR,ALPHA,BETA,GAMMA,ITMAX,
+                   1
+Warning: Unused dummy argument ‘anstep’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3429:62:
+
+       SUBROUTINE READPL(NT0,NSET,PQFEX,NINSET,NDIM,DISP,ICOORD,
+                                                              1
+Warning: Unused dummy argument ‘icoord’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3430:12:
+
+      & NSTEP,ANSTEP,NLAY,IPR,ALPHA,BETA,GAMMA,ITMAX,
+            1
+Warning: Unused dummy argument ‘nstep’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3541:49:
+
+      & TST,TSTS,THETA,FI,LMMAX,NPSI,ES,PHSS,PHSS2,L1,IPR,NEL)
+                                                 1
+Warning: Unused dummy argument ‘phss2’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3541:15:
+
+      & TST,TSTS,THETA,FI,LMMAX,NPSI,ES,PHSS,PHSS2,L1,IPR,NEL)
+               1
+Warning: Unused dummy argument ‘tsts’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:4295:38:
+
+       SUBROUTINE RFIN(IBP,NT0,WB,WR,NT,IPR)
+                                      1
+Warning: Unused dummy argument ‘nt’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:4615:53:
+
+         DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
+                                                     1
+Warning: Unused variable ‘asa’ declared at (1) [-Wunused-variable]
+kleedlib.f:4615:38:
+
+         DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
+                                      1
+Warning: Unused variable ‘rar1’ declared at (1) [-Wunused-variable]
+kleedlib.f:4615:46:
+
+         DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
+                                              1
+Warning: Unused variable ‘rar2’ declared at (1) [-Wunused-variable]
+kleedlib.f:5102:52:
+
+       SUBROUTINE TSCATF(IEL,L1,ES,PHSS,PHSS2,NPSI,IT,EB,V,PPP,
+                                                    1
+Warning: Unused dummy argument ‘it’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:5216:56:
+
+       SUBROUTINE TSCATF_TOY(IEL,L1,ES,PHSS,PHSS2,NPSI,IT,EB,V,PPP,
+                                                        1
+Warning: Unused dummy argument ‘it’ at (1) [-Wunused-dummy-argument]
+kleedlib.f:3684:0:
+
+            I2=1+I0
+ ^
+Warning: ‘i0’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -o kleed.exe kleed.o kleedlib.o
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c runtleed.f -o runtleed.o
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c evaltleed.f -o evaltleed.o
+evaltleed.f:87:62:
+
+       SUBROUTINE evaltleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+                                                              1
+Warning: Unused dummy argument ‘maxb’ at (1) [-Wunused-dummy-argument]
+evaltleed.f:87:57:
+
+       SUBROUTINE evaltleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+                                                         1
+Warning: Unused dummy argument ‘minb’ at (1) [-Wunused-dummy-argument]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c tleed1sub.f -o tleed1sub.o
+tleed1sub.f:327:3:
+
+ 113   FORMAT (' CPU TIME = ',F9.2,' SECONDS ')
+   1
+Warning: Label 113 at (1) defined but not used
+tleed1sub.f:10:39:
+
+       subroutine tleed1(problem_dir,dir,rank,nerror_report)
+                                       1
+Warning: Unused dummy argument ‘dir’ at (1) [-Wunused-dummy-argument]
+tleed1sub.f:191:52:
+
+       COMPLEX VL(JPNL,2),FLMS(JPNL,JPKLM),FLM(JPKLM),QCUT(IPCUT)
+                                                    1
+Warning: Unused variable ‘flm’ declared at (1) [-Wunused-variable]
+tleed1sub.f:10:44:
+
+       subroutine tleed1(problem_dir,dir,rank,nerror_report)
+                                            1
+Warning: Unused dummy argument ‘rank’ at (1) [-Wunused-dummy-argument]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c tleed2sub.f -o tleed2sub.o
+tleed2sub.f:7:40:
+
+       subroutine tleed2(problem_dir, dir,rank,rfactor)
+                                        1
+Warning: Unused dummy argument ‘dir’ at (1) [-Wunused-dummy-argument]
+tleed2sub.f:7:45:
+
+       subroutine tleed2(problem_dir, dir,rank,rfactor)
+                                             1
+Warning: Unused dummy argument ‘rank’ at (1) [-Wunused-dummy-argument]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -o runtleed.exe runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c runkleed.f -o runkleed.o
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c evalkleed.f -o evalkleed.o
+evalkleed.f:135:72: Warning: Obsolescent feature: DATA statement at (1) after the first executable statement
+evalkleed.f:556:3:
+
+ 344        continue
+   1
+Warning: Label 344 at (1) defined but not used
+evalkleed.f:430:25:
+
+         REAL COORSUB(2,3),ASB(3),EIEFDE(3)
+                         1
+Warning: Unused variable ‘coorsub’ declared at (1) [-Wunused-variable]
+evalkleed.f:87:62:
+
+       SUBROUTINE evalkleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+                                                              1
+Warning: Unused dummy argument ‘maxb’ at (1) [-Wunused-dummy-argument]
+evalkleed.f:87:57:
+
+       SUBROUTINE evalkleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+                                                         1
+Warning: Unused dummy argument ‘minb’ at (1) [-Wunused-dummy-argument]
+evalkleed.f:96:42:
+
+       DOUBLE PRECISION PARM_out(NMAX,NDIM)
+                                          1
+Warning: Unused variable ‘parm_out’ declared at (1) [-Wunused-variable]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -c kleedsub.f -o kleedsub.o
+kleedsub.f:6:39:
+
+        subroutine kleed(problem_dir,dir,rank,rfactor)
+                                       1
+Warning: Unused dummy argument ‘dir’ at (1) [-Wunused-dummy-argument]
+kleedsub.f:12:56:
+
+       character(len=100) kleed4i, kleed5i, tleedo,gleedo,searchs,prdird,
+                                                        1
+Warning: Unused variable ‘gleedo’ declared at (1) [-Wunused-variable]
+kleedsub.f:124:59:
+
+       DIMENSION FPOS(60,3),VPOS(INST1,INLAY,3),LPS(60),LPSS(60)
+                                                           1
+Warning: Unused variable ‘lpss’ declared at (1) [-Wunused-variable]
+kleedsub.f:116:26:
+
+       DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
+                          1
+Warning: Unused variable ‘nb’ declared at (1) [-Wunused-variable]
+kleedsub.f:117:18:
+
+       DIMENSION PQ(2,NROM),NTAUAW(INST1)
+                  1
+Warning: Unused variable ‘pq’ declared at (1) [-Wunused-variable]
+kleedsub.f:116:59:
+
+       DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
+                                                           1
+Warning: Unused variable ‘pqf’ declared at (1) [-Wunused-variable]
+kleedsub.f:12:71:
+
+       character(len=100) kleed4i, kleed5i, tleedo,gleedo,searchs,prdird,
+                                                                       1
+Warning: Unused variable ‘prdird’ declared at (1) [-Wunused-variable]
+kleedsub.f:6:44:
+
+        subroutine kleed(problem_dir,dir,rank,rfactor)
+                                            1
+Warning: Unused dummy argument ‘rank’ at (1) [-Wunused-dummy-argument]
+kleedsub.f:13:14:
+
+      &restartd
+              1
+Warning: Unused variable ‘restartd’ declared at (1) [-Wunused-variable]
+kleedsub.f:15:29:
+
+       character(len=100) xpin
+                             1
+Warning: Unused variable ‘xpin’ declared at (1) [-Wunused-variable]
+gfortran  -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -o runkleed.exe runkleed.o evalkleed.o kleedsub.o kleedlib.o
