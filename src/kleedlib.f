@@ -1,5 +1,5 @@
 
-	SUBROUTINE ANGLE_2D ( p1, p2, p3, angle_rad_2d )
+        SUBROUTINE ANGLE_2D ( p1, p2, p3, angle_rad_2d )
 
 c*******************************************************************************
 c
@@ -37,35 +37,35 @@ c    length, then ANGLE_RAD_2D is set to 0.
 c
 c  implicit none
 
-	PARAMETER (PI=3.141592653589793D+00)
+        PARAMETER (PI=3.141592653589793D+00)
 
-	REAL*4	 P,P1,P2,P3
-	DIMENSION P(2),P1(2),P2(2),P3(2)  
-
-
+        REAL      P,P1,P2,P3
+        DIMENSION P(2),P1(2),P2(2),P3(2)  
 
 
-	p(1) = ( p3(1) - p2(1) ) * ( p1(1) - p2(1) ) + 
+
+
+        p(1) = ( p3(1) - p2(1) ) * ( p1(1) - p2(1) ) + 
      &  ( p3(2) - p2(2) ) * ( p1(2) - p2(2) )
 
 
-	p(2) = ( p3(1) - p2(1) ) * ( p1(2) - p2(2) ) - 
+        p(2) = ( p3(1) - p2(1) ) * ( p1(2) - p2(2) ) - 
      &         ( p3(2) - p2(2) ) * ( p1(1) - p2(1) )
 
 
-	IF ((p(1).EQ.0).AND.(P(2).EQ.0)) THEN
-	   angle_rad_2d = 0.0D+00
- 	ELSE
-	angle_rad_2d = atan2 ( p(2), p(1) )
-	ENDIF
+        IF ((p(1).EQ.0).AND.(P(2).EQ.0)) THEN
+           angle_rad_2d = 0.0D+00
+         ELSE
+        angle_rad_2d = atan2 ( p(2), p(1) )
+        ENDIF
 
-	IF (ANGLE_RAD_2D.LT.0.0D+00) THEN
-	    angle_rad_2d = angle_rad_2d + 2.0D+00 * pi
-	ELSE
-	ENDIF
+        IF (ANGLE_RAD_2D.LT.0.0D+00) THEN
+            angle_rad_2d = angle_rad_2d + 2.0D+00 * pi
+        ELSE
+        ENDIF
 
-	return
-	end
+        return
+        end
 C =========================================================================
 C
 C Subroutine AVEINT computes the average intensity of the peaks in each
@@ -172,9 +172,9 @@ C
       IF (IPR.GT.0) THEN
          WRITE (1,705) NT,(NB(J),J=1,KNBS)
          WRITE (1,706) ((PQF(I,K),I=1,2),K=1,NT)
-	do 24 k=1,nt
+        do 24 k=1,nt
          WRITE (25,*) E,K,PQF(1,K),PQF(2,K)
-24	continue
+24        continue
       ENDIF
       RETURN
       END
@@ -252,7 +252,7 @@ C  ALMR IS MATRIX RELATING SUBSTRATE TO OVERLAYER LATTICES
 C
 
       DET=LATMAT(1,1)*LATMAT(2,2)-LATMAT(1,2)*LATMAT(2,1)
-cjcm      write(*,*) 'BEMGEN: DET = ', DET	
+cjcm      write(*,*) 'BEMGEN: DET = ', DET        
       IF (ABS(DET).GE.1.E-5) THEN
          ALMR(1,1)=FLOAT(LATMAT(2,2))/DET
          ALMR(2,2)=FLOAT(LATMAT(1,1))/DET
@@ -306,12 +306,12 @@ C
                SPQF(2,KNT)=ALMR(1,2)*II1+ALMR(2,2)*II2
             ENDIF
 280      CONTINUE
- 290	 IF (NI2.LE.NIT) GOTO 190
+ 290         IF (NI2.LE.NIT) GOTO 190
          IF (NOP.EQ.1) GOTO 180
 C
 C  ORDER BEAMS BY INCREASING ABS(G)
 C
-cjcm	 write(*,*) 'order beams by abs(g)'
+cjcm         write(*,*) 'order beams by abs(g)'
          KNT1=KNT-1
          DO 320 I=1,KNT1
             AM=G(1,I)*G(1,I)+G(2,I)*G(2,I)
@@ -341,8 +341,8 @@ cjcm	 write(*,*) 'order beams by abs(g)'
 C
 C  ORDER BEAMS BY BEAM SET
 C
-cjcm	 write(*,*) 'BEMGEN: Order beams by beam set'
-	 
+cjcm         write(*,*) 'BEMGEN: Order beams by beam set'
+         
          TWPI=2.*3.1415926535
          I=1
          KNBS=1
@@ -403,16 +403,16 @@ C
 20          CONTINUE
 10       CONTINUE
          RETURN
-	 
- 260	 CONTINUE
-cjcm	 write(*,*) 'BEMGEN: at 260'
-	 WRITE (1,270)
+         
+ 260         CONTINUE
+cjcm         write(*,*) 'BEMGEN: at 260'
+         WRITE (1,270)
       ELSE
          WRITE (1,165)
       ENDIF
 cjcm      write(*,*) 'BEMGEN: Should not be here'
-	STOP
-	END
+        STOP
+        END
 
 C=====================================================================
 C
@@ -855,7 +855,7 @@ C
       SUBROUTINE COMNEI(EE,NBED,NEE,ET,NBTD,NET,IBE,IBT,V0,EINCR,NE1,
      & NE2,NT1,NT2,EET,IEERG)
 C
-	INTEGER IBT
+        INTEGER IBT
       DIMENSION EE(NBED,IEERG),NEE(NBED),ET(NBTD,IEERG),NET(NBTD)
 C
       NE=NEE(IBE)
@@ -964,19 +964,19 @@ C E,VPIS          =  Current (complex) energy
 C NLAY            =  Number of composite layer (CL) subplanes that are
 C                   displaced from reference position
 C AK2,AK3,AAJ     = Parallel and perpendicular components of momentum for
-C		    incident direction
+C                    incident direction
 C AK2M,AK3M,AAK   = Parallel and perpendicular components of momentum for
 C                   exit beams 
-C ILEMOLTF	  = Element type of atoms in NLAY composite layers
-C WPOSTF	  = Atomic positions of all subplanes in composite layers
-C TVA 	 	  = Area of substrate unit cell
+C ILEMOLTF          = Element type of atoms in NLAY composite layers
+C WPOSTF          = Atomic positions of all subplanes in composite layers
+C TVA                    = Area of substrate unit cell
 C ADISP            =  displacements of overlayer atoms from reference positions 
-C F		  = Atomic form-factors
+C F                  = Atomic form-factors
 C
 C Output Parameters:
 C ==================
 
-C XISTF 	  = Plane wave amplitude of exit beam
+C XISTF           = Plane wave amplitude of exit beam
 
 C Author: Garcia-Lekue
 C =========================================================================
@@ -995,7 +995,7 @@ C
       COMPLEX F(3)
 
       COMMON /VINY/VMIN,VMAX,DV,EINCR,THETA(1),FI(1)
-cjcm	write(*,*) 'entering delxgentfol'
+cjcm        write(*,*) 'entering delxgentfol'
 
 C
 C Set constants
@@ -1005,9 +1005,9 @@ C
       CI=CMPLX(0.0,1.0)
 
 C Calculate difference between incident and outgoing beams
-	CDELTAKZ=AAK-AAJ
-	DELTAK2=AK2-AK2M
-	DELTAK3=AK3-AK3M
+        CDELTAKZ=AAK-AAJ
+        DELTAK2=AK2-AK2M
+        DELTAK3=AK3-AK3M
 C
 C Initialize plane wave amplitude
          XISTF=CMPLX(0.0,0.0)
@@ -1017,39 +1017,39 @@ C
             IELEM=1
          DO 100 IJK=1,NLAY
 
-cjcm	    write(*,*) 'inside do loop, ijk = ', ijk, ' nlay = ', nlay
+cjcm            write(*,*) 'inside do loop, ijk = ', ijk, ' nlay = ', nlay
 
 C Assign element type to each sublayer 
-	    IEL=IELEMOLTF(IELEM)
-cjcm	    write(*,*) 'iel = ', iel
+            IEL=IELEMOLTF(IELEM)
+cjcm            write(*,*) 'iel = ', iel
 
 C WPOSTF gives the reference structure, i.e., the input atomic
 C positions in unit cell 
 C ADISP gives the displacements of overlayer atoms from
 C initial positions
 
-cjcm	write(*,*) '120 do loop'
-	DO 120 K=1,3
-	   C(K)=ADISP(IJK,K)/0.529
-120	CONTINUE
+cjcm        write(*,*) '120 do loop'
+        DO 120 K=1,3
+           C(K)=ADISP(IJK,K)/0.529
+120        CONTINUE
 
-	POS(1)=WPOSTF(IJK,1) + C(1) 
-	POS(2)=WPOSTF(IJK,2) + C(2) 
-	POS(3)=WPOSTF(IJK,3) + C(3) 
+        POS(1)=WPOSTF(IJK,1) + C(1) 
+        POS(2)=WPOSTF(IJK,2) + C(2) 
+        POS(3)=WPOSTF(IJK,3) + C(3) 
 
-cjcm	write(*,*) 'compute cdeltakpos'
-	CDELTAKPOS=(CDELTAKZ*POS(1))+(DELTAK2*POS(2))+
+cjcm        write(*,*) 'compute cdeltakpos'
+        CDELTAKPOS=(CDELTAKZ*POS(1))+(DELTAK2*POS(2))+
      1                  (DELTAK3*POS(3))
 
 
-cjcm	write(*,*) 'compute atoyf'
-	ATOYF=F(IEL)*CEXP(CI*CDELTAKPOS)
-	ATOYF=ATOYF*(-CI/((AAJ)*TVA*FLOAT(NL)))
+cjcm        write(*,*) 'compute atoyf'
+        ATOYF=F(IEL)*CEXP(CI*CDELTAKPOS)
+        ATOYF=ATOYF*(-CI/((AAJ)*TVA*FLOAT(NL)))
 
         XISTF=XISTF+ATOYF
 
-	 IELEM=IELEM+1
- 100	CONTINUE
+         IELEM=IELEM+1
+ 100        CONTINUE
 
       RETURN
       END
@@ -1103,12 +1103,12 @@ C
 
 
 C Calculate difference between incident and outgoing beams
-	CDELTAKZ=AAK-AAJ
-	DELTAK2=AK2-AK2M
-	DELTAK3=AK3-AK3M
+        CDELTAKZ=AAK-AAJ
+        DELTAK2=AK2-AK2M
+        DELTAK3=AK3-AK3M
 C Initialize plane wave amplitude
          XISTF=CMPLX(0.0,0.0)
-	 ATOYF=CMPLX(0.0,0.0)
+         ATOYF=CMPLX(0.0,0.0)
 C
 C Begin loop over planes of substrate
 C
@@ -1116,14 +1116,14 @@ C
 C
 C Input atomic positions in unit cell (one atom per subplane)
 C
-	POS(1)=POSTF(IJK,1)
-	POS(2)=POSTF(IJK,2)
-	POS(3)=POSTF(IJK,3)
+        POS(1)=POSTF(IJK,1)
+        POS(2)=POSTF(IJK,2)
+        POS(3)=POSTF(IJK,3)
 
-	CDELTAKPOS=((CDELTAKZ*POS(1))+(DELTAK2*POS(2))+
+        CDELTAKPOS=((CDELTAKZ*POS(1))+(DELTAK2*POS(2))+
      1                  (DELTAK3*POS(3)))
-	ATOYF=FS*CEXP(CI*CDELTAKPOS)
-	ATOYF=ATOYF*(-CI/((AAJ)*TVA*FLOAT(NL)))
+        ATOYF=FS*CEXP(CI*CDELTAKPOS)
+        ATOYF=ATOYF*(-CI/((AAJ)*TVA*FLOAT(NL)))
 
         XISTF=XISTF+ATOYF
 100      CONTINUE
@@ -1386,7 +1386,7 @@ C
             NEE(NBE)=IEMAX
 C
 C  KEEP NAME OF FIRST BEAM ENCOUNTERED IN SET OF BEAMS TO BE AVERAGED
-C	
+C        
             DO 85 I=1,5
                BENAME(I,NBE)=BENAME(I,IB)
 85          CONTINUE
@@ -1910,27 +1910,27 @@ C
 C Subroutine INTENTF generates the plane wave amplitudes and the 
 C intensities of exit beams in the KINEMATIC LIMIT
 C Theoretical IV spectra are printed out in ivth# files
-C Experimental IV spectra are printed out in ivexp# files 			
+C Experimental IV spectra are printed out in ivexp# files                         
 C
 C Input parameters: 
 C =================
 C
 C NLAY           =  Number of composite layer (CL) subplanes that are
 C                   displaced from reference position 
-C DISP	 	 =  Displacement of CL atoms from their reference position
+C DISP                  =  Displacement of CL atoms from their reference position
 C PSQ, PQFEX     =  Labels of exit beams in reciprocal space
-C NTAU		 =  Total number of chemical elements  
-C NT0 		 =  Number of exit beams
+C NTAU                 =  Total number of chemical elements  
+C NT0                  =  Number of exit beams
 C PHSSEL        =   Complex phase shift
-C EI,EF,DE	 =  Initial energy point, final energy point and energy   
+C EI,EF,DE         =  Initial energy point, final energy point and energy   
 C                   step within the calculation
 C NL1, NL2       =  Superlattice characterization codes
 C ILEMOLTF       = Element type of atoms in NLAY composite layers
-C WPOSTF  	 =  Atomic positions of all subplanes in composite layers
-C TVA		 =  Area of substrate unit cell
+C WPOSTF           =  Atomic positions of all subplanes in composite layers
+C TVA                 =  Area of substrate unit cell
 C SPOSTF1        =  Atomic positions of atoms on first substrate layer 
-C ASA		 =  Substrate interlayer vectors
-C INVECT	 =  Number of substrate interlayer vectors
+C ASA                 =  Substrate interlayer vectors
+C INVECT         =  Number of substrate interlayer vectors
 C ITEMP           = Parameter controlling temperature effect
 C 
 C Output parameters:
@@ -1960,7 +1960,9 @@ C
       DIMENSION AT(NT0,NERG)  
       DIMENSION AT2(NT0,IEERG)  
       DIMENSION ETH(NT0,IEERG)
-      DIMENSION ASA(10,3)
+	DIMENSION ASA(10,3)
+cjcm need to add dimension for missing parameters to rfactf
+	DIMENSION AP(INBED,IEERG), APP(INBED,IEERG), YE(INBED,IEERG)
       DIMENSION AE(INBED,IEERG),EE(INBED,IEERG),NEE(INBED),YPL(IEERG)
       DIMENSION NBEA(INBED),BENAME(5,INBED),XPL(IEERG),NNN(IEERG)
       DIMENSION TSE(INBED),TSE2(INBED),TSEP(INBED),TSEP2(INBED)
@@ -2010,15 +2012,15 @@ C
 510   FORMAT (3F12.8,I4)
 
 
-cjcm	write(*,*) 'entering  vintentf'
+cjcm        write(*,*) 'entering  vintentf'
 C
 C Set constants
 C
         PI=4.0*ATAN(1.0)
         CI=CMPLX(0.0,1.0)
 
-	ANORM1=1.0E-6
-c	ANORM1=1.0E-16
+        ANORM1=1.0E-6
+c        ANORM1=1.0E-16
 
 
 C
@@ -2062,7 +2064,7 @@ C
         NDI=1
         NSH=NT0
         DO 110 J=1,NT0
-	   XIST(I,J)=CMPLX(0.0,0.0)
+           XIST(I,J)=CMPLX(0.0,0.0)
            IF(J.GT.NSH) THEN
               NDI=NDI+1
               NSH=NSH+NT0
@@ -2077,7 +2079,7 @@ C
 C Set parallel and perpendicular componenets of momentum for each 
 C exit beam
 C
-	    ETH(J,I)=EEV
+            ETH(J,I)=EEV
 
             AK2M=AK2+PSQ(1,J)
             AK3M=AK3+PSQ(2,J)
@@ -2086,7 +2088,7 @@ C Compute scaling needed to correct for shift in surface barrier
 C (This is for exit direction)
 C
            AAJ=CMPLX(2.0*(E)-AK2M*AK2M-AK3M*AK3M,-2.0*VPIS+0.000001)
-	   AAJ=-CSQRT(AAJ)
+           AAJ=-CSQRT(AAJ)
 C
 C Does this beam emerge?
 C
@@ -2098,9 +2100,9 @@ cTF            AAA=2.0*(E)-AK2M*AK2M-AK3M*AK3M
 C Phase shift for each energy value
 C
         DO 33 II=1,NTAU
-	   DO 34 LL=1,L1
-		 PHSS(II,LL)=PHSSEL(I,II,LL)
-34	CONTINUE
+           DO 34 LL=1,L1
+                 PHSS(II,LL)=PHSSEL(I,II,LL)
+34        CONTINUE
 33      CONTINUE
 
 C Calculate modulus of  wave vector of incident beam
@@ -2126,7 +2128,7 @@ C Calculate Legendre Polynomials
 
 C Calculate zero order form factor for all atom types
         DO 25 IEL=1,NTAU
-            F(IEL)=DCMPLX(0.0,0.0)
+            F(IEL)=CMPLX(0.0,0.0)
         IF (ITEMP.EQ.0) THEN
            F(IEL)=(-2.0*PI/CABS(CAPPA))*CSIN(PHSS(IEL,1))*
      1          CEXP(CI*PHSS(IEL,1))
@@ -2140,8 +2142,8 @@ C Calculate zero order form factor for all atom types
         ENDIF
 25      CONTINUE
 C The substrate form factor is given by IEL=NTAU 
-	FS=DCMPLX(0.0,0.0)
-	FS=F(NTAU)
+        FS=CMPLX(0.0,0.0)
+        FS=F(NTAU)
        
 C
 C Work out scaling needed to account for shift in surface barrier
@@ -2157,67 +2159,67 @@ C
 c OVERLAYER (OL)
 c --------------
 c Initialize OL contribution to diffracted amplitude
-	      XISTFOL=CMPLX(0.0,0.0)
+              XISTFOL=CMPLX(0.0,0.0)
 
-cjcm	      write(*,*) 'before delxgentfol'
+cjcm              write(*,*) 'before delxgentfol'
 
              CALL DELXGENTFOL_TEMP(NLAY,E,VPIS,
-     &		AK2,AK3,AK2M,AK3M,
-     &	       NL1,NL2,IELEMOLTF,AAK,AAJ,WPOSTF,TVA,ADISP,
-     &	       XISTFOL,F)
-cjcm	      write(*,*) 'after delxgentfol'
+     &                AK2,AK3,AK2M,AK3M,
+     &               NL1,NL2,IELEMOLTF,AAK,AAJ,WPOSTF,TVA,ADISP,
+     &               XISTFOL,F)
+cjcm              write(*,*) 'after delxgentfol'
 
 
 c SUBSTRATE (SL)
 c --------------
 
 C Initialize SL contribution to diffracted amplitude
-	    XISTFSTOT=CMPLX(0.0,0.0)
-	    DELXISLTOT=CMPLX(0.0,0.0)
+            XISTFSTOT=CMPLX(0.0,0.0)
+            DELXISLTOT=CMPLX(0.0,0.0)
 
 C Include only integer beams
-	AMOD1=AMOD(2*PQFEX(1,J),2.0)	
-	AMOD2=AMOD(2*PQFEX(2,J),2.0)
-	IF ((AMOD1.NE.0.).OR.(AMOD2.NE.0.)) THEN 	
-	GOTO 340
-	ELSE
+        AMOD1=AMOD(2*PQFEX(1,J),2.0)        
+        AMOD2=AMOD(2*PQFEX(2,J),2.0)
+        IF ((AMOD1.NE.0.).OR.(AMOD2.NE.0.)) THEN         
+        GOTO 340
+        ELSE
 
 c Start loop over substrate layers
 c The 1st SL is always included
- 	    ANORM2=0.0
-	    XISTFS1=CMPLX(0.0,0.0)
+             ANORM2=0.0
+            XISTFS1=CMPLX(0.0,0.0)
 c In each SL there are NL substrate atoms, and their positions
 c are obtained by translating the substrate atoms in the 1st layer
 c (SPOSTF1) along +X axis, using the interlayer vector ASA
-	     NL=NL1*NL2
-	IS2=1
-	DO 730	INL=1,NL
-	 DO 731 IJ=1,3
-	    SPOSTF(IS2,INL,IJ)=SPOSTF1(INL,IJ)
-731	CONTINUE
-730	CONTINUE
+             NL=NL1*NL2
+        IS2=1
+        DO 730        INL=1,NL
+         DO 731 IJ=1,3
+            SPOSTF(IS2,INL,IJ)=SPOSTF1(INL,IJ)
+731        CONTINUE
+730        CONTINUE
 
-	DO 756 INL=1,NL
+        DO 756 INL=1,NL
                 DO 757 IJ=1,3
                   POSTF(INL,IJ)=SPOSTF(IS2,INL,IJ)
 757      CONTINUE
 756      CONTINUE
 
 
-cjcm	write(*,*) 'before delxgentfsl'
+cjcm        write(*,*) 'before delxgentfsl'
         CALL DELXGENTFSL_TEMP(E,VPIS,NLAY,AK2,AK3,AK2M,AK3M,
      &      NL1,NL2,AAK,AAJ,TVA,POSTF,XISTFS1,FS)
 
-	 XISTFSTOT=XISTFS1
+         XISTFSTOT=XISTFS1
 
 c Now start summing up subsequent substrate layers
 
-380	CONTINUE
+380        CONTINUE
 
-	IS2=IS2+1
+        IS2=IS2+1
          XISTFS=CMPLX(0.0,0.0) 
 c Single interlayer vector
-	IF (INVECT.EQ.1) THEN
+        IF (INVECT.EQ.1) THEN
          DO 745 INL=1,NL
             DO 748 IJ=1,3
              SPOSTF(IS2,INL,IJ)=ASA(1,IJ)+SPOSTF(IS2-1,INL,IJ)
@@ -2225,45 +2227,45 @@ c Single interlayer vector
 745     CONTINUE
 c Two interlayer vectors
          ELSEIF (INVECT.EQ.2) THEN
-	    IF(MOD(IS2,2).EQ.0.) THEN
+            IF(MOD(IS2,2).EQ.0.) THEN
                  DO 744 INL=1,NL
                   DO 743 IJ=1,3
-              SPOSTF(IS2,INL,IJ)=SPOSTF(IS2-1,INL,IJ)+ASA(1,IJ)	
+              SPOSTF(IS2,INL,IJ)=SPOSTF(IS2-1,INL,IJ)+ASA(1,IJ)        
 743     CONTINUE
 744     CONTINUE
-	    ELSE
+            ELSE
                  DO 742 INL=1,NL
                   DO 741 IJ=1,3
-               SPOSTF(IS2,INL,IJ)=SPOSTF(IS2-1,INL,IJ)+ASA(2,IJ)	
+               SPOSTF(IS2,INL,IJ)=SPOSTF(IS2-1,INL,IJ)+ASA(2,IJ)        
 741              CONTINUE
 742              CONTINUE
             ENDIF
-	 ENDIF  	       
+         ENDIF                 
  
-	
-	 DO 56 INL=1,NL
-	        DO 57 IJ=1,3
-	          POSTF(INL,IJ)=SPOSTF(IS2,INL,IJ)
-57	CONTINUE
-56	CONTINUE
+        
+         DO 56 INL=1,NL
+                DO 57 IJ=1,3
+                  POSTF(INL,IJ)=SPOSTF(IS2,INL,IJ)
+57        CONTINUE
+56        CONTINUE
 
          CALL DELXGENTFSL_TEMP(E,VPIS,NLAY,AK2,AK3,AK2M,AK3M,
      &        NL1,NL2,AAK,AAJ,TVA,POSTF,XISTFS,FS)
 
-	XISTFSTOT=XISTFSTOT+XISTFS
+        XISTFSTOT=XISTFSTOT+XISTFS
 
-	ANORM2=CABS(XISTFS)*CABS(XISTFS)
-	ANORM1=ANORM1+ANORM2
+        ANORM2=CABS(XISTFS)*CABS(XISTFS)
+        ANORM1=ANORM1+ANORM2
 c Has convergence with respect to the number of SL-s been achieved?
-	IF (ANORM2/ANORM1-0.000001.LE.0) GOTO 340 
-c	IF (ANORM2/ANORM1-0.0000000000001.LE.0) GOTO 340 
+        IF (ANORM2/ANORM1-0.000001.LE.0) GOTO 340 
+c        IF (ANORM2/ANORM1-0.0000000000001.LE.0) GOTO 340 
 c If not, sum the contribution from next 'deeper' substrate layer
-	GOTO 380
+        GOTO 380
 
-	ENDIF
+        ENDIF
 
 c Convergence with respect to SL number achieved 
-340	CONTINUE
+340        CONTINUE
 C Set up the new plane wave amplitude XIST as the sum of the 
 C plane wave amplitudes coming from overlayer atoms (XISTOL) and the
 C plane wave amplitudes coming from substrate atoms (XISTFSTOT) 
@@ -2287,16 +2289,16 @@ C
 c Generate the R-factor for the current structure.
 
         DO 252 J=1,NT0
- 	DO 251 I=1,IEERG
-	IF (I.LE.NERG) THEN
-	AT2(J,I)=AT(J,I)
-	ELSE
-	AT2(J,I)=0.
-	ENDIF
+         DO 251 I=1,IEERG
+        IF (I.LE.NERG) THEN
+        AT2(J,I)=AT(J,I)
+        ELSE
+        AT2(J,I)=0.
+        ENDIF
 251     CONTINUE
 252     CONTINUE
 
-cjcm	write(*,*) 'before rfactf'
+cjcm        write(*,*) 'before rfactf'
       CALL RFACTF(AT2,ETH,INBED,IEERG,AE,EE,NEE,NBEA,BENAME,
      & IPR,XPL,
      & YPL,NNN,AP,APP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,
@@ -2314,10 +2316,10 @@ c      DO 1111 I=1,NLAY
 c         WRITE (2,1010) (WPOSTF(I,J)*0.529,J=1,3)
 c1111  CONTINUE
 
-	WRITE (2,500)
+        WRITE (2,500)
       WRITE (2,501)
-cjcm	write(*,*) 'before wrivtf'
-	CALL WRIVTF(AT2,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,
+cjcm        write(*,*) 'before wrivtf'
+        CALL WRIVTF(AT2,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,
      & IBK,WR,WB,
      & ROS,R1,R2,RP1,RP2,RPP1,RPP2,RRZJ,RMZJ,RPE,BENAME,
      & NBE,NST1,NST2)
@@ -2338,8 +2340,8 @@ c      VOPT=VOPT+DVOPT+VV*27.21
 c     WRITE (*,*) 'optimum R-factor', FVAL
 
       WRITE (2,514) FVAL
-	vintentf = fval
-c	write(*,*) 'vintentf',vintentf
+        vintentf = fval
+c        write(*,*) 'vintentf',vintentf
 
       RETURN
       END
@@ -2477,8 +2479,8 @@ C
          P(2) = X
          DO 100 L = 1, LMAX-1
             P(L+2) = ((2.0*L+1)*X*P(L+1)-L*P(L))/(L+1)
-100	 CONTINUE
-	RETURN
+100         CONTINUE
+        RETURN
        END
 
 
@@ -2827,8 +2829,8 @@ C
       END
 
 c AGL On the boundaries, we need to consider only non-equivalent atoms
-	SUBROUTINE QUAD_2D_BOUND (Q1,Q2,Q3,Q4,PB,NBOUND,
-     &			PBBNE,NBNE)
+        SUBROUTINE QUAD_2D_BOUND (Q1,Q2,Q3,Q4,PB,NBOUND,
+     &                        PBBNE,NBNE)
 c*******************************************************************************
 c
 cQUAD_CONTAINS_POINT_2D finds if a point is inside a convex quadrilateral in 2D.
@@ -2849,19 +2851,19 @@ c    Input, real ( kind = 8 ) P(2), the point to be checked.
 c
 c    Output, logical INSIDE, is TRUE if the point is in the quadrilateral.
  
-c	implicit none
+c        implicit none
 
 
-	REAL*4 DPB1,DPB2
-	REAL*4 P, Q1,Q2,Q3,Q4
-	REAL*4 RX,RY,RXM11,RXP11,RYP12,RXM12
-	REAL*4 RXM21,RXP21,RYP22,RXM22
-	DIMENSION P(2), Q1(2),Q2(2),Q3(2),Q4(2)
-	DIMENSION PB(200,2),AB1(2),AB2(2),PBC(4,2)
-	DIMENSION PBB(200,2)
-	DIMENSION PBBNE(200,2)
+        REAL DPB1,DPB2
+        REAL P, Q1,Q2,Q3,Q4
+        REAL RX,RY,RXM11,RXP11,RYP12,RXM12
+        REAL RXM21,RXP21,RYP22,RXM22
+        DIMENSION P(2), Q1(2),Q2(2),Q3(2),Q4(2)
+        DIMENSION PB(200,2),AB1(2),AB2(2),PBC(4,2)
+        DIMENSION PBB(200,2)
+        DIMENSION PBBNE(200,2)
 
-	
+        
 c
 c  This will only handle convex quadrilaterals.
 c
@@ -2876,66 +2878,66 @@ c
 
 
 c AGL The vectors defining the lattice are
-	AB1(1)=Q2(1)-Q1(1)
-	AB1(2)=Q2(2)-Q1(2)
-	AB2(1)=Q4(1)-Q1(1)
-	AB2(2)=Q4(2)-Q1(2)
+        AB1(1)=Q2(1)-Q1(1)
+        AB1(2)=Q2(2)-Q1(2)
+        AB2(1)=Q4(1)-Q1(1)
+        AB2(2)=Q4(2)-Q1(2)
 
 
 
 c AGL On the boundaries, we need to consider only non-equivalent atoms
 
-	IBC=1
-	IBB=1
-	DO 101 IB1=1,NBOUND
+        IBC=1
+        IBB=1
+        DO 101 IB1=1,NBOUND
 c AGL First, get corner points
 c ----------------------------
-	   PBQ11=PB(IB1,1)-Q1(1)
-	   PBQ12=PB(IB1,2)-Q1(2)
-	   PBQ21=PB(IB1,1)-Q2(1)
-	   PBQ22=PB(IB1,2)-Q2(2)
-	   PBQ31=PB(IB1,1)-Q3(1)
-	   PBQ32=PB(IB1,2)-Q3(2)
-	   PBQ41=PB(IB1,1)-Q4(1)
-	   PBQ42=PB(IB1,2)-Q4(2)
+           PBQ11=PB(IB1,1)-Q1(1)
+           PBQ12=PB(IB1,2)-Q1(2)
+           PBQ21=PB(IB1,1)-Q2(1)
+           PBQ22=PB(IB1,2)-Q2(2)
+           PBQ31=PB(IB1,1)-Q3(1)
+           PBQ32=PB(IB1,2)-Q3(2)
+           PBQ41=PB(IB1,1)-Q4(1)
+           PBQ42=PB(IB1,2)-Q4(2)
 
-	   IF ((ABS(PBQ11).LT.0.01).AND.(ABS(PBQ12).LT.0.01)) THEN 
-     			 PBC(IBC,1)=PB(IB1,1)
-     			 PBC(IBC,2)=PB(IB1,2)
-	               IBC=IBC+1
-			 GOTO 201
-	   ELSEIF ((ABS(PBQ21).LT.0.01).AND.(ABS(PBQ22).LT.0.01)) THEN 
-     			 PBC(IBC,1)=PB(IB1,1)
-     			 PBC(IBC,2)=PB(IB1,2)
-	                 IBC=IBC+1
-			 GOTO 201
-	   ELSEIF ((ABS(PBQ31).LT.0.01).AND.(ABS(PBQ32).LT.0.01)) THEN
-     			 PBC(IBC,1)=PB(IB1,1)
-     			 PBC(IBC,2)=PB(IB1,2)
-	                 IBC=IBC+1
-			 GOTO 201
-	   ELSEIF ((ABS(PBQ41).LT.0.01).AND.(ABS(PBQ42).LT.0.01)) THEN
-     			 PBC(IBC,1)=PB(IB1,1)
-     			 PBC(IBC,2)=PB(IB1,2)
-	                 IBC=IBC+1
-			 GOTO 201
-	   ENDIF
+           IF ((ABS(PBQ11).LT.0.01).AND.(ABS(PBQ12).LT.0.01)) THEN 
+                              PBC(IBC,1)=PB(IB1,1)
+                              PBC(IBC,2)=PB(IB1,2)
+                       IBC=IBC+1
+                         GOTO 201
+           ELSEIF ((ABS(PBQ21).LT.0.01).AND.(ABS(PBQ22).LT.0.01)) THEN 
+                              PBC(IBC,1)=PB(IB1,1)
+                              PBC(IBC,2)=PB(IB1,2)
+                         IBC=IBC+1
+                         GOTO 201
+           ELSEIF ((ABS(PBQ31).LT.0.01).AND.(ABS(PBQ32).LT.0.01)) THEN
+                              PBC(IBC,1)=PB(IB1,1)
+                              PBC(IBC,2)=PB(IB1,2)
+                         IBC=IBC+1
+                         GOTO 201
+           ELSEIF ((ABS(PBQ41).LT.0.01).AND.(ABS(PBQ42).LT.0.01)) THEN
+                              PBC(IBC,1)=PB(IB1,1)
+                              PBC(IBC,2)=PB(IB1,2)
+                         IBC=IBC+1
+                         GOTO 201
+           ENDIF
 
 c AGL If none of the four conditions above hold -> then it's an atom
 c AGL on the boundary
-	
-	  PBB(IBB,1)=PB(IB1,1)
-	  PBB(IBB,2)=PB(IB1,2)
-	  IBB=IBB+1
+        
+          PBB(IBB,1)=PB(IB1,1)
+          PBB(IBB,2)=PB(IB1,2)
+          IBB=IBB+1
 
-201	CONTINUE
-101	CONTINUE
+201        CONTINUE
+101        CONTINUE
 
 
 c AGL Number of atoms at corner
-	NBC=IBC-1
+        NBC=IBC-1
 c AGL Number of atoms on boundary (not corners) 
-	NBB=IBB-1
+        NBB=IBB-1
 
 c AGL So now we have the atoms on the boundary  cell separated into:
 c AGL atoms on corners (PBC) and atoms not on corners (PBB)
@@ -2944,32 +2946,32 @@ c AGL Of the four atoms on the corners, there is only 1 inequivalent
 c AGL the other 3 are equivalent
 c AGL we will take the atom on Q1
 
-	IBNE=1
-	PBBNE(IBNE,1)=Q1(1)
-	PBBNE(IBNE,2)=Q1(2)
-	IBNE=IBNE+1	
+        IBNE=1
+        PBBNE(IBNE,1)=Q1(1)
+        PBBNE(IBNE,2)=Q1(2)
+        IBNE=IBNE+1        
 
 
 c AGL Now we have to check which atoms are equivalent within 
 c AGL those atoms not on corners
 
-	DO 102 IB2=1,NBB
-	DO 103 IB3=IB2,NBB
-	 DPB1=PBB(IB2,1)-PBB(IB3,1) 
-	 DPB2=PBB(IB2,2)-PBB(IB3,2)
+        DO 102 IB2=1,NBB
+        DO 103 IB3=IB2,NBB
+         DPB1=PBB(IB2,1)-PBB(IB3,1) 
+         DPB2=PBB(IB2,2)-PBB(IB3,2)
 c AGL Avoid numerical errors by defining an area of radius RX=RY around 
 c AGL atomic positions
-	 RX=0.01
-	 RY=0.01
+         RX=0.01
+         RY=0.01
 
-	 RXM11=AB1(1)-RX
-	 RXP11=AB1(1)+RX
-	 RYM12=AB1(2)-RY
-	 RYP12=AB1(2)+RY
-	 RXM21=AB2(1)-RX
-	 RXP21=AB2(1)+RX
-	 RYM22=AB2(2)-RY
-	 RYP22=AB2(2)+RY
+         RXM11=AB1(1)-RX
+         RXP11=AB1(1)+RX
+         RYM12=AB1(2)-RY
+         RYP12=AB1(2)+RY
+         RXM21=AB2(1)-RX
+         RXP21=AB2(1)+RX
+         RYM22=AB2(2)-RY
+         RYP22=AB2(2)+RY
 
 
 
@@ -2980,45 +2982,45 @@ c----------------------------------------------------------------
 c AGL Atoms equivalent through AB1
 c --------------------------------
 
-	  IF ((DPB1.GE.RXM11).AND.(DPB1.LE.RXP11)) THEN
-	     IF ((DPB2.GE.RYM12).AND.(DPB2.LE.RYP12)) THEN
-         	PBBNE(IBNE,1)=PBB(IB3,1)
-		PBBNE(IBNE,2)=PBB(IB3,2)
-		 IBNE=IBNE+1
-c	         GOTO 401
+          IF ((DPB1.GE.RXM11).AND.(DPB1.LE.RXP11)) THEN
+             IF ((DPB2.GE.RYM12).AND.(DPB2.LE.RYP12)) THEN
+                 PBBNE(IBNE,1)=PBB(IB3,1)
+                PBBNE(IBNE,2)=PBB(IB3,2)
+                 IBNE=IBNE+1
+c                 GOTO 401
              ELSE
-	     ENDIF
-	  ELSE
-	  ENDIF
+             ENDIF
+          ELSE
+          ENDIF
 c AGL Atoms equivalent through AB2
 c --------------------------------
-c	  ELSE
-	    IF ((DPB1.GE.RXM21).AND.(DPB1.LE.RXP21)) THEN
-	    IF ((DPB2.GE.RYM22).AND.(DPB2.LE.RYP22)) THEN
-		 PBBNE(IBNE,1)=PBB(IB3,1)
-		 PBBNE(IBNE,2)=PBB(IB3,2)
-	         IBNE=IBNE+1
+c          ELSE
+            IF ((DPB1.GE.RXM21).AND.(DPB1.LE.RXP21)) THEN
+            IF ((DPB2.GE.RYM22).AND.(DPB2.LE.RYP22)) THEN
+                 PBBNE(IBNE,1)=PBB(IB3,1)
+                 PBBNE(IBNE,2)=PBB(IB3,2)
+                 IBNE=IBNE+1
             ELSE
-	    ENDIF
-	   ENDIF
+            ENDIF
+           ENDIF
 
 
 
 
-401	CONTINUE
+401        CONTINUE
 
 
-103	CONTINUE
-102	CONTINUE	      
+103        CONTINUE
+102        CONTINUE              
 
 c AGL Total number of non-equivalent atoms on boundary
-	NBNE=IBNE-1
-	
-	end
+        NBNE=IBNE-1
+        
+        end
 
 
 
-	SUBROUTINE QUAD_CONTAINS_2D (Q1,Q2,Q3,Q4,P,NYN)
+        SUBROUTINE QUAD_CONTAINS_2D (Q1,Q2,Q3,Q4,P,NYN)
 c*******************************************************************************
 c
 cQUAD_CONTAINS_POINT_2D finds if a point is inside a convex quadrilateral in 2D.
@@ -3039,11 +3041,11 @@ c    Input, real ( kind = 8 ) P(2), the point to be checked.
 c
 c    Output, logical INSIDE, is TRUE if the point is in the quadrilateral.
  
-c	implicit none
+c        implicit none
 
 
-	REAL*4 P, Q1,Q2,Q3,Q4
-	DIMENSION P(2), Q1(2),Q2(2),Q3(2),Q4(2)
+        REAL P, Q1,Q2,Q3,Q4
+        DIMENSION P(2), Q1(2),Q2(2),Q3(2),Q4(2)
 
 c
 c  This will only handle convex quadrilaterals.
@@ -3074,15 +3076,15 @@ c-------------------------
 c AGL If angle_1 is 'almost' equal to angle_2, it may be on a boundary
 c AGL To check this we have to compare the projection of P over the
 c AGL boundary
-	IF(ABS(ANGLE_1-ANGLE_2).LT.0.001) THEN
-	IF (PQ2MOD.LE.Q23MOD) THEN
-		GOTO 303
-	   ENDIF 
-	ELSE
+        IF(ABS(ANGLE_1-ANGLE_2).LT.0.001) THEN
+        IF (PQ2MOD.LE.Q23MOD) THEN
+                GOTO 303
+           ENDIF 
+        ELSE
 c AGL If it's not on the boundary, it can be either inside or outside
 c AGL If inside, then angle_1 < angle_2
-	IF (ANGLE_1.LT.ANGLE_2) GOTO 301
-	ENDIF
+        IF (ANGLE_1.LT.ANGLE_2) GOTO 301
+        ENDIF
 
 c AGL Reference point: Q3
 c-------------------------
@@ -3092,7 +3094,7 @@ c-------------------------
 
         IF(ABS(ANGLE_1-ANGLE_2).LT.0.001) THEN
            IF (PQ3MOD.LE.Q34MOD) THEN
-	     GOTO 303
+             GOTO 303
            ENDIF
         ELSE
 c AGL If it is not on the boundary, it can be either inside or outside
@@ -3107,7 +3109,7 @@ c-------------------------
 
         IF(ABS(ANGLE_1-ANGLE_2).LT.0.001) THEN
            IF (PQ4MOD.LE.Q14MOD) THEN
-	     GOTO 303
+             GOTO 303
            ENDIF
         ELSE
 c AGL If it's not on the boundary, it can be either inside or outside
@@ -3124,7 +3126,7 @@ c-------------------------
 
         IF(ABS(ANGLE_1-ANGLE_2).LT.0.001) THEN
            IF (PQ1MOD.LE.Q12MOD) THEN
-	     GOTO 303
+             GOTO 303
            ENDIF
         ELSE
 c AGL If it's not on the boundary, it can be either inside or outside
@@ -3132,23 +3134,23 @@ c AGL If inside, then angle_1 < angle_2
         IF (ANGLE_1.LT.ANGLE_2) GOTO 301
         ENDIF
 
-	NYN=2	
-	GOTO 302
+        NYN=2        
+        GOTO 302
 
-301	CONTINUE
+301        CONTINUE
 
-	NYN=1
-	GOTO 302
+        NYN=1
+        GOTO 302
 
-303	CONTINUE
-	NYN=3
-	GOTO 302
+303        CONTINUE
+        NYN=3
+        GOTO 302
 
-	
-302	CONTINUE
+        
+302        CONTINUE
 
 
-	end
+        end
 
 
 C=========================================================================
@@ -3342,9 +3344,10 @@ C =============================================================================
 C
       SUBROUTINE READE(AE,EE,NBED,NEE,NBEA,BENAME,IPR,IEERG,NBMAX)
 C
-      DIMENSION AE(NBED,IEERG),EE(NBED,IEERG),NEE(NBED),NBEA(NBED)
-      DIMENSION BENAME(5,NBED),FMT(20)
-      COMMON /REXP/EEINCR
+        DIMENSION AE(NBED,IEERG),EE(NBED,IEERG),NEE(NBED),NBEA(NBED)
+        DIMENSION BENAME(5,NBED)
+        character(len=20) FMT
+        COMMON /REXP/EEINCR
 C
 30    FORMAT (5(25I3,/))
 40    FORMAT (I4,25H EXP. BEAMS TO BE READ IN)
@@ -3370,7 +3373,7 @@ C
 C
 C  READ INPUT FORMAT OF EXP. INTENSITIES
 C
-      READ (11,60) (FMT(I),I=1,20)
+      READ (11,60) FMT
       READ (11,36) EEINCR
 C
       DO 90 IB=1,NBED
@@ -3391,7 +3394,11 @@ C
 C
 C  READ (AND MAYBE PRINT) EXP. INTENSITIES
 C
-         READ (11,FMT) (EE(IB,IE),AE(IB,IE),IE=1,N)
+cjcm replace FMT with 99 and 2F12.3 which is what is in the exp.d file 9/29/2016
+c         READ (11,FMT) (EE(IB,IE),AE(IB,IE),IE=1,N)
+         READ (11,99) (EE(IB,IE),AE(IB,IE),IE=1,N)
+ 99      FORMAT(2F12.3)
+
 c         READ (11,*) (EE(IB,IE),AE(IB,IE),IE=1,N)
          IF (IPR.GE.0) THEN
             WRITE (1,80) (EE(IB,IE),AE(IB,IE),IE=1,N)
@@ -3674,7 +3681,7 @@ C  PHSS STORES THE INPUT PHASE SHIFTS (RADIAN)
 C
          DO 661 II=1,NEL
            IO=(II-1)*L1
-	   I2=1+I0
+           I2=1+I0
            READ (5,340) (PHSS(I,L),L=1+IO,L1+IO)
 661      CONTINUE
 660   CONTINUE
@@ -3835,8 +3842,8 @@ C
      & WR,WB,IBP,NT0,TSEY,ATP,ATPP,TST,TSTY2,NST1,NST2,RAV,IBK,ROS,R1,
      & R2,RP1,RP2,RPP1,RPP2,RRZJ,RMZJ,RPE,EET,NET,AR,BARAV,BV0,YT,NERG)
 C
-	INTEGER IBP,IBT
-c	INTEGER IBK
+        INTEGER IBP,IBT
+c        INTEGER IBK
       DIMENSION IBP(NT0)
       DIMENSION AT(NT0,IEERG),ETH(NT0,IEERG),AE(INBED,IEERG)
       DIMENSION EE(INBED,IEERG),NEE(INBED),NBEA(INBED),YPL(IEERG)
@@ -3867,9 +3874,9 @@ C PERFORM DOMAIN-AVERAGING OF THEORETCIAL DATA
 C
 
 
-	do 33 i=1,NT0
-c	  IBK(i)=0
-33	continue
+        do 33 i=1,NT0
+c          IBK(i)=0
+33        continue
 
         CALL RINTAV(AT,NT0,IBP,IEERG,NERG,NBMAX,IBK)
 
@@ -4435,7 +4442,7 @@ C ===========================================================================
 C
       SUBROUTINE RINTAV(ATH,NT0,IBP,IEERG,NERG,NBMAX,IBK)
 C
-c	INTEGER IBP
+c        INTEGER IBP
       DIMENSION ATH(NT0,IEERG),IBP(NT0),TEMP(30,221),ITEMP(30)
       DIMENSION IBK(NT0)
 C
@@ -4443,7 +4450,7 @@ C SET NBMAX TO THE MAXIMUM NUMBER OF INEQUIVALENT TH. BEAMS (AFTER DOMAIN
 C AVERAGING
 C
 
-	
+        
 
       NBMAX=0
       DO 100 I=1,NT0
@@ -4474,7 +4481,7 @@ C
             ITEMP(I)=0
          ENDIF            
 110   CONTINUE
-	DO 300 I=1,NBMAX
+        DO 300 I=1,NBMAX
          IBK(ITEMP(I))=I
          DO 310 J=1,NERG
             ATH(I,J)=TEMP(I,J)
@@ -4579,11 +4586,11 @@ c PARAMETER LIST
 c
 c Input
 c------
-c ASB	=  INTERLAYER VECTOR BETWEEN LAST OVERLAYER AND TOP
+c ASB        =  INTERLAYER VECTOR BETWEEN LAST OVERLAYER AND TOP
 C                         SUBSTRATE LAYER.
-c VPOS	=  Atomic coordinates of the atoms in the composite layers
+c VPOS        =  Atomic coordinates of the atoms in the composite layers
 c LAFLAG = Number of layers in each composite layer
-c ASE	= SPACING BETWEEN SURFACE AND OVERLAYER NUCLEI
+c ASE        = SPACING BETWEEN SURFACE AND OVERLAYER NUCLEI
 c ARA1,ARA2 = TWO 2-D BASIS VECTORS OF THE SUBSTRATE LAYER LATTICE
 c ARB2,ARB2 = ARE EQUIVALENT TO ARA1,ARA2 BUT FOR AN OVERLAYER
 c
@@ -4593,42 +4600,42 @@ c SPOSTF = Substrate atoms that lie within the superlattice unit cell
 c
 c In common blocks
 c-----------------
-c ASB	=  INTERLAYER VECTOR BETWEEN LAST OVERLAYER AND TOP
+c ASB        =  INTERLAYER VECTOR BETWEEN LAST OVERLAYER AND TOP
 C                         SUBSTRATE LAYER.
-c ASE	= SPACING BETWEEN SURFACE AND OVERLAYER NUCLEI
+c ASE        = SPACING BETWEEN SURFACE AND OVERLAYER NUCLEI
 c ARA1,ARA2 = TWO 2-D BASIS VECTORS OF THE SUBSTRATE LAYER LATTICE
 c ARB2,ARB2 = ARE EQUIVALENT TO ARA1,ARA2 BUT FOR AN OVERLAYER
 c NL1,NL2 = SUPERLATTICE CHARACTERIZATION CODES
 c RBR1,RBR2,ASL,FR,VPIS,VPIO,VO,VV = not used
 
-	SUBROUTINE SLPOS(ASB,VPOS,LAFLAG,ASE,NST1,NLAYTOT,SPOSTF)
+        SUBROUTINE SLPOS(ASB,VPOS,LAFLAG,ASE,NST1,NLAYTOT,SPOSTF)
     
-	INTEGER NSLBNE,NSLIN,NSLB
+        INTEGER NSLBNE,NSLIN,NSLB
  
-	DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
-	DIMENSION ARB2(2),RBR1(2),RBR2(2)
-	DIMENSION ASB(NST1,3)
-	DIMENSION VPOS(NST1,NLAYTOT,3),LAFLAG(NST1)
-	DIMENSION SPOSTF(20,1500,3) 
+        DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
+        DIMENSION ARB2(2),RBR1(2),RBR2(2)
+        DIMENSION ASB(NST1,3)
+        DIMENSION VPOS(NST1,NLAYTOT,3),LAFLAG(NST1)
+        DIMENSION SPOSTF(20,1500,3) 
         DIMENSION SPOS2(20,1500,3),ISIN(1),ISB(1)
-        DIMENSION PBBNE(200,2),PBX(20)	
+        DIMENSION PBBNE(200,2),PBX(20)        
         DIMENSION NSLIN(1000),NSLB(1000),NSLBNE(1000)
         DIMENSION SPOS3(20,1500,3),SPOS3B(20,1500,3)
         DIMENSION SPOS3BNE(20,1500,3),PB(200,2)
-	DIMENSION Q1(2),Q2(2),Q3(2),Q4(2),P(2)
+        DIMENSION Q1(2),Q2(2),Q3(2),Q4(2),P(2)
         DIMENSION Q12(2),Q14(2)
 
-	COMMON /SL/ARA1,ARA2,ARB1,ARB2,RBR1,RBR2,NL1,NL2	
+        COMMON /SL/ARA1,ARA2,ARB1,ARB2,RBR1,RBR2,NL1,NL2        
 
 c The 1st substrate layer is referred to the last composite layer, i.e.,
 c to NCL=NST1
 
 
 c 1st atom on 1st SL
-	    SPOS2(1,1,2)=ASB(NST1,2)
-	    SPOS2(1,1,3)=ASB(NST1,3)
-	    SPOS2(1,1,1)=ASB(NST1,1)+VPOS(NST1,LAFLAG(NST1),1)+
-     &				ABS(VPOS(1,1,1))+ASE
+            SPOS2(1,1,2)=ASB(NST1,2)
+            SPOS2(1,1,3)=ASB(NST1,3)
+            SPOS2(1,1,1)=ASB(NST1,1)+VPOS(NST1,LAFLAG(NST1),1)+
+     &                                ABS(VPOS(1,1,1))+ASE
 
 
 c Repeat the substrate configuration of the 1st SL over the yz plane
@@ -4637,28 +4644,28 @@ c-------------------------------------------------------------------
 
 
 c MNS1, MNS2 positive integers!!
-	    MNS1=2
-	    MNS2=2
-230	    CONTINUE
-	    IS2=2
-	    DO 12 NS1=1,MNS1
-	    DO 13 NS2=1,MNS2
-	      MS1=FLOAT(MNS1/2)-NS1
-	      MS2=FLOAT(MNS2/2)-NS2
+            MNS1=2
+            MNS2=2
+230            CONTINUE
+            IS2=2
+            DO 12 NS1=1,MNS1
+            DO 13 NS2=1,MNS2
+              MS1=FLOAT(MNS1/2)-NS1
+              MS2=FLOAT(MNS2/2)-NS2
               D2=(MS1*ARA1(1))+(MS2*ARA2(1))
-	      D3=(MS1*ARA1(2))+(MS2*ARA2(2))
+              D3=(MS1*ARA1(2))+(MS2*ARA2(2))
               IF ((MS1.EQ.0).AND.(MS2.EQ.0)) GOTO 302 
-	      SPOS2(1,IS2,2)=SPOS2(1,1,2)+D2
-	      SPOS2(1,IS2,3)=SPOS2(1,1,3)+D3
-	      SPOS2(1,IS2,1)=SPOS2(1,1,1)
-	      IS2=IS2+1
-	      if (IS2.GT.1000) write(*,*) 'too many substrate atoms'
-302	CONTINUE
-13	CONTINUE
-12	CONTINUE
+              SPOS2(1,IS2,2)=SPOS2(1,1,2)+D2
+              SPOS2(1,IS2,3)=SPOS2(1,1,3)+D3
+              SPOS2(1,IS2,1)=SPOS2(1,1,1)
+              IS2=IS2+1
+              if (IS2.GT.1000) write(*,*) 'too many substrate atoms'
+302        CONTINUE
+13        CONTINUE
+12        CONTINUE
 
 c AGL Number of atoms in 1st SL 
-	NSLXTOT=IS2-1
+        NSLXTOT=IS2-1
 
 
 
@@ -4669,103 +4676,103 @@ c----------------------------------------------------------------------
 c Q1,Q2,Q3,Q4 are the corners of the quadrilateral formed by ARB1,ARB2
 c the superlattice lattice vectors
 
-	Q1(1)=0.0
-	Q1(2)=0.0
-	Q2(1)=ARB2(1)
-	Q2(2)=ARB2(2)
-	Q3(1)=ARB2(1)+ARB1(1)
-	Q3(2)=ARB2(2)+ARB1(2)
-	Q4(1)=ARB1(1)
-	Q4(2)=ARB1(2)
+        Q1(1)=0.0
+        Q1(2)=0.0
+        Q2(1)=ARB2(1)
+        Q2(2)=ARB2(2)
+        Q3(1)=ARB2(1)+ARB1(1)
+        Q3(2)=ARB2(2)+ARB1(2)
+        Q4(1)=ARB1(1)
+        Q4(2)=ARB1(2)
 
 c Moduli of the lattice vectors of superlattice unit cell
-	Q1MOD=SQRT((Q1(1)**2)+(Q1(2)**2))
-	Q2MOD=SQRT((Q2(1)**2)+(Q2(2)**2))
-	Q3MOD=SQRT((Q3(1)**2)+(Q3(2)**2))
-	Q4MOD=SQRT((Q4(1)**2)+(Q4(2)**2))
+        Q1MOD=SQRT((Q1(1)**2)+(Q1(2)**2))
+        Q2MOD=SQRT((Q2(1)**2)+(Q2(2)**2))
+        Q3MOD=SQRT((Q3(1)**2)+(Q3(2)**2))
+        Q4MOD=SQRT((Q4(1)**2)+(Q4(2)**2))
 
 
 cAGL We must make sure that Q1,Q2,Q4 are taken correctly
 cAGL The cross-product between Q1Q2 and Q2Q4 is:
 
-	Q12(1)=Q2(1)-Q1(1)
-	Q12(2)=Q2(2)-Q1(2)
-	Q14(1)=Q4(1)-Q1(1)
-	Q14(2)=Q4(2)-Q1(2)
-	
-	PROD12=(Q12(1)*Q14(2))-(Q14(1)*Q12(2))
-	MOD12=SQRT(PROD12*PROD12)
-	SIG12=PROD12/MOD12
-	IF (SIG12.LT.0) THEN
-	write(*,*) 'ARB1, ARB2 not correctly ordered.'
-	write(*,*) 'Exchange them in tleed5.i. STOP'
-	STOP
-	ELSE
-	ENDIF
+        Q12(1)=Q2(1)-Q1(1)
+        Q12(2)=Q2(2)-Q1(2)
+        Q14(1)=Q4(1)-Q1(1)
+        Q14(2)=Q4(2)-Q1(2)
+        
+        PROD12=(Q12(1)*Q14(2))-(Q14(1)*Q12(2))
+        MOD12=SQRT(PROD12*PROD12)
+        SIG12=PROD12/MOD12
+        IF (SIG12.LT.0) THEN
+        write(*,*) 'ARB1, ARB2 not correctly ordered.'
+        write(*,*) 'Exchange them in tleed5.i. STOP'
+        STOP
+        ELSE
+        ENDIF
 
 c AGL Let us separate the substrate lattice (SL) atoms of the 1st SL
 c AGL that are inside and on the boundary of the superlattice (SS) unit cell
 
-	   ISIN(1)=1
-	   IS3=1
-	   ISB(1)=1
-	   IS4=1
+           ISIN(1)=1
+           IS3=1
+           ISB(1)=1
+           IS4=1
         DO 32 IS=1,NSLXTOT
            P(1)=SPOS2(1,IS,2)
            P(2)=SPOS2(1,IS,3)
 
  
 c Include atoms on boundary
-	CALL QUAD_CONTAINS_2D(Q1,Q2,Q3,Q4,P,NYN)
+        CALL QUAD_CONTAINS_2D(Q1,Q2,Q3,Q4,P,NYN)
 
 
 
 
-	IF (NYN.EQ.2) THEN
-	   SPOS3(1,IS3,1)=SPOS2(1,IS,1)
-	   SPOS3(1,IS3,2)=SPOS2(1,IS,2)
-	   SPOS3(1,IS3,3)=SPOS2(1,IS,3)
-	   ISIN(1)=ISIN(1)+1
-	   IS3=IS3+1
-	ELSE
-	 IF (NYN.EQ.3) THEN
-	   SPOS3B(1,IS4,1)=SPOS2(1,IS,1)
-	   SPOS3B(1,IS4,2)=SPOS2(1,IS,2)
-	   SPOS3B(1,IS4,3)=SPOS2(1,IS,3)
-	   ISB(1)=ISB(1)+1
-	   IS4=IS4+1
-	 ENDIF
-	ENDIF	
+        IF (NYN.EQ.2) THEN
+           SPOS3(1,IS3,1)=SPOS2(1,IS,1)
+           SPOS3(1,IS3,2)=SPOS2(1,IS,2)
+           SPOS3(1,IS3,3)=SPOS2(1,IS,3)
+           ISIN(1)=ISIN(1)+1
+           IS3=IS3+1
+        ELSE
+         IF (NYN.EQ.3) THEN
+           SPOS3B(1,IS4,1)=SPOS2(1,IS,1)
+           SPOS3B(1,IS4,2)=SPOS2(1,IS,2)
+           SPOS3B(1,IS4,3)=SPOS2(1,IS,3)
+           ISB(1)=ISB(1)+1
+           IS4=IS4+1
+         ENDIF
+        ENDIF        
 32      CONTINUE
 c AGL Total number of SL atoms inside the SS unit cell
-	NSLIN(1)=ISIN(1)-1
+        NSLIN(1)=ISIN(1)-1
 c AGL Total number of SL atoms on the boundary of the SS unit cell
-	NSLB(1)=ISB(1)-1
+        NSLB(1)=ISB(1)-1
 
 
 
 c AGL For the 1st SL layer  we need only the
 c AGL atoms at the boundaries that are non equivalent
 
-	     NBOUND=NSLB(1)
-	DO 202 J=1,NSLB(1)
-	     PBX(1)=SPOS3B(1,J,1)
+             NBOUND=NSLB(1)
+        DO 202 J=1,NSLB(1)
+             PBX(1)=SPOS3B(1,J,1)
              PB(J,1)=SPOS3B(1,J,2)
-	     PB(J,2)=SPOS3B(1,J,3)
-202	CONTINUE
+             PB(J,2)=SPOS3B(1,J,3)
+202        CONTINUE
 
 c Initialize NSLBNE
-	do 980 i=1,1000	
-	   NSLBNE(i)=0
-980	continue
+        do 980 i=1,1000        
+           NSLBNE(i)=0
+980        continue
 
 
-	IF (NBOUND.NE.0) THEN
-	     CALL QUAD_2D_BOUND (Q1,Q2,Q3,Q4,PB,NBOUND,
+        IF (NBOUND.NE.0) THEN
+             CALL QUAD_2D_BOUND (Q1,Q2,Q3,Q4,PB,NBOUND,
      &                  PBBNE,NBNE)
              NSLBNE(1)=NBNE
-	ELSE
-	ENDIF
+        ELSE
+        ENDIF
 
 
 c AGL For each layer, the sum of the inequivalent atoms on the boundary
@@ -4774,60 +4781,60 @@ c AGL area of the superlattice unit cell in terms of the area
 c AGL of the substrate
 
 
-	NTOT=NSLIN(1)+NSLBNE(1)
+        NTOT=NSLIN(1)+NSLBNE(1)
 
 
-	NL=NL1*NL2
+        NL=NL1*NL2
 
-	IF (NTOT.NE.NL) THEN
+        IF (NTOT.NE.NL) THEN
 cAGL Maybe the number of atoms we have considered by translating
 cAGL the 1st atom by (ARA1,ARA2) are not enough, so increase
 cAGL MNS1,MNS1, i.e., take more SL atoms 'around' the 1st atom
-	MNS1=MNS1+5
+        MNS1=MNS1+5
         MNS2=MNS1+5
 cAGL If we have already taken 'many' SL atoms around the 1st atom,
 cAGL but we still don't get the correct number of atoms in
 cAGL the SS unit cell, maybe there is something else that is wrong..
         IF (MNS1.GT.20) THEN
-	 write(*,*) 'number of atoms in superlattic
-     & 			 unit cell
+         write(*,*) 'number of atoms in superlattic
+     &                          unit cell
      &                  is not correct.STOP'
-	STOP
-	ELSE
-	ENDIF
-	GOTO 230
-	ELSE
-	ENDIF
+        STOP
+        ELSE
+        ENDIF
+        GOTO 230
+        ELSE
+        ENDIF
 
-	ISL=1
+        ISL=1
 
-	DO 203 ISLNE=1,NSLBNE(ISL)
-	     SPOS3BNE(ISL,ISLNE,1)=PBX(ISL)
-	     SPOS3BNE(ISL,ISLNE,2)=PBBNE(ISLNE,1)
-	     SPOS3BNE(ISL,ISLNE,3)=PBBNE(ISLNE,2)
-203	CONTINUE	
+        DO 203 ISLNE=1,NSLBNE(ISL)
+             SPOS3BNE(ISL,ISLNE,1)=PBX(ISL)
+             SPOS3BNE(ISL,ISLNE,2)=PBBNE(ISLNE,1)
+             SPOS3BNE(ISL,ISLNE,3)=PBBNE(ISLNE,2)
+203        CONTINUE        
 
 c AGL So, the substrate atoms that need to be included in the 
 c AGL toy-function calculation are the following (SPOSTF)
 
-		ISL=1
-	        ISTF=1
-	DO 205 JSL=1,NSLIN(ISL)
-		SPOSTF(ISL,ISTF,1)=SPOS3(ISL,JSL,1)
-		SPOSTF(ISL,ISTF,2)=SPOS3(ISL,JSL,2)
-		SPOSTF(ISL,ISTF,3)=SPOS3(ISL,JSL,3)
-		ISTF=ISTF+1
-205	CONTINUE
-	DO 206 JSL=1,NSLBNE(ISL)
-		SPOSTF(ISL,ISTF,1)=SPOS3BNE(ISL,JSL,1)
-		SPOSTF(ISL,ISTF,2)=SPOS3BNE(ISL,JSL,2)
-		SPOSTF(ISL,ISTF,3)=SPOS3BNE(ISL,JSL,3)
-		ISTF=ISTF+1
-206	CONTINUE
-	        
+                ISL=1
+                ISTF=1
+        DO 205 JSL=1,NSLIN(ISL)
+                SPOSTF(ISL,ISTF,1)=SPOS3(ISL,JSL,1)
+                SPOSTF(ISL,ISTF,2)=SPOS3(ISL,JSL,2)
+                SPOSTF(ISL,ISTF,3)=SPOS3(ISL,JSL,3)
+                ISTF=ISTF+1
+205        CONTINUE
+        DO 206 JSL=1,NSLBNE(ISL)
+                SPOSTF(ISL,ISTF,1)=SPOS3BNE(ISL,JSL,1)
+                SPOSTF(ISL,ISTF,2)=SPOS3BNE(ISL,JSL,2)
+                SPOSTF(ISL,ISTF,3)=SPOS3BNE(ISL,JSL,3)
+                ISTF=ISTF+1
+206        CONTINUE
+                
 
-	RETURN
-	END
+        RETURN
+        END
 
 C =========================================================================
 C
@@ -4990,7 +4997,10 @@ C==============================================================================
       SUBROUTINE SPLINT(xa,ya,y2a,n,x,y,yp,klo,khi)
       dimension xa(n),ya(n),y2a(n)
       h=xa(khi)-xa(klo)
-      if (h.eq.0.) pause 'bad xa input. in SPLINT'
+         if (h.eq.0.) then
+            write(*,*) 'bad xa input. in SPLINT'
+            stop
+         endif
       a=(xa(khi)-x)/h
       b=(x-xa(klo))/h
       y=a*ya(klo)+b*ya(khi)+
@@ -5277,7 +5287,7 @@ C
             CAF(L)=CEXP(CAF(L))
             CAF(L)=-CI*(CAF(L)*CAF(L)-1.0)/2.0
             TSF(IEL,L)=CAF(L)
-            PHSSEL(IEEV,IEL,L)=DEL(L) 	    
+            PHSSEL(IEEV,IEL,L)=DEL(L)             
 840      CONTINUE
          RETURN
       ENDIF
@@ -5482,11 +5492,11 @@ C
       DIMENSION RPP2(NT0),RRZJ(NT0),RMZJ(NT0),RPE(NT0),RFAC(30)
       DIMENSION BENAME(5,NBED),WR(10),WB(NT0)
       CHARACTER NC(9)
-      CHARACTER*5 IV
-      CHARACTER *2 NC2(21)
-      CHARACTER*4 IV2
-      CHARACTER*100 IVNAME
-      CHARACTER*100 IVNAME2
+      CHARACTER(LEN=5) IV
+      CHARACTER(LEN=2) NC2(21)
+      CHARACTER(LEN=4) IV2
+      CHARACTER(LEN=100) IVNAME
+      CHARACTER(LEN=100) IVNAME2
 C
       COMMON /WIV/NBMAX,EEAVE(30),EEAVT(30)
       COMMON /WIV2/PERSH,NIV,NSE1(30),NSE2(30)
@@ -5527,7 +5537,7 @@ C
 C and record that Rfactor
 
 
-	DO 9 I=1,NBE
+        DO 9 I=1,NBE
          RFAC(I)=0.
          IF (WR(1).GT.1.e-6) RFAC(I)=ROS(I)+RFAC(I)
          IF (WR(2).GT.1.e-6) RFAC(I)=R1(I)+RFAC(I)
@@ -5590,7 +5600,7 @@ C
       NOUT2=48
       NBB=NOUT2+NBEAMS-1
       DO 3 I=1,NBE
- 	  IF (NOUT2.LE.NBB) THEN
+           IF (NOUT2.LE.NBB) THEN
 c              IF (I.LT.10) IVNAME2='/scratch/aran/run1/'//IV2//NC(I)
 c              IF (I.GE.10) IVNAME2='/scratch/aran/run1/'//IV2//NC2(I-9)
               IF (I.LT.10) IVNAME2='./kleedIV/' //IV2//NC(I)

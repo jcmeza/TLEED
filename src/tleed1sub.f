@@ -14,7 +14,7 @@ CGPS      subroutine tleed1(dir,rank)
       character*(*) rank
 c      subroutine tleed1(tleed5i,shortt)
 CGPS      character*32 tleed4i, tleed5i, shortt, tleedo
-      character*100 tleed4i, tleed5i, shortt, tleedo
+      character(len=100) tleed4i, tleed5i, shortt, tleedo
       integer nerror_report
 C 
 C PROGRAM DESCRIPTION: 
@@ -227,7 +227,7 @@ C 60 in NSHBS,NBAL,KNB and IMIN is the maximum number of beamsets
 C
 C Final character arrays
 C
-      CHARACTER*4 TITLE(20)
+      CHARACTER(len=4) TITLE(20)
 C
 C ============================================================================
 C
@@ -312,12 +312,12 @@ C ============================================================================
 C
 100   FORMAT (3F7.2)
 101   FORMAT (20I3)
-102   FORMAT (/8H IDEG = ,1I3)
-103   FORMAT (8H VPIS = ,F9.4,8H VPIO = ,F9.4,9H DCUTS = ,F9.4,
-     & 9H DCUTO = ,F9.4)
-104   FORMAT (8H TEMP = ,F9.4)
+102   FORMAT (/' IDEG = ',1I3)
+103   FORMAT (' VPIS = ',F9.4,' VPIO = ',F9.4,' DCUTS = ',F9.4,
+     & ' DCUTO = ',F9.4)
+104   FORMAT (' TEMP = ',F9.4)
 105   FORMAT (/' 1ST PASS TLEED...REFERENCE STRUCTURE CALCULATION ')
-106   FORMAT (20H CORRECT TERMINATION)
+106   FORMAT (' CORRECT TERMINATION')
 107   FORMAT (20A4)
 109   FORMAT (//,' STARTING LOOP OVER ENERGIES ',/)
 110   FORMAT (/,'====================================================',
@@ -402,12 +402,12 @@ C radii for the pertubation expansion LSMAX and LLCUT
 C
       READ (4,101) NT0,NSET,LSMAX,LLCUT
       IF(LSMAX.GT.JSMAX) THEN
-	 WRITE(1,124) LSMAX
-	 GOTO 1400
+         WRITE(1,124) LSMAX
+         GOTO 1400
       ENDIF
       IF(NT0.GT.INT0) THEN
-	 WRITE(1,116) NT0
-	 GOTO 1400
+         WRITE(1,116) NT0
+         GOTO 1400
       ENDIF
     
 C
@@ -417,7 +417,7 @@ C  NL1, NL2  Superlattice Characterization (calculated in READT1)
 C
       READ (5,101) IDEG
       IF (IPR.GT.0) THEN
-	 WRITE (1,102) IDEG
+         WRITE (1,102) IDEG
       ENDIF
 C
 C  NPSI   = No. of energies at which phase shifts are read in.
@@ -433,16 +433,16 @@ C
       CALL READT2(ASA,INVECT,IDEG,NL,V,VL,JJS,IPR)
 C
       IF(NL.GT.IPNL1*IPNL2) THEN
-	 write(1,122)
-	 GOTO 1400
+         write(1,122)
+         GOTO 1400
       ENDIF
       IF(LMAX.GT.IPLMAX) THEN
-	 write(1,118) LMAX
-	 GOTO 1400
+         write(1,118) LMAX
+         GOTO 1400
       ENDIF
       IF(NEL.GT.INTAU) THEN
-	 write(1,119) NEL
-	 GOTO 1400
+         write(1,119) NEL
+         GOTO 1400
       ENDIF
 C
 C prepare for phase shift interpolation to be performed in TSCATF
@@ -463,25 +463,29 @@ Cga this variable must be initialized for repeated calls
       NLTOT2=0
       READ (5,101) NST1,NSTEF,NDTENS
       IF(NST1.GT.INST1) THEN
-	 WRITE(1,120) NST1
-	 GOTO 1400
+         WRITE(1,120) NST1
+         GOTO 1400
       ENDIF
       NBULK=NST1-NSTEF
-      IF (NDTENS.NE.1.AND.NDTENS.NE.3) pause 'NDTENS must be 1 or 3'
+      IF (NDTENS.NE.1.AND.NDTENS.NE.3) then
+         write(*,*) 'NDTENS must be 1 or 3'
+         stop
+      endif
+      
       READ (5,101) (LAFLAG(I), I=1,NST1)
       DO 348 I=1,NST1
-	 IF (LAFLAG(I).GT.NLAY) NLAY=LAFLAG(I)
-	 NLTOT2=NLTOT2+LAFLAG(I)
-	 IF (I.LE.NSTEF) NLAYTOT=NLAYTOT+LAFLAG(I)
+         IF (LAFLAG(I).GT.NLAY) NLAY=LAFLAG(I)
+         NLTOT2=NLTOT2+LAFLAG(I)
+         IF (I.LE.NSTEF) NLAYTOT=NLAYTOT+LAFLAG(I)
 348   CONTINUE
       IF(NLTOT2.GT.INLTOT) THEN
-	 WRITE(1,115) NLTOT2
-	 GOTO 1400
+         WRITE(1,115) NLTOT2
+         GOTO 1400
       ENDIF
       NLMAX=NLAY
       IF(NLMAX.GT.INLAY) THEN
-	 WRITE(1,121) NLMAX
-	 GOTO 1400
+         WRITE(1,121) NLMAX
+         GOTO 1400
       ENDIF
       CALL READCT(NLAY,VPOS,FPOS,POSS,CPVPOS,NTAUAW,LPSAW,IPR,
      & LAFLAG,NST1,ASB,VICL,VCL,FRCL,TST,TSTS,ASA,INVECT)
@@ -492,13 +496,13 @@ C from LOOKIN.
 C
       NSHIFT=0
       DO 351 NCL=1,NST1
-	NLAY2=LAFLAG(NCL)
-	CALL LOOKUP2(CPVPOS,ILOOK,ILKBD,NLAY2,NST1,NSTEF,NSYMS,
+        NLAY2=LAFLAG(NCL)
+        CALL LOOKUP2(CPVPOS,ILOOK,ILKBD,NLAY2,NST1,NSTEF,NSYMS,
      &         NLTOT2,NSHIFT,NCL,NLMAX,IROT,IMIR,0,FPOS,POSS,POSS2,
      & nerror_report)
         if (nerror_report.eq.1) goto 9111 
 
-	NSHIFT=NSHIFT+NLAY2
+        NSHIFT=NSHIFT+NLAY2
 351   CONTINUE
       CALL DIMSCH2(ILOOK,NLTOT2,NDOMS,NNDIM,LSFLAG,LLFLAG,
      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
@@ -512,8 +516,8 @@ C
       CALL INEQCD(LSFLAG,LAFLAG,NST1,NLMAX,NLTOT2,
      &LAFLAG2,LPOINT,NLTIN,NST1,NINEQ,LPBD)
       IF(NLTIN.GT.INLIN) THEN
-	 WRITE(1,117) NLTIN
-	 GOTO 1400
+         WRITE(1,117) NLTIN
+         GOTO 1400
       ENDIF
 C
 C Read in information relevant to the pertubative LEED calculation
@@ -525,15 +529,15 @@ C
 C obtain information about bulk symmetric matrices. How many (NST1B)
 C are needed?
 C
-	  CALL SYMBLK(ASA,INVECT,NST1B,
+          CALL SYMBLK(ASA,INVECT,NST1B,
      &    INST1B,ARA1,ARA2,NST1,NBULK,VEC)
 C
 C can symmetry be used in substrate calculation?
 C
-	NSU=0
-	CSU1=ABS(ARA1(1)-ARB1(1))+ABS(ARA1(2)-ARB1(2))
-	CSU2=ABS(ARA2(1)-ARB2(1))+ABS(ARA2(2)-ARB2(2))
-	IF(CSU1+CSU2.LT.0.001) NSU=1
+        NSU=0
+        CSU1=ABS(ARA1(1)-ARB1(1))+ABS(ARA1(2)-ARB1(2))
+        CSU2=ABS(ARA2(1)-ARB2(1))+ABS(ARA2(2)-ARB2(2))
+        IF(CSU1+CSU2.LT.0.001) NSU=1
 C
 C Call MSET to obtain the reduction information for Q
 C
@@ -544,8 +548,8 @@ C
       LM2=LMAX+LSMAX
       CALL MSET2(LSMAX,LLCUT,ICUT,MICUT,MJCUT,IPCUT,NDTENS)
       IF(ICUT.GT.IPCUT) THEN
-	 WRITE(1,123) ICUT
-	 GOTO 1400
+         WRITE(1,123) ICUT
+         GOTO 1400
       ENDIF
 C
 C Calculate Clebsch-Gordan coefficients
@@ -577,7 +581,7 @@ C Do temperature dependant phase shifts need calculating?
 C
       IMARK=0
       DO 48 I=1,NEL
-	 IMARK=IMARK+IT1(I)
+         IMARK=IMARK+IT1(I)
 48    CONTINUE
       NN3=LMAX+1
       NN2=LMAX+1
@@ -587,22 +591,22 @@ C
 C  PPP= Clebsch Gordan coefficients for computation of temperature
 C       dependant phase shifts. (Skipped if not needed).
 C
-	 CALL CPPP(PPP,NN1,NN2,NN3)
+         CALL CPPP(PPP,NN1,NN2,NN3)
       ENDIF
 C
 C Check size of JSMAX.
 C
       IF (LSMAX.GT.JSMAX) THEN
-	 WRITE (1,111)
+         WRITE (1,111)
       ELSE
 C
 C Calculate Clebsch-Gordan Coefficients required by TLEED code.
 C
 C         CALL GAUNT(BELM2,NLMB2,LMAX,LSMAX)
-	 CALL GAUNT2(BELM2,NLMB2,LMAX,LSMAX)
+         CALL GAUNT2(BELM2,NLMB2,LMAX,LSMAX)
 C
-	 T=TI
-	 IF (IPR.GT.0) WRITE (1,104) T
+         T=TI
+         IF (IPR.GT.0) WRITE (1,104) T
 C
 C =============================================================================
 C
@@ -612,84 +616,84 @@ C =============================================================================
 C
 C  Read energy range and step.
 C
-	 READ (5,100) EI,EF,DE
-	 IF (EI.LT.0) THEN
-	    WRITE (1,*) ' EI MUST BE > 0 '
-	 ELSE
+         READ (5,100) EI,EF,DE
+         IF (EI.LT.0) THEN
+            WRITE (1,*) ' EI MUST BE > 0 '
+         ELSE
 C
 C Check normal incidence condition
 C
-	    IF(ABS(THETA).LE.0.001.AND.ABS(FI).LE.0.001) THEN
-	       INI=1
-	    ELSE
-	       INI=0
-	    ENDIF
+            IF(ABS(THETA).LE.0.001.AND.ABS(FI).LE.0.001) THEN
+               INI=1
+            ELSE
+               INI=0
+            ENDIF
 C
 C Generate required beamsets
 C
-	    DFLAG=0
-	    EF2=EF+VV*27.21
-	  CALL BEMGEN3(TST,EF2,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVB,
+            DFLAG=0
+            EF2=EF+VV*27.21
+          CALL BEMGEN3(TST,EF2,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVB,
      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
      &      NROM2R)
 C
 C symmetry information concerning the composite layer
 C
-	    DO 55 NCL=1,NST1
-	       NLAY=LAFLAG(NCL)
-	       LMNI=NLAY*LMMAX
-	       CALL SYMCL(NINEQ,LAFLAG2,NDOMBD,IROT,IMIR,NLMAX,LMNI,
+            DO 55 NCL=1,NST1
+               NLAY=LAFLAG(NCL)
+               LMNI=NLAY*LMMAX
+               CALL SYMCL(NINEQ,LAFLAG2,NDOMBD,IROT,IMIR,NLMAX,LMNI,
      &         NCL,LPBD,ILKBD,WBDS(1,NCL),IDXS(1,NCL),IDXN(1,NCL),
      &         ZRED(1,NCL),NST1,LMMAX,LX,LXM,LMNBD(1,NCL),NSU,NSTEF,
      &         NLAY)
-	       LMNM=LMNBD(1,NCL)
-	       IF(LMNBD(2,NCL).GT.LMNM) LMNM=LMNBD(2,NCL)
-	       IF(LMNM.GT.JLMNI) THEN
-		  WRITE(1,114) LMNM
-		  GOTO 1400
-	       ENDIF
+               LMNM=LMNBD(1,NCL)
+               IF(LMNBD(2,NCL).GT.LMNM) LMNM=LMNBD(2,NCL)
+               IF(LMNM.GT.JLMNI) THEN
+                  WRITE(1,114) LMNM
+                  GOTO 1400
+               ENDIF
 C
 C repeat call for tensor extension
 C
-	       LMNI2=NLAY*LSM
-	       IF(NCL.LE.NSTEF) THEN
-		 CALL SYMCL(NINEQ,LAFLAG2,NDOMBD,IROT,IMIR,NLMAX,LMNI2,
+               LMNI2=NLAY*LSM
+               IF(NCL.LE.NSTEF) THEN
+                 CALL SYMCL(NINEQ,LAFLAG2,NDOMBD,IROT,IMIR,NLMAX,LMNI2,
      &           NCL,LPBD,ILKBD,WBDS2(1,NCL),IDXS2(1,NCL),IDXN2(1,NCL),
      &           ZRED2(1,NCL),NST1,LSM,LX2,LXM2,LMNBD2(1,NCL),NSU,
      &           NSTEF,NLAY)
-		 LMNM2=LMNBD2(1,NCL)
-		 IF(LMNBD2(2,NCL).GT.LMNM2) LMNM2=LMNBD2(2,NCL)
-		 IF(LMNM2.GT.JLMNI2) THEN
-		    WRITE(1,1144) LMNM2
-		    GOTO 1400
-		 ENDIF
-	       ENDIF
+                 LMNM2=LMNBD2(1,NCL)
+                 IF(LMNBD2(2,NCL).GT.LMNM2) LMNM2=LMNBD2(2,NCL)
+                 IF(LMNM2.GT.JLMNI2) THEN
+                    WRITE(1,1144) LMNM2
+                    GOTO 1400
+                 ENDIF
+               ENDIF
 55          CONTINUE
 C
 C  Start loop over given energy range.
 C
-	    NGAW=INT((EF-EI)/DE)+1
-	    WRITE (1,109)
-	    WRITE (1,110)
-	    DO 1300 IEEV=1,NGAW
-	       EEV=EI+(IEEV-1)*DE
-	       E=EEV/27.21+VV
-	       E3=E
-	       WRITE (1,*) ' CALCULATING FOR E= ',EEV
-	       WRITE (1,110)
+            NGAW=INT((EF-EI)/DE)+1
+            WRITE (1,109)
+            WRITE (1,110)
+            DO 1300 IEEV=1,NGAW
+               EEV=EI+(IEEV-1)*DE
+               E=EEV/27.21+VV
+               E3=E
+               WRITE (1,*) ' CALCULATING FOR E= ',EEV
+               WRITE (1,110)
 C
 C  Set imaginary part of muffin tin potential. (Usually -4 or -5 eV)
 C
-	       VPIO=VPIS
-	       DCUTO=SQRT(2.0*E)
+               VPIO=VPIS
+               DCUTO=SQRT(2.0*E)
 C
 C  Set limiting radii on lattice sums, possibly different for substrate
 C  (DCUTS) and overlayer (DCUTO).
 C
-	       DCUTS=-4.0*DCUTO/(AMIN1(VPIS,-0.05))
-	       DCUTO=-4.0*DCUTO/(AMIN1(VPIO,-0.05))
-	       IF (IPR.GT.0) WRITE (1,103) VPIS,VPIO,DCUTS,DCUTO
+               DCUTS=-4.0*DCUTO/(AMIN1(VPIS,-0.05))
+               DCUTO=-4.0*DCUTO/(AMIN1(VPIO,-0.05))
+               IF (IPR.GT.0) WRITE (1,103) VPIS,VPIO,DCUTS,DCUTO
 C
 C =============================================================================
 C
@@ -697,23 +701,23 @@ C Calculate atomic T matrix elements for all atom types.
 C
 C =============================================================================
 C
-	       NLTU=LMMAX*NEL
-	       DO 247 INNEL=1,NEL
-		  CALL TSCATF(INNEL,L1,ES,PHSS,PHSS2,NPSI,IT1,E,0.,
+               NLTU=LMMAX*NEL
+               DO 247 INNEL=1,NEL
+                  CALL TSCATF(INNEL,L1,ES,PHSS,PHSS2,NPSI,IT1,E,0.,
      &             PPP,NN1,NN2,NN3,DR01,DRPER1,DRPAR1,T0,T,TSF0,TSF,
      &             AF,CAF,NFLAGINT)
 247            CONTINUE
-	       IF(NFLAGINT.eq.1) THEN
-		 WRITE(1,*) 'BE CAREFUL! AT HIGH ENERGY YOU ARE DOING
+               IF(NFLAGINT.eq.1) THEN
+                 WRITE(1,*) 'BE CAREFUL! AT HIGH ENERGY YOU ARE DOING
      &           EXTRAPOLATION NOT INTERPOLATION OF THE PHASE SHIFTS'
-	       ENDIF
-	       DRPER=DRPER1(NEL)
-	       DRPAR=DRPAR1(NEL)
-	       DR0=DR01(NEL)
-	       IT=0
-	       TV=TVA
-	       VPI=VPIS
-	       VPI1=VPIS
+               ENDIF
+               DRPER=DRPER1(NEL)
+               DRPAR=DRPAR1(NEL)
+               DR0=DR01(NEL)
+               IT=0
+               TV=TVA
+               VPI=VPIS
+               VPI1=VPIS
 C
 C =============================================================================
 C
@@ -722,9 +726,9 @@ C beams at this energy.
 C
 C =============================================================================
 C
-	       NEXIT=0
+               NEXIT=0
 C
-	       CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
+               CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
      &          NT0,RAR1,RAR2,PQFEX,PSQ,NEXIT,SPQFS,1,NBIN)
 C               CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
 C     &          NT0,RAR1,RAR2,PQFEX,PSQ,NEXIT,SPQF,1,NBIN)
@@ -733,7 +737,7 @@ C Select beams appropriate for current energy.
 C The output NBAL,PQAL,PQFAL,NTAL,NPAL refers to the complete list of beams
 C and will be used in the generation of the substrate matrices
 C
-	      CALL BEAMT3(KNBS,KNB,SPQ,SPQF,KNT,AK2,AK3,E,TST,NBAL,
+              CALL BEAMT3(KNBS,KNB,SPQ,SPQF,KNT,AK2,AK3,E,TST,NBAL,
      &          PQAL,PQFAL,NTAL,NPAL,IPR,1,
      &          IDXK,IIDXK,IIDXK2,IKRED,IIKRED,KNT,NSHBS,IMIN,
      &          IMAX,NKRED,NK3,INDK3,PH3,PQ3,INI)
@@ -741,7 +745,7 @@ C
 C KSNBS,KSNB,SPQS,SPQFS,NKRED  take symmetry into account 
 C The output NB,PQ,PQF,NT,NP refers to symmetric beams
 C
-	      CALL BEAMT3(KSNBS,KSNB,SPQS,SPQFS,NKRED,AK2,AK3,E,TST,
+              CALL BEAMT3(KSNBS,KSNB,SPQS,SPQFS,NKRED,AK2,AK3,E,TST,
      &          NB,PQ,PQF,NT,NP,IPR,0,
      &          IDXK,IIDXK,IIDXK2,IKRED,IIKRED,KNT,NSHBS,IMIN,
      &          IMAX,NKRED,NK3,INDK3,PH3,PQ3,INI)
@@ -749,12 +753,12 @@ C
 C use time reversal invariance to restrict calculation in MTNVSYM
 C Also compute angles between beams to be used in substrate calculation
 C
-	      CALL TREV(IND1,IND2,PQAL,PQ,NTAL,NT,INI,NRCP,
+              CALL TREV(IND1,IND2,PQAL,PQ,NTAL,NT,INI,NRCP,
      &          IIDXK,IIDXK2,IKBS,PH4,KNBS,NBAL)
 C
 C   Perform planar lattice sums.
 C
-	       CALL FMAT(FLMS,V,JJS,NL,NL,DCUTS,IDEG,LMAX,KLM)
+               CALL FMAT(FLMS,V,JJS,NL,NL,DCUTS,IDEG,LMAX,KLM)
 
 C =============================================================================
 C
@@ -762,25 +766,25 @@ C Now calculate overlayer and substrate matrices using Matrix inversion.
 C
 C =============================================================================
 C
-	       NA=0
-	       NS=0
-	       LAY=1
-	       TV1=TVB
-	       DCUT=DCUTS
-	       NPERT=5
-	       NOPT=1
-	       NEW=1
+               NA=0
+               NS=0
+               LAY=1
+               TV1=TVB
+               DCUT=DCUTS
+               NPERT=5
+               NOPT=1
+               NEW=1
 C
 C Set up overlayer atom positions and phase shift assignments LPS
 C
-	    DO 547 NCL=1,NST1
-	       VPI1=VICL(NCL)
-	       NLAY=LAFLAG(NCL)
-	       NTAU=NTAUAW(NCL)
-	       LPSMAX=1
-	       DO 548 I=1,NLAY
-		  CALL SETPOS(FPOS,VPOS,LPSAW,LPS(I),I,NCL,NLMAX,NST1)
-		  IF(LPS(I).GT.LPSMAX)LPSMAX=LPS(I)
+            DO 547 NCL=1,NST1
+               VPI1=VICL(NCL)
+               NLAY=LAFLAG(NCL)
+               NTAU=NTAUAW(NCL)
+               LPSMAX=1
+               DO 548 I=1,NLAY
+                  CALL SETPOS(FPOS,VPOS,LPSAW,LPS(I),I,NCL,NLMAX,NST1)
+                  IF(LPS(I).GT.LPSMAX)LPSMAX=LPS(I)
 548            CONTINUE
 C
 C NTAUSH takes care of proper indexing in THMAT and TAUMAT
@@ -788,29 +792,29 @@ C LPS for each layer (in tleed5.i) must be consecutive integers.
 C (e.g. 1,2 ; 2,1 or 3,1,2 are allowed as element indices corresponding
 C to a CL with NLAY=2 or NLAY=3 resp. ; 1,3  or 1,3,3 are not allowed)
 C
-		NTAUSH=LPSMAX-NTAU
+                NTAUSH=LPSMAX-NTAU
 C
 C Set parameters for NCL composite layer
 C
-	       NLAY2=NLAY*(NLAY-1)
-	       LMNI=NLAY*LMMAX
-	       LM2N=2*LMNI
-	       LMT=LMMAX*NTAU
-	       LMT2=LSM*NTAU
-	       LMNM=LMNBD(1,NCL)
-	       IF(LMNBD(2,NCL).GT.LMNM) LMNM=LMNBD(2,NCL)
+               NLAY2=NLAY*(NLAY-1)
+               LMNI=NLAY*LMMAX
+               LM2N=2*LMNI
+               LMT=LMMAX*NTAU
+               LMT2=LSM*NTAU
+               LMNM=LMNBD(1,NCL)
+               IF(LMNBD(2,NCL).GT.LMNM) LMNM=LMNBD(2,NCL)
 C
 C Calculate transmission and reflection matrices for overlayer.
 C
-	       IF(NLAY.EQ.1)THEN
-		 NLAY2=1
-	       ENDIF
+               IF(NLAY.EQ.1)THEN
+                 NLAY2=1
+               ENDIF
 C      I2=MCLOCK()
-	   IF(NCL.LE.NSTEF) THEN
+           IF(NCL.LE.NSTEF) THEN
 C
 C compute overlayer matrices
 C
-	     CALL MTSYM6(ROP,TOP,ROM,TOM,NT,NT,NT,AMULT,CYLM,PQ,NT,
+             CALL MTSYM6(ROP,TOP,ROM,TOM,NT,NT,NT,AMULT,CYLM,PQ,NT,
      & FLMS,NL,LXI,LT,LXM,LX2,LT2,LXM2,LMMAX,KLM,XEVM,LEV,
      & LEV2,TAU,LMT,LMT2,TAUG,TAUG2,TAUGM,TAUGM2,CLM,NLM,FPOS,POSS,MGH,
      & NLAY,DRL,NUGH,LEVV,NLAY2,TEST,RG,
@@ -822,13 +826,13 @@ C
      & WBDS2(1,NCL),IDXS2(1,NCL),IDXN2(1,NCL),
      & LMNBD2(1,NCL),TAUINV,NLTU,LAN,KOUNT,IIKRED,IKBS,LMNMAX,LMSMAX,
      & NBULK,INDK3,PQ3,PH3,NK3,KSNBS,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
-	   ELSE
+           ELSE
 C
 C compute substrate matrices
 C
-	       LAY=2
-	       TV1=TVA
-	     CALL MTSYM6(RA1R,TA1R,RA2R,TA2R,NT,NT,NP,AMULT,CYLM,PQ,NT,
+               LAY=2
+               TV1=TVA
+             CALL MTSYM6(RA1R,TA1R,RA2R,TA2R,NT,NT,NP,AMULT,CYLM,PQ,NT,
      & FLMS,NL,LXI,LT,LXM,LX2,LT2,LXM2,LMMAX,KLM,XEVM,LEV,
      & LEV2,TAU,LMT,LMT2,TAUG,TAUG2,TAUGM,TAUGM2,CLM,NLM,FPOS,POSS,MGH,
      & NLAY,DRL,NUGH,LEVV,
@@ -841,7 +845,7 @@ C
      & WBDS2(1,NCL),IDXS2(1,NCL),IDXN2(1,NCL),
      & LMNBD2(1,NCL),TAUINV,NLTU,LAN,KOUNT,IIKRED,IKBS,LMNMAX,LMSMAX,
      & NBULK,INDK3,PQ3,PH3,NK3,KSNBS,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
-	   ENDIF
+           ENDIF
 C      I3=MCLOCK()
 C      FTIME=FLOAT(I3-I2)
 C      CPU=FTIME/100.0
@@ -849,17 +853,17 @@ C      WRITE(*,*) CPU,'mtnv'
 C
 C Store the sorted composite layer assignement of the element type
 C
-	       DO 552 I=1,NLAY
-		  LPSAWS(NCL,I)=LPSS(I)
+               DO 552 I=1,NLAY
+                  LPSAWS(NCL,I)=LPSS(I)
 552            CONTINUE
 547         CONTINUE          
 C
 C  Set up interlayer vectors.
 C
-	       DO 148 I=1,3
-		  ASC(I)=ASA(1,I)
-		  ASD(I)=ASA(1,I)
-		  IF(INVECT.EQ.2)ASD(I)=ASA(2,I)
+               DO 148 I=1,3
+                  ASC(I)=ASA(1,I)
+                  ASD(I)=ASA(1,I)
+                  IF(INVECT.EQ.2)ASD(I)=ASA(2,I)
 148            CONTINUE
 C
 C Loop from 0 to NT0. First loop (NEXIT=0) produces the standard time
@@ -867,107 +871,107 @@ C forward LEED calculation. Subsequent loops reset the incident direction
 C to the various exit directions and perform the time reversed LEED 
 C calculation.
 C
-	       DO 1000 NEXIT=0,NT0
+               DO 1000 NEXIT=0,NT0
 C
 C Compute components of incident beam, and also locate current exit beam
 C in input beam list.
 C
-		  CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
+                  CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
      &             NT0,RAR1,RAR2,PQFEX,PSQ,NEXIT,PQF,NT,NBIN)
 C
 C Does this beam emerge?
 C
-		  IF (NBIN.GT.0) THEN
+                  IF (NBIN.GT.0) THEN
 C
 C Yes, so complete calculation in RFS, collecting the plane wave amplitudes
 C into AMPPLW
 C
-		   CALL RFSSYM(ROP,TOP,ROM,TOM,RA1R,TA1R,RA2R,TA2R,
+                   CALL RFSSYM(ROP,TOP,ROM,TOM,RA1R,TA1R,RA2R,TA2R,
      &              NT,NB,KSNBS,NP,XI,PQ,PK,AW,ANEW,20,ASB,ASC,ASD,
      &              IPR,AMPPLW,NBIN,NSTEF,NST1,NBULK,VICL,VCL,
      &              PKCL,FRCL,NT,NST1B,INVECT,IIKRED,NEXIT)
 C
 C On first loop dump intensities to output file
 C
-		     IF (NEXIT.EQ.0) THEN
+                     IF (NEXIT.EQ.0) THEN
 C
 C Compute intensities from amplitudes
 C
-		       CALL TRINT(NT,XI,PQ,PQF,VV,THETA,FI,IPR)
+                       CALL TRINT(NT,XI,PQ,PQF,VV,THETA,FI,IPR)
 C
 C Dump intensities of exit beams to transfer file
 C
-		      CALL DUMP(PQF,PQFEX2,NT0,NT,XI,XIST,E,22)
+                      CALL DUMP(PQF,PQFEX2,NT0,NT,XI,XIST,E,22)
 C
 C Propagate the plane wave amplitudes through the composite layer
 C using the intelayer (1-X) matrix. Store results for the time forward
 C LEED states in ALM.
 C 
-			NINDEX2=0
-		     DO 1150 NCL=1,NSTEF
-			NLAY=LAFLAG(NCL)
+                        NINDEX2=0
+                     DO 1150 NCL=1,NSTEF
+                        NLAY=LAFLAG(NCL)
 C                        NTAU=NTAUAW(NCL)
-			LMN=NLAY*LMMAX
-			DO 555 I=1,NLAY
-			  LPSS(I)=LPSAWS(NCL,I)
+                        LMN=NLAY*LMMAX
+                        DO 555 I=1,NLAY
+                          LPSS(I)=LPSAWS(NCL,I)
 555                     CONTINUE
-			CALL APROP3(IDXS2(1,NCL),WBDS2(1,NCL),TSTORE,
+                        CALL APROP3(IDXS2(1,NCL),WBDS2(1,NCL),TSTORE,
      &                   AMPPLW,NCL,NT,ALM,E,VICL(NCL),NLAY,LSM,LM2,
      &                   LXM2,NSTEF,LMSMAX,JLMNI2,NINEQ,LPBD,NLMAX)
 C
 C Generate the required vectors from the plane wave amplitudes for each 
 C layer. For the time forward LEED states, store the results in GA
 C
-			DO 1100 NINDEX=1,NINEQ(NCL)
-			   NINDEX2=NINDEX2+1
-			  CALL CVEC3(NINDEX,LM2,ALM,NLAY,A0LM,LMMAX,
+                        DO 1100 NINDEX=1,NINEQ(NCL)
+                           NINDEX2=NINDEX2+1
+                          CALL CVEC3(NINDEX,LM2,ALM,NLAY,A0LM,LMMAX,
      &                      LSM,NEXIT,LPSS,TSF,LSMMAX,BELM2,GA,NLTIN,
      &                      NLMB2,NINDEX2,LPBD,NLMAX,NSTEF,NCL)
 1100                    CONTINUE
 1150                  CONTINUE
-		     ELSE
+                     ELSE
 C 
 C Similarly, for the time reversed LEED states
 C Propagate the plane wave amplitudes through the composite layer
 C using the intelayer (1-X) matrix. Store results for the time reversed
 C LEED states in EXLM.
 C
-		      NINDEX2=0
-		      DO 1250 NCL=1,NSTEF
-			NLAY=LAFLAG(NCL)
+                      NINDEX2=0
+                      DO 1250 NCL=1,NSTEF
+                        NLAY=LAFLAG(NCL)
 C                        NTAU=NTAUAW(NCL)
-			LMN=NLAY*LMMAX
-			DO 556 I=1,NLAY
-			  LPSS(I)=LPSAWS(NCL,I)
+                        LMN=NLAY*LMMAX
+                        DO 556 I=1,NLAY
+                          LPSS(I)=LPSAWS(NCL,I)
 556                     CONTINUE
-			CALL APROP3(IDXS2(1,NCL),WBDS2(1,NCL),TSTORE,
+                        CALL APROP3(IDXS2(1,NCL),WBDS2(1,NCL),TSTORE,
      &                   AMPPLW,NCL,NT,EXLM,E,VICL(NCL),NLAY,LSM,LM2,
      &                   LXM2,NSTEF,LMSMAX,JLMNI2,NINEQ,LPBD,NLMAX)
 C
 C Generate the required vectors from the plane wave amplitudes for each 
 C layer. For the time reveresed LEED states, store the results in GB
 C
-			DO 1200 NINDEX=1,NINEQ(NCL)
-			   NINDEX2=NINDEX2+1
-			   CALL CVEC3(NINDEX,LM2,EXLM,NLAY,A0LM,LMMAX,
+                        DO 1200 NINDEX=1,NINEQ(NCL)
+                           NINDEX2=NINDEX2+1
+                           CALL CVEC3(NINDEX,LM2,EXLM,NLAY,A0LM,LMMAX,
      &                      LSM,NEXIT,LPSS,TSF,LSMMAX,BELM2,GB,1,NLMB2,
      &                      1,LPBD,NLMAX,NSTEF,NCL)
 C
 C Use the vectors GA and GB to construct the tensor Q
 C
-			  CALL QGEN2(GA,GB,Q,LMMAX,LSMMAX,NINDEX2,
+                          CALL QGEN2(GA,GB,Q,LMMAX,LSMMAX,NINDEX2,
      &                    NLTIN,E,VICL(NCL),NEXIT,NT0,AK2M,AK3M,TV,
      &                    NLMAX,LAFLAG2,NSTEF,NINDEX,NCL)
 C
 C Dump the truncated Q matrix to the transfer file
 C
-C			  CALL SHORT(Q,LSMMAX,22,E,VV,AK2M,AK3M, changed by ZZ on 09/07/04
-			  CALL SHORT_own(Q,LSMMAX,22,E,VV,AK2M,AK3M,
+C                          CALL SHORT(Q,LSMMAX,22,E,VV,AK2M,AK3M, changed by ZZ on 09/07/04
+                          CALL SHORT_own(Q,LSMMAX,22,E,VV,AK2M,AK3M,
      &                      NT0,NEXIT,ICUT,QCUT,MICUT,MJCUT)
 1200                    CONTINUE
 1250                  CONTINUE
-		     ENDIF
-		  ENDIF
+                     ENDIF
+                  ENDIF
 1000           CONTINUE
 C
 C =============================================================================
@@ -979,8 +983,8 @@ C
 CPC               WRITE (*,999) EEV
 CPC999            FORMAT (' LAST ENERGY: ',F10.2)
 1300        CONTINUE
-	    WRITE (1,106)
-	 ENDIF
+            WRITE (1,106)
+         ENDIF
       ENDIF
 C      I2=MCLOCK()
 C      FTIME=FLOAT(I2-I1)

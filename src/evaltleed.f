@@ -100,14 +100,14 @@ C********************************************************
       REAL RMIN(NIDEN),RMAX(NIDEN),RMID(NIDEN)
       INTEGER NTYPSUB(NSUB)
       
-      CHARACTER*16 SYMC,RESULT,NCODE(NMAX)
+      CHARACTER(LEN=16) SYMC,RESULT,NCODE(NMAX)
 
 CGPS      CHARACTER*32 TLEED4,TLEED5,SEARCHS,TRACE 
-      CHARACTER*100 TLEED4,TLEED5,SEARCHS,TRACE 
+      CHARACTER(LEN=100) TLEED4,TLEED5,SEARCHS,TRACE 
       character*(*) problem_dir
-      character*100 tleed4doti, tleed5doti, workdir
-      CHARACTER*3 PROCID
-      CHARACTER*3 WORKID
+      character(LEN=100) tleed4doti, tleed5doti, workdir
+      CHARACTER(LEN=3) PROCID
+      CHARACTER(LEN=3) WORKID
      
       common /doti/tleed4doti, tleed5doti
       COMMON TLEED4,TLEED5,SEARCHS,TRACE
@@ -115,6 +115,9 @@ CGPS      CHARACTER*32 TLEED4,TLEED5,SEARCHS,TRACE
       DATA RMIN/1.0,1.0,1.0,1.0,1.0/
       DATA RMAX/1.4,1.7,1.5,1.5,1.5/
       DATA RMID/1.23,1.245,1.2,1.2,1.2/
+      DATA COORSUB0/0.0,0.0,0.0,0.0,0.0,0.0,
+     &0.1,0.3,0.5,0.3,0.5,0.5,
+     &0.1,0.1,0.1,0.3,0.3,0.5/
 
       FITVAL=0.0
 
@@ -128,9 +131,6 @@ C Define the symmetry code.
 
 C Input substrate coordinates, COORSUB0, AA is the length of unit cell.
 
-        DATA COORSUB0/0.0,0.0,0.0,0.0,0.0,0.0,
-     &0.1,0.3,0.5,0.3,0.5,0.5,
-     &0.1,0.1,0.1,0.3,0.3,0.5/
         DO I= 1,6
            COORSUB(I,1)=3.5214
            COORSUB(I,2)=AA*COORSUB0(I,2)
@@ -238,7 +238,7 @@ C     &             PARM(I,3)
 c     enddo
 
 CGPS           OPEN(UNIT=99,FILE=TRACE,STATUS='UNKNOWN')
-           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
+           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
            WRITE (99,*) "ID: ",PROCID," Parms passed to tleed codes: 
      &(may be changed by VALUATE)"
            DO I=1,NMAX
@@ -265,7 +265,7 @@ C           WRITE (0,*) PROCID," Calling tleed1: ",PROCID
                fitval=1.64 
                return
            else
-           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
+           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
 C           WRITE (0,*) WORKID,":",PROCID,
 C     &          "...Returned tleed1 : Calling tleed2..."
            WRITE (99,*) WORKID,":",PROCID,
@@ -288,7 +288,7 @@ C          Assign penalty when r-factor is less than .1
               Fitval=1.62
            else
            end if
-           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
+           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
 
 C           WRITE (0,*) WORKID,":",PROCID,
 C     &          " ...Returned tleed2 fitval=",fitval
@@ -321,8 +321,8 @@ c The 17 symmetries, contraction to the adge, corner, center,
 c and restraint on minimum distance and at least one contact.
         PARAMETER (NLAY=5)
 
-        CHARACTER*16 RESULT,SYMC
-        CHARACTER*16 NCODE(NMAX)
+        CHARACTER(LEN=16) RESULT,SYMC
+        CHARACTER(LEN=16) NCODE(NMAX)
 
         REAL COORD(NMAX,3),COORSUB(NSUB,3)
         REAL RNZ(87),RMIN(NIDEN),RMAX(NIDEN) 
@@ -402,8 +402,8 @@ c COORDAT RETURNS ALL COORDINATES IN THE SURFACE NEEDED IN TLEED5.I.
         SUBROUTINE WRITCOOR(COORD,NTYPE,NCODE,NMAX,KLAY,SPAC,NLAY,
      *KLAYER)
         PARAMETER (NNMAX=80,NLAYE=5)
-        CHARACTER*16 NCODE(NMAX)
-        CHARACTER*60 LINE
+        CHARACTER(LEN=16) NCODE(NMAX)
+        CHARACTER(LEN=60) LINE
         REAL COORD(NMAX,3),COORA(NNMAX,3),SPAC(NLAY)
         REAL COORAL(NLAYE,NNMAX,3)
         REAL SPAC1(NLAYE,3),FR(NLAYE),VO(NLAYE),VI(NLAYE)
@@ -413,9 +413,9 @@ c COORDAT RETURNS ALL COORDINATES IN THE SURFACE NEEDED IN TLEED5.I.
         INTEGER NTAU(NLAYE)
 
 CGPS        CHARACTER*32 TLEED4,TLEED5,SEARCHS,TRACE 
-        CHARACTER*100 TLEED4,TLEED5,SEARCHS,TRACE 
+        CHARACTER(LEN=100) TLEED4,TLEED5,SEARCHS,TRACE 
 CGPS+
-        CHARACTER*100 tleed4doti, tleed5doti
+        CHARACTER(LEN=100) tleed4doti, tleed5doti
         COMMON /doti/tleed4doti, tleed5doti
         COMMON TLEED4,TLEED5,SEARCHS,TRACE
 
@@ -746,7 +746,7 @@ C COMMENTS:  General
 C********************************************************
         SUBROUTINE MODSTRUCT(SYMC,COORD,NTYPE,NCODE,NMAX,RMIN,RMAX,
      %NIDEN,UNITX)
-        CHARACTER*16 SYMC,NCODE(NMAX)
+        CHARACTER(LEN=16) SYMC,NCODE(NMAX)
         INTEGER NTYPE(NMAX)
         REAL COORD(NMAX,3),RMIN(NIDEN),RMAX(NIDEN)
 
@@ -874,7 +874,7 @@ C Valuate the validity of structure by examning the minimum
 c distance and touching priciple.
         SUBROUTINE VALUAT(COOR,NTYP,NMA,RMIN,RMAX,NIDEN,RESULT,
      &COORSUB,NTYPSUB,NSUB)
-        CHARACTER*16 RESULT
+        CHARACTER(LEN=16) RESULT
         PARAMETER (NMAX=40)
         REAL COOR(NMA,3)
         REAL COORSUB(NSUB,3)
@@ -954,7 +954,7 @@ C********************************************************
         SUBROUTINE COORDAT(COORD,NTYPE,NCODE,K1,K2,KK,
      %COORA,NTYPA)
         PARAMETER (NMAX=14,NNMAX=80)
-        CHARACTER*16 NCODE(NMAX) 
+        CHARACTER(LEN=16) NCODE(NMAX) 
         REAL COORD(NMAX,3),COORA(NNMAX,3)
         INTEGER NTYPE(NMAX),NTYPA(NNMAX) 
         KK=0  
@@ -1067,7 +1067,7 @@ C Sort an array RA of length N into ascending numberical order
 c while making rearrangements of the arrays RB, RC and RZ. An 
 c index table is constructed via the routine INDEXX.
         PARAMETER (NN=20)
-        CHARACTER*16 NCOD(N),MWKSP(NN)
+        CHARACTER(LEN=16) NCOD(N),MWKSP(NN)
         REAL COOR(N,3),RA(NN),WKSP(NN)
         INTEGER IWKSP(NN),NWKSP(NN),NTYP(N)
         DO I=1,N
@@ -1365,7 +1365,7 @@ C======================================================================
       integer x, length
       character c*(*)
       
-      character*10 alph
+      character(len=10) alph
       integer xt,i,y
       
       alph = '0123456789'

@@ -5,11 +5,11 @@ C  Symmetrized Automated Tensor LEED (SATLEED):  program TLEED2.FOR
 C  Version 4.1 of Automated Tensor LEED
 C
       PROGRAM TLEED2V4
-      character*80 problem_dir, dir, rank
+      character(len=80) problem_dir, dir, rank
       real rfactor
-      character*100 tleed4i,tleed5i,shortt,gleedo,searchs,prdird,
+      character(len=100) tleed4i,tleed5i,shortt,gleedo,searchs,prdird,
      &restartd
-      character*100 expdotd, rfacdotd
+      character(len=100) expdotd, rfacdotd
 C 
 C PROGRAM DESCRIPTION: 
 C -------------------
@@ -54,7 +54,7 @@ C       IPLMAX          The largest l value to be used (LMAX).
 C
 C ============================================================================
 C
-      PARAMETER (IPLMAX=8)
+c      PARAMETER (IPLMAX=8)
 C
 C ============================================================================
 C
@@ -160,12 +160,12 @@ C
       COMPLEX VL(JPNL,2),QS(IINCUT),XISTS(INT0,IINERG)
 C     COMPLEX JYLM(JSMMAX) ,BJ(JSMAX1)
       COMPLEX JYLM(JSMMAX)
-      COMPLEX*16 BJ(JSMAX1)
+      COMPLEX BJ(JSMAX1)
       COMPLEX YLM(JSMMAX),XIST(INT0,IINERG)
 C
 C Final character arrays
 C
-      CHARACTER*4 TITLE(20)
+      CHARACTER(len=4) TITLE(20)
 C
 C ============================================================================
 C
@@ -207,22 +207,22 @@ C
 C ============================================================================
 C
 101   FORMAT (20I3)
-102   FORMAT (/8H IDEG = ,1I3)
-103   FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/)
+102   FORMAT (/' IDEG = ',1I3)
+103   FORMAT (/,10X,'COORDINATES AFTER SORTING',/)
 104   FORMAT (I3,F7.4)
 105   FORMAT (/' 2ND PASS TLEED...PERTUBATIVE LEED CALCULATION ')
-106   FORMAT (20H CORRECT TERMINATION)
+106   FORMAT (' CORRECT TERMINATION')
 107   FORMAT (20A4)
 108   FORMAT (2I3,2F7.4)
 109   FORMAT (3F7.4)
-110   FORMAT (' CPU TIME = ',F9.2,' SECONDS ')
+c110   FORMAT (' CPU TIME = ',F9.2,' SECONDS ')
 114   FORMAT (' ERROR: The parameter INLIN must be at least',I4 )
 115   FORMAT (' ERROR: The parameter INLTOT must be at least',I4 )
 116   FORMAT (' ERROR: The parameter INT0 must be at least',I4 )
 119   FORMAT (' ERROR: The parameter INTAU must be at least',I4 )
 120   FORMAT (' ERROR: The parameter INST1 must be at least',I4 )
 121   FORMAT (' ERROR: The parameter INLAY must be at least',I4 )
-123   FORMAT (' ERROR: The parameter IPCUT must be at least',I4 )
+c123   FORMAT (' ERROR: The parameter IPCUT must be at least',I4 )
 124   FORMAT (' ERROR: The parameter JSMAX must be at least',I4 )
 C
       write(*,*) 'tleed2GPS: Entering tleed2'
@@ -311,7 +311,7 @@ CGSS: VOPT must be initiallized. ZZ 9/29/04
        VOPT=0.0 
 C
 C      I1=MCLOCK()
-Cgps:	
+Cgps:      
 C      write(99, *) 'this is just a test',10000
       READ (5,107) (TITLE(I),I=1,20)
       WRITE (1,107) (TITLE(I),I=1,20)
@@ -333,12 +333,12 @@ C radii for the pertubation expansion LSMAX and LLCUT
 C
       READ (4,101) NT0,NSET,LSMAX,LLCUT
       IF(LSMAX.GT.JSMAX) THEN
-	 WRITE(1,124) LSMAX
-	 GOTO 1000
+       WRITE(1,124) LSMAX
+       GOTO 1000
       ENDIF
       IF(NT0.GT.INT0) THEN
-	 WRITE(1,116) NT0
-	 GOTO 1000
+       WRITE(1,116) NT0
+       GOTO 1000
       ENDIF
 C
 C  IDEG rotational symmetry of each layer.
@@ -347,7 +347,7 @@ C  NL1, NL2  Superlattice Characterization (calculated in READT1)
 C
       READ (5,101) IDEG
       IF (IPR.GT.0) THEN
-	 WRITE (1,102) IDEG
+       WRITE (1,102) IDEG
       ENDIF
 C
 C  NPSI   = No. of energies at which phase shifts are read in.
@@ -363,8 +363,8 @@ C
       CALL READT2(ASA,INVECT,IDEG,NL,V,VL,JJS,IPR)
 C
       IF(NEL.GT.INTAU) THEN
-	 write(1,119) NEL
-	 GOTO 1000
+       write(1,119) NEL
+       GOTO 1000
       ENDIF
        VO=.0
 C
@@ -380,24 +380,24 @@ Cga this variable must be initialized for repeated calls
       NLTOT2=0
       READ (5,101) NST1,NSTEF,NDTENS
       IF(NST1.GT.INST1) THEN
-	 WRITE(1,120) NST1
-	 GOTO 1000
+       WRITE(1,120) NST1
+       GOTO 1000
       ENDIF
       NBULK=NST1-NSTEF
       READ (5,101) (LAFLAG(I),I=1,NST1)
       DO 348 I=1,NST1
-	 IF (LAFLAG(I).GT.NLAY) NLAY=LAFLAG(I)
-	 NLTOT2=NLTOT2+LAFLAG(I)
-	 IF (I.LE.NSTEF)NLAYTOT=NLAYTOT+LAFLAG(I)
+       IF (LAFLAG(I).GT.NLAY) NLAY=LAFLAG(I)
+       NLTOT2=NLTOT2+LAFLAG(I)
+       IF (I.LE.NSTEF)NLAYTOT=NLAYTOT+LAFLAG(I)
 348   CONTINUE
       IF(NLAYTOT+NNST.GT.INLTOT) THEN
-	 WRITE(1,115) NLAYTOT+NNST
-	 GOTO 1000
+       WRITE(1,115) NLAYTOT+NNST
+       GOTO 1000
       ENDIF
       NLMAX=NLAY
       IF(NLMAX.GT.INLAY) THEN
-	 WRITE(1,121) NLMAX
-	 GOTO 1000
+       WRITE(1,121) NLMAX
+       GOTO 1000
       ENDIF
 C
 C Read in additional data for composite layer.
@@ -413,18 +413,18 @@ CGPS
 C      write(0,*) 'NSTEF=', NSTEF
       DO 351 NCL=1,NSTEF
 C      write(0,*) 'NCL=', NCL
-	NLAY2=LAFLAG(NCL)
-	CALL LOOKUP2(CPVPOS,ILOOK,ILKBD,NLAY2,NST1,NSTEF,NSYM,
+      NLAY2=LAFLAG(NCL)
+      CALL LOOKUP2(CPVPOS,ILOOK,ILKBD,NLAY2,NST1,NSTEF,NSYM,
      &  NLTOT2,NSHIFT,NCL,NLMAX,IROT,IMIR,1,FPOS,POSS,POSS2,
      &  nerror_report)
 C        write(0,*)'FPOS=',FPOS
 C
 C Set up lookup table for restricting the search
 C
-	CALL LOOKUP2(CPVPOS,ILOOKS,ILKBD,NLAY2,NST1,NSTEF,NSYMS,
+      CALL LOOKUP2(CPVPOS,ILOOKS,ILKBD,NLAY2,NST1,NSTEF,NSYMS,
      &  NLTOT2,NSHIFT,NCL,NLMAX,IROT,IMIR,0,FPOS,POSS,POSS2,
      &  nerror_report)
-	NSHIFT=NSHIFT+NLAY2
+      NSHIFT=NSHIFT+NLAY2
 C        write(0,*)'FPOS=',FPOS
 351   CONTINUE
 C
@@ -458,8 +458,8 @@ C
      &LAFLAG2,LPOINT,NLTIN,NSTEF,NINEQ,LPBD)
 C
       IF(NLTIN.GT.INLIN) THEN
-	 WRITE(1,114) NLTIN
-	 GOTO 1000
+       WRITE(1,114) NLTIN
+       GOTO 1000
       ENDIF
 C
 C Set up dimensionality of search acoording  to the symmetry parameter
@@ -474,10 +474,10 @@ C the last parameters are non structural (inner potential, etc.)
 C
       NNSTEF=0
       IF (NNST.GE.1) THEN
-	 DO 1115 I=NLAYTOT+1,NLAYTOT+NNST
-	    IF (LLFLAG(I).NE.0) THEN 
-	      NNSTEF=NNSTEF+1
-	    ENDIF
+       DO 1115 I=NLAYTOT+1,NLAYTOT+NNST
+          IF (LLFLAG(I).NE.0) THEN 
+            NNSTEF=NNSTEF+1
+          ENDIF
 1115      CONTINUE
       ENDIF
 C
@@ -532,9 +532,9 @@ C Use direction set
 C
 
 Cga make a function call for the GA
-C	open (unit=29, file='tleed2.out',status='unknown')
-C	write(29,*)'indside tleed2:before powell'
-C	write(*,*)'indside tleed2:before powell'
+C      open (unit=29, file='tleed2.out',status='unknown')
+C      write(29,*)'indside tleed2:before powell'
+C      write(*,*)'indside tleed2:before powell'
 C        write(29,*) 'now output the input position parameter'
 C        write(*,*) 'now output the input position parameter'
 C        do i=1,NNDIM
@@ -553,8 +553,8 @@ Cga       CALL POWELL(P,XI,NLAYTOT,NDIM,DISP,NNDIM,ADISP,FTOL2,ASTEP,
      & RPP2,RRZJ,RMZJ,RPE,EET,NET,AR,YT,LLFLAG,LSFLAG,
      & NDIML,DIREC,NLTIN,LPOINT,LRFLAG)
 
-C	write(29,*)'indside tleed2:after powell'
-C	write(*,*)'indside tleed2:after powell'
+C      write(29,*)'indside tleed2:after powell'
+C      write(*,*)'indside tleed2:after powell'
 C        write(29,*) 'now output the final position parameter'
 C        write(*,*) 'now output the final position parameter'
 C        do i=1,NNDIM
@@ -563,7 +563,7 @@ C                write(*,*) P(i)
 C        enddo
 C        write(29,*) rfactor
 C        write(*,*) rfactor
-C	close(29)
+C      close(29)
 
       ELSEIF (MFLAG.EQ.3) THEN
 C
@@ -583,8 +583,8 @@ Cga       CALL POWELL2(P,XI,NLAYTOT,NDIM,DISP,NNDIM,ADISP,FTOL2,ASTEP,
      & NDIML,DIREC,NLTIN,LPOINT)
 
       ELSE
-	READ(4,104) MSTEP,ZSTEP
-	SCAL=VSTEP/ASTEP
+      READ(4,104) MSTEP,ZSTEP
+       Scal=VSTEP/ASTEP
 Cga make a function call for the GA
 Cga      CALL GRID(ZSTEP,MSTEP,NLAYTOT,NDIM,DISP,XI,
       rfactor = GRID(ZSTEP,MSTEP,NLAYTOT,NDIM,DISP,XI,

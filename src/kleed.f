@@ -8,12 +8,12 @@ c       subroutine kleed(problem_dir,dir,rank,rfactor)
 c      character*(*) problem_dir
 c      character*(*) dir
 c      character*(*) rank
-      character*80 problem_dir, dir, rank
+      character(len=80) problem_dir, dir, rank
 
-      character*100 kleed4i, kleed5i,  tleedo,gleedo,searchs,prdird,
+      character(len=100) kleed4i,kleed5i,tleedo,gleedo,searchs,prdird,
      &restartd
-      character*100 expdotd,rfacdotd
-      character*100 xpin
+      character(len=100) expdotd,rfacdotd
+      character(len=100) xpin
       integer nerror_report
       real rfactor
 
@@ -59,9 +59,9 @@ C
 C     INLAY         Maximum number of subplanes in any composite layer.
 C     INTAU         Max No of chemical elements in any composite layer.
 C     INST1         Number of composite Layers for which data is input.
-C     INLTOT	    Number of subplanes in composite layers that are
-C 		    displaced from reference position, i.e., number
-c  	            of subplanes in NEFFST1 composite layers
+C     INLTOT            Number of subplanes in composite layers that are
+C                     displaced from reference position, i.e., number
+c                      of subplanes in NEFFST1 composite layers
 C
 C ============================================================================
 C
@@ -85,8 +85,8 @@ C     INBED         Maximum number of beams included in the theoretical
 C                   or experimental data set
 C     IEERG         Maximum number of experimental data points after
 C                   interpolation.
-C     ITEMP	    Switches off (ITEMP=0) or on (ITEMP different from zero)
-C		    temperature effects 
+C     ITEMP            Switches off (ITEMP=0) or on (ITEMP different from zero)
+C                    temperature effects 
 C ============================================================================
 C
       PARAMETER (INT0=20,JSMAX=2)
@@ -148,7 +148,7 @@ C Now complex arrays
 
 C Final character arrays
 C
-      CHARACTER*4 TITLE(20)
+      CHARACTER(len=4) TITLE(20)
 C
 C ============================================================================
 C
@@ -192,13 +192,13 @@ C
 340   FORMAT (16F7.4)
 100   FORMAT (3F7.2)
 101   FORMAT (20I3)
-102   FORMAT (/8H IDEG = ,1I3,7H NL1 = ,1I3,7H NL2 = ,1I3)
-103   FORMAT (8H VPIS = ,F9.4,8H VPIO = ,F9.4,9H DCUTS = ,F9.4,
-     & 9H DCUTO = ,F9.4)
+102   FORMAT (/' IDEG = ',1I3,' NL1 = ',1I3,' NL2 = ',1I3)
+103   FORMAT (' VPIS = ',F9.4,' VPIO = ',F9.4,' DCUTS = ',F9.4,
+     & ' DCUTO = ',F9.4)
 1103   FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/)
-104   FORMAT (8H TEMP = ,F9.4)
+104   FORMAT (' TEMP = ',F9.4)
 105   FORMAT (/' 1ST PASS TLEED...REFERENCE STRUCTURE CALCULATION ')
-106   FORMAT (20H CORRECT TERMINATION)
+106   FORMAT (' CORRECT TERMINATION')
 107   FORMAT (20A4)
 109   FORMAT (//,' STARTING LOOP OVER ENERGIES ',/)
 110   FORMAT (/,'====================================================',
@@ -302,7 +302,7 @@ C prepare for phase shift interpolation to be performed in TSCATF
 C through a cubic spline interpolation routine from Numerical Recipes
 C
       DO 660 I=1,NPSI
-	DO 661 II=1,NEL
+        DO 661 II=1,NEL
            IO=(II-1)*L1
 661      CONTINUE
 660   CONTINUE
@@ -326,9 +326,9 @@ c      write (*,*) NST1,NST1EFF
       READ (5,101) (LAFLAG(I), I=1,NST1)
 c      write (*,*) (LAFLAG(I), I=1,NST1)
       DO 348 I=1,NST1
-	 IF (LAFLAG(I).GT.NLAY) NLAY=LAFLAG(I)
-	 IF (I.LE.NST1EFF) NLAYTOT=NLAYTOT+LAFLAG(I)
-348   CONTINUE	
+         IF (LAFLAG(I).GT.NLAY) NLAY=LAFLAG(I)
+         IF (I.LE.NST1EFF) NLAYTOT=NLAYTOT+LAFLAG(I)
+348   CONTINUE        
 C
 C Read in additional data for composite layer.
 C
@@ -336,20 +336,20 @@ cjcm       write(*,*) 'before READCT'
        CALL READCT(NLAY,VPOS,CPVPOS,NTAUAW,LPSAW,LMMAX,IPR,
      & LAFLAG,NST1,ASB,VICL,VCL,FRCL,TST,TSTS,ASA,INVECT)
 
-c	do 1101 i=1,nst1
-c	do 1102 j=1,laflag(i)
-c	WRITE(7,*) vpos(i,j,1)
-c1102	continue
-c	do 2103 j=1,laflag(i)
-c	WRITE(7,*) vpos(i,j,2)
-c2103	continue
-c	do 1104 j=1,laflag(i)
-c	WRITE(7,*) vpos(i,j,3)
-c1104	continue
-c	do 1105 j=1,laflag(i)
-c	WRITE(7,*) lpsaw(i,j) 
-c1105	continue
-c1101	continue
+c        do 1101 i=1,nst1
+c        do 1102 j=1,laflag(i)
+c        WRITE(7,*) vpos(i,j,1)
+c1102        continue
+c        do 2103 j=1,laflag(i)
+c        WRITE(7,*) vpos(i,j,2)
+c2103        continue
+c        do 1104 j=1,laflag(i)
+c        WRITE(7,*) vpos(i,j,3)
+c1104        continue
+c        do 1105 j=1,laflag(i)
+c        WRITE(7,*) lpsaw(i,j) 
+c1105        continue
+c1101        continue
 
 C
 C Read in information relevant to the pertubative LEED calculation
@@ -367,32 +367,32 @@ C
       LOD=LMMAX-LEV
       LEV2=2*LEV
       NCAA=NCA(LMAX)
-cjcm	write(*,*) 'before CAAA'
-c	do 1589 i=1,nlaytot
-c	write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
-c1589	continue
+cjcm        write(*,*) 'before CAAA'
+c        do 1589 i=1,nlaytot
+c        write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
+c1589        continue
 cjcm
       CALL CAAA(CAA,NCAA,LMMAX)
-cjcm	write(*,*) 'after CAAA'
-c	do 1489 i=1,nlaytot
-c	write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
-cjcm1489	continue
+cjcm        write(*,*) 'after CAAA'
+c        do 1489 i=1,nlaytot
+c        write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
+cjcm1489        continue
       N=2*LMAX+1
       NN=N*N
       NLM=NLMS(LMAX)
       CALL CELMG(CLM,NLM,YLM,FAC2,NN,FAC1,N,LMAX)
-cjcm	write(*,*) 'after CELMG'
-c	do 1389 i=1,nlaytot
-c	write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
-cjcm1389	continue
+cjcm        write(*,*) 'after CELMG'
+c        do 1389 i=1,nlaytot
+c        write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
+cjcm1389        continue
 C
 C  Calculate permutations of (L-M) sequence.
 C
       CALL LXGENT(LX,LXI,LT,LXM,LMAX,LMMAX)
-cjcm	write(*,*) 'after LXGENT'
-c	do 1289 i=1,nlaytot
-c	write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
-cjcm1289	continue
+cjcm        write(*,*) 'after LXGENT'
+c        do 1289 i=1,nlaytot
+c        write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
+cjcm1289        continue
 C
 C Do temperature dependant phase shifts need calculating?
 C
@@ -408,7 +408,7 @@ C
 C  PPP= Clebsch Gordan coefficients for computation of temperature
 C       dependant phase shifts. (Skipped if not needed).
 C
-cjcm	write(*,*) 'before CPPP'
+cjcm        write(*,*) 'before CPPP'
          CALL CPPP(PPP,NN1,NN2,NN3)
       ENDIF
 
@@ -419,7 +419,7 @@ C
          WRITE (1,111)
       ELSE
 
-	T=TI
+        T=TI
         IF (IPR.GT.0) WRITE (1,104) T
 C =============================================================================
 C
@@ -428,36 +428,36 @@ C
 C =============================================================================
 C
 C Set up overlayer atom positions and phase shift assignments LPS
-cjcm	write(*,*) 'before 547'
+cjcm        write(*,*) 'before 547'
 C
- 	  ITOT=1	
-	DO 547 NCL=1,NST1
+           ITOT=1        
+        DO 547 NCL=1,NST1
             NLAY=LAFLAG(NCL)
             NTAU=NTAUAW(NCL)
-	    LPSMAX=1
-	      DO 548 I=1,NLAY
-	          LPS(I)=LPSAW(NCL,I)
-		  IF(LPS(I).GT.LPSMAX)LPSMAX=LPS(I)
-		  DO 549 J=1,3
-		     FPOS(I,J)=VPOS(NCL,I,J)
+            LPSMAX=1
+              DO 548 I=1,NLAY
+                  LPS(I)=LPSAW(NCL,I)
+                  IF(LPS(I).GT.LPSMAX)LPSMAX=LPS(I)
+                  DO 549 J=1,3
+                     FPOS(I,J)=VPOS(NCL,I,J)
 549               CONTINUE
 548            CONTINUE
 
 c Reorder the subplanes of each composite layer according to
 c increasing position along the +X axis
 
-cjcm	write(*,*) 'before SORT'
+cjcm        write(*,*) 'before SORT'
 
 
-	 CALL SORT(FPOS,NLAY)
+         CALL SORT(FPOS,NLAY)
 
       WRITE(2,1103)
-	DO 948 I=1,NLAY
-	DO 947 J=1,3
-	    VPOS(NCL,I,J)=FPOS(I,J)
-947	CONTINUE
-	  WRITE(2,1010) (FPOS(I,K),K=1,3)
-948	continue
+        DO 948 I=1,NLAY
+        DO 947 J=1,3
+            VPOS(NCL,I,J)=FPOS(I,J)
+947        CONTINUE
+          WRITE(2,1010) (FPOS(I,K),K=1,3)
+948        continue
 
 
 c Redefine all the atomic positions with respect to the surface plane
@@ -465,26 +465,26 @@ c located at a distance ASE from the outermost overlayer subplane.
 
 
 
-	DO 648 I=1,NLAY
+        DO 648 I=1,NLAY
             WPOS(NCL,I,1)=VPOS(NCL,I,1)+ASE+ABS(VPOS(1,1,1))
             WPOS(NCL,I,2)=VPOS(NCL,I,2)
-	    WPOS(NCL,I,3)=VPOS(NCL,I,3)
+            WPOS(NCL,I,3)=VPOS(NCL,I,3)
 C  Assign element type 
-	    IELEMOL(NCL,I)=LPSAW(NCL,I)
-648	CONTINUE
+            IELEMOL(NCL,I)=LPSAW(NCL,I)
+648        CONTINUE
 
 C  Store the OL atomic position in WPOSTF (includes atoms
 C  of all CL-s)
 C ---------------------------------------------------------
         DO 220 I=1,NLAY
-	   WPOSTF(ITOT,1)=WPOS(NCL,I,1)
-	   WPOSTF(ITOT,2)=WPOS(NCL,I,2)
-	   WPOSTF(ITOT,3)=WPOS(NCL,I,3)
+           WPOSTF(ITOT,1)=WPOS(NCL,I,1)
+           WPOSTF(ITOT,2)=WPOS(NCL,I,2)
+           WPOSTF(ITOT,3)=WPOS(NCL,I,3)
            IELEMOL2(ITOT)=LPSAW(NCL,I)
-	   ITOT=ITOT+1
-220	CONTINUE
+           ITOT=ITOT+1
+220        CONTINUE
 
-547	CONTINUE
+547        CONTINUE
 
 
 C Set up atomic positions for first substrate layer
@@ -492,20 +492,20 @@ C--------------------------------------------------
 
 
 
-cjcm	write(*,*) 'before SLPOS'
-c	do 189 i=1,nlaytot
-c	write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
-c189	continue
+cjcm        write(*,*) 'before SLPOS'
+c        do 189 i=1,nlaytot
+c        write(*,*) vpos(1,i,1),vpos(1,i,2),vpos(1,i,3)
+c189        continue
 cjcm
-	CALL SLPOS(ASB,VPOS,LAFLAG,ASE,NST1,NLAYTOT,SPOSTF)
+        CALL SLPOS(ASB,VPOS,LAFLAG,ASE,NST1,NLAYTOT,SPOSTF)
 
 
 
-	DO 288 I=1,NL
-	DO 289 J=1,3
-	SPOSTF1(i,j) = SPOSTF(1,I,J)
-289	CONTINUE
-288	CONTINUE	
+        DO 288 I=1,NL
+        DO 289 J=1,3
+        SPOSTF1(i,j) = SPOSTF(1,I,J)
+289        CONTINUE
+288        CONTINUE        
 C
 C
 C =============================================================================
@@ -516,33 +516,33 @@ C =============================================================================
 C
 C  Read energy range and step.
 C
-	 READ (5,100) EI,EF,DE
+         READ (5,100) EI,EF,DE
          NERG=INT((EF-EI)/DE+1.01)
-	 IF (EI.LT.0) THEN
-	    WRITE (1,*) ' EI MUST BE > 0 '
-	 ELSE
+         IF (EI.LT.0) THEN
+            WRITE (1,*) ' EI MUST BE > 0 '
+         ELSE
 C
 C Generate required beamsets
 C
-	    DFLAG=0
-	    CALL BEMGEN(TST,EF,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,
+            DFLAG=0
+            CALL BEMGEN(TST,EF,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,
      &       IPR,TVA,DFLAG,NROM,G)
 C
 C  Start loop over given energy range.
 C
-	    NGAW=INT((EF-EI)/DE)+1
-	    WRITE (1,109)
-	    WRITE (1,110)
-	    DO 1300 IEEV=1,NGAW
-	       EEV=EI+(IEEV-1)*DE
-	       E=EEV/27.21+VV
-	       E3=E
-	       WRITE (1,*) ' CALCULATING FOR E= ',EEV
-	       WRITE (1,110)
+            NGAW=INT((EF-EI)/DE)+1
+            WRITE (1,109)
+            WRITE (1,110)
+            DO 1300 IEEV=1,NGAW
+               EEV=EI+(IEEV-1)*DE
+               E=EEV/27.21+VV
+               E3=E
+               WRITE (1,*) ' CALCULATING FOR E= ',EEV
+               WRITE (1,110)
 C
 C  Set imaginary part of muffin tin potential. (Usually -4 or -5 eV)
 C
-	       VPIO=VPIS
+               VPIO=VPIS
 C
 C =============================================================================
 C
@@ -551,21 +551,21 @@ C
 C =============================================================================
 C
 
-	       DO 247 INNEL=1,NEL
-		  CALL TSCATF_TOY(INNEL,L1,ES,PHSS,PHSS2,NPSI,IT1,E,0.,
+               DO 247 INNEL=1,NEL
+                  CALL TSCATF_TOY(INNEL,L1,ES,PHSS,PHSS2,NPSI,IT1,E,0.,
      &             PPP,NN1,NN2,NN3,DR01,DRPER1,DRPAR1,T0,T,TSF0,TSF,
      &             AF,CAF,NFLAGINT,PHS,DEL,NERG,IEEV,NEL,PHSSEL)
 247            CONTINUE
 
 
-	       IF(NFLAGINT.eq.1) THEN
-		 WRITE(1,*) 'BE CAREFUL! AT HIGH ENERGY YOU ARE DOING
+               IF(NFLAGINT.eq.1) THEN
+                 WRITE(1,*) 'BE CAREFUL! AT HIGH ENERGY YOU ARE DOING
      &           EXTRAPOLATION NOT INTERPOLATION OF THE PHASE SHIFTS'
-	       ENDIF
-	       DRPER=DRPER1(NEL)
-	       DRPAR=DRPAR1(NEL)
-	       DR0=DR01(NEL)
-	       IT=0
+               ENDIF
+               DRPER=DRPER1(NEL)
+               DRPAR=DRPAR1(NEL)
+               DR0=DR01(NEL)
+               IT=0
 C
 C =============================================================================
 C
@@ -574,9 +574,9 @@ C beams at this energy.
 C
 C =============================================================================
 C
-	       NEXIT=0
+               NEXIT=0
 C
-	       CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
+               CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
      &          NT0,RAR1,RAR2,PQFEX,PSQ,NEXIT,SPQF,1,NBIN)
 
 C
@@ -587,8 +587,8 @@ C
 C =============================================================================
 C
 1300        CONTINUE
-	    WRITE (1,106)
-	 ENDIF
+            WRITE (1,106)
+         ENDIF
       ENDIF
 
 
@@ -604,24 +604,24 @@ c  the kinematic limit.
 c  Theoretical results stored in ivth# files
 c  Experimental results stored in ivexp# files
 
-	DO 99 I=1,INLTOT
-	    DO 98 J=1,3
-	  IF (I.LE.INLDISP) THEN
-		ADISP(I,J)=DISP(I,J)
-	  ELSE
-		ADISP(I,J)=0.0
-	  ENDIF
-98	CONTINUE
-99	CONTINUE
-	
+        DO 99 I=1,INLTOT
+            DO 98 J=1,3
+          IF (I.LE.INLDISP) THEN
+                ADISP(I,J)=DISP(I,J)
+          ELSE
+                ADISP(I,J)=0.0
+          ENDIF
+98        CONTINUE
+99        CONTINUE
+        
        rfactor = VINTENTF(INLTOT,DISP,PSQ,INTAU,NT0,PHSSEL,EI,EF,DE,
      & NL1,NL2,IELEMOL2,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
      & INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
      & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
 
-	write(*,*) 'kleed: rfactor = ',rfactor
-c	CLOSE(4)
-c	CLOSE(5)
+        write(*,*) 'kleed: rfactor = ',rfactor
+c        CLOSE(4)
+c        CLOSE(5)
 
 C      RETURN 
       END

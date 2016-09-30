@@ -93,7 +93,7 @@ C********************************************************
       real parm_t(NMAX,NDIM)
       integer ntype_t(NMAX)
 
-      REAL*8 PARM_out(NMAX,NDIM)
+      DOUBLE PRECISION PARM_out(NMAX,NDIM)
 
 
       INTEGER DIR,RANK,NTYPE(NMAX)
@@ -102,14 +102,14 @@ C********************************************************
       REAL RMIN(NIDEN),RMAX(NIDEN),RMID(NIDEN)
       INTEGER NTYPSUB(NSUB)
       
-      CHARACTER*16 SYMC,RESULT,NCODE(NMAX)
+      CHARACTER(len=16) SYMC,RESULT,NCODE(NMAX)
 
-      CHARACTER*100 KLEED4,KLEED5,SEARCHS,TRACE 
+      CHARACTER(len=100) KLEED4,KLEED5,SEARCHS,TRACE 
       character*(*) problem_dir
-      character*100 kleed4doti, kleed5doti, workdir
-      character*100 XPIN,XPIN3
-      CHARACTER*3 PROCID
-      CHARACTER*3 WORKID
+      character(len=100) kleed4doti, kleed5doti, workdir
+      character(len=100) XPIN,XPIN3
+      CHARACTER(len=3) PROCID
+      CHARACTER(len=3) WORKID
      
       common /doti/kleed4doti, kleed5doti
       COMMON KLEED4,KLEED5,SEARCHS,TRACE
@@ -153,11 +153,11 @@ c
       TRACE   = trim(workdir)//'/trace' // PROCID
       XPIN    = trim(workdir)//'/xpin' // PROCID
 
-c	write(*,*) 'problem_dir',problem_dir
-c	write(*,>*) kleed4
-c	write(*,*) kleed5
-c	write(*,*) searchs
-c	write(*,*) trace
+c        write(*,*) 'problem_dir',problem_dir
+c        write(*,>*) kleed4
+c        write(*,*) kleed5
+c        write(*,*) searchs
+c        write(*,*) trace
 
       kleed4doti=trim(workdir)//'/kleed4.i'
       kleed5doti=trim(workdir)//'/kleed5.i'
@@ -171,17 +171,17 @@ c     &                  PARM(I,2),PARM(I,3)
 c           ENDDO
            CLOSE (UNIT=99)
 
-	   XPIN3 = trim(workdir)// '/XPIN2'
-           OPEN(UNIT=98,FILE=XPIN3,STATUS='UNKNOWN',ACCESS='APPEND')
+           XPIN3 = trim(workdir)// '/XPIN2'
+           OPEN(UNIT=98,FILE=XPIN3,STATUS='UNKNOWN',POSITION='APPEND')
            WRITE (98,*) "ID: ",PROCID," original Parms passed to evaluat
      &e.f "
 c           DO I=1,NMAX
 c              WRITE (98,"(I4,3F8.4)") NTYPE(I),PARM(I,1),
 c     &             PARM(I,2),PARM(I,3)
-c	   PARM_out(I,1)=PARM(I,1)
-c	   PARM_out(I,2)=PARM(I,2)
-c	   PARM_out(I,3)=PARM(I,3)
-c	   ENDDO
+c           PARM_out(I,1)=PARM(I,1)
+c           PARM_out(I,2)=PARM(I,2)
+c           PARM_out(I,3)=PARM(I,3)
+c           ENDDO
               WRITE (98,"(14I4)") (NTYPE(I),I=1,NMAX)
               WRITE (98,"(42F16.10)") (PARM(I,1),I=1,NMAX),
      &     (PARM(I,2),I=1,NMAX),(PARM(I,3),I=1,NMAX)
@@ -237,7 +237,7 @@ Cc            write(0,*) PROCID,' :failed bounds check,returning'
 C            RETURN
 C         ENDIF
 
-cjcm	print*, 4
+cjcm        print*, 4
 
 c     write(99,*) PROCID,' :The structure coordinates:'
 c     write(0,*) PROCID,' :The structure coordinates:'
@@ -248,7 +248,7 @@ C     WRITE (0,"(I4,3F8.4)") NTYPE(I),PARM(I,1),PARM(I,2),
 C     &             PARM(I,3)
 c     enddo
 
-         OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
+         OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
          WRITE (99,*) "ID: ",PROCID," Parms passed to tleed codes: 
      &(may be changed by VALUATE)"
            DO I=1,NMAX
@@ -266,8 +266,8 @@ C write into the differecne of parms
            WRITE (99,*) PROCID," Calling kleed: ",PROCID
            CLOSE (UNIT=99)
 
-	   XPIN3 = trim(workdir)// '/XPIN2'
-           OPEN(UNIT=98,FILE=XPIN3,STATUS='OLD',ACCESS='APPEND')
+           XPIN3 = trim(workdir)// '/XPIN2'
+           OPEN(UNIT=98,FILE=XPIN3,STATUS='OLD',POSITION='APPEND')
            WRITE (98,*) "ID: ",PROCID," Parms passed to tleed codes: 
      &(may be changed by VALUATE)"
 c           DO I=1,NMAX
@@ -278,10 +278,10 @@ c           ENDDO
            WRITE (98,"(14I4)") (NTYPE(I),I=1,NMAX)
            WRITE (98,"(42F16.10)") (PARM(I,1),I=1,NMAX),
      &          (PARM(I,2),I=1,NMAX),(PARM(I,3),I=1,NMAX)
-	   CLOSE (UNIT=98) 
+           CLOSE (UNIT=98) 
 
 cAGL Now open trace file before the kleed subroutine
-           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
+           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
 c
 c In KLEED only one subroutine is called: kleed (instead of
 c  tleed1.f and tleed2.f in TLEED)
@@ -289,9 +289,9 @@ c  tleed1.f and tleed2.f in TLEED)
 
            write(*,*) 'evalkleed: calling kleed'
            CALL kleed(workdir, WORKID,PROCID,fitval)
-           OPEN(UNIT=98,FILE=XPIN3,STATUS='OLD',ACCESS='APPEND')
+           OPEN(UNIT=98,FILE=XPIN3,STATUS='OLD',POSITION='APPEND')
            WRITE (98,*) 'evalkeed: R-factor (kleed)',fitval
-	   CLOSE(98)
+           CLOSE(98)
            write(*,*) 'evalkeed: fitval =',fitval
 
            CLOSE(4)
@@ -309,11 +309,11 @@ C          IF (FITVAL.LT.0.1) FITVAL = PENALTY JCM: ?????
            IF (FITVAL.LT.0.1) then
                FITVAL = PENALTY+1
            else if (fitval.eq. 100.) then
-		write(*,*) 'fitval handia',fitval
+                write(*,*) 'fitval handia',fitval
                 Fitval=1.62
            else
            end if
-           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',ACCESS='APPEND')
+           OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
            WRITE (99,*) WORKID,":",PROCID,
      &          " ...Returned tleed2 fitval=",fitval
            CLOSE (UNIT=99)
@@ -343,8 +343,8 @@ c The 17 symmetries, contraction to the adge, corner, center,
 c and restraint on minimum distance and at least one contact.
         PARAMETER (NLAY=5)
 
-        CHARACTER*16 RESULT,SYMC
-        CHARACTER*16 NCODE(NMAX)
+        CHARACTER(len=16) RESULT,SYMC
+        CHARACTER(len=16) NCODE(NMAX)
 
         REAL COORD(NMAX,3),COORSUB(NSUB,3)
         REAL RNZ(87),RMIN(NIDEN),RMAX(NIDEN) 
@@ -422,8 +422,8 @@ c COORDAT RETURNS ALL COORDINATES IN THE SURFACE NEEDED IN KLEED5.I.
         SUBROUTINE WRITCOOR(COORD,NTYPE,NCODE,NMAX,KLAY,SPAC,NLAY,
      *KLAYER,nerror)
         PARAMETER (NNMAX=80,NLAYE=5)
-        CHARACTER*16 NCODE(NMAX)
-        CHARACTER*60 LINE
+        CHARACTER(len=16) NCODE(NMAX)
+        CHARACTER(len=60) LINE
         REAL COORD(NMAX,3),COORA(NNMAX,3),SPAC(NLAY)
         REAL COORAL(NLAYE,NNMAX,3)
         REAL SPAC1(NLAYE,3),FR(NLAYE),VO(NLAYE),VI(NLAYE)
@@ -433,9 +433,9 @@ c COORDAT RETURNS ALL COORDINATES IN THE SURFACE NEEDED IN KLEED5.I.
         INTEGER NTAU(NLAYE)
 
 CGPS        CHARACTER*32 KLEED4,KLEED5,SEARCHS,TRACE 
-        CHARACTER*100 KLEED4,KLEED5,SEARCHS,TRACE 
+        CHARACTER(len=100) KLEED4,KLEED5,SEARCHS,TRACE 
 CGPS+
-        CHARACTER*100 kleed4doti, kleed5doti
+        CHARACTER(len=100) kleed4doti, kleed5doti
         COMMON /doti/kleed4doti, kleed5doti
         COMMON KLEED4,KLEED5,SEARCHS,TRACE
 
@@ -471,15 +471,15 @@ cORIG        CLOSE(7)
            CALL COORDAT(COORD,NTYPE,NCODE,K1,K2,KK,
      %COORA,NTYPA)
 cAGL Hurrengo 4 lerroak nik jarri ditut
-	   nerror=0
-	   if (klayer.eq.1.and.kk.ne.58) then
-		nerror=1
-c	        write(*,*) 'nerror',nerror
-c	        goto 344 
-	   else
-		nerror=0
-cjcm		write(*,*) 'nerror',nerror
-	   endif 
+           nerror=0
+           if (klayer.eq.1.and.kk.ne.58) then
+                nerror=1
+c                write(*,*) 'nerror',nerror
+c                goto 344 
+           else
+                nerror=0
+cjcm                write(*,*) 'nerror',nerror
+           endif 
            DO j=1,kk
               DO L=1,3
                  COORAL(I,J,L)=COORA(J,L)
@@ -553,7 +553,7 @@ C        write(0,*) kleed4, kleed5, kleed4doti, kleed5doti
         ENDDO
         close(8)
         close(9)
-344	continue
+344        continue
 1005    FORMAT(3F8.4,I3)
 1006    FORMAT(3F7.2,I3)
 1007    FORMAT(60I3)
@@ -779,7 +779,7 @@ C COMMENTS:  General
 C********************************************************
         SUBROUTINE MODSTRUCT(SYMC,COORD,NTYPE,NCODE,NMAX,RMIN,RMAX,
      %NIDEN,UNITX)
-        CHARACTER*16 SYMC,NCODE(NMAX)
+        CHARACTER(len=16) SYMC,NCODE(NMAX)
         INTEGER NTYPE(NMAX)
         REAL COORD(NMAX,3),RMIN(NIDEN),RMAX(NIDEN)
 
@@ -879,9 +879,9 @@ c Converge atoms belong to edge, corner, center.
               DO J=1,3
                  COORD(I,J)=COORD(I,J)*AA
               ENDDO
-cjcm	write(*,*) 'COORD=',(coord(i,j),j=1,3),ncode(i)
+cjcm        write(*,*) 'COORD=',(coord(i,j),j=1,3),ncode(i)
            ENDDO
-c	stop
+c        stop
            DO I=1,5
               RMIN(I)=RMIN(I)*AA
               RMAX(I)=RMAX(I)*AA
@@ -908,7 +908,7 @@ C Valuate the validity of structure by examning the minimum
 c distance and touching priciple.
         SUBROUTINE VALUAT(COOR,NTYP,NMA,RMIN,RMAX,NIDEN,RESULT,
      &COORSUB,NTYPSUB,NSUB)
-        CHARACTER*16 RESULT
+        CHARACTER(len=16) RESULT
         PARAMETER (NMAX=40)
         REAL COOR(NMA,3)
         REAL COORSUB(NSUB,3)
@@ -988,7 +988,7 @@ C********************************************************
         SUBROUTINE COORDAT(COORD,NTYPE,NCODE,K1,K2,KK,
      %COORA,NTYPA)
         PARAMETER (NMAX=14,NNMAX=80)
-        CHARACTER*16 NCODE(NMAX) 
+        CHARACTER(len=16) NCODE(NMAX) 
         REAL COORD(NMAX,3),COORA(NNMAX,3)
         INTEGER NTYPE(NMAX),NTYPA(NNMAX) 
         KK=0  
@@ -1098,7 +1098,7 @@ C Sort an array RA of length N into ascending numberical order
 c while making rearrangements of the arrays RB, RC and RZ. An 
 c index table is constructed via the routine INDEXX.
         PARAMETER (NN=20)
-        CHARACTER*16 NCOD(N),MWKSP(NN)
+        CHARACTER(len=16) NCOD(N),MWKSP(NN)
         REAL COOR(N,3),RA(NN),WKSP(NN)
         INTEGER IWKSP(NN),NWKSP(NN),NTYP(N)
         DO I=1,N
@@ -1396,7 +1396,7 @@ C======================================================================
       integer x, length
       character c*(*)
       
-      character*10 alph
+      character(len=10) alph
       integer xt,i,y
       
       alph = '0123456789'
