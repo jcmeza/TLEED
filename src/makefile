@@ -6,7 +6,8 @@
 FC     = gfortran 
 #FFLAGS  = -O3 
 #FFLAGS  = -O0 -fimplicit-none -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wimplicit-interface -Wunused-parameter -std=f2008 -pedantic -fbacktrace
-FFLAGS  = -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace
+#FFLAGS  = -g -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace
+FFLAGS  = -g -fdefault-real-8 -O3 -Wall -Wsurprising -Waliasing -std=f2008
 # Intel compiler
 #FC     = ifort 
 #FFLAGS	= -O3 -assume fpe_summary 	

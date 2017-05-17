@@ -242,8 +242,8 @@ CC
  
 c First input channels
 C
-      tleed4i  = trim(problem_dir)//'/tleed4.i'
-      tleed5i  = trim(problem_dir)//'/tleed5.i'
+      tleed4i  = trim(problem_dir)//'/tleed4i000'
+      tleed5i  = trim(problem_dir)//'/tleed5i000'
       expdotd  = trim(problem_dir)//'/exp.d'
       rfacdotd = trim(problem_dir)//'/rfac.d'
       shortt   = trim(problem_dir)//'/shortt'
@@ -280,13 +280,18 @@ c      searchs = problem_dir//'/work'//dir//'/searchs'//rank
 c      prdird = problem_dir//'/work'//dir//'/prdird'//rank
 c      restartd = problem_dir//'/work'//dir//'/restartd'//rank
 
-      gleedo = './work001/gleedo000'
-      searchs = './work001/searchs000'
-      prdird = './work001/prdird000'
-      restartd = './work001/restartd000'
+c      gleedo = './work001/gleedo000'
+c      searchs = './work001/searchs000'
+c      prdird = './work001/prdird000'
+c      restartd = './work001/restartd000'
+
+      gleedo = trim(problem_dir)//'/gleedo'
+      searchs = trim(problem_dir)//'/searchs'
+      prdird = trim(problem_dir)//'/prdird'
+      restartd = trim(problem_dir)//'/restartd'
 
       OPEN (UNIT=1,FILE=gleedo,STATUS='unknown')
-C      OPEN (UNIT=2,FILE=searchs,STATUS='UNKNOWN')
+      OPEN (UNIT=2,FILE=searchs,STATUS='UNKNOWN')
       OPEN (UNIT=15,FILE=prdird,STATUS='UNKNOWN')
       OPEN (UNIT=10,FILE=restartd,STATUS='UNKNOWN')
       rewind(1)
