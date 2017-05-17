@@ -1,19 +1,18 @@
-EXE                 = nomad_kleed.exe
-EXE2                = nomad_tleed.exe
+KEXE                = nomad_kleed.exe
+TEXE                = nomad_tleed.exe
 COMPILATOR          = g++
-LINKER              = gfortran
-FCOMPILATOR         = gfortran
+LINKER              = g++
+FC         	    = gfortran
 COMPILATOR_OPTIONS  = -Wall -g
 L1                  = $(NOMAD_HOME)/lib/nomad.a
-LIBS                = $(L1) -L/usr/local/lib/gcc/5 -lgfortran -lm
+#LIBS                = $(L1) -L/usr/lib/gcc/5 -lgfortran -lm
 INCLUDE             = -I$(NOMAD_HOME)/src -I.
 COMPILE             = $(COMPILATOR) $(COMPILATOR_OPTIONS) $(INCLUDE) -c
-FCOMPILE            = $(FCOMPILATOR) -g -c
-#OBJS                = nomad_kleed.o bb_kleed.o GPSkleed.o GPStleed.o
-#OBJS                = nomad_kleed.o nomad_tleed.o
+FCOMPILE            = $(FC) -g -c
 OBJS		    =
-KLEEDOBJS	    = bb_kleed.o GPSkleed.o kleed1.o kleedlibGPS.o
-TLEEDOBJS	    = bb_tleed.o GPStleed1.o tleed1GPS.o tleed2GPS.o tleedlibGPS.o
+KLEEDOBJS	    = bb_kleed.o evalkleed.o kleedsub.o kleedlib.o
+TLEEDOBJS	    = bb_tleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
+SOURCES = evaltleed.f evalkleed.f tleed1.f tleed2.f tleedlib.f kleed.f tleed1sub.f tleed2sub.f kleedsub.f kleedlib.f
 
 ifndef NOMAD_HOME
 define ECHO_NOMAD
@@ -22,21 +21,18 @@ define ECHO_NOMAD
 endef
 endif
 
-all:	$(EXE) $(EXE2)
+%.o:	%.f	
+	$(FC) $(FFLAGS) -c $< -o $@
+
+all:	$(TEXE)
 
 $(EXE): $(L1) nomad_kleed.o $(KLEEDOBJS)
 	$(ECHO_NOMAD)
 	$(COMPILATOR) -o $(EXE) $(OBJS) nomad_kleed.o $(KLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS)
 
-$(EXE2): $(L1) nomad_tleed.o $(TLEEDOBJS) $(KLEEDOBJS)
+$(TEXE): $(L1) nomad_tleed.o $(TLEEDOBJS)
 	$(ECHO_NOMAD)
-<<<<<<< Updated upstream:src/makefile
-#	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o bb_tleed.o bb_kleed.o GPStleed1.o GPSkleed.o tleed1GPS.o tleed2GPS.o kleed1.o tleedlibGPS.o kleedlibGPS.o $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
-	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o $(TLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
-=======
-	$(COMPILATOR) -o $(EXE2) $(OBJS) nomad_tleed.o bb_tleed.o bb_kleed.o GPStleed1.o GPSkleed.o tleed1GPS.o tleed2GPS.o kleed1.o tleedlibGPS.o kleedlibGPS.o $(LIBS) $(COMPILATOR_OPTIONS)
->>>>>>> Stashed changes:makefile
-
+	$(LINKER) -o $(TEXE) $(OBJS) nomad_tleed.o $(TLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
 #
 # LEED objs
 #
@@ -46,32 +42,8 @@ nomad_kleed.o: nomad_kleed.cpp $(KLEEDOBJS)
 nomad_tleed.o: nomad_tleed.cpp $(TLEEDOBJS)
 	$(COMPILE) nomad_tleed.cpp
 
-bb_kleed.o: bb_kleed.f
-	$(FCOMPILE) bb_kleed.f
-
-bb_tleed.o: bb_tleed.f
-	$(FCOMPILE) bb_tleed.f
-
-GPSkleed.o: GPSkleed.f
-	$(FCOMPILE) GPSkleed.f
-
-GPStleed1.o: GPStleed1.f
-	$(FCOMPILE) GPStleed1.f
-
-kleed1.o: kleed1.f
-	$(FCOMPILE) kleed1.f
-
-kleedlibGPS.o: kleedlibGPS.F
-	$(FCOMPILE) kleedlibGPS.F
-
-tleed1GPS.o: tleed1GPS.F
-	$(FCOMPILE) tleed1GPS.F
-
-tleed2GPS.o: tleed2GPS.F
-	$(FCOMPILE) tleed2GPS.F
-
-tleedlibGPS.o: tleedlibGPS.F
-	$(FCOMPILE) tleedlibGPS.F
+#bb_tleed.o: bb_tleed.f $(TLEEDOBJS)
+#	$(FCOMPILE) bb_tleed.f
 
 $(L1): ;
 	$(ECHO_NOMAD)

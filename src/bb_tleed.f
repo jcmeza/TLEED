@@ -10,7 +10,7 @@ c
       REAL PARM_f(NMAX,NDIM),MINB_f(NMAX,NDIM),MAXB_f(NMAX,NDIM),
      & FITVAL_f
       INTEGER DIR,RANK,NTYPE(NMAX)
-      character*28 problem_dir
+      character(100) problem_dir
       problem_dir = "/Users/meza/MyProjects/TLEED"
 C
 C
@@ -52,11 +52,11 @@ c            write(*,*) 'k, x(k):', kindex, xparm(kindex)
       enddo
       
 cjcm
-c      write(*,*) 'bb_tleed: before GPStleed1'
+c      write(*,*) 'bb_tleed: before evaltleed'
 c      write(*,*) NTYPE
 cjcm
 
-      call GPStleed1(problem_dir,dir,rank,parm_f,minb_f,maxb_f,
+      call evaltleed(problem_dir,dir,rank,parm_f,minb_f,maxb_f,
      &     ntype,fitval_f)
       fx(1) = fitval_f
 c      write(*,*) 'bb_tleed: fitval from GPSTleed1  = ', fitval_f
