@@ -1,0 +1,18 @@
+ runtleed:            1  0.278827101       10.3706913    
+ runtleed:            2  0.301632881       2.66719341    
+ runtleed:            3  0.344531804       2.48622322    
+ runtleed:            4  0.336163759       2.05945587    
+ runtleed:            5  0.326755583       3.11861992    
+ runtleed:            6  0.328998268       2.08584023    
+ VALUAT: DIST,RIJS   1.89191723       2.00000000    
+ VALUAT: PENALTY FOR ATOM I AND J           8          14
+ VALUATE: Invalid structure, return for GRAVSTUC
+ evaltleed: invalid structure
+ runtleed:            7   1.60000002       2.42233276E-04
+ VALUAT: DIST,RIJS   1.88541377       2.00000000    
+ VALUAT: PENALTY FOR ATOM I AND J          17           6
+ VALUATE: Invalid structure, return for GRAVSTUC
+ evaltleed: invalid structure
+ runtleed:            8   1.60000002       1.10626221E-04
+ runtleed:            9  0.298675954       3.05453682    
+ runtleed:           10  0.284810692       2.63745499    

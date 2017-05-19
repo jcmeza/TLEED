@@ -24,16 +24,14 @@ c
       parmsfile = trim(data_dir)//'/tleedparms.dat'
       open(unit=3,file=parmsfile,status='old')
       
-      do num_fcn=1,4
+      do num_fcn=1,10
 
-         write(*,*) 'runtleed: num_fcn = ', num_fcn
          call setuptleed(ntype,xparm,minb,maxb)
          call cpu_time(t1)
          call evaltleed(problem_dir,dir,rank,xparm,minb,maxb,
      &        ntype,fx)
          call cpu_time(t2)
-         write(*,*) 'runtleed: fitval = ', fx
-         write(*,*) 'runtleed: cputime : ', t2-t1
+         write(*,*) 'runtleed: ', num_fcn, fx, t2-t1
       enddo
       
       close(unit=3)
