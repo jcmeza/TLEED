@@ -1,2357 +1,1386 @@
-gfortran  -O0 -fimplicit-none -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wimplicit-interface -Wunused-parameter -std=f2008 -pedantic -fbacktrace -c tleed1.f -o tleed1.o
-f951: Warning: Nonconforming tab character in column 1 of line 398 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 399 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 402 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 403 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 413 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 429 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 430 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 433 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 434 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 437 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 438 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 459 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 460 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 466 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 467 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 468 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 471 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 472 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 476 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 477 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 488 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 489 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 494 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 508 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 509 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 521 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 526 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 527 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 528 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 529 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 540 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 541 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 573 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 583 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 589 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 595 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 597 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 598 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 608 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 609 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 610 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 611 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 615 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 616 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 617 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 618 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 619 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 623 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 624 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 625 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 632 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 633 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 634 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 635 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 639 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 640 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 641 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 642 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 643 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 644 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 648 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 649 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 650 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 654 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 655 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 656 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 657 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 658 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 659 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 660 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 665 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 666 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 667 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 668 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 669 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 670 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 671 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 672 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 673 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 677 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 678 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 683 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 684 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 685 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 693 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 694 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 695 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 699 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 700 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 702 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 703 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 704 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 705 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 706 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 707 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 708 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 709 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 718 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 720 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 729 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 737 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 745 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 750 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 758 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 759 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 760 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 761 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 762 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 763 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 764 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 765 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 769 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 770 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 771 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 772 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 773 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 774 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 775 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 776 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 784 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 788 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 789 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 790 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 791 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 792 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 793 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 794 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 798 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 799 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 800 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 802 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 806 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 818 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 822 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 823 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 824 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 837 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 845 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 846 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 852 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 853 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 854 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 855 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 863 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 868 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 873 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 878 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 885 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 889 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 893 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 899 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 900 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 901 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 903 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 904 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 905 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 907 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 914 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 915 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 916 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 921 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 928 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 929 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 930 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 932 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 933 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 934 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 936 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 943 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 944 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 945 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 951 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 2 of line 957 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 958 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 962 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 963 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 975 [-Wtabs]
-f951: Warning: Nonconforming tab character in column 1 of line 976 [-Wtabs]
-tleed1.f:8:18:
-
-       character*80 problem_dir, dir, rank
-                  1
-Warning: Obsolescent feature: Old-style character length at (1)
-tleed1.f:9:19:
-
-       character*100 tleed4i, tleed5i, shortt, tleedo
-                   1
-Warning: Obsolescent feature: Old-style character length at (1)
-tleed1.f:49:23:
-
-       PARAMETER (IPLMAX=8,IPCLM=23000)
-                       1
-Error: Symbol ‘iplmax’ at (1) has no IMPLICIT type
-tleed1.f:67:22:
-
-       PARAMETER (INLAY=66,INTAU=4,IPCAA=26000)
-                      1
-Error: Symbol ‘inlay’ at (1) has no IMPLICIT type
-tleed1.f:68:22:
-
-       PARAMETER (INST1=5,INST2=2,INST1B=3)
-                      1
-Error: Symbol ‘inst1’ at (1) has no IMPLICIT type
-tleed1.f:86:21:
-
-       PARAMETER (INT0=20,IPCUT=45,JSMAX=4)
-                     1
-Error: Symbol ‘int0’ at (1) has no IMPLICIT type
-tleed1.f:87:22:
-
-       PARAMETER (NLMB2=10000,NROM=973)
-                      1
-Error: Symbol ‘nlmb2’ at (1) has no IMPLICIT type
-tleed1.f:106:23:
-
-       PARAMETER (INLTOT=68,NROMR=137,NROM2R=85)
-                       1
-Error: Symbol ‘inltot’ at (1) has no IMPLICIT type
-tleed1.f:107:22:
-
-       PARAMETER (INLIN=25)
-                      1
-Error: Symbol ‘inlin’ at (1) has no IMPLICIT type
-tleed1.f:109:22:
-
-       PARAMETER (JLMNI=320,JLMNI2=550)
-                      1
-Error: Symbol ‘jlmni’ at (1) has no IMPLICIT type
-tleed1.f:120:22:
-
-       PARAMETER (IPNL1=10,IPNL2=10)
-                      1
-Error: Symbol ‘ipnl1’ at (1) has no IMPLICIT type
-tleed1.f:121:32:
-
-       PARAMETER (JPKLM=(2*IPLMAX+1)*(2*IPLMAX+2)/2)
-                                1
-Error: Symbol ‘iplmax’ at (1) has no IMPLICIT type
-tleed1.f:122:29:
-
-       PARAMETER (JPN=2*IPLMAX+1,JPNN=JPN*JPN)
-                             1
-Error: Symbol ‘iplmax’ at (1) has no IMPLICIT type
-tleed1.f:123:29:
-
-       PARAMETER (JPNN2=IPLMAX+1,JPNN3=IPLMAX+1,JPNN1=JPNN2+JPNN3-1)
-                             1
-Error: Symbol ‘iplmax’ at (1) has no IMPLICIT type
-tleed1.f:124:29:
-
-       PARAMETER (JLMMAX=JPNN2*JPNN2,JPL1=JPNN2,JPLEV=JPNN2*(JPNN2+1)/2)
-                             1
-Error: Symbol ‘jpnn2’ at (1) has no IMPLICIT type
-tleed1.f:125:37:
-
-       PARAMETER (JLSMAX=(IPLMAX+JSMAX+1)**2)
-                                     1
-Error: Symbol ‘jsmax’ at (1) has no IMPLICIT type
-tleed1.f:126:35:
-
-       PARAMETER (JPLOD=JLMMAX-JPLEV,JPNL=IPNL1*IPNL2)
-                                   1
-Error: Symbol ‘jplev’ at (1) has no IMPLICIT type
-tleed1.f:127:34:
-
-       PARAMETER (JLMT=INTAU*JLMMAX)
-                                  1
-Error: Symbol ‘jlmmax’ at (1) has no IMPLICIT type
-tleed1.f:128:35:
-
-       PARAMETER (JLMT2=INTAU*JLSMAX)
-                                   1
-Error: Symbol ‘jlsmax’ at (1) has no IMPLICIT type
-tleed1.f:129:29:
-
-       PARAMETER (JNLAY2=INLAY*(INLAY-1))
-                             1
-Error: Symbol ‘inlay’ at (1) has no IMPLICIT type
-tleed1.f:130:34:
-
-       PARAMETER (JLMN=INLAY*JLMMAX,JLM2N=2*JLMN,JLEV2=2*JPLEV)
-                                  1
-Error: Symbol ‘jlmmax’ at (1) has no IMPLICIT type
-tleed1.f:131:35:
-
-       PARAMETER (JLMSN=INLAY*JLSMAX)
-                                   1
-Error: Symbol ‘jlsmax’ at (1) has no IMPLICIT type
-tleed1.f:132:30:
-
-       PARAMETER (JSMMAX=(JSMAX+1)*(JSMAX+1))
-                              1
-Error: Symbol ‘jsmax’ at (1) has no IMPLICIT type
-tleed1.f:141:44:
-
-       DIMENSION ARB2(2),RBR1(2),RBR2(2),ASB(INST1,3),ASC(3),ASD(3)
-                                            1
-Error: GNU Extension: Symbol ‘inst1’ is used before it is typed at (1)
-tleed1.f:142:18:
-
-       DIMENSION V(JPNL,2),JJS(JPNL,6)
-                  1
-Error: GNU Extension: Symbol ‘jpnl’ is used before it is typed at (1)
-tleed1.f:143:44:
-
-       DIMENSION KNB(60),NBAL(60),SPQF(2,NROM),SPQ(2,NROM)
-                                            1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:144:28:
-
-       DIMENSION PQFAL(2,NROM),PQAL(2,NROM)
-                            1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:145:23:
-
-       DIMENSION NTAUAW(INST1)
-                       1
-Error: GNU Extension: Symbol ‘inst1’ is used before it is typed at (1)
-tleed1.f:147:29:
-
-       DIMENSION NLMS(15),CLM(IPCLM),YLM(JPNN),FAC2(JPNN),FAC1(JPN)
-                             1
-Error: GNU Extension: Symbol ‘ipclm’ is used before it is typed at (1)
-tleed1.f:148:20:
-
-       DIMENSION PPP(JPNN1,JPNN2,JPNN3)
-                    1
-Error: GNU Extension: Symbol ‘jpnn1’ is used before it is typed at (1)
-tleed1.f:149:20:
-
-       DIMENSION LX2(JLSMAX),LXI2(JLSMAX),LXM2(JLSMAX),LT2(JLSMAX)
-                    1
-Error: GNU Extension: Symbol ‘jlsmax’ is used before it is typed at (1)
-tleed1.f:150:19:
-
-       DIMENSION LX(JLMMAX),LXI(JLMMAX),LXM(JLMMAX),LT(JLMMAX)
-                   1
-Error: GNU Extension: Symbol ‘jlmmax’ is used before it is typed at (1)
-tleed1.f:151:21:
-
-       DIMENSION FPOS(INLAY,3),VPOS(INST1,INLAY,3),LPS(INLAY)
-                     1
-Error: GNU Extension: Symbol ‘inlay’ is used before it is typed at (1)
-tleed1.f:152:21:
-
-       DIMENSION LPSS(INLAY)
-                     1
-Error: GNU Extension: Symbol ‘inlay’ is used before it is typed at (1)
-tleed1.f:153:23:
-
-       DIMENSION CPVPOS(INST1,INLAY,3),LLFLAG(INLTOT)
-                       1
-Error: GNU Extension: Symbol ‘inst1’ is used before it is typed at (1)
-tleed1.f:154:21:
-
-       DIMENSION LLF2(INLTOT),LLF3(INLTOT),NDIML(INLTOT)
-                     1
-Error: GNU Extension: Symbol ‘inltot’ is used before it is typed at (1)
-tleed1.f:155:20:
-
-       DIMENSION NL9(INLTOT,INLIN),NEQ(INLIN)
-                    1
-Error: GNU Extension: Symbol ‘inltot’ is used before it is typed at (1)
-tleed1.f:156:20:
-
-       DIMENSION CAA(IPCAA),NCA(15),LAFLAG(INST1)
-                    1
-Error: GNU Extension: Symbol ‘ipcaa’ is used before it is typed at (1)
-tleed1.f:157:22:
-
-       DIMENSION LPSAW(INST1,INLAY),LPSAWS(INST1,INLAY),PSQ(2,INT0)
-                      1
-Error: GNU Extension: Symbol ‘inst1’ is used before it is typed at (1)
-tleed1.f:158:21:
-
-       DIMENSION POSS(INLAY,3),POSS2(INLAY,3),AK2M(INT0),AK3M(INT0)
-                     1
-Error: GNU Extension: Symbol ‘inlay’ is used before it is typed at (1)
-tleed1.f:159:20:
-
-       DIMENSION MGH(INLAY,INLAY),NUGH(JNLAY2),IPL(JLMNI)
-                    1
-Error: GNU Extension: Symbol ‘inlay’ is used before it is typed at (1)
-tleed1.f:160:21:
-
-       DIMENSION TEST(JNLAY2),DRL(JNLAY2,3)
-                     1
-Error: GNU Extension: Symbol ‘jnlay2’ is used before it is typed at (1)
-tleed1.f:162:28:
-
-       DIMENSION PQFEX(2,INT0),PQFEX2(2,INT0),NINSET(20)
-                            1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:163:21:
-
-       DIMENSION DISP(INLTOT,3),G(2,NROM)
-                     1
-Error: GNU Extension: Symbol ‘inltot’ is used before it is typed at (1)
-tleed1.f:164:22:
-
-       DIMENSION MICUT(IPCUT),MJCUT(IPCUT),BELM2(NLMB2)
-                      1
-Error: GNU Extension: Symbol ‘ipcut’ is used before it is typed at (1)
-tleed1.f:165:21:
-
-       DIMENSION VICL(INST1),VCL(INST1),FRCL(INST1)
-                     1
-Error: GNU Extension: Symbol ‘inst1’ is used before it is typed at (1)
-tleed1.f:169:18:
-
-       COMPLEX CTR(JLMMAX),CTT(JLMMAX)
-                  1
-Error: GNU Extension: Symbol ‘jlmmax’ is used before it is typed at (1)
-tleed1.f:170:19:
-
-       COMPLEX VVST(JLMNI)
-                   1
-Error: GNU Extension: Symbol ‘jlmni’ is used before it is typed at (1)
-tleed1.f:171:17:
-
-       COMPLEX TH(JLMNI,JLMNI)
-                 1
-Error: GNU Extension: Symbol ‘jlmni’ is used before it is typed at (1)
-tleed1.f:173:29:
-
-       COMPLEX TSTORE(2,JLMNI2,NROMR,INST2)
-                             1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:174:18:
-
-       COMPLEX TAU(JLMT,JPLEV),RG(4,INLAY,NROMR)
-                  1
-Error: GNU Extension: Symbol ‘jlmt’ is used before it is typed at (1)
-tleed1.f:175:17:
-
-       COMPLEX TS(JLMNI),TS2(JLMNI2),TG(2,JLM2N),VT(JLM2N),TAUG(JLMT)
-                 1
-Error: GNU Extension: Symbol ‘jlmni’ is used before it is typed at (1)
-tleed1.f:176:20:
-
-       COMPLEX TAUGM(JLMT),TAUG2(JLMT2),TAUGM2(JLMT2),VT2(JLSMAX)
-                    1
-Error: GNU Extension: Symbol ‘jlmt’ is used before it is typed at (1)
-tleed1.f:177:18:
-
-       COMPLEX ROP(NROMR,NROMR,INST2),TOP(NROMR,NROMR,INST2)
-                  1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:178:18:
-
-       COMPLEX ROM(NROMR,NROMR,INST2),TOM(NROMR,NROMR,INST2)
-                  1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:179:19:
-
-       COMPLEX XEVM(JPLEV,JLEV2),AMPPLW(NROMR,2,INST1)
-                   1
-Error: GNU Extension: Symbol ‘jplev’ is used before it is typed at (1)
-tleed1.f:180:17:
-
-       COMPLEX AF(JPL1),CAF(JPL1),TSF0(6,16),TSF(6,16)
-                 1
-Error: GNU Extension: Symbol ‘jpl1’ is used before it is typed at (1)
-tleed1.f:181:19:
-
-       COMPLEX XIST(INT0)
-                   1
-Error: GNU Extension: Symbol ‘int0’ is used before it is typed at (1)
-tleed1.f:182:20:
-
-       COMPLEX AMULT(NROMR),CYLM(NROMR,JLSMAX)
-                    1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:183:17:
-
-       COMPLEX VL(JPNL,2),FLMS(JPNL,JPKLM),FLM(JPKLM),QCUT(IPCUT)
-                 1
-Error: GNU Extension: Symbol ‘jpnl’ is used before it is typed at (1)
-tleed1.f:184:17:
-
-       COMPLEX XI(NROMR),PK(NROMR,8),AW(NROMR,2)
-                 1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:185:19:
-
-       COMPLEX PKCL(NROMR,8,INST1),ANEW(NROMR,30)
-                   1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:186:18:
-
-       COMPLEX ALM(INLAY,JLSMAX),EXLM(INLAY,JLSMAX),Q(JSMMAX,JSMMAX)
-                  1
-Error: GNU Extension: Symbol ‘inlay’ is used before it is typed at (1)
-tleed1.f:187:19:
-
-       COMPLEX A0LM(JLSMAX),GA(INLIN,JLMMAX,JSMMAX)
-                   1
-Error: GNU Extension: Symbol ‘jlsmax’ is used before it is typed at (1)
-tleed1.f:188:25:
-
-       COMPLEX GB(1,JLMMAX,JSMMAX)
-                         1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:192:21:
-
-       DIMENSION IND1(NROM),IND2(NROM),LPOINT(INLIN),LMNBD(2,INST1)
-                     1
-Error: GNU Extension: Symbol ‘nrom’ is used before it is typed at (1)
-tleed1.f:193:30:
-
-       DIMENSION LMNBD2(2,INST1)
-                              1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:194:24:
-
-       DIMENSION LAFLAG2(INLTOT,INST1),ZRED(JLMNI,INST1)
-                        1
-Error: GNU Extension: Symbol ‘inltot’ is used before it is typed at (1)
-tleed1.f:195:22:
-
-       DIMENSION ZRED2(JLMNI2,INST1)
-                      1
-Error: GNU Extension: Symbol ‘jlmni2’ is used before it is typed at (1)
-tleed1.f:196:31:
-
-       DIMENSION ILOOK(12,INLTOT),DIREC(INLTOT,2,2),LSFLAG(INLTOT)
-                               1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:197:32:
-
-       DIMENSION ACOORD(12,INLTOT,3),INDOM(18),ADISP(INLTOT,3)
-                                1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:198:39:
-
-       DIMENSION INDBD(9),ILKBD(12,INLAY,INST1),NINEQ(INST1)
-                                       1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:199:21:
-
-       DIMENSION LPBD(INLAY,INST1),LAN(JLSMAX),IKRED(NROMR)
-                     1
-Error: GNU Extension: Symbol ‘inlay’ is used before it is typed at (1)
-tleed1.f:200:21:
-
-       DIMENSION IKBS(NROMR)
-                     1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:201:21:
-
-       DIMENSION IDXN(JLMN,INST1),IDXS(JLMN,INST1),IDXK(NROM)
-                     1
-Error: GNU Extension: Symbol ‘jlmn’ is used before it is typed at (1)
-tleed1.f:202:22:
-
-       DIMENSION IDXN2(JLMSN,INST1),IDXS2(JLMSN,INST1)
-                      1
-Error: GNU Extension: Symbol ‘jlmsn’ is used before it is typed at (1)
-tleed1.f:203:22:
-
-       DIMENSION IDXK2(NROM),IWK(NROMR),SPWK(2,NROMR)
-                      1
-Error: GNU Extension: Symbol ‘nrom’ is used before it is typed at (1)
-tleed1.f:204:23:
-
-       DIMENSION IIDXK2(NROMR),IIDXK(NROM),IIKRED(NROMR)
-                       1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:205:28:
-
-       DIMENSION SPQS(2,NROMR),SPQFS(2,NROMR)
-                            1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:206:27:
-
-       DIMENSION PQF(2,NROMR),PQ(2,NROMR)
-                           1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:209:29:
-
-       DIMENSION NB(20),KOUNT(JLMMAX,JLMMAX),PH4(12,NROMR)
-                             1
-Error: GNU Extension: Symbol ‘jlmmax’ is used before it is typed at (1)
-tleed1.f:210:56:
-
-       DIMENSION KSNB(20),NSHBS(60),IMIN(60),VEC(2,INST1B)
-                                                        1
-Error: Bad array specification for an explicitly shaped array at (1)
-tleed1.f:212:22:
-
-       DIMENSION INDK3(NROMR),PH3(36,NROMR),PQ3(2,NROMR)
-                      1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:213:21:
-
-       COMPLEX TAUINV(JLMT,JPLEV),WBDS(JLMN,INST1)
-                     1
-Error: GNU Extension: Symbol ‘jlmt’ is used before it is typed at (1)
-tleed1.f:214:20:
-
-       COMPLEX WBDS2(JLMSN,INST1)
-                    1
-Error: GNU Extension: Symbol ‘jlmsn’ is used before it is typed at (1)
-tleed1.f:215:19:
-
-       COMPLEX RA1R(NROMR,NROM2R,INST1B),TA1R(NROMR,NROM2R,INST1B)
-                   1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:216:19:
-
-       COMPLEX RA2R(NROMR,NROM2R,INST1B),TA2R(NROMR,NROM2R,INST1B)
-                   1
-Error: GNU Extension: Symbol ‘nromr’ is used before it is typed at (1)
-tleed1.f:217:19:
-
-       COMPLEX CYTR(JLMNI,NROMR),CYTT(JLMNI,NROMR)
-                   1
-Error: GNU Extension: Symbol ‘jlmni’ is used before it is typed at (1)
-tleed1.f:222:17:
-
-       CHARACTER*4 TITLE(20)
-                 1
-Warning: Obsolescent feature: Old-style character length at (1)
-tleed1.f:256:16:
-
-       DATA INDOM(1),INDOM(2),INDOM(3),INDOM(4),INDOM(5),INDOM(6),INDOM
-                1
-Error: GNU Extension: Symbol ‘indom’ is used before it is typed at (1)
-tleed1.f:260:16:
-
-       DATA INDBD(1),INDBD(2),INDBD(3),INDBD(4),INDBD(5),INDBD(6),INDBD
-                1
-Error: GNU Extension: Symbol ‘indbd’ is used before it is typed at (1)
-tleed1.f:271:15:
-
-       DATA NLMS(1),NLMS(2),NLMS(3),NLMS(4),NLMS(5),NLMS(6),NLMS(7),
-               1
-Error: GNU Extension: Symbol ‘nlms’ is used before it is typed at (1)
-tleed1.f:277:14:
-
-       DATA NCA(1),NCA(2),NCA(3),NCA(4),NCA(5),NCA(6),NCA(7),NCA(8),
-              1
-Error: GNU Extension: Symbol ‘nca’ is used before it is typed at (1)
-tleed1.f:307:21:
-
- 102   FORMAT (/8H IDEG = ,1I3)
-                     1
-Warning: The H format specifier at (1) is a Fortran 95 deleted feature
-tleed1.f:309:71: Warning: The H format specifier at (1) is a Fortran 95 deleted feature
-tleed1.f:310:19:
-
- 104   FORMAT (8H TEMP = ,F9.4)
-                   1
-Warning: The H format specifier at (1) is a Fortran 95 deleted feature
-tleed1.f:312:21:
-
- 106   FORMAT (20H CORRECT TERMINATION)
-                     1
-Warning: The H format specifier at (1) is a Fortran 95 deleted feature
-tleed1.f:464:18:
-
-       READ (5,101) (LAFLAG(I), I=1,NST1)
-                  1
-Error: Expected variable in READ statement at (1)
-tleed1.f:528:27:
-
-  CSU2=ABS(ARA2(1)-ARB2(1))+ABS(ARA2(2)-ARB2(2))
-                           1
-Error: PROCEDURE attribute conflicts with COMMON attribute in ‘arb2’ at (1)
-tleed1.f:846:72: Error: Unexpected STATEMENT FUNCTION statement at (1)
-tleed1.f:853:72: Error: Unexpected STATEMENT FUNCTION statement at (1)
-tleed1.f:854:72: Error: Unexpected STATEMENT FUNCTION statement at (1)
-tleed1.f:855:24:
-
-     IF(INVECT.EQ.2)ASD(I)=ASA(2,I)
-                        1
-Error: Cannot assign to a named constant at (1)
-tleed1.f:905:72: Error: Unexpected STATEMENT FUNCTION statement at (1)
-tleed1.f:934:72: Error: Unexpected STATEMENT FUNCTION statement at (1)
-tleed1.f:916:45:
-
-      CALL CVEC3(NINDEX,LM2,ALM,NLAY,A0LM,LMMAX,
-                                             1
-Error: Symbol ‘a0lm’ at (1) has no IMPLICIT type
-tleed1.f:241:50:
-
-       COMMON /ZMAT/IANZ(40),IZ(40,4),BL(40),AALPHA(40),BBETA(40),NZ,
-                                                  1
-Error: Symbol ‘aalpha’ at (1) has no IMPLICIT type
-tleed1.f:497:31:
-
-      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
-                               1
-Error: Symbol ‘acoord’ at (1) has no IMPLICIT type
-tleed1.f:497:24:
-
-      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
-                        1
-Error: Symbol ‘adisp’ at (1) has no IMPLICIT type
-tleed1.f:697:21:
-
-      &             AF,CAF,NFLAGINT)
-                     1
-Error: Symbol ‘af’ at (1) has no IMPLICIT type
-tleed1.f:232:26:
-
-       COMMON /X4/E,VPI,AK2,AK3
-                          1
-Error: Symbol ‘ak2’ at (1) has no IMPLICIT type
-tleed1.f:231:20:
-
-       COMMON E3,AK21,AK31,VPI1,TV,EMACH
-                    1
-Error: Symbol ‘ak21’ at (1) has no IMPLICIT type
-tleed1.f:720:60:
-
-         CALL WAVE2(AK2,AK3,THETA,FI,E,VV,AK21,AK31,AK2M,AK3M,
-                                                            1
-Error: Symbol ‘ak2m’ at (1) has no IMPLICIT type
-tleed1.f:232:30:
-
-       COMMON /X4/E,VPI,AK2,AK3
-                              1
-Error: Symbol ‘ak3’ at (1) has no IMPLICIT type
-tleed1.f:231:25:
-
-       COMMON E3,AK21,AK31,VPI1,TV,EMACH
-                         1
-Error: Symbol ‘ak31’ at (1) has no IMPLICIT type
-tleed1.f:720:65: Error: Symbol ‘ak3m’ at (1) has no IMPLICIT type
-tleed1.f:908:42:
-
-      &                   AMPPLW,NCL,NT,ALM,E,VICL(NCL),NLAY,LSM,LM2,
-                                          1
-Error: Symbol ‘alm’ at (1) has no IMPLICIT type
-tleed1.f:515:25:
-
-      & NLAYTOT,IPR,ALPHA1,BETA1,GAMMA,ITMAX,FTOL1,
-                         1
-Error: Symbol ‘alpha1’ at (1) has no IMPLICIT type
-tleed1.f:242:63:
-
-      & IPAR(15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),
-                                                               1
-Error: Symbol ‘alphas’ at (1) has no IMPLICIT type
-tleed1.f:880:30:
-
-      &              IPR,AMPPLW,NBIN,NSTEF,NST1,NBULK,VICL,VCL,
-                              1
-Error: Symbol ‘ampplw’ at (1) has no IMPLICIT type
-tleed1.f:806:53:
-
-       CALL MTSYM6(ROP,TOP,ROM,TOM,NT,NT,NT,AMULT,CYLM,PQ,NT,
-                                                     1
-Error: Symbol ‘amult’ at (1) has no IMPLICIT type
-tleed1.f:879:51:
-
-      &              NT,NB,KSNBS,NP,XI,PQ,PK,AW,ANEW,20,ASB,ASC,ASD,
-                                                   1
-Error: Symbol ‘anew’ at (1) has no IMPLICIT type
-tleed1.f:140:20:
-
-       DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
-                    1
-Error: Symbol ‘ara1’ at (1) has no IMPLICIT type
-tleed1.f:140:28:
-
-       DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
-                            1
-Error: Symbol ‘ara2’ at (1) has no IMPLICIT type
-tleed1.f:140:62:
-
-       DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
-                                                              1
-Error: Symbol ‘arb1’ at (1) has no IMPLICIT type
-tleed1.f:233:36:
-
-       COMMON /SL/ARA1,ARA2,ARB1,ARB2,RBR1,RBR2,NL1,NL2
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c tleed1.f -o tleed1.o
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c tleedlib.f -o tleedlib.o
+tleedlib.f:7993:72:
+
+       IF (ABS(FALFE)-1.0E-3)  180, 200, 200
+                                                                        1
+Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:8038:72:
+
+       IF (ABSDEL-1.0E-2)  320, 310, 310
+                                                                        1
+Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:8041:72:
+
+   320 IF (ITEST-1)  340, 330, 340
+                                                                        1
+Warning: Obsolescent feature: Arithmetic IF statement at (1)
+tleedlib.f:629:2:
+
+ 66            IF(J+KMAX.GT.KNT) THEN
+  1
+Warning: Label 66 at (1) defined but not used
+tleedlib.f:6289:9:
+
+ 1590  CA=((-1.0)**(MA1+MA3))*YINT
+         1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:986:3:
+
+ 177   FORMAT(2F7.4)
+   1
+Warning: Label 177 at (1) defined but not used
+tleedlib.f:1666:36:
+
+                               BLMT2=((-1.0)**IC)*A*B*C
                                     1
-Error: Symbol ‘arb2’ at (1) has no IMPLICIT type
-tleed1.f:140:51:
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:2965:4:
 
-       DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
-                                                   1
-Error: Symbol ‘asa’ at (1) has no IMPLICIT type
-tleed1.f:480:22:
+ 1610  FORMAT (' NO SYMMETRY in MTNVSYM for GLIDE SYMMETRY. Lower
+    1
+Warning: Label 1610 at (1) defined but not used
+tleedlib.f:4094:3:
 
-      & LAFLAG,NST1,ASB,VICL,VCL,FRCL,TST,TSTS,ASA,INVECT)
-                      1
-Error: Symbol ‘asb’ at (1) has no IMPLICIT type
-tleed1.f:879:62:
+ 777   I=I-1
+   1
+Warning: Label 777 at (1) defined but not used
+tleedlib.f:4280:2:
 
-      &              NT,NB,KSNBS,NP,XI,PQ,PK,AW,ANEW,20,ASB,ASC,ASD,
-                                                              1
-Error: Symbol ‘asc’ at (1) has no IMPLICIT type
-tleed1.f:879:66:
+ 52    WRITE (1,*) ' Put the mirror plane along the z axis, symmetry
+  1
+Warning: Label 52 at (1) defined but not used
+tleedlib.f:6212:35:
 
-      &              NT,NB,KSNBS,NP,XI,PQ,PK,AW,ANEW,20,ASB,ASC,ASD,
+                               BLMT=((-1.0)**IC)*A*B*C
+                                   1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6333:17:
+
+          FAC1(L)=ASG*SQRT((2.0*CL+1.0)*A/(4.0*PI*B*B))
+                 1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6488:29:
+
+                PPP(I1,I2,I3)=A
+                             1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+tleedlib.f:6757:4:
+
+ 1010  FORMAT (30(2E13.5,/))
+    1
+Warning: Label 1010 at (1) defined but not used
+tleedlib.f:6756:4:
+
+ 1000  FORMAT (3F7.4)
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:8007:5:
+
+   270 CS = CMPLX(1.0,0.0)
+     1
+Warning: Label 270 at (1) defined but not used
+tleedlib.f:8445:3:
+
+ 350   FORMAT (/' Line Search Requested')
+   1
+Warning: Label 350 at (1) defined but not used
+tleedlib.f:8438:3:
+
+ 260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
+   1
+Warning: Label 260 at (1) defined but not used
+tleedlib.f:8437:3:
+
+ 250   FORMAT (/' Moving Atom Identifiers; ')
+   1
+Warning: Label 250 at (1) defined but not used
+tleedlib.f:8436:3:
+
+ 240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
+   1
+Warning: Label 240 at (1) defined but not used
+tleedlib.f:8435:3:
+
+ 230   FORMAT (' ======================= ')
+   1
+Warning: Label 230 at (1) defined but not used
+tleedlib.f:8434:3:
+
+ 220   FORMAT (/' Line Search Information ')
+   1
+Warning: Label 220 at (1) defined but not used
+tleedlib.f:8570:3:
+
+ 362   FORMAT (' ',11X,'  3RD ELEMENT',3X,16F8.4)
+   1
+Warning: Label 362 at (1) defined but not used
+tleedlib.f:9427:4:
+
+ 1000  FORMAT (500(2E13.5,/))
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:10695:3:
+
+ 102   IL = LENGTH - 1
+   1
+Warning: Label 102 at (1) defined but not used
+tleedlib.f:13453:2:
+
+ 70    FORMAT ('EXP. BEAM ',1I3,' (',5A4,')')
+  1
+Warning: Label 70 at (1) defined but not used
+tleedlib.f:11648:3:
+
+ 515   FORMAT (' OPTIMUM VALUE OF INNER POTENTIAL =',1F7.4)
+   1
+Warning: Label 515 at (1) defined but not used
+tleedlib.f:11647:3:
+
+ 514   FORMAT (1F7.4)
+   1
+Warning: Label 514 at (1) defined but not used
+tleedlib.f:11646:3:
+
+ 510   FORMAT (3F9.4)
+   1
+Warning: Label 510 at (1) defined but not used
+tleedlib.f:11645:3:
+
+ 506   FORMAT (/' COORDINATES AT MINIMUM;'/)
+   1
+Warning: Label 506 at (1) defined but not used
+tleedlib.f:11644:3:
+
+ 505   FORMAT (/' CONVERGENCE TOLERANCE ACHIEVED =',F7.6)
+   1
+Warning: Label 505 at (1) defined but not used
+tleedlib.f:11643:3:
+
+ 501   FORMAT (' ======================= ')
+   1
+Warning: Label 501 at (1) defined but not used
+tleedlib.f:12165:2:
+
+ 99     do 12 j=1,NNDIM
+  1
+Warning: Label 99 at (1) defined but not used
+tleedlib.f:12618:3:
+
+ 523   FORMAT (I4,F7.4,70F7.4)
+   1
+Warning: Label 523 at (1) defined but not used
+tleedlib.f:12617:3:
+
+ 522   FORMAT (' R-FACTOR =',1F7.4)
+   1
+Warning: Label 522 at (1) defined but not used
+tleedlib.f:12616:3:
+
+ 521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
+   1
+Warning: Label 521 at (1) defined but not used
+tleedlib.f:12774:3:
+
+ 300   CONTINUE
+   1
+Warning: Label 300 at (1) defined but not used
+tleedlib.f:12925:4:
+
+  152  CONTINUE
+    1
+Warning: Label 152 at (1) defined but not used
+tleedlib.f:15359:3:
+
+ 100   FORMAT(20A4)
+   1
+Warning: Label 100 at (1) defined but not used
+tleedlib.f:13069:3:
+
+ 523   FORMAT (I4,F7.4,70F7.4)
+   1
+Warning: Label 523 at (1) defined but not used
+tleedlib.f:13068:3:
+
+ 522   FORMAT (' R-FACTOR =',1F7.4)
+   1
+Warning: Label 522 at (1) defined but not used
+tleedlib.f:13067:3:
+
+ 521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
+   1
+Warning: Label 521 at (1) defined but not used
+tleedlib.f:13605:4:
+
+ 1010  FORMAT (500(2E13.5,/))
+    1
+Warning: Label 1010 at (1) defined but not used
+tleedlib.f:13604:4:
+
+ 1000  FORMAT (3F7.4)
+    1
+Warning: Label 1000 at (1) defined but not used
+tleedlib.f:14139:3:
+
+ 190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+   1
+Warning: Label 190 at (1) defined but not used
+tleedlib.f:14133:3:
+
+ 110   FORMAT (40F7.4)
+   1
+Warning: Label 110 at (1) defined but not used
+tleedlib.f:11431:13:
+
+      & BENAME,IPR,XPL,YPL,NNN,AP,APP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,
+             1
+Warning: Unused dummy argument 'bename' at (1) [-Wunused-dummy-argument]
+tleedlib.f:11454:32:
+
+       COMPLEX JYLM(LSMMAX),DELXI,AAK,AAJ,PRE,CI
+                                1
+Warning: Unused variable 'delxi' declared at (1) [-Wunused-variable]
+tleedlib.f:11430:66:
+
+      & PSQ,JYLM,BJ,YLM,QS,XISTS,XIST,AT,INBED,IEERG,AE,EE,NEE,NBEA,
                                                                   1
-Error: Symbol ‘asd’ at (1) has no IMPLICIT type
-tleed1.f:236:28:
+Warning: Unused dummy argument 'nbea' at (1) [-Wunused-dummy-argument]
+tleedlib.f:11431:29:
 
-       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV
-                            1
-Error: Symbol ‘ase’ at (1) has no IMPLICIT type
-tleed1.f:236:21:
+      & BENAME,IPR,XPL,YPL,NNN,AP,APP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,
+                             1
+Warning: Unused dummy argument 'nnn' at (1) [-Wunused-dummy-argument]
+tleedlib.f:10765:46:
 
-       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV
-                     1
-Error: Symbol ‘asl’ at (1) has no IMPLICIT type
-tleed1.f:390:35:
-
-       READ (4,112) NSYM,NSYMS,ASTEP,VSTEP
-                                   1
-Error: Symbol ‘astep’ at (1) has no IMPLICIT type
-tleed1.f:879:46:
-
-      &              NT,NB,KSNBS,NP,XI,PQ,PK,AW,ANEW,20,ASB,ASC,ASD,
+      & RPP2,RRZJ,RMZJ,RPE,EET,NET,AR,YT,LLFLAG,LSFLAG,IPR,
                                               1
-Error: Symbol ‘aw’ at (1) has no IMPLICIT type
-tleed1.f:241:60:
+Warning: Unused dummy argument 'llflag' at (1) [-Wunused-dummy-argument]
+tleedlib.f:10760:11:
 
-       COMMON /ZMAT/IANZ(40),IZ(40,4),BL(40),AALPHA(40),BBETA(40),NZ,
-                                                            1
-Error: Symbol ‘bbeta’ at (1) has no IMPLICIT type
-tleed1.f:595:24:
-
-   CALL GAUNT2(BELM2,NLMB2,LMAX,LSMAX)
-                        1
-Error: Symbol ‘belm2’ at (1) has no IMPLICIT type
-tleed1.f:515:31:
-
-      & NLAYTOT,IPR,ALPHA1,BETA1,GAMMA,ITMAX,FTOL1,
-                               1
-Error: Symbol ‘beta1’ at (1) has no IMPLICIT type
-tleed1.f:243:12:
-
-      & BETAS(40),PHIR,PHIM1,PHIM2
-            1
-Error: Symbol ‘betas’ at (1) has no IMPLICIT type
-tleed1.f:241:39:
-
-       COMMON /ZMAT/IANZ(40),IZ(40,4),BL(40),AALPHA(40),BBETA(40),NZ,
-                                       1
-Error: Symbol ‘bl’ at (1) has no IMPLICIT type
-tleed1.f:242:52:
-
-      & IPAR(15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),
-                                                    1
-Error: Symbol ‘bls’ at (1) has no IMPLICIT type
-tleed1.f:554:20:
-
-       CALL CAAA2(CAA,NCAA,LMMAX,KOUNT)
-                    1
-Error: Symbol ‘caa’ at (1) has no IMPLICIT type
-tleed1.f:697:25:
-
-      &             AF,CAF,NFLAGINT)
-                         1
-Error: Symbol ‘caf’ at (1) has no IMPLICIT type
-tleed1.f:558:20:
-
-       CALL CELMG(CLM,NLM,YLM,FAC2,NN,FAC1,N,LMAX)
-                    1
-Error: Symbol ‘clm’ at (1) has no IMPLICIT type
-tleed1.f:479:44:
-
-       CALL READCT(NLAY,VPOS,FPOS,POSS,CPVPOS,NTAUAW,LPSAW,IPR,
-                                            1
-Error: Symbol ‘cpvpos’ at (1) has no IMPLICIT type
-tleed1.f:527:10:
-
-  CSU1=ABS(ARA1(1)-ARB1(1))+ABS(ARA1(2)-ARB1(2))
-          1
-Error: Symbol ‘csu1’ at (1) has no IMPLICIT type
-tleed1.f:529:18:
-
-  IF(CSU1+CSU2.LT.0.001) NSU=1
-                  1
-Error: Symbol ‘csu2’ at (1) has no IMPLICIT type
-tleed1.f:811:52:
-
-      & TSTORE,NSTEF,NSTEF,NST1,NCL,JLMNI2,NTAUSH,CTR,CTT,CYTR,
-                                                    1
-Error: Symbol ‘ctr’ at (1) has no IMPLICIT type
-tleed1.f:811:56:
-
-      & TSTORE,NSTEF,NSTEF,NST1,NCL,JLMNI2,NTAUSH,CTR,CTT,CYTR,
-                                                        1
-Error: Symbol ‘ctt’ at (1) has no IMPLICIT type
-tleed1.f:806:58:
-
-       CALL MTSYM6(ROP,TOP,ROM,TOM,NT,NT,NT,AMULT,CYLM,PQ,NT,
-                                                          1
-Error: Symbol ‘cylm’ at (1) has no IMPLICIT type
-tleed1.f:811:61:
-
-      & TSTORE,NSTEF,NSTEF,NST1,NCL,JLMNI2,NTAUSH,CTR,CTT,CYTR,
-                                                             1
-Error: Symbol ‘cytr’ at (1) has no IMPLICIT type
-tleed1.f:812:11:
-
-      & CYTT,VVST,VT2,LSM,IND1,IND2,NRCP,NINEQ,
+      & NDIM,DISP,NNDIM,ADISP,ILOOK,ACOORD,MICUT,
            1
-Error: Symbol ‘cytt’ at (1) has no IMPLICIT type
-tleed1.f:239:49:
+Warning: Unused dummy argument 'ndim' at (1) [-Wunused-dummy-argument]
+tleedlib.f:12242:46:
 
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                                                 1
-Error: Symbol ‘dcut’ at (1) has no IMPLICIT type
-tleed1.f:678:18:
-
-         DCUTO=SQRT(2.0*E)
-                  1
-Error: Symbol ‘dcuto’ at (1) has no IMPLICIT type
-tleed1.f:683:18:
-
-         DCUTS=-4.0*DCUTO/(AMIN1(VPIS,-0.05))
-                  1
-Error: Symbol ‘dcuts’ at (1) has no IMPLICIT type
-tleed1.f:608:28: Error: Symbol ‘de’ at (1) has no IMPLICIT type
-tleed1.f:497:18:
-
-      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
-                  1
-Error: Symbol ‘direc’ at (1) has no IMPLICIT type
-tleed1.f:514:49:
-
-       CALL READPL(NT0,NSET,PQFEX,NINSET,NDIM,DISP,
-                                                 1
-Error: Symbol ‘disp’ at (1) has no IMPLICIT type
-tleed1.f:237:40:
-
-       COMMON /BT/IT,T,T0,DRPER,DRPAR,DR0
-                                        1
-Error: Symbol ‘dr0’ at (1) has no IMPLICIT type
-tleed1.f:161:37:
-
-       DIMENSION IT1(5),DRPAR1(5),DR01(5),DRPER1(5)
-                                     1
-Error: Symbol ‘dr01’ at (1) has no IMPLICIT type
-tleed1.f:809:15:
-
-      & NLAY,DRL,NUGH,LEVV,NLAY2,TEST,RG,
-               1
-Error: Symbol ‘drl’ at (1) has no IMPLICIT type
-tleed1.f:237:36:
-
-       COMMON /BT/IT,T,T0,DRPER,DRPAR,DR0
-                                    1
-Error: Symbol ‘drpar’ at (1) has no IMPLICIT type
-tleed1.f:161:29:
-
-       DIMENSION IT1(5),DRPAR1(5),DR01(5),DRPER1(5)
-                             1
-Error: Symbol ‘drpar1’ at (1) has no IMPLICIT type
-tleed1.f:237:30:
-
-       COMMON /BT/IT,T,T0,DRPER,DRPAR,DR0
-                              1
-Error: Symbol ‘drper’ at (1) has no IMPLICIT type
-tleed1.f:161:47:
-
-       DIMENSION IT1(5),DRPAR1(5),DR01(5),DRPER1(5)
-                                               1
-Error: Symbol ‘drper1’ at (1) has no IMPLICIT type
-tleed1.f:242:34:
-
-      & IPAR(15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),
-                                  1
-Error: Symbol ‘dx’ at (1) has no IMPLICIT type
-tleed1.f:232:18:
-
-       COMMON /X4/E,VPI,AK2,AK3
-                  1
-Error: Symbol ‘e’ at (1) has no IMPLICIT type
-tleed1.f:231:15:
-
-       COMMON E3,AK21,AK31,VPI1,TV,EMACH
-               1
-Error: Symbol ‘e3’ at (1) has no IMPLICIT type
-tleed1.f:669:16:
-
-         EEV=EI+(IEEV-1)*DE
-                1
-Error: Symbol ‘eev’ at (1) has no IMPLICIT type
-tleed1.f:608:25: Error: Symbol ‘ef’ at (1) has no IMPLICIT type
-tleed1.f:624:13:
-
-      EF2=EF+VV*27.21
-             1
-Error: Symbol ‘ef2’ at (1) has no IMPLICIT type
-tleed1.f:608:22:
-
-   READ (5,100) EI,EF,DE
-                      1
-Error: Symbol ‘ei’ at (1) has no IMPLICIT type
-tleed1.f:231:39:
-
-       COMMON E3,AK21,AK31,VPI1,TV,EMACH
-                                       1
-Error: Symbol ‘emach’ at (1) has no IMPLICIT type
-tleed1.f:146:18:
-
-       DIMENSION ES(90),PHSS(90,80),PHSS2(90,80)
-                  1
-Error: Symbol ‘es’ at (1) has no IMPLICIT type
-tleed1.f:937:43:
-
-      &                   AMPPLW,NCL,NT,EXLM,E,VICL(NCL),NLAY,LSM,LM2,
-                                           1
-Error: Symbol ‘exlm’ at (1) has no IMPLICIT type
-tleed1.f:558:41:
-
-       CALL CELMG(CLM,NLM,YLM,FAC2,NN,FAC1,N,LMAX)
-                                         1
-Error: Symbol ‘fac1’ at (1) has no IMPLICIT type
-tleed1.f:558:33:
-
-       CALL CELMG(CLM,NLM,YLM,FAC2,NN,FAC1,N,LMAX)
-                                 1
-Error: Symbol ‘fac2’ at (1) has no IMPLICIT type
-tleed1.f:423:15:
-
-      & THETA,FI,LMMAX,NPSI,ES,PHSS,L1,IPR,NEL,
-               1
-Error: Symbol ‘fi’ at (1) has no IMPLICIT type
-tleed1.f:750:27:
-
-         CALL FMAT(FLMS,V,JJS,NL,NL,DCUTS,IDEG,LMAX,KLM)
-                           1
-Error: Symbol ‘flms’ at (1) has no IMPLICIT type
-tleed1.f:479:32:
-
-       CALL READCT(NLAY,VPOS,FPOS,POSS,CPVPOS,NTAUAW,LPSAW,IPR,
-                                1
-Error: Symbol ‘fpos’ at (1) has no IMPLICIT type
-tleed1.f:236:24:
-
-       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV
-                        1
-Error: Symbol ‘fr’ at (1) has no IMPLICIT type
-tleed1.f:480:36:
-
-      & LAFLAG,NST1,ASB,VICL,VCL,FRCL,TST,TSTS,ASA,INVECT)
-                                    1
-Error: Symbol ‘frcl’ at (1) has no IMPLICIT type
-tleed1.f:515:49:
-
-      & NLAYTOT,IPR,ALPHA1,BETA1,GAMMA,ITMAX,FTOL1,
-                                                 1
-Error: Symbol ‘ftol1’ at (1) has no IMPLICIT type
-tleed1.f:516:12:
-
-      & FTOL2,MFLAG,LLFLAG,NGRID)
-            1
-Error: Symbol ‘ftol2’ at (1) has no IMPLICIT type
-tleed1.f:626:24:
-
-      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
-                        1
-Error: Symbol ‘g’ at (1) has no IMPLICIT type
-tleed1.f:917:62:
-
-      &                      LSM,NEXIT,LPSS,TSF,LSMMAX,BELM2,GA,NLTIN,
-                                                              1
-Error: Symbol ‘ga’ at (1) has no IMPLICIT type
-tleed1.f:515:37:
-
-      & NLAYTOT,IPR,ALPHA1,BETA1,GAMMA,ITMAX,FTOL1,
-                                     1
-Error: Symbol ‘gamma’ at (1) has no IMPLICIT type
-tleed1.f:946:62:
-
-      &                      LSM,NEXIT,LPSS,TSF,LSMMAX,BELM2,GB,1,NLMB2,
-                                                              1
-Error: Symbol ‘gb’ at (1) has no IMPLICIT type
-tleed1.f:374:27:
-
-       READ (5,107) (TITLE(I),I=1,20)
-                           1
-Error: Symbol ‘i’ at (1) has no IMPLICIT type
-tleed1.f:241:23:
-
-       COMMON /ZMAT/IANZ(40),IZ(40,4),BL(40),AALPHA(40),BBETA(40),NZ,
-                       1
-Error: Symbol ‘ianz’ at (1) has no IMPLICIT type
-tleed1.f:538:33:
-
-       CALL MSET2(LSMAX,LLCUT,ICUT,MICUT,MJCUT,IPCUT,NDTENS)
-                                 1
-Error: Symbol ‘icut’ at (1) has no IMPLICIT type
-tleed1.f:411:23:
-
-       READ (5,101) IDEG
-                       1
-Error: Symbol ‘ideg’ at (1) has no IMPLICIT type
-tleed1.f:626:29:
-
-      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
-                             1
-Error: Symbol ‘idxk’ at (1) has no IMPLICIT type
-tleed1.f:627:21:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                     1
-Error: Symbol ‘idxk2’ at (1) has no IMPLICIT type
-tleed1.f:668:22:
-
-      DO 1300 IEEV=1,NGAW
-                      1
-Error: Symbol ‘ieev’ at (1) has no IMPLICIT type
-tleed1.f:731:26:
-
-      &          IDXK,IIDXK,IIDXK2,IKRED,IIKRED,KNT,NSHBS,IMIN,
-                          1
-Error: Symbol ‘iidxk’ at (1) has no IMPLICIT type
-tleed1.f:731:33:
-
-      &          IDXK,IIDXK,IIDXK2,IKRED,IIKRED,KNT,NSHBS,IMIN,
-                                 1
-Error: Symbol ‘iidxk2’ at (1) has no IMPLICIT type
-tleed1.f:731:46:
-
-      &          IDXK,IIDXK,IIDXK2,IKRED,IIKRED,KNT,NSHBS,IMIN,
+      & RPP2,RRZJ,RMZJ,RPE,EET,NET,AR,YT,LLFLAG,LSFLAG,IPR,
                                               1
-Error: Symbol ‘iikred’ at (1) has no IMPLICIT type
-tleed1.f:746:33:
+Warning: Unused dummy argument 'llflag' at (1) [-Wunused-dummy-argument]
+tleedlib.f:12236:67:
 
-      &          IIDXK,IIDXK2,IKBS,PH4,KNBS,NBAL)
-                                 1
-Error: Symbol ‘ikbs’ at (1) has no IMPLICIT type
-tleed1.f:626:58:
-
-      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
-                                                          1
-Error: Symbol ‘ikred’ at (1) has no IMPLICIT type
-tleed1.f:489:37:
-
-  CALL LOOKUP2(CPVPOS,ILOOK,ILKBD,NLAY2,NST1,NSTEF,NSYMS,
-                                     1
-Error: Symbol ‘ilkbd’ at (1) has no IMPLICIT type
-tleed1.f:489:31:
-
-  CALL LOOKUP2(CPVPOS,ILOOK,ILKBD,NLAY2,NST1,NSTEF,NSYMS,
-                               1
-Error: Symbol ‘ilook’ at (1) has no IMPLICIT type
-tleed1.f:571:11:
-
-       IMARK=0
-           1
-Error: Symbol ‘imark’ at (1) has no IMPLICIT type
-tleed1.f:211:20:
-
-       DIMENSION IMAX(60)
-                    1
-Error: Symbol ‘imax’ at (1) has no IMPLICIT type
-tleed1.f:731:61:
-
-      &          IDXK,IIDXK,IIDXK2,IKRED,IIKRED,KNT,NSHBS,IMIN,
-                                                             1
-Error: Symbol ‘imin’ at (1) has no IMPLICIT type
-tleed1.f:490:48:
-
-      &         NLTOT2,NSHIFT,NCL,NLMAX,IROT,IMIR,0,FPOS,POSS,POSS2,
-                                                1
-Error: Symbol ‘imir’ at (1) has no IMPLICIT type
-tleed1.f:745:26:
-
-        CALL TREV(IND1,IND2,PQAL,PQ,NTAL,NT,INI,NRCP,
-                          1
-Error: Symbol ‘ind1’ at (1) has no IMPLICIT type
-tleed1.f:745:31:
-
-        CALL TREV(IND1,IND2,PQAL,PQ,NTAL,NT,INI,NRCP,
-                               1
-Error: Symbol ‘ind2’ at (1) has no IMPLICIT type
-tleed1.f:627:57:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                                                         1
-Error: Symbol ‘indk3’ at (1) has no IMPLICIT type
-tleed1.f:616:16: Error: Symbol ‘ini’ at (1) has no IMPLICIT type
-tleed1.f:475:23:
-
-       IF(NLMAX.GT.INLAY) THEN
-                       1
-Error: Symbol ‘inlay’ at (1) has no IMPLICIT type
-tleed1.f:498:12:
-
-      & INLIN)
-            1
-Error: Symbol ‘inlin’ at (1) has no IMPLICIT type
-tleed1.f:470:25:
-
-       IF(NLTOT2.GT.INLTOT) THEN
-                         1
-Error: Symbol ‘inltot’ at (1) has no IMPLICIT type
-tleed1.f:694:25:
-
-         DO 247 INNEL=1,NEL
-                         1
-Error: Symbol ‘innel’ at (1) has no IMPLICIT type
-tleed1.f:458:22:
-
-       IF(NST1.GT.INST1) THEN
-                      1
-Error: Symbol ‘inst1’ at (1) has no IMPLICIT type
-tleed1.f:522:16:
-
-      &    INST1B,ARA1,ARA2,NST1,NBULK,VEC)
-                1
-Error: Symbol ‘inst1b’ at (1) has no IMPLICIT type
-tleed1.f:401:20:
-
-       IF(NT0.GT.INT0) THEN
-                    1
-Error: Symbol ‘int0’ at (1) has no IMPLICIT type
-tleed1.f:436:21:
-
-       IF(NEL.GT.INTAU) THEN
-                     1
-Error: Symbol ‘intau’ at (1) has no IMPLICIT type
-tleed1.f:422:38:
-
-       CALL READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,TST,
-                                      1
-Error: Symbol ‘invect’ at (1) has no IMPLICIT type
-tleed1.f:242:11:
-
-      & IPAR(15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),
-           1
-Error: Symbol ‘ipar’ at (1) has no IMPLICIT type
-tleed1.f:538:51:
-
-       CALL MSET2(LSMAX,LLCUT,ICUT,MICUT,MJCUT,IPCUT,NDTENS)
-                                                   1
-Error: Symbol ‘ipcut’ at (1) has no IMPLICIT type
-tleed1.f:810:50:
-
-      & TS,TS2,TG,LM2N,VT,CAA,NCAA,TH,LMNI,LMNM,IPL,
-                                                  1
-Error: Symbol ‘ipl’ at (1) has no IMPLICIT type
-tleed1.f:432:23:
-
-       IF(LMAX.GT.IPLMAX) THEN
-                       1
-Error: Symbol ‘iplmax’ at (1) has no IMPLICIT type
-tleed1.f:424:12:
-
-      & IPNL1,IPNL2)
-            1
-Error: Symbol ‘ipnl1’ at (1) has no IMPLICIT type
-tleed1.f:424:18:
-
-      & IPNL1,IPNL2)
-                  1
-Error: Symbol ‘ipnl2’ at (1) has no IMPLICIT type
-tleed1.f:385:22:
-
-       READ (4,101) IPR,ISTART
-                      1
-Error: Symbol ‘ipr’ at (1) has no IMPLICIT type
-tleed1.f:490:43:
-
-      &         NLTOT2,NSHIFT,NCL,NLMAX,IROT,IMIR,0,FPOS,POSS,POSS2,
-                                           1
-Error: Symbol ‘irot’ at (1) has no IMPLICIT type
-tleed1.f:385:29:
-
-       READ (4,101) IPR,ISTART
-                             1
-Error: Symbol ‘istart’ at (1) has no IMPLICIT type
-tleed1.f:237:19:
-
-       COMMON /BT/IT,T,T0,DRPER,DRPAR,DR0
-                   1
-Error: Symbol ‘it’ at (1) has no IMPLICIT type
-tleed1.f:161:19:
-
-       DIMENSION IT1(5),DRPAR1(5),DR01(5),DRPER1(5)
-                   1
-Error: Symbol ‘it1’ at (1) has no IMPLICIT type
-tleed1.f:515:43:
-
-      & NLAYTOT,IPR,ALPHA1,BETA1,GAMMA,ITMAX,FTOL1,
-                                           1
-Error: Symbol ‘itmax’ at (1) has no IMPLICIT type
-tleed1.f:627:25:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                         1
-Error: Symbol ‘iwk’ at (1) has no IMPLICIT type
-tleed1.f:241:30:
-
-       COMMON /ZMAT/IANZ(40),IZ(40,4),BL(40),AALPHA(40),BBETA(40),NZ,
-                              1
-Error: Symbol ‘iz’ at (1) has no IMPLICIT type
-tleed1.f:426:45:
-
-       CALL READT2(ASA,INVECT,IDEG,NL,V,VL,JJS,IPR)
-                                             1
-Error: Symbol ‘jjs’ at (1) has no IMPLICIT type
-tleed1.f:641:29:
-
-         IF(LMNM.GT.JLMNI) THEN
-                             1
-Error: Symbol ‘jlmni’ at (1) has no IMPLICIT type
-tleed1.f:656:26:
-
-    IF(LMNM2.GT.JLMNI2) THEN
-                          1
-Error: Symbol ‘jlmni2’ at (1) has no IMPLICIT type
-tleed1.f:397:23:
-
-       IF(LSMAX.GT.JSMAX) THEN
-                       1
-Error: Symbol ‘jsmax’ at (1) has no IMPLICIT type
-tleed1.f:547:9:
-
-       KLM=(2*LMAX+1)*(2*LMAX+2)/2
-         1
-Error: Symbol ‘klm’ at (1) has no IMPLICIT type
-tleed1.f:625:46:
-
-    CALL BEMGEN3(TST,EF2,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVB,
-                                              1
-Error: Symbol ‘knb’ at (1) has no IMPLICIT type
-tleed1.f:625:42:
-
-    CALL BEMGEN3(TST,EF2,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVB,
-                                          1
-Error: Symbol ‘knbs’ at (1) has no IMPLICIT type
-tleed1.f:625:60:
-
-    CALL BEMGEN3(TST,EF2,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVB,
-                                                            1
-Error: Symbol ‘knt’ at (1) has no IMPLICIT type
-tleed1.f:554:37:
-
-       CALL CAAA2(CAA,NCAA,LMMAX,KOUNT)
-                                     1
-Error: Symbol ‘kount’ at (1) has no IMPLICIT type
-tleed1.f:627:47:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                                               1
-Error: Symbol ‘ksnb’ at (1) has no IMPLICIT type
-tleed1.f:627:42:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                                          1
-Error: Symbol ‘ksnbs’ at (1) has no IMPLICIT type
-tleed1.f:239:30:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                              1
-Error: Symbol ‘l1’ at (1) has no IMPLICIT type
-tleed1.f:506:13:
-
-      &LAFLAG2,LPOINT,NLTIN,NST1,NINEQ,LPBD)
-             1
-Error: Symbol ‘laflag2’ at (1) has no IMPLICIT type
-tleed1.f:563:48:
-
-       CALL LXGENT2(LX2,LXI2,LT2,LXM2,LM2,LSM,LAN)
-                                                1
-Error: Symbol ‘lan’ at (1) has no IMPLICIT type
-tleed1.f:239:27:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                           1
-Error: Symbol ‘lay’ at (1) has no IMPLICIT type
-tleed1.f:548:9:
-
-       LEV=(LMAX+1)*(LMAX+2)/2
-         1
-Error: Symbol ‘lev’ at (1) has no IMPLICIT type
-tleed1.f:552:10:
-
-       LEV2=2*LEV
-          1
-Error: Symbol ‘lev2’ at (1) has no IMPLICIT type
-tleed1.f:549:10:
-
-       LEVV=(LMAX+LSMAX+1)*(LMAX+LSMAX+2)/2
-          1
-Error: Symbol ‘levv’ at (1) has no IMPLICIT type
-tleed1.f:396:39:
-
-       READ (4,101) NT0,NSET,LSMAX,LLCUT
-                                       1
-Error: Symbol ‘llcut’ at (1) has no IMPLICIT type
-tleed1.f:497:45:
-
-      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
-                                             1
-Error: Symbol ‘llf2’ at (1) has no IMPLICIT type
-tleed1.f:497:50:
-
-      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
-                                                  1
-Error: Symbol ‘llf3’ at (1) has no IMPLICIT type
-tleed1.f:496:57:
-
-       CALL DIMSCH2(ILOOK,NLTOT2,NDOMS,NNDIM,LSFLAG,LLFLAG,
-                                                         1
-Error: Symbol ‘llflag’ at (1) has no IMPLICIT type
-tleed1.f:537:9:
-
-       LM2=LMAX+LSMAX
-         1
-Error: Symbol ‘lm2’ at (1) has no IMPLICIT type
-tleed1.f:790:17:
-
-         LM2N=2*LMNI
-                 1
-Error: Symbol ‘lm2n’ at (1) has no IMPLICIT type
-tleed1.f:235:21:
-
-       COMMON /MS/LMAX
-                     1
-Error: Symbol ‘lmax’ at (1) has no IMPLICIT type
-tleed1.f:423:21:
-
-      & THETA,FI,LMMAX,NPSI,ES,PHSS,L1,IPR,NEL,
-                     1
-Error: Symbol ‘lmmax’ at (1) has no IMPLICIT type
-tleed1.f:903:11:
-
-    LMN=NLAY*LMMAX
-           1
-Error: Symbol ‘lmn’ at (1) has no IMPLICIT type
-tleed1.f:634:17:
-
-         LMNI=NLAY*LMMAX
-                 1
-Error: Symbol ‘lmni’ at (1) has no IMPLICIT type
-tleed1.f:648:18:
-
-         LMNI2=NLAY*LSM
-                  1
-Error: Symbol ‘lmni2’ at (1) has no IMPLICIT type
-tleed1.f:639:17:
-
-         LMNM=LMNBD(1,NCL)
-                 1
-Error: Symbol ‘lmnm’ at (1) has no IMPLICIT type
-tleed1.f:654:13:
-
-    LMNM2=LMNBD2(1,NCL)
-             1
-Error: Symbol ‘lmnm2’ at (1) has no IMPLICIT type
-tleed1.f:533:12:
-
-       LMNMAX=NLAY*LMMAX
-            1
-Error: Symbol ‘lmnmax’ at (1) has no IMPLICIT type
-tleed1.f:536:12:
-
-       LMSMAX=NLAY*LSM
-            1
-Error: Symbol ‘lmsmax’ at (1) has no IMPLICIT type
-tleed1.f:791:16:
-
-         LMT=LMMAX*NTAU
-                1
-Error: Symbol ‘lmt’ at (1) has no IMPLICIT type
-tleed1.f:792:17:
-
-         LMT2=LSM*NTAU
-                 1
-Error: Symbol ‘lmt2’ at (1) has no IMPLICIT type
-tleed1.f:550:9:
-
-       LOD=LMMAX-LEV
-         1
-Error: Symbol ‘lod’ at (1) has no IMPLICIT type
-tleed1.f:551:10:
-
-       LODD=LSM-LEVV
-          1
-Error: Symbol ‘lodd’ at (1) has no IMPLICIT type
-tleed1.f:506:42:
-
-      &LAFLAG2,LPOINT,NLTIN,NST1,NINEQ,LPBD)
-                                          1
-Error: Symbol ‘lpbd’ at (1) has no IMPLICIT type
-tleed1.f:506:20:
-
-      &LAFLAG2,LPOINT,NLTIN,NST1,NINEQ,LPBD)
-                    1
-Error: Symbol ‘lpoint’ at (1) has no IMPLICIT type
-tleed1.f:479:57:
-
-       CALL READCT(NLAY,VPOS,FPOS,POSS,CPVPOS,NTAUAW,LPSAW,IPR,
-                                                         1
-Error: Symbol ‘lpsaw’ at (1) has no IMPLICIT type
-tleed1.f:773:19: Error: Symbol ‘lpsmax’ at (1) has no IMPLICIT type
-tleed1.f:817:60:
-
-      & NBULK,INDK3,PQ3,PH3,NK3,KSNBS,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
-                                                            1
-Error: Symbol ‘lpss’ at (1) has no IMPLICIT type
-tleed1.f:496:50:
-
-       CALL DIMSCH2(ILOOK,NLTOT2,NDOMS,NNDIM,LSFLAG,LLFLAG,
-                                                  1
-Error: Symbol ‘lsflag’ at (1) has no IMPLICIT type
-tleed1.f:535:9:
-
-       LSM=(LMAX+LSMAX+1)**2
-         1
-Error: Symbol ‘lsm’ at (1) has no IMPLICIT type
-tleed1.f:396:33:
-
-       READ (4,101) NT0,NSET,LSMAX,LLCUT
-                                 1
-Error: Symbol ‘lsmax’ at (1) has no IMPLICIT type
-tleed1.f:534:12:
-
-       LSMMAX=(LSMAX+1)*(LSMAX+1)
-            1
-Error: Symbol ‘lsmmax’ at (1) has no IMPLICIT type
-tleed1.f:567:28:
-
-       CALL LXGENT2(LX,LXI,LT,LXM,LMAX,LMMAX,LAN)
-                            1
-Error: Symbol ‘lt’ at (1) has no IMPLICIT type
-tleed1.f:563:31:
-
-       CALL LXGENT2(LX2,LXI2,LT2,LXM2,LM2,LSM,LAN)
-                               1
-Error: Symbol ‘lt2’ at (1) has no IMPLICIT type
-tleed1.f:567:21:
-
-       CALL LXGENT2(LX,LXI,LT,LXM,LMAX,LMMAX,LAN)
-                     1
-Error: Symbol ‘lx’ at (1) has no IMPLICIT type
-tleed1.f:563:22:
-
-       CALL LXGENT2(LX2,LXI2,LT2,LXM2,LM2,LSM,LAN)
-                      1
-Error: Symbol ‘lx2’ at (1) has no IMPLICIT type
-tleed1.f:567:25:
-
-       CALL LXGENT2(LX,LXI,LT,LXM,LMAX,LMMAX,LAN)
-                         1
-Error: Symbol ‘lxi’ at (1) has no IMPLICIT type
-tleed1.f:563:27:
-
-       CALL LXGENT2(LX2,LXI2,LT2,LXM2,LM2,LSM,LAN)
-                           1
-Error: Symbol ‘lxi2’ at (1) has no IMPLICIT type
-tleed1.f:567:32:
-
-       CALL LXGENT2(LX,LXI,LT,LXM,LMAX,LMMAX,LAN)
-                                1
-Error: Symbol ‘lxm’ at (1) has no IMPLICIT type
-tleed1.f:563:36:
-
-       CALL LXGENT2(LX2,LXI2,LT2,LXM2,LM2,LSM,LAN)
-                                    1
-Error: Symbol ‘lxm2’ at (1) has no IMPLICIT type
-tleed1.f:516:18:
-
-      & FTOL2,MFLAG,LLFLAG,NGRID)
-                  1
-Error: Symbol ‘mflag’ at (1) has no IMPLICIT type
-tleed1.f:808:70:
-
-      & LEV2,TAU,LMT,LMT2,TAUG,TAUG2,TAUGM,TAUGM2,CLM,NLM,FPOS,POSS,MGH,
-                                                                      1
-Error: Symbol ‘mgh’ at (1) has no IMPLICIT type
-tleed1.f:538:39:
-
-       CALL MSET2(LSMAX,LLCUT,ICUT,MICUT,MJCUT,IPCUT,NDTENS)
-                                       1
-Error: Symbol ‘micut’ at (1) has no IMPLICIT type
-tleed1.f:538:45:
-
-       CALL MSET2(LSMAX,LLCUT,ICUT,MICUT,MJCUT,IPCUT,NDTENS)
-                                             1
-Error: Symbol ‘mjcut’ at (1) has no IMPLICIT type
-tleed1.f:555:7:
-
-       N=2*LMAX+1
-       1
-Error: Symbol ‘n’ at (1) has no IMPLICIT type
-tleed1.f:239:20:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                    1
-Error: Symbol ‘na’ at (1) has no IMPLICIT type
-tleed1.f:242:48:
-
-      & IPAR(15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),
-                                                1
-Error: Symbol ‘natoms’ at (1) has no IMPLICIT type
-tleed1.f:738:18:
-
-      &          NB,PQ,PQF,NT,NP,IPR,0,
-                  1
-Error: Symbol ‘nb’ at (1) has no IMPLICIT type
-tleed1.f:729:64: Error: Symbol ‘nbal’ at (1) has no IMPLICIT type
-tleed1.f:721:58:
-
-      &          NT0,RAR1,RAR2,PQFEX,PSQ,NEXIT,SPQFS,1,NBIN)
-                                                          1
-Error: Symbol ‘nbin’ at (1) has no IMPLICIT type
-tleed1.f:462:11:
-
-       NBULK=NST1-NSTEF
-           1
-Error: Symbol ‘nbulk’ at (1) has no IMPLICIT type
-tleed1.f:553:10:
-
-       NCAA=NCA(LMAX)
-          1
-Error: Symbol ‘ncaa’ at (1) has no IMPLICIT type
-tleed1.f:487:16:
-
-       DO 351 NCL=1,NST1
-                1
-Error: Symbol ‘ncl’ at (1) has no IMPLICIT type
-tleed1.f:514:44:
-
-       CALL READPL(NT0,NSET,PQFEX,NINSET,NDIM,DISP,
-                                            1
-Error: Symbol ‘ndim’ at (1) has no IMPLICIT type
-tleed1.f:497:12:
-
-      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
-            1
-Error: Symbol ‘ndiml’ at (1) has no IMPLICIT type
-tleed1.f:504:12:
-
-       NDOMBD=NDOMS
-            1
-Error: Symbol ‘ndombd’ at (1) has no IMPLICIT type
-tleed1.f:234:23:
-
-       COMMON /DIM/NDOMS,NSYMS
-                       1
-Error: Symbol ‘ndoms’ at (1) has no IMPLICIT type
-tleed1.f:457:36:
-
-       READ (5,101) NST1,NSTEF,NDTENS
-                                    1
-Error: Symbol ‘ndtens’ at (1) has no IMPLICIT type
-tleed1.f:423:45:
-
-      & THETA,FI,LMMAX,NPSI,ES,PHSS,L1,IPR,NEL,
-                                             1
-Error: Symbol ‘nel’ at (1) has no IMPLICIT type
-tleed1.f:497:58:
-
-      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
-                                                          1
-Error: Symbol ‘neq’ at (1) has no IMPLICIT type
-tleed1.f:239:64:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                                                                1
-Error: Symbol ‘new’ at (1) has no IMPLICIT type
-tleed1.f:718:18: Error: Symbol ‘nexit’ at (1) has no IMPLICIT type
-tleed1.f:697:34:
-
-      &             AF,CAF,NFLAGINT)
-                                  1
-Error: Symbol ‘nflagint’ at (1) has no IMPLICIT type
-tleed1.f:665:14:
-
-      NGAW=INT((EF-EI)/DE)+1
-              1
-Error: Symbol ‘ngaw’ at (1) has no IMPLICIT type
-tleed1.f:516:31:
-
-      & FTOL2,MFLAG,LLFLAG,NGRID)
-                               1
-Error: Symbol ‘ngrid’ at (1) has no IMPLICIT type
-tleed1.f:914:22:
-
-    DO 1100 NINDEX=1,NINEQ(NCL)
-                      1
-Error: Symbol ‘nindex’ at (1) has no IMPLICIT type
-tleed1.f:899:15: Error: Symbol ‘nindex2’ at (1) has no IMPLICIT type
-tleed1.f:514:39:
-
-       CALL READPL(NT0,NSET,PQFEX,NINSET,NDIM,DISP,
-                                       1
-Error: Symbol ‘ninset’ at (1) has no IMPLICIT type
-tleed1.f:242:23:
-
-      & IPAR(15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),
-                       1
-Error: Symbol ‘nipar’ at (1) has no IMPLICIT type
-tleed1.f:627:51:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                                                   1
-Error: Symbol ‘nk3’ at (1) has no IMPLICIT type
-tleed1.f:626:41:
-
-      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
-                                         1
-Error: Symbol ‘nkred’ at (1) has no IMPLICIT type
-tleed1.f:422:50:
-
-       CALL READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,TST,
-                                                  1
-Error: Symbol ‘nl’ at (1) has no IMPLICIT type
-tleed1.f:233:50:
-
-       COMMON /SL/ARA1,ARA2,ARB1,ARB2,RBR1,RBR2,NL1,NL2
-                                                  1
-Error: Symbol ‘nl1’ at (1) has no IMPLICIT type
-tleed1.f:233:54:
-
-       COMMON /SL/ARA1,ARA2,ARB1,ARB2,RBR1,RBR2,NL1,NL2
-                                                      1
-Error: Symbol ‘nl2’ at (1) has no IMPLICIT type
-tleed1.f:497:54:
-
-      % NDIML,DIREC,ADISP,ACOORD,NDTENS,1,LLF2,LLF3,NL9,NEQ,
-                                                      1
-Error: Symbol ‘nl9’ at (1) has no IMPLICIT type
-tleed1.f:453:10:
-
-       NLAY=0
-          1
-Error: Symbol ‘nlay’ at (1) has no IMPLICIT type
-tleed1.f:488:11:
-
-  NLAY2=LAFLAG(NCL)
-           1
-Error: Symbol ‘nlay2’ at (1) has no IMPLICIT type
-tleed1.f:454:13:
-
-       NLAYTOT=0
-             1
-Error: Symbol ‘nlaytot’ at (1) has no IMPLICIT type
-tleed1.f:557:9:
-
-       NLM=NLMS(LMAX)
-         1
-Error: Symbol ‘nlm’ at (1) has no IMPLICIT type
-tleed1.f:474:11:
-
-       NLMAX=NLAY
-           1
-Error: Symbol ‘nlmax’ at (1) has no IMPLICIT type
-tleed1.f:595:30:
-
-   CALL GAUNT2(BELM2,NLMB2,LMAX,LSMAX)
-                              1
-Error: Symbol ‘nlmb2’ at (1) has no IMPLICIT type
-tleed1.f:506:26:
-
-      &LAFLAG2,LPOINT,NLTIN,NST1,NINEQ,LPBD)
-                          1
-Error: Symbol ‘nltin’ at (1) has no IMPLICIT type
-tleed1.f:456:12:
-
-       NLTOT2=0
-            1
-Error: Symbol ‘nltot2’ at (1) has no IMPLICIT type
-tleed1.f:693:17:
-
-         NLTU=LMMAX*NEL
-                 1
-Error: Symbol ‘nltu’ at (1) has no IMPLICIT type
-tleed1.f:556:8:
-
-       NN=N*N
-        1
-Error: Symbol ‘nn’ at (1) has no IMPLICIT type
-tleed1.f:577:9:
-
-       NN1=NN2+NN3-1
-         1
-Error: Symbol ‘nn1’ at (1) has no IMPLICIT type
-tleed1.f:576:9:
-
-       NN2=LMAX+1
-         1
-Error: Symbol ‘nn2’ at (1) has no IMPLICIT type
-tleed1.f:575:9:
-
-       NN3=LMAX+1
-         1
-Error: Symbol ‘nn3’ at (1) has no IMPLICIT type
-tleed1.f:496:43:
-
-       CALL DIMSCH2(ILOOK,NLTOT2,NDOMS,NNDIM,LSFLAG,LLFLAG,
-                                           1
-Error: Symbol ‘nndim’ at (1) has no IMPLICIT type
-tleed1.f:239:60:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                                                            1
-Error: Symbol ‘nopt’ at (1) has no IMPLICIT type
-tleed1.f:738:31:
-
-      &          NB,PQ,PQF,NT,NP,IPR,0,
-                               1
-Error: Symbol ‘np’ at (1) has no IMPLICIT type
-tleed1.f:730:36:
-
-      &          PQAL,PQFAL,NTAL,NPAL,IPR,1,
-                                    1
-Error: Symbol ‘npal’ at (1) has no IMPLICIT type
-tleed1.f:242:31:
-
-      & IPAR(15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),
-                               1
-Error: Symbol ‘npar’ at (1) has no IMPLICIT type
-tleed1.f:239:55:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                                                       1
-Error: Symbol ‘npert’ at (1) has no IMPLICIT type
-tleed1.f:418:23:
-
-       READ (5,101) NPSI
-                       1
-Error: Symbol ‘npsi’ at (1) has no IMPLICIT type
-tleed1.f:745:56: Error: Symbol ‘nrcp’ at (1) has no IMPLICIT type
-tleed1.f:626:22:
-
-      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
-                      1
-Error: Symbol ‘nrom’ at (1) has no IMPLICIT type
-tleed1.f:628:18:
-
-      &      NROM2R)
-                  1
-Error: Symbol ‘nrom2r’ at (1) has no IMPLICIT type
-tleed1.f:627:36:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                                    1
-Error: Symbol ‘nromr’ at (1) has no IMPLICIT type
-tleed1.f:239:23:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                       1
-Error: Symbol ‘ns’ at (1) has no IMPLICIT type
-tleed1.f:396:27:
-
-       READ (4,101) NT0,NSET,LSMAX,LLCUT
-                           1
-Error: Symbol ‘nset’ at (1) has no IMPLICIT type
-tleed1.f:731:56:
-
-      &          IDXK,IIDXK,IIDXK2,IKRED,IIKRED,KNT,NSHBS,IMIN,
-                                                        1
-Error: Symbol ‘nshbs’ at (1) has no IMPLICIT type
-tleed1.f:486:12:
-
-       NSHIFT=0
-            1
-Error: Symbol ‘nshift’ at (1) has no IMPLICIT type
-tleed1.f:457:23:
-
-       READ (5,101) NST1,NSTEF,NDTENS
-                       1
-Error: Symbol ‘nst1’ at (1) has no IMPLICIT type
-tleed1.f:521:36: Error: Symbol ‘nst1b’ at (1) has no IMPLICIT type
-tleed1.f:457:29:
-
-       READ (5,101) NST1,NSTEF,NDTENS
-                             1
-Error: Symbol ‘nstef’ at (1) has no IMPLICIT type
-tleed1.f:526:9: Error: Symbol ‘nsu’ at (1) has no IMPLICIT type
-tleed1.f:390:23:
-
-       READ (4,112) NSYM,NSYMS,ASTEP,VSTEP
-                       1
-Error: Symbol ‘nsym’ at (1) has no IMPLICIT type
-tleed1.f:234:29:
-
-       COMMON /DIM/NDOMS,NSYMS
-                             1
-Error: Symbol ‘nsyms’ at (1) has no IMPLICIT type
-tleed1.f:738:28:
-
-      &          NB,PQ,PQF,NT,NP,IPR,0,
-                            1
-Error: Symbol ‘nt’ at (1) has no IMPLICIT type
-tleed1.f:396:22:
-
-       READ (4,101) NT0,NSET,LSMAX,LLCUT
-                      1
-Error: Symbol ‘nt0’ at (1) has no IMPLICIT type
-tleed1.f:730:31:
-
-      &          PQAL,PQFAL,NTAL,NPAL,IPR,1,
-                               1
-Error: Symbol ‘ntal’ at (1) has no IMPLICIT type
-tleed1.f:239:35:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                                   1
-Error: Symbol ‘ntau’ at (1) has no IMPLICIT type
-tleed1.f:784:13:
-
-   NTAUSH=LPSMAX-NTAU
-             1
-Error: Symbol ‘ntaush’ at (1) has no IMPLICIT type
-tleed1.f:809:20:
-
-      & NLAY,DRL,NUGH,LEVV,NLAY2,TEST,RG,
-                    1
-Error: Symbol ‘nugh’ at (1) has no IMPLICIT type
-tleed1.f:242:41:
-
-      & IPAR(15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),
-                                         1
-Error: Symbol ‘num’ at (1) has no IMPLICIT type
-tleed1.f:241:67:
-
-       COMMON /ZMAT/IANZ(40),IZ(40,4),BL(40),AALPHA(40),BBETA(40),NZ,
+       SUBROUTINE MNBRAK(XMIN,ax,bx,cx,fa,fb,fc,pcom,xicom,NLAY,NDIM,
                                                                    1
-Error: Symbol ‘nz’ at (1) has no IMPLICIT type
-tleed1.f:627:61:
+Warning: Unused dummy argument 'ndim' at (1) [-Wunused-dummy-argument]
+tleedlib.f:10998:19:
 
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                                                             1
-Error: Symbol ‘ph3’ at (1) has no IMPLICIT type
-tleed1.f:746:37:
+       COMPLEX DELXI,CAPPA,Z,CI,ST,PRE
+                   1
+Warning: Unused variable 'delxi' declared at (1) [-Wunused-variable]
+tleedlib.f:7981:28:
 
-      &          IIDXK,IIDXK2,IKBS,PH4,KNBS,NBAL)
-                                     1
-Error: Symbol ‘ph4’ at (1) has no IMPLICIT type
-tleed1.f:243:27:
+       COMPLEX  Z, CI, CS, CL
+                            1
+Warning: Unused variable 'cl' declared at (1) [-Wunused-variable]
+tleedlib.f:4454:39:
 
-      & BETAS(40),PHIR,PHIM1,PHIM2
-                           1
-Error: Symbol ‘phim1’ at (1) has no IMPLICIT type
-tleed1.f:243:33:
+      & ZRED,TSF,LAN,NINEQ,LL1,NLMAX,NK3)
+                                       1
+Warning: Unused dummy argument 'nk3' at (1) [-Wunused-dummy-argument]
+tleedlib.f:4824:29:
 
-      & BETAS(40),PHIR,PHIM1,PHIM2
-                                 1
-Error: Symbol ‘phim2’ at (1) has no IMPLICIT type
-tleed1.f:243:21:
+       SUBROUTINE GHDSYM(IZ,IS,LMMAX,S,LMS,Y,L2M,DRL,NLAY2,K0,DCUT,
+                             1
+Warning: Unused dummy argument 'is' at (1) [-Wunused-dummy-argument]
+tleedlib.f:6245:30:
 
-      & BETAS(40),PHIR,PHIM1,PHIM2
-                     1
-Error: Symbol ‘phir’ at (1) has no IMPLICIT type
-tleed1.f:146:27:
+       DOUBLEPRECISION yint,del,pref,prefa,prefb,preft,sum
+                              1
+Warning: Unused variable 'del' declared at (1) [-Wunused-variable]
+tleedlib.f:2969:18:
 
-       DIMENSION ES(90),PHSS(90,80),PHSS2(90,80)
-                           1
-Error: Symbol ‘phss’ at (1) has no IMPLICIT type
-tleed1.f:146:40:
+       COMMON /MFB/GP,L1,LAY1
+                  1
+Warning: Named COMMON block 'mfb' at (1) shall be of the same size as elsewhere (16 vs 12 bytes)
+tleedlib.f:2927:17:
 
-       DIMENSION ES(90),PHSS(90,80),PHSS2(90,80)
-                                        1
-Error: Symbol ‘phss2’ at (1) has no IMPLICIT type
-tleed1.f:879:43:
+      & NBLK,INDK3,PQ3,PH3,NK3,KSNB,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
+                 1
+Warning: Unused dummy argument 'indk3' at (1) [-Wunused-dummy-argument]
+tleedlib.f:2927:25:
 
-      &              NT,NB,KSNBS,NP,XI,PQ,PK,AW,ANEW,20,ASB,ASC,ASD,
-                                           1
-Error: Symbol ‘pk’ at (1) has no IMPLICIT type
-tleed1.f:881:24:
-
-      &              PKCL,FRCL,NT,NST1B,INVECT,IIKRED,NEXIT)
-                        1
-Error: Symbol ‘pkcl’ at (1) has no IMPLICIT type
-tleed1.f:479:37:
-
-       CALL READCT(NLAY,VPOS,FPOS,POSS,CPVPOS,NTAUAW,LPSAW,IPR,
-                                     1
-Error: Symbol ‘poss’ at (1) has no IMPLICIT type
-tleed1.f:490:66:
-
-      &         NLTOT2,NSHIFT,NCL,NLMAX,IROT,IMIR,0,FPOS,POSS,POSS2,
-                                                                  1
-Error: Symbol ‘poss2’ at (1) has no IMPLICIT type
-tleed1.f:583:20:
-
-   CALL CPPP(PPP,NN1,NN2,NN3)
-                    1
-Error: Symbol ‘ppp’ at (1) has no IMPLICIT type
-tleed1.f:738:21:
-
-      &          NB,PQ,PQF,NT,NP,IPR,0,
-                     1
-Error: Symbol ‘pq’ at (1) has no IMPLICIT type
-tleed1.f:627:65:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                                                                 1
-Error: Symbol ‘pq3’ at (1) has no IMPLICIT type
-tleed1.f:730:20:
-
-      &          PQAL,PQFAL,NTAL,NPAL,IPR,1,
-                    1
-Error: Symbol ‘pqal’ at (1) has no IMPLICIT type
-tleed1.f:738:25:
-
-      &          NB,PQ,PQF,NT,NP,IPR,0,
+      & NBLK,INDK3,PQ3,PH3,NK3,KSNB,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
                          1
-Error: Symbol ‘pqf’ at (1) has no IMPLICIT type
-tleed1.f:730:26:
+Warning: Unused dummy argument 'ph3' at (1) [-Wunused-dummy-argument]
+tleedlib.f:2927:21:
 
-      &          PQAL,PQFAL,NTAL,NPAL,IPR,1,
+      & NBLK,INDK3,PQ3,PH3,NK3,KSNB,NB,NSU,PH4,VEC,LPS,LPSS,TSF)
+                     1
+Warning: Unused dummy argument 'pq3' at (1) [-Wunused-dummy-argument]
+tleedlib.f:4206:28:
+
+      & INST1B,ARA1,ARA2,NST1,NBULK,VEC)
+                            1
+Warning: Unused dummy argument 'nst1' at (1) [-Wunused-dummy-argument]
+tleedlib.f:5066:18:
+
+       COMMON /MFB/GP,L1,LAY1
+                  1
+Warning: Named COMMON block 'mfb' at (1) shall be of the same size as elsewhere (12 vs 16 bytes)
+tleedlib.f:8785:53:
+
+       SUBROUTINE READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,
+                                                     1
+Warning: Unused dummy argument 'ideg' at (1) [-Wunused-dummy-argument]
+tleedlib.f:8785:44:
+
+       SUBROUTINE READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,
+                                            1
+Warning: Unused dummy argument 'invect' at (1) [-Wunused-dummy-argument]
+tleedlib.f:9934:43:
+
+       SUBROUTINE TAUT2(TAUG,TAUGM,LTAUG,LMT,LEV,CYLM,NT,LMMAX,LT,
+                                           1
+Warning: Unused dummy argument 'lmt' at (1) [-Wunused-dummy-argument]
+tleedlib.f:11594:41:
+
+       function GRID(ZSTEP,MSTEP,NLAY,NDIM,DISP,XI,
+                                         1
+Warning: Unused dummy argument 'ndim' at (1) [-Wunused-dummy-argument]
+tleedlib.f:12842:0:
+
+       RETURN
+ 
+Warning: control reaches end of non-void function [-Wreturn-type]
+tleedlib.f:13343:0:
+
+       RETURN
+ 
+Warning: control reaches end of non-void function [-Wreturn-type]
+tleedlib.f:14860:0:
+
+       RETURN
+ 
+Warning: control reaches end of non-void function [-Wreturn-type]
+tleedlib.f:11310:0:
+
+             N=NEE(IBMIN)
+ 
+Warning: 'ibmin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:11854:0:
+
+             DO 5 I=IMIN,NEM
+ 
+Warning: 'imin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:6642:0:
+
+                DO 1100 J=KPL,N
+ 
+Warning: 'kpl' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:9194:0:
+
+       IF (NL2 .GT. IPNL2) THEN
+ 
+Warning: 'inl2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:6102:0:
+
+       FUNCTION BLMT(L1,M1,L2,M2,L3,M3,LMAX)
+ 
+Warning: '__result_blmt' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:7625:0:
+
+         IF (J.NE.IMAX)THEN
+ 
+Warning: 'imax' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:5708:0:
+
+                    TAU(LD+I,J)=X(I,J+LL)*TSF(IT2,LLL)
+ 
+Warning: 'lll' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:1556:0:
+
+       FUNCTION BLMT2(L1,M1,L2,M2,L3,M3,LMAX,LMAX3)
+ 
+Warning: '__result_blmt2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:508:0:
+
+ 290      IF (NI2.LE.NIT) GOTO 190
+ 
+Warning: 'nit' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:2225:0:
+
+                      GSH2=-GSHZ
+ 
+Warning: 'gshz' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:2224:0:
+
+                      GSH1=-GSHY
+ 
+Warning: 'gshy' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:3208:0:
+
+                         PHKR=-DRLS*GKS2*COS(PH0-PH4(KEQ,IG))
+ 
+Warning: 'ph0' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:3572:0:
+
+       NA=NA+NCP
+ 
+Warning: 'ncp' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:3366:0:
+
+      &                       TAUGM(LP+K)*ST*CONJG(WBDS(IN+K))
+ 
+Warning: 'k2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:3208:0:
+
+                         PHKR=-DRLS*GKS2*COS(PH0-PH4(KEQ,IG))
+ 
+Warning: 'gks2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:3208:0: Warning: 'drls' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:3184:0:
+
+                   CROS=-BK3*PS2+BK2*PS3
+ 
+Warning: 'bk3' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:3184:0: Warning: 'bk2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:4119:0:
+
+       NBLK=MOD(NBLK+1,NSTB)
+ 
+Warning: 'nblk' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:4353:0:
+
+             IF(IDXK(I).EQ.IK.AND.I.NE.IIR.AND.IBS.EQ.IBS2) THEN
+ 
+Warning: 'ibs2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:5354:0:
+
+                                    WBDS(IDX1S)=CNMAX2
+ 
+Warning: 'cnmax2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:5465:0:
+
+                         DO 35 I2=2,NDM*IROT
+ 
+Warning: 'ndm' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:5498:0:
+
+          ELSEIF(LOGM.AND.LAFLG2(I,NCL).EQ.2*IROT) THEN
+ 
+Warning: 'logm' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:5523:0:
+
+                            IF(.NOT.LOGAX) THEN
+ 
+Warning: 'logax' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:12808:0:
+
+       t=2.*(fp-2.*fret+fptt)*(fp-fret-del2)**2-del2*(fp-fptt)**2
+ 
+Warning: 'del2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:14898:0:
+
+       IFUNC1=IFUNC
+ 
+Warning: 'ifunc' may be used uninitialized in this function [-Wmaybe-uninitialized]
+tleedlib.f:14888:0:
+
+       IF (DIST.GE.XTOL.OR.DISTV.GE.VTOL) GOTO 1002
+ 
+Warning: 'distv' may be used uninitialized in this function [-Wmaybe-uninitialized]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -o tleed1.exe tleed1.o tleedlib.o
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c tleed2.f -o tleed2.o
+tleed2.f:133:40:
+
+       DIMENSION ES(90),PHSS(90,80),PHSS2(90,80),ETH(INT0,IEERG)
+                                        1
+Warning: Unused variable 'phss2' declared at (1) [-Wunused-variable]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -o tleed2.exe tleed2.o tleedlib.o
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c kleed.f -o kleed.o
+kleed.f:198:34:
+
+ 1103   FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/)
+                                  1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleed.f:192:3:
+
+ 340   FORMAT (16F7.4)
+   1
+Warning: Label 340 at (1) defined but not used
+kleed.f:196:3:
+
+ 103   FORMAT (' VPIS = ',F9.4,' VPIO = ',F9.4,' DCUTS = ',F9.4,
+   1
+Warning: Label 103 at (1) defined but not used
+kleed.f:11:40:
+
+       character(len=80) problem_dir, dir, rank
+                                        1
+Warning: Unused variable 'dir' declared at (1) [-Wunused-variable]
+kleed.f:13:54:
+
+       character(len=100) kleed4i,kleed5i,tleedo,gleedo,searchs,prdird,
+                                                      1
+Warning: Unused variable 'gleedo' declared at (1) [-Wunused-variable]
+kleed.f:126:59:
+
+       DIMENSION FPOS(60,3),VPOS(INST1,INLAY,3),LPS(60),LPSS(60)
+                                                           1
+Warning: Unused variable 'lpss' declared at (1) [-Wunused-variable]
+kleed.f:118:26:
+
+       DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
                           1
-Error: Symbol ‘pqfal’ at (1) has no IMPLICIT type
-tleed1.f:514:32:
+Warning: Unused variable 'nb' declared at (1) [-Wunused-variable]
+kleed.f:17:27:
 
-       CALL READPL(NT0,NSET,PQFEX,NINSET,NDIM,DISP,
-                                1
-Error: Symbol ‘pqfex’ at (1) has no IMPLICIT type
-tleed1.f:626:71:
+       integer nerror_report
+                           1
+Warning: Unused variable 'nerror_report' declared at (1) [-Wunused-variable]
+kleed.f:146:35:
 
-      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
+       COMPLEX PHSSEL0(IINERG,INTAU),PHS(16)
+                                   1
+Warning: Unused variable 'phssel0' declared at (1) [-Wunused-variable]
+kleed.f:119:18:
+
+       DIMENSION PQ(2,NROM),NTAUAW(INST1)
+                  1
+Warning: Unused variable 'pq' declared at (1) [-Wunused-variable]
+kleed.f:118:59:
+
+       DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
+                                                           1
+Warning: Unused variable 'pqf' declared at (1) [-Wunused-variable]
+kleed.f:13:69:
+
+       character(len=100) kleed4i,kleed5i,tleedo,gleedo,searchs,prdird,
+                                                                     1
+Warning: Unused variable 'prdird' declared at (1) [-Wunused-variable]
+kleed.f:11:35:
+
+       character(len=80) problem_dir, dir, rank
+                                   1
+Warning: Unused variable 'problem_dir' declared at (1) [-Wunused-variable]
+kleed.f:11:46:
+
+       character(len=80) problem_dir, dir, rank
+                                              1
+Warning: Unused variable 'rank' declared at (1) [-Wunused-variable]
+kleed.f:14:14:
+
+      &restartd
+              1
+Warning: Unused variable 'restartd' declared at (1) [-Wunused-variable]
+kleed.f:16:29:
+
+       character(len=100) xpin
+                             1
+Warning: Unused variable 'xpin' declared at (1) [-Wunused-variable]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c kleedlib.f -o kleedlib.o
+f951: Warning: Nonconforming tab character in column 1 of line 1963 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 1965 [-Wtabs]
+kleedlib.f:40:22:
+
+         PARAMETER (PI=3.141592653589793D+00)
+                      1
+Warning: Change of value in conversion from 'REAL(8)' to 'REAL(4)' at (1) [-Wconversion]
+kleedlib.f:147:37:
+
+ 705   FORMAT (1H0,1I3,13H BEAMS USED  ,8I4)
+                                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:148:19:
+
+ 706   FORMAT (1H ,10(9(2X,2F6.3),/))
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:229:21:
+
+ 165   FORMAT (28H LATMAT HAS ZERO DETERMINANT)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:230:21:
+
+ 270   FORMAT (23H MORE BEAMS THAN KNBMAX)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:481:93:
+
+ 40    FORMAT (28H INVALID ARGUMENTS FOR BLMT ,6(I3,1H,))
+                                                                                             1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1191:21:
+
+ 50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1323:21:
+
+ 110   FORMAT (48H EXP. ENERG. AND INTENS. AFTER AVERAGING IN BEAM,1I4,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1520:73:
+
+      & 57H PARAMETER OUT OF RANGE OF DEFINED Z MATRIX  $$$ STOP $$$)
+                                                                         1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1522:73:
+
+      & 21H) IN GEOMV  *********)
+                                                                         1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1624:107:
+
+ 1000  FORMAT (//,15X,11HCOORDINATES,/,13X,1HX,14X,1HY,14X,1HZ)
+                                                                                                           1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1628:21:
+
+ 1030  FORMAT (3I3)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1629:59:
+
+ 1040  FORMAT (3I3,I5,G14.7,1H(,I3,1H))
+                                                           1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1630:105:
+
+ 1050  FORMAT (3I3,I5,G14.7,1H(,I3,4H)   ,I5,G14.7,1H(,I3,1H))
+                                                                                                         1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1632:97:
+
+      & G14.7,1H(,I3,4H)   ,I5)
+                                                                                                 1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:1635:31:
+
+ 5001  FORMAT (//5X,15HDISTANCE MATRIX,/)
+                               1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:2000:71:
+
+      & 1HZ)
                                                                        1
-Error: Symbol ‘pqfex2’ at (1) has no IMPLICIT type
-tleed1.f:721:39:
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:2369:73:
 
-      &          NT0,RAR1,RAR2,PQFEX,PSQ,NEXIT,SPQFS,1,NBIN)
-                                       1
-Error: Symbol ‘psq’ at (1) has no IMPLICIT type
-tleed1.f:951:28:
+      & 59H0** IN PRESENT BEAM TOO FEW ENERGY VALUES FOR INTERPOLATION)
+                                                                         1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:2370:21:
 
-      CALL QGEN2(GA,GB,Q,LMMAX,LSMMAX,NINDEX2,
-                            1
-Error: Symbol ‘q’ at (1) has no IMPLICIT type
-tleed1.f:959:47:
-
-      &                      NT0,NEXIT,ICUT,QCUT,MICUT,MJCUT)
-                                               1
-Error: Symbol ‘qcut’ at (1) has no IMPLICIT type
-tleed1.f:824:27:
-
-       CALL MTSYM6(RA1R,TA1R,RA2R,TA2R,NT,NT,NP,AMULT,CYLM,PQ,NT,
-                           1
-Error: Symbol ‘ra1r’ at (1) has no IMPLICIT type
-tleed1.f:824:37:
-
-       CALL MTSYM6(RA1R,TA1R,RA2R,TA2R,NT,NT,NP,AMULT,CYLM,PQ,NT,
-                                     1
-Error: Symbol ‘ra2r’ at (1) has no IMPLICIT type
-tleed1.f:140:36:
-
-       DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
-                                    1
-Error: Symbol ‘rar1’ at (1) has no IMPLICIT type
-tleed1.f:140:44:
-
-       DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
-                                            1
-Error: Symbol ‘rar2’ at (1) has no IMPLICIT type
-tleed1.f:233:41:
-
-       COMMON /SL/ARA1,ARA2,ARB1,ARB2,RBR1,RBR2,NL1,NL2
-                                         1
-Error: Symbol ‘rbr1’ at (1) has no IMPLICIT type
-tleed1.f:233:46:
-
-       COMMON /SL/ARA1,ARA2,ARB1,ARB2,RBR1,RBR2,NL1,NL2
-                                              1
-Error: Symbol ‘rbr2’ at (1) has no IMPLICIT type
-tleed1.f:809:39:
-
-      & NLAY,DRL,NUGH,LEVV,NLAY2,TEST,RG,
-                                       1
-Error: Symbol ‘rg’ at (1) has no IMPLICIT type
-tleed1.f:806:34:
-
-       CALL MTSYM6(ROP,TOP,ROM,TOM,NT,NT,NT,AMULT,CYLM,PQ,NT,
-                                  1
-Error: Symbol ‘rom’ at (1) has no IMPLICIT type
-tleed1.f:806:26:
-
-       CALL MTSYM6(ROP,TOP,ROM,TOM,NT,NT,NT,AMULT,CYLM,PQ,NT,
-                          1
-Error: Symbol ‘rop’ at (1) has no IMPLICIT type
-tleed1.f:625:37:
-
-    CALL BEMGEN3(TST,EF2,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVB,
-                                     1
-Error: Symbol ‘spq’ at (1) has no IMPLICIT type
-tleed1.f:625:33:
-
-    CALL BEMGEN3(TST,EF2,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVB,
-                                 1
-Error: Symbol ‘spqf’ at (1) has no IMPLICIT type
-tleed1.f:626:47:
-
-      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
-                                               1
-Error: Symbol ‘spqfs’ at (1) has no IMPLICIT type
-tleed1.f:626:52:
-
-      &      DFLAG,NROM,G,IDXK,NSYMS,NKRED,SPQFS,SPQS,IKRED,PQFEX,PQFEX2,
-                                                    1
-Error: Symbol ‘spqs’ at (1) has no IMPLICIT type
-tleed1.f:627:30:
-
-      &      NT0,IDXK2,IWK,SPWK,NROMR,KSNBS,KSNB,NK3,INDK3,PH3,PQ3,INI,
-                              1
-Error: Symbol ‘spwk’ at (1) has no IMPLICIT type
-tleed1.f:237:21:
-
-       COMMON /BT/IT,T,T0,DRPER,DRPAR,DR0
+ 80    FORMAT (40H0INTENSITIES AFTER INTERPOLATION IN BEAM,1I4,/,50(5
                      1
-Error: Symbol ‘t’ at (1) has no IMPLICIT type
-tleed1.f:237:24:
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3191:21:
 
-       COMMON /BT/IT,T,T0,DRPER,DRPAR,DR0
-                        1
-Error: Symbol ‘t0’ at (1) has no IMPLICIT type
-tleed1.f:238:29:
+ 180   FORMAT (/4H ASB,1I3,3X,3F7.4)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3193:23:
 
-       COMMON /TEMP/IT1,TI,T01,DRPER1,DRPAR1,DR01
-                             1
-Error: Symbol ‘t01’ at (1) has no IMPLICIT type
-tleed1.f:824:32:
+ 215   FORMAT (/26H COMPOSITE LAYER VECTOR   ,3F7.4)
+                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3194:19:
 
-       CALL MTSYM6(RA1R,TA1R,RA2R,TA2R,NT,NT,NP,AMULT,CYLM,PQ,NT,
-                                1
-Error: Symbol ‘ta1r’ at (1) has no IMPLICIT type
-tleed1.f:824:42:
+ 216   FORMAT (8H NTAU = ,60I3)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3195:23:
 
-       CALL MTSYM6(RA1R,TA1R,RA2R,TA2R,NT,NT,NP,AMULT,CYLM,PQ,NT,
-                                          1
-Error: Symbol ‘ta2r’ at (1) has no IMPLICIT type
-tleed1.f:808:15:
+ 217   FORMAT (/46H PHASE SHIFT ASSIGNMENT IN COMPOSITE LAYER No.,1I2,
+                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3197:25:
 
-      & LEV2,TAU,LMT,LMT2,TAUG,TAUG2,TAUGM,TAUGM2,CLM,NLM,FPOS,POSS,MGH,
-               1
-Error: Symbol ‘tau’ at (1) has no IMPLICIT type
-tleed1.f:808:29:
-
-      & LEV2,TAU,LMT,LMT2,TAUG,TAUG2,TAUGM,TAUGM2,CLM,NLM,FPOS,POSS,MGH,
-                             1
-Error: Symbol ‘taug’ at (1) has no IMPLICIT type
-tleed1.f:808:35:
-
-      & LEV2,TAU,LMT,LMT2,TAUG,TAUG2,TAUGM,TAUGM2,CLM,NLM,FPOS,POSS,MGH,
-                                   1
-Error: Symbol ‘taug2’ at (1) has no IMPLICIT type
-tleed1.f:808:41:
-
-      & LEV2,TAU,LMT,LMT2,TAUG,TAUG2,TAUGM,TAUGM2,CLM,NLM,FPOS,POSS,MGH,
-                                         1
-Error: Symbol ‘taugm’ at (1) has no IMPLICIT type
-tleed1.f:808:48:
-
-      & LEV2,TAU,LMT,LMT2,TAUG,TAUG2,TAUGM,TAUGM2,CLM,NLM,FPOS,POSS,MGH,
-                                                1
-Error: Symbol ‘taugm2’ at (1) has no IMPLICIT type
-tleed1.f:816:27:
-
-      & LMNBD2(1,NCL),TAUINV,NLTU,LAN,KOUNT,IIKRED,IKBS,LMNMAX,LMSMAX,
-                           1
-Error: Symbol ‘tauinv’ at (1) has no IMPLICIT type
-tleed1.f:809:36:
-
-      & NLAY,DRL,NUGH,LEVV,NLAY2,TEST,RG,
-                                    1
-Error: Symbol ‘test’ at (1) has no IMPLICIT type
-tleed1.f:810:16:
-
-      & TS,TS2,TG,LM2N,VT,CAA,NCAA,TH,LMNI,LMNM,IPL,
-                1
-Error: Symbol ‘tg’ at (1) has no IMPLICIT type
-tleed1.f:810:36:
-
-      & TS,TS2,TG,LM2N,VT,CAA,NCAA,TH,LMNI,LMNM,IPL,
-                                    1
-Error: Symbol ‘th’ at (1) has no IMPLICIT type
-tleed1.f:423:12:
-
-      & THETA,FI,LMMAX,NPSI,ES,PHSS,L1,IPR,NEL,
-            1
-Error: Symbol ‘theta’ at (1) has no IMPLICIT type
-tleed1.f:238:25:
-
-       COMMON /TEMP/IT1,TI,T01,DRPER1,DRPAR1,DR01
+ 444   FORMAT (//21H COMPOSITE LAYER No. ,1I3)
                          1
-Error: Symbol ‘ti’ at (1) has no IMPLICIT type
-tleed1.f:806:38:
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3198:21:
 
-       CALL MTSYM6(ROP,TOP,ROM,TOM,NT,NT,NT,AMULT,CYLM,PQ,NT,
-                                      1
-Error: Symbol ‘tom’ at (1) has no IMPLICIT type
-tleed1.f:806:30:
-
-       CALL MTSYM6(ROP,TOP,ROM,TOM,NT,NT,NT,AMULT,CYLM,PQ,NT,
-                              1
-Error: Symbol ‘top’ at (1) has no IMPLICIT type
-tleed1.f:810:9:
-
-      & TS,TS2,TG,LM2N,VT,CAA,NCAA,TH,LMNI,LMNM,IPL,
-         1
-Error: Symbol ‘ts’ at (1) has no IMPLICIT type
-tleed1.f:810:13:
-
-      & TS,TS2,TG,LM2N,VT,CAA,NCAA,TH,LMNI,LMNM,IPL,
-             1
-Error: Symbol ‘ts2’ at (1) has no IMPLICIT type
-tleed1.f:696:67:
-
-      &             PPP,NN1,NN2,NN3,DR01,DRPER1,DRPAR1,T0,T,TSF0,TSF,
-                                                                   1
-Error: Symbol ‘tsf’ at (1) has no IMPLICIT type
-tleed1.f:696:63:
-
-      &             PPP,NN1,NN2,NN3,DR01,DRPER1,DRPAR1,T0,T,TSF0,TSF,
-                                                               1
-Error: Symbol ‘tsf0’ at (1) has no IMPLICIT type
-tleed1.f:422:54:
-
-       CALL READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,TST,
-                                                      1
-Error: Symbol ‘tst’ at (1) has no IMPLICIT type
-tleed1.f:811:13:
-
-      & TSTORE,NSTEF,NSTEF,NST1,NCL,JLMNI2,NTAUSH,CTR,CTT,CYTR,
-             1
-Error: Symbol ‘tstore’ at (1) has no IMPLICIT type
-tleed1.f:239:40:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                                        1
-Error: Symbol ‘tsts’ at (1) has no IMPLICIT type
-tleed1.f:231:33:
-
-       COMMON E3,AK21,AK31,VPI1,TV,EMACH
-                                 1
-Error: Symbol ‘tv’ at (1) has no IMPLICIT type
-tleed1.f:239:44:
-
-       COMMON /MPT/NA,NS,LAY,L1,NTAU,TSTS,TV1,DCUT,NPERT,NOPT,NEW
-                                            1
-Error: Symbol ‘tv1’ at (1) has no IMPLICIT type
-tleed1.f:422:21:
-
-       CALL READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,TST,
+ 445   FORMAT (21H =================== )
                      1
-Error: Symbol ‘tva’ at (1) has no IMPLICIT type
-tleed1.f:422:42:
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3353:27:
 
-       CALL READT1(TVA,RAR1,RAR2,INVECT,TVB,IDEG,NL,TST,
-                                          1
-Error: Symbol ‘tvb’ at (1) has no IMPLICIT type
-tleed1.f:426:38:
-
-       CALL READT2(ASA,INVECT,IDEG,NL,V,VL,JJS,IPR)
-                                      1
-Error: Symbol ‘v’ at (1) has no IMPLICIT type
-tleed1.f:480:31:
-
-      & LAFLAG,NST1,ASB,VICL,VCL,FRCL,TST,TSTS,ASA,INVECT)
-                               1
-Error: Symbol ‘vcl’ at (1) has no IMPLICIT type
-tleed1.f:522:41:
-
-      &    INST1B,ARA1,ARA2,NST1,NBULK,VEC)
-                                         1
-Error: Symbol ‘vec’ at (1) has no IMPLICIT type
-tleed1.f:426:41:
-
-       CALL READT2(ASA,INVECT,IDEG,NL,V,VL,JJS,IPR)
-                                         1
-Error: Symbol ‘vl’ at (1) has no IMPLICIT type
-tleed1.f:236:41:
-
-       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV
-                                         1
-Error: Symbol ‘vo’ at (1) has no IMPLICIT type
-tleed1.f:232:22:
-
-       COMMON /X4/E,VPI,AK2,AK3
-                      1
-Error: Symbol ‘vpi’ at (1) has no IMPLICIT type
-tleed1.f:231:30:
-
-       COMMON E3,AK21,AK31,VPI1,TV,EMACH
-                              1
-Error: Symbol ‘vpi1’ at (1) has no IMPLICIT type
-tleed1.f:236:38:
-
-       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV
-                                      1
-Error: Symbol ‘vpio’ at (1) has no IMPLICIT type
-tleed1.f:236:33:
-
-       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV
-                                 1
-Error: Symbol ‘vpis’ at (1) has no IMPLICIT type
-tleed1.f:479:27:
-
-       CALL READCT(NLAY,VPOS,FPOS,POSS,CPVPOS,NTAUAW,LPSAW,IPR,
+ 40    FORMAT (I4,25H EXP. BEAMS TO BE READ IN)
                            1
-Error: Symbol ‘vpos’ at (1) has no IMPLICIT type
-tleed1.f:390:41:
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3354:21:
 
-       READ (4,112) NSYM,NSYMS,ASTEP,VSTEP
-                                         1
-Error: Symbol ‘vstep’ at (1) has no IMPLICIT type
-tleed1.f:810:24:
+ 50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3357:73:
 
-      & TS,TS2,TG,LM2N,VT,CAA,NCAA,TH,LMNI,LMNM,IPL,
-                        1
-Error: Symbol ‘vt’ at (1) has no IMPLICIT type
-tleed1.f:812:20:
+ 70    FORMAT (10HEXP. BEAM ,1I3,2H (,5A4,1H))
+                                                                         1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3360:21:
 
-      & CYTT,VVST,VT2,LSM,IND1,IND2,NRCP,NINEQ,
-                    1
-Error: Symbol ‘vt2’ at (1) has no IMPLICIT type
-tleed1.f:236:44:
+ 80    FORMAT (31H  EXP. ENERGIES AND INTENSITIES,/,50(5(1F7.2,1E13.4,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3558:23:
 
-       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV
-                                            1
-Error: Symbol ‘vv’ at (1) has no IMPLICIT type
-tleed1.f:812:16:
+ 140   FORMAT (/25H PARAMETERS FOR INTERIOR )
+                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3562:23:
 
-      & CYTT,VVST,VT2,LSM,IND1,IND2,NRCP,NINEQ,
-                1
-Error: Symbol ‘vvst’ at (1) has no IMPLICIT type
-tleed1.f:807:53:
+ 170   FORMAT (/10H SURF VECS,2(5X,2F8.4))
+                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3565:21:
 
-      & FLMS,NL,LXI,LT,LXM,LX2,LT2,LXM2,LMMAX,KLM,XEVM,LEV,
-                                                     1
-Error: Symbol ‘xevm’ at (1) has no IMPLICIT type
-tleed1.f:879:37:
+ 180   FORMAT (/4H ASA,1I3,3X,3F7.4)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3567:49:
 
-      &              NT,NB,KSNBS,NP,XI,PQ,PK,AW,ANEW,20,ASB,ASC,ASD,
+ 210   FORMAT (/6H FR = ,F7.4,7H ASE = ,F7.4)
+                                                 1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3568:19:
+
+ 280   FORMAT (1H ,1I4,F10.3,F7.3,4X,4I3)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3569:19:
+
+ 281   FORMAT (7H TST = ,1F7.4)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3571:45:
+
+ 290   FORMAT (2HVV,4X,F7.2,4HVPIS,4X,F7.2)
+                                             1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3572:19:
+
+ 305   FORMAT (7H IT1 = ,3I3)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3574:105:
+
+      & 8H FPAR = ,1F9.4,7H DR0 = ,1F9.4)
+                                                                                                         1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3576:29:
+
+ 350   FORMAT (/6X,12HPHASE SHIFTS)
+                             1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3577:19:
+
+ 355   FORMAT (8H LMAX = ,1I3)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3578:47:
+
+ 360   FORMAT (4HE = ,1F7.4,13H  1ST ELEMENT,3X,16F8.4)
+                                               1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3579:37:
+
+ 361   FORMAT (1H ,11X,11H ELEMENT # ,I2,3X,16F8.4)
                                      1
-Error: Symbol ‘xi’ at (1) has no IMPLICIT type
-tleed1.f:893:48:
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3784:101:
 
-         CALL DUMP(PQF,PQFEX2,NT0,NT,XI,XIST,E,22)
-                                                1
-Error: Symbol ‘xist’ at (1) has no IMPLICIT type
-tleed1.f:558:28:
+ 15    FORMAT (16H RENORM. IN BEAM,1I4,7H - AA =,1E15.4,8H, ALPH =,
+                                                                                                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:3786:21:
 
-       CALL CELMG(CLM,NLM,YLM,FAC2,NN,FAC1,N,LMAX)
-                            1
-Error: Symbol ‘ylm’ at (1) has no IMPLICIT type
-tleed1.f:319:3:
+ 60    FORMAT (49H0ENERG. AND INTENS. AFTER RENORMALIZATION IN BEAM,1I3,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:4850:21:
+
+ 60    FORMAT (48H0EXP. ENERG. AND INTENS. AFTER SMOOTHING IN BEAM,1I3,
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:4896:71:
+
+      & 1HZ)
+                                                                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5031:72:
+
+ 10    TEMP(2, K) = WORY(N)
+                                                                        1
+Warning: Obsolescent feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+kleedlib.f:5111:21:
+
+ 700   FORMAT (42H TOO LOW ENERGY FOR AVAILABLE PHASE SHIFTS)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5228:21:
+
+ 700   FORMAT (42H TOO LOW ENERGY FOR AVAILABLE PHASE SHIFTS)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5514:71:
+
+      & 1H=,F13.4)
+                                                                       1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5515:19:
+
+ 111   FORMAT (5H RFAC,I2)
+                   1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:5722:21:
+
+ 40    FORMAT (26H PENDRY Y FUNCTION IN BEAM,1I3,/,50(5(1F7.2,1E13.4,3X)
+                     1
+Warning: The H format specifier at (1) is a Fortran 95 deleted feature
+kleedlib.f:63:27:
+
+             angle_rad_2d = angle_rad_2d + 2.0D+00 * pi
+                           1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:446:3:
+
+ 102   IL = LENGTH - 1
+   1
+Warning: Label 102 at (1) defined but not used
+kleedlib.f:713:9:
+
+ 1590  CA=((-1.0)**(MA1+MA3))*YINT
+         1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:757:17:
+
+          FAC1(L)=ASG*SQRT((2.0*CL+1.0)*A/(4.0*PI*B*B))
+                 1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:828:25:
+
+                      ALM=((-1.0)**L)*4.0*PI*BLMT(L1,M1,L2,M2,L3,-M3,
+                         1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:949:29:
+
+                PPP(I1,I2,I3)=A
+                             1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+kleedlib.f:1191:2:
+
+ 50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
+  1
+Warning: Label 50 at (1) defined but not used
+kleedlib.f:3357:2:
+
+ 70    FORMAT (10HEXP. BEAM ,1I3,2H (,5A4,1H))
+  1
+Warning: Label 70 at (1) defined but not used
+kleedlib.f:1325:2:
+
+ 30    FORMAT (5(25I3,/))
+  1
+Warning: Label 30 at (1) defined but not used
+kleedlib.f:2001:4:
+
+ 1010  FORMAT (7X,F10.7,2(5X,F10.7))
+    1
+Warning: Label 1010 at (1) defined but not used
+kleedlib.f:1999:4:
+
+ 1000  FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/,13X,1HX,14X,1HY,14X,
+    1
+Warning: Label 1000 at (1) defined but not used
+kleedlib.f:5515:3:
+
+ 111   FORMAT (5H RFAC,I2)
+   1
+Warning: Label 111 at (1) defined but not used
+kleedlib.f:5518:3:
+
+ 100   FORMAT(20A4)
+   1
+Warning: Label 100 at (1) defined but not used
+kleedlib.f:3010:3:
+
+ 401        CONTINUE
+   1
+Warning: Label 401 at (1) defined but not used
+kleedlib.f:3457:3:
+
+ 350   FORMAT (/' Line Search Requested')
+   1
+Warning: Label 350 at (1) defined but not used
+kleedlib.f:3450:3:
+
+ 260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
+   1
+Warning: Label 260 at (1) defined but not used
+kleedlib.f:3449:3:
+
+ 250   FORMAT (/' Moving Atom Identifiers; ')
+   1
+Warning: Label 250 at (1) defined but not used
+kleedlib.f:3448:3:
+
+ 240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
+   1
+Warning: Label 240 at (1) defined but not used
+kleedlib.f:3447:3:
+
+ 230   FORMAT (' ======================= ')
+   1
+Warning: Label 230 at (1) defined but not used
+kleedlib.f:3446:3:
+
+ 220   FORMAT (/' Line Search Information ')
+   1
+Warning: Label 220 at (1) defined but not used
+kleedlib.f:4311:3:
+
+ 190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+   1
+Warning: Label 190 at (1) defined but not used
+kleedlib.f:4389:3:
+
+ 190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+   1
+Warning: Label 190 at (1) defined but not used
+kleedlib.f:4653:18:
+
+               MS1=FLOAT(MNS1/2)-NS1
+                  1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+kleedlib.f:4654:18:
+
+               MS2=FLOAT(MNS2/2)-NS2
+                  1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+kleedlib.f:4704:14:
+
+         MOD12=SQRT(PROD12*PROD12)
+              1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+kleedlib.f:2858:14:
+
+         REAL P, Q1,Q2,Q3,Q4
+              1
+Warning: Unused variable 'p' declared at (1) [-Wunused-variable]
+kleedlib.f:2859:42:
+
+         REAL RX,RY,RXM11,RXP11,RYP12,RXM12
+                                          1
+Warning: Unused variable 'rxm12' declared at (1) [-Wunused-variable]
+kleedlib.f:2860:36:
+
+         REAL RXM21,RXP21,RYP22,RXM22
+                                    1
+Warning: Unused variable 'rxm22' declared at (1) [-Wunused-variable]
+kleedlib.f:5484:44:
+
+       SUBROUTINE WRIVTF(AT,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,IBK,
+                                            1
+Warning: Unused dummy argument 'nee' at (1) [-Wunused-dummy-argument]
+kleedlib.f:5484:40:
+
+       SUBROUTINE WRIVTF(AT,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,IBK,
+                                        1
+Warning: Unused dummy argument 'net' at (1) [-Wunused-dummy-argument]
+kleedlib.f:5484:64:
+
+       SUBROUTINE WRIVTF(AT,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,IBK,
+                                                                1
+Warning: Unused dummy argument 'vopt' at (1) [-Wunused-dummy-argument]
+kleedlib.f:5485:12:
+
+      & WR,WB,ROS,R1,R2,RP1,RP2,RPP1,RPP2,RRZJ,RMZJ,RPE,BENAME,
+            1
+Warning: Unused dummy argument 'wb' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3840:64:
+
+       SUBROUTINE RFACTF(AT,ETH,INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,
+                                                                1
+Warning: Unused dummy argument 'bename' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3840:57:
+
+       SUBROUTINE RFACTF(AT,ETH,INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,
+                                                         1
+Warning: Unused dummy argument 'nbea' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3841:18:
+
+      & XPL,YPL,NNN,AEP,AEPP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,
+                  1
+Warning: Unused dummy argument 'nnn' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3842:25:
+
+      & WR,WB,IBP,NT0,TSEY,ATP,ATPP,TST,TSTY2,NST1,NST2,RAV,IBK,ROS,R1,
+                         1
+Warning: Unused dummy argument 'tsey' at (1) [-Wunused-dummy-argument]
+kleedlib.f:5713:31:
+
+       SUBROUTINE YPEND(A,AP,APP,NBD,NB,NE,E,Y,VI,IPR,IEERG,EEAVE)
+                               1
+Warning: Unused dummy argument 'app' at (1) [-Wunused-dummy-argument]
+kleedlib.f:76:45:
+
+       SUBROUTINE AVEINT(A,AP,NBD,NE1,NE2,NB,E,IEERG,EEAVE,NFL)
+                                             1
+Warning: Unused dummy argument 'e' at (1) [-Wunused-dummy-argument]
+kleedlib.f:1086:17:
+
+       DIMENSION C(3)
+                 1
+Warning: Unused variable 'c' declared at (1) [-Wunused-variable]
+kleedlib.f:1088:19:
+
+       COMPLEX CAPPA,CI
+                   1
+Warning: Unused variable 'cappa' declared at (1) [-Wunused-variable]
+kleedlib.f:1082:35:
+
+       SUBROUTINE DELXGENTFSL_TEMP(E,VPIS,NLAY,
+                                   1
+Warning: Unused dummy argument 'e' at (1) [-Wunused-dummy-argument]
+kleedlib.f:1082:45:
+
+       SUBROUTINE DELXGENTFSL_TEMP(E,VPIS,NLAY,
+                                             1
+Warning: Unused dummy argument 'nlay' at (1) [-Wunused-dummy-argument]
+kleedlib.f:1082:40:
+
+       SUBROUTINE DELXGENTFSL_TEMP(E,VPIS,NLAY,
+                                        1
+Warning: Unused dummy argument 'vpis' at (1) [-Wunused-dummy-argument]
+kleedlib.f:984:40:
+
+       SUBROUTINE DELXGENTFOL_TEMP(NLAY,E,VPIS,AK2,AK3,AK2M,AK3M,
+                                        1
+Warning: Unused dummy argument 'e' at (1) [-Wunused-dummy-argument]
+kleedlib.f:984:45:
+
+       SUBROUTINE DELXGENTFOL_TEMP(NLAY,E,VPIS,AK2,AK3,AK2M,AK3M,
+                                             1
+Warning: Unused dummy argument 'vpis' at (1) [-Wunused-dummy-argument]
+kleedlib.f:1615:19:
+
+       COMMON /ZMAT/IANZ(60),IZ(60,4),BL(60),ALPH(60),BET(60),NZ,IPAR
+                   1
+Warning: Named COMMON block 'zmat' at (1) shall be of the same size as elsewhere (3008 vs 2128 bytes)
+kleedlib.f:1608:33:
+
+       SUBROUTINE GEOMXY(IP,C,NLAY)
+                                 1
+Warning: Unused dummy argument 'nlay' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3345:65:
+
+       SUBROUTINE READE(AE,EE,NBED,NEE,NBEA,BENAME,IPR,IEERG,NBMAX)
+                                                                 1
+Warning: Unused dummy argument 'nbmax' at (1) [-Wunused-dummy-argument]
+kleedlib.f:669:30:
+
+       DOUBLEPRECISION yint,del,pref,prefa,prefb,preft,sum
+                              1
+Warning: Unused variable 'del' declared at (1) [-Wunused-variable]
+kleedlib.f:217:70:
+
+       SUBROUTINE BEMGEN(TST,EF,SPQF,SPQ,KNBS,KNB,RAR1,RAR2,KNT,IPR,TVA,
+                                                                      1
+Warning: Unused dummy argument 'tva' at (1) [-Wunused-dummy-argument]
+kleedlib.f:1953:19:
+
+      & PHSSEL,EI,EF,DE,
+                   1
+Warning: Unused dummy argument 'ef' at (1) [-Wunused-dummy-argument]
+kleedlib.f:1976:20:
+
+       DIMENSION LPS2(NLAY),IELEMOLTF(NLAY)
+                    1
+Warning: Unused variable 'lps2' declared at (1) [-Wunused-variable]
+kleedlib.f:1956:9:
+
+      & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
+         1
+Warning: Unused dummy argument 'se' at (1) [-Wunused-dummy-argument]
+kleedlib.f:1985:19:
+
+       COMPLEX XISTF,XISTFOL,XISTFS,XISTFSTOT,XISTFS1
+                   1
+Warning: Unused variable 'xistf' declared at (1) [-Wunused-variable]
+kleedlib.f:3177:59:
+
+       SUBROUTINE READCT(NLAY,VPOS,CPVPOS,NTAUAW,LPSAW,LMMAX,
+                                                           1
+Warning: Unused dummy argument 'lmmax' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3436:19:
+
+       COMMON /WIV2/PERSH,NIV
+                   1
+Warning: Named COMMON block 'wiv2' at (1) shall be of the same size as elsewhere (8 vs 248 bytes)
+kleedlib.f:3430:19:
+
+      & NSTEP,ANSTEP,NLAY,IPR,ALPHA,BETA,GAMMA,ITMAX,
+                   1
+Warning: Unused dummy argument 'anstep' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3429:62:
+
+       SUBROUTINE READPL(NT0,NSET,PQFEX,NINSET,NDIM,DISP,ICOORD,
+                                                              1
+Warning: Unused dummy argument 'icoord' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3430:12:
+
+      & NSTEP,ANSTEP,NLAY,IPR,ALPHA,BETA,GAMMA,ITMAX,
+            1
+Warning: Unused dummy argument 'nstep' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3541:49:
+
+      & TST,TSTS,THETA,FI,LMMAX,NPSI,ES,PHSS,PHSS2,L1,IPR,NEL)
+                                                 1
+Warning: Unused dummy argument 'phss2' at (1) [-Wunused-dummy-argument]
+kleedlib.f:3541:15:
+
+      & TST,TSTS,THETA,FI,LMMAX,NPSI,ES,PHSS,PHSS2,L1,IPR,NEL)
+               1
+Warning: Unused dummy argument 'tsts' at (1) [-Wunused-dummy-argument]
+kleedlib.f:4295:38:
+
+       SUBROUTINE RFIN(IBP,NT0,WB,WR,NT,IPR)
+                                      1
+Warning: Unused dummy argument 'nt' at (1) [-Wunused-dummy-argument]
+kleedlib.f:4615:53:
+
+         DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
+                                                     1
+Warning: Unused variable 'asa' declared at (1) [-Wunused-variable]
+kleedlib.f:4615:38:
+
+         DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
+                                      1
+Warning: Unused variable 'rar1' declared at (1) [-Wunused-variable]
+kleedlib.f:4615:46:
+
+         DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
+                                              1
+Warning: Unused variable 'rar2' declared at (1) [-Wunused-variable]
+kleedlib.f:5102:52:
+
+       SUBROUTINE TSCATF(IEL,L1,ES,PHSS,PHSS2,NPSI,IT,EB,V,PPP,
+                                                    1
+Warning: Unused dummy argument 'it' at (1) [-Wunused-dummy-argument]
+kleedlib.f:5216:56:
+
+       SUBROUTINE TSCATF_TOY(IEL,L1,ES,PHSS,PHSS2,NPSI,IT,EB,V,PPP,
+                                                        1
+Warning: Unused dummy argument 'it' at (1) [-Wunused-dummy-argument]
+kleedlib.f:2405:0:
+
+             DO 5 I=IMIN,NEM
+ 
+Warning: 'imin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+kleedlib.f:1353:0:
+
+             N=NEE(IBMIN)
+ 
+Warning: 'ibmin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+kleedlib.f:475:0:
+
+       FUNCTION BLMT(L1,M1,L2,M2,L3,M3,LMAX)
+ 
+Warning: '__result_blmt' may be used uninitialized in this function [-Wmaybe-uninitialized]
+kleedlib.f:309:0:
+
+  290         IF (NI2.LE.NIT) GOTO 190
+ 
+Warning: 'nit' may be used uninitialized in this function [-Wmaybe-uninitialized]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -o kleed.exe kleed.o kleedlib.o
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c runtleed.f -o runtleed.o
+runtleed.f:91:46:
+
+       subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
+                                              1
+Warning: Unused dummy argument 'dir' at (1) [-Wunused-dummy-argument]
+runtleed.f:92:19:
+
+      &     ntype,fx)
+                   1
+Warning: Unused dummy argument 'fx' at (1) [-Wunused-dummy-argument]
+runtleed.f:91:67:
+
+       subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
+                                                                   1
+Warning: Unused dummy argument 'maxb' at (1) [-Wunused-dummy-argument]
+runtleed.f:91:62:
+
+       subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
+                                                              1
+Warning: Unused dummy argument 'minb' at (1) [-Wunused-dummy-argument]
+runtleed.f:92:16:
+
+      &     ntype,fx)
+                1
+Warning: Unused dummy argument 'ntype' at (1) [-Wunused-dummy-argument]
+runtleed.f:91:42:
+
+       subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
+                                          1
+Warning: Unused dummy argument 'problem_dir' at (1) [-Wunused-dummy-argument]
+runtleed.f:91:51:
+
+       subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
+                                                   1
+Warning: Unused dummy argument 'rank' at (1) [-Wunused-dummy-argument]
+runtleed.f:91:57:
+
+       subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
+                                                         1
+Warning: Unused dummy argument 'xparm' at (1) [-Wunused-dummy-argument]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c evaltleed.f -o evaltleed.o
+evaltleed.f:87:62:
+
+       SUBROUTINE evaltleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+                                                              1
+Warning: Unused dummy argument 'maxb' at (1) [-Wunused-dummy-argument]
+evaltleed.f:87:57:
+
+       SUBROUTINE evaltleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+                                                         1
+Warning: Unused dummy argument 'minb' at (1) [-Wunused-dummy-argument]
+evaltleed.f:1343:0:
+
+       ZMID=RRD(IN)**2-(COOR(IN,2)-ATOM1(2))**2-(COOR(IN,3)-ATOM1(3))**2
+ 
+Warning: 'in' may be used uninitialized in this function [-Wmaybe-uninitialized]
+evaltleed.f:853:0:
+
+               RMAX(I)=RMAX(I)*AA
+ 
+Warning: 'aa' may be used uninitialized in this function [-Wmaybe-uninitialized]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c tleed1sub.f -o tleed1sub.o
+tleed1sub.f:327:3:
 
  113   FORMAT (' CPU TIME = ',F9.2,' SECONDS ')
    1
 Warning: Label 113 at (1) defined but not used
-tleed1.f:506:37:
+tleed1sub.f:10:39:
 
-      &LAFLAG2,LPOINT,NLTIN,NST1,NINEQ,LPBD)
-                                     1
-Error: Symbol ‘nineq’ at (1) has no IMPLICIT type
-make: *** [tleed1.o] Error 1
+       subroutine tleed1(problem_dir,dir,rank,nerror_report)
+                                       1
+Warning: Unused dummy argument 'dir' at (1) [-Wunused-dummy-argument]
+tleed1sub.f:191:52:
+
+       COMPLEX VL(JPNL,2),FLMS(JPNL,JPKLM),FLM(JPKLM),QCUT(IPCUT)
+                                                    1
+Warning: Unused variable 'flm' declared at (1) [-Wunused-variable]
+tleed1sub.f:10:44:
+
+       subroutine tleed1(problem_dir,dir,rank,nerror_report)
+                                            1
+Warning: Unused dummy argument 'rank' at (1) [-Wunused-dummy-argument]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c tleed2sub.f -o tleed2sub.o
+tleed2sub.f:7:40:
+
+       subroutine tleed2(problem_dir, dir,rank,rfactor)
+                                        1
+Warning: Unused dummy argument 'dir' at (1) [-Wunused-dummy-argument]
+tleed2sub.f:7:45:
+
+       subroutine tleed2(problem_dir, dir,rank,rfactor)
+                                             1
+Warning: Unused dummy argument 'rank' at (1) [-Wunused-dummy-argument]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -o runtleed.exe runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c runkleed.f -o runkleed.o
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c evalkleed.f -o evalkleed.o
+evalkleed.f:135:72:
+
+      &     0.1,0.1,0.1,0.3,0.3,0.5/
+                                                                        1
+Warning: Obsolescent feature: DATA statement at (1) after the first executable statement
+evalkleed.f:556:3:
+
+ 344        continue
+   1
+Warning: Label 344 at (1) defined but not used
+evalkleed.f:430:25:
+
+         REAL COORSUB(2,3),ASB(3),EIEFDE(3)
+                         1
+Warning: Unused variable 'coorsub' declared at (1) [-Wunused-variable]
+evalkleed.f:87:62:
+
+       SUBROUTINE evalkleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+                                                              1
+Warning: Unused dummy argument 'maxb' at (1) [-Wunused-dummy-argument]
+evalkleed.f:87:57:
+
+       SUBROUTINE evalkleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
+                                                         1
+Warning: Unused dummy argument 'minb' at (1) [-Wunused-dummy-argument]
+evalkleed.f:96:42:
+
+       DOUBLE PRECISION PARM_out(NMAX,NDIM)
+                                          1
+Warning: Unused variable 'parm_out' declared at (1) [-Wunused-variable]
+evalkleed.f:1374:0:
+
+       ZMID=RRD(IN)**2-(COOR(IN,2)-ATOM1(2))**2-(COOR(IN,3)-ATOM1(3))**2
+ 
+Warning: 'in' may be used uninitialized in this function [-Wmaybe-uninitialized]
+evalkleed.f:887:0:
+
+               RMAX(I)=RMAX(I)*AA
+ 
+Warning: 'aa' may be used uninitialized in this function [-Wmaybe-uninitialized]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -c kleedsub.f -o kleedsub.o
+kleedsub.f:6:39:
+
+        subroutine kleed(problem_dir,dir,rank,rfactor)
+                                       1
+Warning: Unused dummy argument 'dir' at (1) [-Wunused-dummy-argument]
+kleedsub.f:12:56:
+
+       character(len=100) kleed4i, kleed5i, tleedo,gleedo,searchs,prdird,
+                                                        1
+Warning: Unused variable 'gleedo' declared at (1) [-Wunused-variable]
+kleedsub.f:124:59:
+
+       DIMENSION FPOS(60,3),VPOS(INST1,INLAY,3),LPS(60),LPSS(60)
+                                                           1
+Warning: Unused variable 'lpss' declared at (1) [-Wunused-variable]
+kleedsub.f:116:26:
+
+       DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
+                          1
+Warning: Unused variable 'nb' declared at (1) [-Wunused-variable]
+kleedsub.f:117:18:
+
+       DIMENSION PQ(2,NROM),NTAUAW(INST1)
+                  1
+Warning: Unused variable 'pq' declared at (1) [-Wunused-variable]
+kleedsub.f:116:59:
+
+       DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
+                                                           1
+Warning: Unused variable 'pqf' declared at (1) [-Wunused-variable]
+kleedsub.f:12:71:
+
+       character(len=100) kleed4i, kleed5i, tleedo,gleedo,searchs,prdird,
+                                                                       1
+Warning: Unused variable 'prdird' declared at (1) [-Wunused-variable]
+kleedsub.f:6:44:
+
+        subroutine kleed(problem_dir,dir,rank,rfactor)
+                                            1
+Warning: Unused dummy argument 'rank' at (1) [-Wunused-dummy-argument]
+kleedsub.f:13:14:
+
+      &restartd
+              1
+Warning: Unused variable 'restartd' declared at (1) [-Wunused-variable]
+kleedsub.f:15:29:
+
+       character(len=100) xpin
+                             1
+Warning: Unused variable 'xpin' declared at (1) [-Wunused-variable]
+gfortran  -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized -o runkleed.exe runkleed.o evalkleed.o kleedsub.o kleedlib.o

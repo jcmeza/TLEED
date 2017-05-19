@@ -5,8 +5,8 @@
 # gcc compilers
 FC     = gfortran 
 #FFLAGS  = -O3 
-#FFLAGS  = -O0 -fimplicit-none -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wimplicit-interface -Wunused-parameter -std=f2008 -pedantic -fbacktrace
-FFLAGS  = -O0 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace
+#FFLAGS  = -Og -fimplicit-none -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wimplicit-interface -Wunused-parameter -std=f2008 -pedantic -fbacktrace
+FFLAGS  = -Og -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized
 # Intel compiler
 #FC     = ifort 
 #FFLAGS	= -O3 -assume fpe_summary 	
