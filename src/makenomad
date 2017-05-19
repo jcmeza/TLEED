@@ -27,13 +27,7 @@ $(EXE): $(L1) $(OBJS)
 	$(ECHO_NOMAD)
 	@echo "   building the scalar version ..."
 	@echo "   exe file : "$(EXE)
-<<<<<<< Updated upstream:src/makenomad
-#	@$(COMPILATOR) -o  $(EXE) $(OBJS) $(LIBS) $(COMPILATOR_OPTIONS)
-	g++-5 -o  $(EXE) $(OBJS) $(LIBS) $(COMPILATOR_OPTIONS)
-=======
-#	@$(COMPILATOR) -o  $(EXE) $(OBJS) $(LIBS) $(COMPILATOR_OPTIONS)	
 	@$(COMPILATOR) -o  $(EXE) $(OBJS) $(LIBS) $(COMPILATOR_OPTIONS) 
->>>>>>> Stashed changes:makenomad
 	@strip  $(EXE)
 
 basic_lib.o: basic_lib.cpp
