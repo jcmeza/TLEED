@@ -91,6 +91,7 @@ c     dummy routine for debugging purposes
       subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
      &     ntype,fx)
       
+      PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
       REAL XPARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FX
       INTEGER DIR,RANK,NTYPE(NMAX)
       character*(*) problem_dir
