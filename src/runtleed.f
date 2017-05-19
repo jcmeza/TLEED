@@ -21,7 +21,6 @@ c
 c
 c     open parms file
 c
-c
       parmsfile = trim(data_dir)//'/tleedparms.dat'
       open(unit=3,file=parmsfile,status='old')
       
@@ -37,7 +36,7 @@ c
          write(*,*) 'runtleed: cputime : ', t2-t1
       enddo
       
-      close(unit=1)
+      close(unit=3)
       end
 
       subroutine setuptleed(ntype,xparm,minb,maxb)
