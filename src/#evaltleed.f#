@@ -1,4 +1,4 @@
-C********************************************************
+********************************************************
 C FILE: evaluate.f   
 C
 C DESCRIPTION:
@@ -403,7 +403,7 @@ c COORDAT RETURNS ALL COORDINATES IN THE SURFACE NEEDED IN TLEED5.I.
      *KLAYER)
         PARAMETER (NNMAX=80,NLAYE=5)
         CHARACTER(LEN=16) NCODE(NMAX)
-        CHARACTER(LEN=80) LINE
+        CHARACTER(LEN=60) LINE
         REAL COORD(NMAX,3),COORA(NNMAX,3),SPAC(NLAY)
         REAL COORAL(NLAYE,NNMAX,3)
         REAL SPAC1(NLAYE,3),FR(NLAYE),VO(NLAYE),VI(NLAYE)
@@ -525,7 +525,7 @@ C        write(0,*) tleed4, tleed5, tleed4doti, tleed5doti
 1006    FORMAT(3F7.2,I3)
 1007    FORMAT(60I3)
 1008    FORMAT(3F7.4,I3)
-2001    FORMAT(A80)
+2001    FORMAT(A60)
         RETURN       
         END
 C********************************************************

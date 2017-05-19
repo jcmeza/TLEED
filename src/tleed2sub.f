@@ -391,7 +391,7 @@ C      write(0,*) 'NCL=', NCL
         NLAY2=LAFLAG(NCL)
         CALL LOOKUP2(CPVPOS,ILOOK,ILKBD,NLAY2,NST1,NSTEF,NSYM,
      &  NLTOT2,NSHIFT,NCL,NLMAX,IROT,IMIR,1,FPOS,POSS,POSS2,
-     &  nerror_report)
+     &       nerror_report)
 C        write(0,*)'FPOS=',FPOS
 C
 C Set up lookup table for restricting the search
