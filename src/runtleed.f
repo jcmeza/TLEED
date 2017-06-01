@@ -26,12 +26,16 @@ c
       
       do num_fcn=1,10
 
+         write(*,*) '******************************'
+         write(*,*) 'runkleed: num_fcn = ', num_fcn
          call setuptleed(ntype,xparm,minb,maxb)
+
          call cpu_time(t1)
          call evaltleed(problem_dir,dir,rank,xparm,minb,maxb,
      &        ntype,fx)
          call cpu_time(t2)
-         write(*,*) 'runtleed: ', num_fcn, fx, t2-t1
+
+         write(*,*) 'runtleed: ', fx, t2-t1
       enddo
       
       close(unit=3)
@@ -51,6 +55,7 @@ c
       logical :: debug
 c     
       delta = 0.4
+
       read(3,*) (ntype(i), i=1, nmax)
 c
 c     kleed/tleed need the coordinates in the format [z, x, y]

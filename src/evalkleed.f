@@ -207,7 +207,6 @@ C alone (not touched by any atom).
          fitval = penalty
          return
       endif
-      write(*,*) 'evalkleed: calling valuate'
 
       CALL VALUATE(PARM,NTYPE,NCODE,NMAX,SYMC,RESULT,RMIN,RMAX,NIDEN,
      &     COORSUB,NTYPSUB,NSUB,AA,nerror)
@@ -287,12 +286,12 @@ c In KLEED only one subroutine is called: kleed (instead of
 c  tleed1.f and tleed2.f in TLEED)
            OPEN (UNIT=2,FILE=SEARCHS,STATUS='UNKNOWN')
 
-           write(*,*) 'evalkleed: calling kleed'
+c           write(*,*) 'evalkleed: calling kleed'
            CALL kleed(workdir, WORKID,PROCID,fitval)
            OPEN(UNIT=98,FILE=XPIN3,STATUS='OLD',POSITION='APPEND')
            WRITE (98,*) 'evalkeed: R-factor (kleed)',fitval
            CLOSE(98)
-           write(*,*) 'evalkeed: fitval =',fitval
+c           write(*,*) 'evalkeed: fitval =',fitval
 
            CLOSE(4)
            CLOSE(5)

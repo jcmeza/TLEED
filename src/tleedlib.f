@@ -11164,15 +11164,15 @@ C
 C READ IN EXPERIMENTAL DATA
 C
       CALL READE(AE,EE,NBED,NEE,NBEA,BENAME,IPR,IEERG)
-      write(*,*) 'READE:', NEE
+cjcm      write(*,*) 'READE:', NEE
 c      write(*,*) EE
 C
 C  IF AN IRREGULAR INPUT ENERGY GRID WAS USED, FIRST INTERPOLATE ALL
 C  EXP. DATA TO THE A GRID specified by the input EEINCR
 C
       IF (IRGEXP.EQ.1) THEN
-         write(*,*) 'Calling INTPOL: IRGEXP .eq. 1'
-         write(*,*) 'INTPOL:', NEE
+cjcm         write(*,*) 'Calling INTPOL: IRGEXP .eq. 1'
+cjcm         write(*,*) 'INTPOL:', NEE
          CALL INTPOL(AE,AEP,AEPP,NBED,NEE,NBED,EE,
      %        EEINCR,IPR,XPL,YPL,IEERG)
       ENDIF
@@ -11180,7 +11180,7 @@ C
 C  AVERAGE DATA FROM DIFFERENT EXPERIMENTS AND ORDER BY INCREASING ENERGY
 C
       CALL EXPAV(AE,EE,NBED,NEE,BENAME,NBEA,NBE,IPR,XPL,NNN,IEERG)
-      write(*,*) 'EXPAV:', NEE
+cjcm      write(*,*) 'EXPAV:', NEE
 C
 C  ESTIMATE THE AVERAGE ENERGY OF EACH EXPERIMENTAL BEAM
 C 
@@ -11204,15 +11204,15 @@ C
             DO 10 I=1,ISMOTH
                CALL SMOOTH(AE,EE,NBED,NBE,NEE,IPR,IEERG)
 10          CONTINUE
-            write(*,*) 'SMOOTH:', NEE
+cjcm            write(*,*) 'SMOOTH:', NEE
          ENDIF
 C
 C  INTERPOLATE EXP. DATA TO WORKING GRID (MULTIPLES OF EINCR EV), UNLESS
 C  DONE BEFORE
 C
          IF (IRGEXP.EQ.0) THEN
-            write(*,*) 'Calling INTPOL: IRGEXP .eq. 0'
-            write(*,*) 'INTPOL:', NEE
+cjcm            write(*,*) 'Calling INTPOL: IRGEXP .eq. 0'
+cjcm            write(*,*) 'INTPOL:', NEE
             CALL INTPOL(AE,AEP,AEPP,NBED,NEE,NBE,EE,EINCR,
      &           IPR,XPL,YPL,IEERG)
          ENDIF
@@ -11865,7 +11865,9 @@ C expected shift in the inner potential. THE SAME IS TRUE FOR
 C THE MINIMUM THEORETICAL Emin=EMINexp -|VOPT| 
 C
             NPTS=LMAX-LMIN+1
-            write(*,*) 'LMAX, LMIN, NPTS, IMIN', LMAX, LMIN, NPTS, IMIN
+cjcm debug
+c     
+cjcm            write(*,*) 'LMAX, LMIN, NPTS, IMIN', LMAX, LMIN, NPTS, IMIN
             DO 5 I=IMIN,NEM
                X(I-IMIN+1)=E(IB,I)
                WORYT(I-IMIN+1)=A(IB,I)
@@ -13765,9 +13767,9 @@ cjcm      write(*,*) 'RFAC: shifting energy, check for <0 ??'
            ETH(I,J)=ETH(I,J)-BV0-DVOPT
 cjcm check for negative energy and write out warning
            if(ETH(I,J) .LT. 0.0) THEN
-              write(*,*) '***** WARNING: ETH < 0 *****'
-              write(*,*) 'i,j, eth(i,j), bv0, dvopt:', I, J, ETH(I,J), 
-     &             BV0, DVOPT
+              write(*,*) 'RFAC: ***** WARNING: ETH < 0 *****'
+              write(*,*) 'RFAC: i,j, eth(i,j), bv0, dvopt:',
+     &         I, J, ETH(I,J), BV0, DVOPT
            endif
 102     CONTINUE
 101   CONTINUE
@@ -13778,14 +13780,14 @@ C and smooth as done with the experimental data
 C
          IF (ISMOTH.NE.0) THEN
 cjcm         write(*,*) 'Calling INTPOL: ISMOTH= ', ISMOTH
-c         write(*,*) 'INTPOL: before call', NET
+cjcm         write(*,*) 'INTPOL: before call', NET
             CALL INTPOL(AT,ATP,ATPP,NT0,NET,NBMAX,ETH,EEINCR,
      &      IPR,XPL,YPL,IEERG)
 cjcm         write(*,*) 'INTPOL: after call, before smooth', NET
             DO 10 I=1,ISMOTH
                CALL SMOOTH(AT,ETH,NT0,NBMAX,NET,IPR,IEERG)
 10          CONTINUE
-         write(*,*) 'INTPOL: after smooth', NET
+cjcm         write(*,*) 'INTPOL: after smooth', NET
          ENDIF
 C
 C INTERPOLATE THEORY ONTO WORKING GRID

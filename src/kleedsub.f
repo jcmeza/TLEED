@@ -245,7 +245,7 @@ C ============================================================================
 C
 C First input channels
 C
-      write(*,*) "kleedsub: problem_dir: ", trim(problem_dir)
+cjcm      write(*,*) "kleedsub: problem_dir: ", trim(problem_dir)
       kleed4i = trim(problem_dir)//'/kleed4i000'
       kleed5i = trim(problem_dir)//'/kleed5i000'
       OPEN (UNIT=4,FILE=kleed4i,STATUS='OLD')

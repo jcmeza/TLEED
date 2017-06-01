@@ -24,9 +24,10 @@ c
       parmsfile = trim(data_dir)//'/tleedparms.dat'
       open(unit=3,file=parmsfile,status='old')
 
-      do num_fcn=1,4
+      do num_fcn=1,10
          
-         write(*,*) 'runkleed: data_dir = ', data_dir
+         write(*,*) '******************************'
+         write(*,*) 'runkleed: num_fcn = ', num_fcn
          call setuptleed(ntype,xparm,minb,maxb)
 
          call cpu_time(t1)
@@ -34,8 +35,7 @@ c
      &        ntype,fx)
          call cpu_time(t2)
 
-         write(*,*) 'runkleed: fitval = ', fx
-         write(*,*) 'cputime : ', t2-t1
+         write(*,*) 'runkleed: ', fx, t2-t1
       enddo
 
       close(unit=3)
