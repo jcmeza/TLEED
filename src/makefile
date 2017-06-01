@@ -4,13 +4,11 @@
 ###############################################################
 # gcc compilers
 FC     = gfortran 
-#FFLAGS  = -O3 
-#FFLAGS  = -O2 -fimplicit-none -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wimplicit-interface -Wunused-parameter -std=f2008 -pedantic -fbacktrace -Wuninitialized
 FFLAGS  = -O2 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized
+#FFLAGS  = -O2 -fimplicit-none -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wimplicit-interface -Wunused-parameter -std=f2008 -pedantic -fbacktrace -Wuninitialized
 # Intel compiler
 #FC     = ifort 
-#FFLAGS	= -O3 -assume fpe_summary 	
-#FFLAGS  = -ax<processor>,  -ftz, -ip, -ipo, -march=<processor>, -mtune=<processor>, -O[n], -openmp, -parallel, -prof-gen, -prof-use, -x<processor>
+#FFLAGS	= -g -O0 -check bounds -check stack -traceback  	
 
 FLINKER = $(FC)
 ###############################################################
