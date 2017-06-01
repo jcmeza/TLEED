@@ -119,9 +119,6 @@ CGPS      CHARACTER*32 TLEED4,TLEED5,SEARCHS,TRACE
      &0.1,0.3,0.5,0.3,0.5,0.5,
      &0.1,0.1,0.1,0.3,0.3,0.5/
 
-
-      logical :: debug = .FALSE.
-
       FITVAL=0.0
 
 C Define the symmetry code.
@@ -199,18 +196,18 @@ C alone (not touched by any atom).
       itimes = 0
  20   continue
       if (itimes.gt.0) then
-c         write(0,*) PROCID,' :returning with penalty'
+c         write(*,*) PROCID,' :returning with penalty'
          fitval = penalty
-         write(*,*) 'evaltleed: invalid structure'
+         write(*,*) 'evaltleed:	invalid structure'
          return
       endif
-c      write(0,*) PROCID,' :calling valuate'
+c      write(*,*) PROCID,' :calling valuate'
       CALL VALUATE(PARM,NTYPE,NCODE,NMAX,SYMC,RESULT,RMIN,RMAX,NIDEN,
      &     COORSUB,NTYPSUB,NSUB,AA)
       IF(RESULT.NE.'SUCCESS') THEN
 c     CALL GRAVSTUC(PARM,NTYPE,NMAX,RMIN,RMAX,RMID,NIDEN,
 c     &          COORSUB,NTYPSUB,NSUB)
-c     write(0,*) PROCID,' :GRAVSTUC finished',itimes 
+c     write(*,*) PROCID,' :GRAVSTUC finished',itimes 
          itimes = itimes + 1
          GOTO 20
       ELSE
@@ -261,7 +258,7 @@ C           WRITE (0,*) PROCID," Calling tleed1: ",PROCID
            WRITE (99,*) PROCID," Calling tleed1: ",PROCID
            CLOSE (UNIT=99)
 
-           if (debug) write(*,*) 'evaltleed: Calling tleed1'
+           write(*,*) 'evaltleed: Calling tleed1'
            CALL tleed1(workdir, WORKID,PROCID,nerror_report)
 
            if (nerror_report.eq.1) then
@@ -279,7 +276,7 @@ C          PROBLEM: Handle opening and closing the the searchs file here.
 C          Otherwise the file was not closed in time by the OS for tleed2
 C          to read a complete file. 
            OPEN (UNIT=2,FILE=SEARCHS,STATUS='UNKNOWN')
-           if (debug) write(*,*) 'evaltleed: Calling tleed2'
+           write(*,*) 'evaltleed: Calling tleed2'
            CALL tleed2(workdir, WORKID,PROCID,FITVAL)
            CLOSE(2)       
            end if
@@ -299,7 +296,7 @@ C     &          " ...Returned tleed2 fitval=",fitval
      &          " ...Returned tleed2 fitval=",fitval
            CLOSE (UNIT=99)
         ENDIF
-        if (debug) write(*,*) 'evaltleed: fitval = ', fitval
+c        write(*,*) 'evaltleed: fitval = ', fitval
         RETURN
         END
 C********************************************************
@@ -333,8 +330,6 @@ c and restraint on minimum distance and at least one contact.
         INTEGER NTYPE(NMAX),NTYPSUB(NSUB)
         INTEGER KLAY(NLAY)
 
-        logical :: debug = .FALSE.
-
 c
 c Number of types of atoms(chemical elements, chemical variants)
         DATA RNZ/0.0,.373,1.,1.52,1.113,.795,.772,.549,.604,
@@ -364,10 +359,10 @@ c Sort the coordinates in a increasing order.
         CALL SORTLOCAL(NMAX,COORD,NTYPE,NCODE)
 c        write(99,*) 'Put the parameter in order, finished'
         IF(RESULT.EQ.'PENALTY') THEN 
-           write(*,*) 'VALUATE: Invalid structure, return for GRAVSTUC'
+           write(*,*) 'Invalid structure, return for GRAVSTUC'
            RETURN
         ENDIF
-       if (debug) write(*,*) 'valuate: Valid structure'
+       write(*,*) 'valuate  : Valid structure'
 c Separate the surface into several composite layers,
 c DSPC IS THE MINIMUM SPACING BETWEEN TWO COMPOSITE LAYERS.
         DO I=1,NLAY
@@ -910,9 +905,9 @@ c distance and touching priciple.
               A3=(COORD(I,3)-COORD(J,3))**2
               DIST=SQRT(A1+A2+A3)
               IF(DIST.LT.RIJS) THEN
+c                 WRITE(99,*) 'DIST,RIJS',DIST,RIJS
+c                 WRITE(99,*) 'PENALTY FOR ATOM I AND J',I,J
                  RESULT='PENALTY'
-                 WRITE(*,*) 'VALUAT: DIST,RIJS',DIST,RIJS
-                 WRITE(*,*) 'VALUAT: PENALTY FOR ATOM I AND J',I,J
                  RETURN
               ENDIF
 10         ENDDO
@@ -932,8 +927,8 @@ c
               ENDIF
 20         ENDDO
            IF(KBONUS.LT.1) THEN
+c              WRITE(99,*) 'ATOM DOESNT TOUCH ANY OTHER ATOMS',I
               RESULT='PENALTY'
-              WRITE(*,*) 'VALUAT: ATOM DOESNT TOUCH ANY OTHER ATOMS',I
               RETURN
            ENDIF
         ENDDO
@@ -1325,7 +1320,7 @@ c
 c              write(99,*) 'Atom is too close to substrate'
 c              write(99,*) 'coord(3)=',(atom1(j),j=1,3)
               ZMID=RRD(I)**2-(COOR(I,2)-ATOM1(2))**2-
-     &             (COOR(I,3)-ATOM1(3))**2
+     &(COOR(I,3)-ATOM1(3))**2
               ZMID=SQRT(ZMID)
               ATOM1(1)=COOR(I,1)-ZMID
 c             KK=KK+1
@@ -1345,8 +1340,7 @@ c           write(99,*) 'Atom is too far away from substrate'
               ENDIF
            ENDDO
 c           write(99,*) 'A0,IN=',A0,IN
-           ZMID=RRD(IN)**2 -
-     &          (COOR(IN,2)-ATOM1(2))**2-(COOR(IN,3)-ATOM1(3))**2
+      ZMID=RRD(IN)**2-(COOR(IN,2)-ATOM1(2))**2-(COOR(IN,3)-ATOM1(3))**2
 C073198>>>>
 c           ZMID=SQRT(ZMID)
 c           ATOM1(1)=COOR(I,1)-ZMID

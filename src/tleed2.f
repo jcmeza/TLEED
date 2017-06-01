@@ -619,6 +619,7 @@ c      call ieee_flags("clear", "exception", "all", out)
       close(12)
       close(22)
 
+      write(*,*) 'tleed2GPS: rfactor', rfactor
       write(*,*) 'tleed2GPS: Leaving tleed2'
 
 c      return

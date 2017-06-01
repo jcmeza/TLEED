@@ -6,14 +6,14 @@ c       subroutine kleed(problem_dir,dir,rank,nerror_report,rfactor)
        subroutine kleed(problem_dir,dir,rank,rfactor)
 
 
-      character*(*) problem_dir
-      character*(*) dir
-      character*(*) rank
-      character(len=100) kleed4i, kleed5i, tleedo,gleedo,searchs,prdird,
-     &restartd
-      character(len=100) expdotd,rfacdotd
-      character(len=100) xpin
-      real rfactor
+      character*(*) :: problem_dir
+      character*(*) :: dir
+      character*(*) :: rank
+      character(len=100) :: kleed4i, kleed5i
+      character(len=100) :: tleedo,gleedo,searchs,prdird,restartd
+      character(len=100) :: expdotd,rfacdotd
+      character(len=100) :: xpin
+      real :: rfactor
 
 
 C
@@ -46,7 +46,8 @@ C      IPLMAX          The largest l value to be used (LMAX).
 C
 C ============================================================================
 C
-      PARAMETER (IPNL1=5,IPNL2=5,IPIDEG=4,IPLMAX=5,IPCLM=1925)
+C      PARAMETER (IPNL1=5,IPNL2=5,IPIDEG=4,IPLMAX=5,IPCLM=1925)
+      integer, parameter :: IPNL1=5,IPNL2=5,IPIDEG=4,IPLMAX=5,IPCLM=1925
 C
 C ============================================================================
 C
@@ -63,8 +64,8 @@ c                      of subplanes in NEFFST1 composite layers
 C
 C ============================================================================
 C
-      PARAMETER (INLAY=58,INTAU=2,IPCAA=1820,INST1=1)
-      PARAMETER (INLTOT=58,INLDISP=58)
+      integer, parameter :: INLAY=58,INTAU=2,IPCAA=1820,INST1=1
+      integer, parameter :: INLTOT=58,INLDISP=58
 C
 C ============================================================================
 C
@@ -87,11 +88,11 @@ C     ITEMP            Switches off (ITEMP=0) or on (ITEMP different from zero)
 C                    temperature effects 
 C ============================================================================
 C
-      PARAMETER (INT0=20,JSMAX=2)
-      PARAMETER (NROM=3000,NROM2=NROM)
-      PARAMETER (IINERG=100)
-      PARAMETER (INBED=20,IEERG=1600)      
-      PARAMETER (ITEMP=1)
+      integer, PARAMETER :: INT0=20,JSMAX=2
+      integer, PARAMETER :: NROM=3000,NROM2=NROM
+      integer, PARAMETER :: IINERG=100
+      integer, PARAMETER :: INBED=20,IEERG=1600   
+      integer, PARAMETER :: ITEMP=1
 C
 C ============================================================================
 C
@@ -99,10 +100,12 @@ C The following parameters are constructed from the Van Hove/Tong parameters.
 C
 C ============================================================================
 C
-      PARAMETER (JPN=2*IPLMAX+1,JPNN=JPN*JPN)
-      PARAMETER (JPNN2=IPLMAX+1,JPNN3=IPLMAX+1,JPNN1=JPNN2+JPNN3-1)
-      PARAMETER (JLMMAX=JPNN2*JPNN2,JPL1=JPNN2,JPLEV=JPNN2*(JPNN2+1)/2)
-      PARAMETER (JPLOD=JLMMAX-JPLEV,JPNL=IPNL1*IPNL2)
+      integer, PARAMETER :: JPN=2*IPLMAX+1,JPNN=JPN*JPN
+      integer, PARAMETER :: JPNN2=IPLMAX+1,JPNN3=IPLMAX+1
+      integer, PARAMETER :: JPNN1=JPNN2+JPNN3-1
+      integer, PARAMETER :: JLMMAX=JPNN2*JPNN2,JPL1=JPNN2
+      integer, PARAMETER :: JPLEV=JPNN2*(JPNN2+1)/2
+      integer, PARAMETER :: JPLOD=JLMMAX-JPLEV,JPNL=IPNL1*IPNL2
 C
 C ============================================================================
 C
@@ -110,34 +113,43 @@ C Dimension Arrays.
 C
 C ============================================================================
 C
-      DIMENSION ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
-      DIMENSION ARB2(2),RBR1(2),RBR2(2),ASB(INST1,3)
-      DIMENSION V(JPNL,2),JJS(JPNL,IPIDEG)
-      DIMENSION KNB(20),NB(20),SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
-      DIMENSION PQ(2,NROM),NTAUAW(INST1)
-      DIMENSION ES(90),PHSS(90,80),PHSS2(90,80)
-      DIMENSION NLMS(9),CLM(IPCLM),YLM(JPNN),FAC2(JPNN),FAC1(JPN)
-      DIMENSION PPP(JPNN1,JPNN2,JPNN3)
-      DIMENSION CAA(IPCAA),NCA(9),LAFLAG(INST1)
-      DIMENSION AK2M(INT0),AK3M(INT0)
-      DIMENSION LX(JLMMAX),LXI(JLMMAX),LXM(JLMMAX),LT(JLMMAX)
-      DIMENSION FPOS(60,3),VPOS(INST1,INLAY,3),LPS(60),LPSS(60)
-      DIMENSION WPOS(INST1,INLAY,3),WPOSTF(100,3)
-      DIMENSION SPOSTF(20,1500,3),SPOSTF1(30,3)
-      DIMENSION CPVPOS(INST1,INLAY,3),LLFLAG(60)
-      DIMENSION LPSAW(INST1,INLAY),PSQ(2,INT0)
-      DIMENSION PQFEX(2,INT0),NINSET(20)
-      DIMENSION IT1(5),DRPAR1(5),DR01(5),DRPER1(5)
-      DIMENSION ADISP(INLTOT,3),DISP(INLDISP,3)
-      DIMENSION G(2,NROM)
-      DIMENSION VICL(INST1),VCL(INST1),FRCL(INST1)
-      DIMENSION IELEMOL(INST1,INLTOT),IELEMOL2(INLTOT)
-      DIMENSION WR(10),WB(INT0),IBP(INT0)
-      DIMENSION AE(INBED,IEERG),EE(INBED,IEERG),NEE(INBED),NBEA(INBED)
-      DIMENSION BENAME(5,INBED),XPL(IEERG),YPL(IEERG),NNN(IEERG)
-      DIMENSION AP(INBED,IEERG),APP(INBED,IEERG),YE(INBED,IEERG)
-      DIMENSION TSE(INBED),TSE2(INBED),TSEP(INBED),TSEP2(INBED)
-      DIMENSION TSEPP(INBED),TSEPP2(INBED),TSEY2(INBED)
+      REAL ARA1(2),ARA2(2),RAR1(2),RAR2(2),ASA(10,3),ARB1(2)
+      REAL ARB2(2),RBR1(2),RBR2(2),ASB(INST1,3)
+      REAL V(JPNL,2)
+      INTEGER JJS(JPNL,IPIDEG), KNB(60),NB(60)
+      REAL SPQF(2,NROM),SPQ(2,NROM),PQF(2,NROM)
+      REAL PQ(2,NROM)
+      INTEGER NTAUAW(INST1)
+      REAL  ES(90),PHSS(90,80),PHSS2(90,80)
+      INTEGER NLMS(9)
+      REAL CLM(IPCLM),YLM(JPNN),FAC2(JPNN),FAC1(JPN)
+      REAL PPP(JPNN1,JPNN2,JPNN3)
+      REAL CAA(IPCAA)
+      INTEGER NCA(9),LAFLAG(INST1)
+      REAL AK2M(INT0),AK3M(INT0)
+      INTEGER LX(JLMMAX),LXI(JLMMAX),LXM(JLMMAX),LT(JLMMAX)
+      REAL FPOS(60,3),VPOS(INST1,INLAY,3),LPS(60),LPSS(60)
+      REAL WPOS(INST1,INLAY,3),WPOSTF(100,3)
+      REAL SPOSTF(20,1500,3),SPOSTF1(30,3)
+      REAL CPVPOS(INST1,INLAY,3)
+      INTEGER LLFLAG(60), LPSAW(INST1,INLAY)
+      REAL PSQ(2,INT0)
+      REAL PQFEX(2,INT0)
+      INTEGER NINSET(20), IT1(5)
+      REAL DRPAR1(5),DR01(5),DRPER1(5)
+      REAL ADISP(INLTOT,3),DISP(INLDISP,3)
+      REAL G(2,NROM)
+      REAL VICL(INST1),VCL(INST1),FRCL(INST1)
+      INTEGER IELEMOL(INST1,INLTOT),IELEMOL2(INLTOT)
+      REAL WR(10),WB(INT0)
+      INTEGER IBP(INT0)
+      REAL AE(INBED,IEERG),EE(INBED,IEERG)
+      INTEGER NEE(INBED),NBEA(INBED)
+      REAL BENAME(5,INBED),XPL(IEERG),YPL(IEERG)
+      INTEGER NNN(IEERG)
+      REAL  AP(INBED,IEERG),APP(INBED,IEERG),YE(INBED,IEERG)
+      REAL TSE(INBED),TSE2(INBED),TSEP(INBED),TSEP2(INBED)
+      REAL TSEPP(INBED),TSEPP2(INBED),TSEY2(INBED)
 C Now complex arrays
       COMPLEX AF(JPL1),CAF(JPL1),TSF0(6,16),TSF(6,16)
       COMPLEX VL(JPNL,2)
@@ -148,24 +160,41 @@ c      COMPLEX PHSSEL0(IINERG,INTAU),PHS(16)
 C Final character arrays
 C
       CHARACTER(len=4) TITLE(20)
-C
+
+      integer :: IDEG, IPR, L1, NEL, NL, LMMAX, NPSI, INVECT
+      integer :: DFLAG
+C    
 C ============================================================================
 C
 C Common blocks carried over from Van Hove/Tong package. 
 C
 C ============================================================================
 C
+      integer NL1,NL2
       COMMON /SL/ARA1,ARA2,ARB1,ARB2,RBR1,RBR2,NL1,NL2
+
+      integer LMAX
       COMMON /MS/LMAX
+
       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV
+
+      real   BL, ALPHA, BETA, BLS, ALPHAS, BETAS, PHIR, PHIM1, PHIM2
+      integer IANZ, IZ, NZ, IPAR, NIPAR, NPAR, NUM, NATOMS
       COMMON /ZMAT/IANZ(40),IZ(40,4),BL(40),ALPHA(40),BETA(40),NZ,IPAR
      & (15,5),NIPAR(5),NPAR,DX(5),NUM,NATOMS,BLS(40),ALPHAS(40),BETAS
      & (40),PHIR,PHIM1,PHIM2
+
       COMMON /RFACY/MAXB,IREN,ISMOTH,IRGEXP,NBE,NBED
+
       COMMON /REXP/EEINCR
+
       COMMON /POW/IFUNC,MFLAG,SCAL
+
       COMMON /NSTR/VOPT,NNST,NNSTEF
+
+      REAL VMIN, VMAX, DV,EINCR, THETA, FI
       COMMON /VINY/VMIN,VMAX,DV,EINCR,THETA(1),FI(1)
+
       COMMON /TEMP/IT1,TI,T01,DRPER1,DRPAR1,DR01
 C ============================================================================
 C
@@ -353,8 +382,8 @@ C
 C Read in information relevant to the pertubative LEED calculation
 C
       CALL READPL(NT0,NSET,PQFEX,NINSET,NDIM,DISP,ICOORD,
-     & NSTEP,ANSTEP,NLAYTOT,IPR,ALPHA,BETA,GAMMA,ITMAX,FTOL1,
-     & FTOL2,MFLAG,LLFLAG,NGRID)
+     &     NSTEP,ANSTEP,NLAYTOT,IPR,ALPHA,BETA,GAMMA,ITMAX,FTOL1,
+     &     FTOL2,MFLAG,LLFLAG,NGRID)
 cjcm        write(*,*) 'after READPL'
 C
 C Calculate Clebsch-Gordan coefficients
@@ -608,13 +637,13 @@ C
 
 C Read in experimental IV curves and information relevant to the R-factor
 C calculation.
-      write(*,*) 'kleedsub: reading experimental IV curves'
+c      write(*,*) 'kleedsub: reading experimental IV curves'
 
        CALL RFIN(IBP,NT0,WB,WR,1,IPR)
-cjcm       write(*,*) 'kleedsub: after rfin'
+c       write(*,*) 'kleedsub: after rfin'
        CALL EXPAN(INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,XPL,YPL,NNN,
      & AP,APP,YE,TSE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,VPIS)
-cjcm       write(*,*) 'kleedsub: after expan'
+c       write(*,*) 'kleedsub: after expan'
 c  Calculate the amplitude of the diffracted beams in 
 c  the kinematic limit.
 c  Theoretical results stored in ivth# files
@@ -630,14 +659,15 @@ c  Experimental results stored in ivexp# files
 98        CONTINUE
 99        CONTINUE
         
-cjcm       write(*,*) 'kleedsub: compute rfactor in vintentf'
+c       write(*,*) 'kleedsub: compute rfactor in vintentf'
+c       write(*,*) 'NT0 = ', NT0
        rfactor = VINTENTF(INLTOT,DISP,PSQ,INTAU,NT0,PHSSEL,EI,EF,DE,
      & NL1,NL2,IELEMOL2,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
      & INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
      & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
-cjcm       write(*,*) 'kleedsub: after vintentf'
+c       write(*,*) 'kleedsub: after vintentf'
 
-        write(*,*) 'kleedsub: rfactor = ',rfactor
+c       write(*,*) 'kleedsub: rfactor = ',rfactor
 c        CLOSE(4)
 c        CLOSE(5)
 

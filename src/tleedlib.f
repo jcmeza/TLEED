@@ -11164,18 +11164,23 @@ C
 C READ IN EXPERIMENTAL DATA
 C
       CALL READE(AE,EE,NBED,NEE,NBEA,BENAME,IPR,IEERG)
+      write(*,*) 'READE:', NEE
+c      write(*,*) EE
 C
 C  IF AN IRREGULAR INPUT ENERGY GRID WAS USED, FIRST INTERPOLATE ALL
 C  EXP. DATA TO THE A GRID specified by the input EEINCR
 C
       IF (IRGEXP.EQ.1) THEN
-        CALL INTPOL(AE,AEP,AEPP,NBED,NEE,NBED,EE,
-     %    EEINCR,IPR,XPL,YPL,IEERG)
+         write(*,*) 'Calling INTPOL: IRGEXP .eq. 1'
+         write(*,*) 'INTPOL:', NEE
+         CALL INTPOL(AE,AEP,AEPP,NBED,NEE,NBED,EE,
+     %        EEINCR,IPR,XPL,YPL,IEERG)
       ENDIF
 C
 C  AVERAGE DATA FROM DIFFERENT EXPERIMENTS AND ORDER BY INCREASING ENERGY
 C
       CALL EXPAV(AE,EE,NBED,NEE,BENAME,NBEA,NBE,IPR,XPL,NNN,IEERG)
+      write(*,*) 'EXPAV:', NEE
 C
 C  ESTIMATE THE AVERAGE ENERGY OF EACH EXPERIMENTAL BEAM
 C 
@@ -11199,14 +11204,17 @@ C
             DO 10 I=1,ISMOTH
                CALL SMOOTH(AE,EE,NBED,NBE,NEE,IPR,IEERG)
 10          CONTINUE
+            write(*,*) 'SMOOTH:', NEE
          ENDIF
 C
 C  INTERPOLATE EXP. DATA TO WORKING GRID (MULTIPLES OF EINCR EV), UNLESS
 C  DONE BEFORE
 C
          IF (IRGEXP.EQ.0) THEN
-          CALL INTPOL(AE,AEP,AEPP,NBED,NEE,NBE,EE,EINCR,
-     &    IPR,XPL,YPL,IEERG)
+            write(*,*) 'Calling INTPOL: IRGEXP .eq. 0'
+            write(*,*) 'INTPOL:', NEE
+            CALL INTPOL(AE,AEP,AEPP,NBED,NEE,NBE,EE,EINCR,
+     &           IPR,XPL,YPL,IEERG)
          ENDIF
 C
 C  RENORMALIZE EXP. BY DIVIDING BY FITTED A*EXP(-ALPH*(E+10))
@@ -11827,6 +11835,7 @@ C
 C      E2=1.
       DO 60 IB=1,NB
          NEM=NE(IB)
+cjcm         write(*,*) 'INTPOL: NE(IB)  = ',IB, NEM 
 C
 C  FIND FIRST NON-ZERO INTENSITY (FOR THEORY, WHERE NON-EMERGENCE OF
 C  CURRENT BEAM CAN OCCUR)
@@ -11835,12 +11844,17 @@ C
             IMIN=IE
             IF (A(IB,IE).GT.1.E-6) GOTO 91
 30       CONTINUE
-91       IF (IMIN.NE.NEM) THEN
+cjcm         write(*,*) 'INTPOL(30): IMIN = ',IMIN 
+cjcm         write(*,*) 'INTPOL(30): NEM  = ',NEM 
+91       CONTINUE
+         IF (IMIN.NE.NEM) THEN
             LMIN=INT((E(IB,IMIN)-E2)/EINCR)+1
             LMIN=MAX0(LMIN,0)
 C XMIN (XMAX)is the minimum (maximum) energy on the working grid 
 C for which the computed intensities are available
             XMIN=FLOAT(LMIN)*EINCR
+cjcm            write(*,*) 'INTPOL: E(IB,NEM)  = ', E(IB,NEM)
+cjcm            write(*,*) 'INTPOL: E2, EINCR  = ', E2, EINCR
             LMAX=INT((E(IB,NEM)+E2)/EINCR)
             XMAX=FLOAT(LMAX)*EINCR
 C
@@ -11851,6 +11865,7 @@ C expected shift in the inner potential. THE SAME IS TRUE FOR
 C THE MINIMUM THEORETICAL Emin=EMINexp -|VOPT| 
 C
             NPTS=LMAX-LMIN+1
+            write(*,*) 'LMAX, LMIN, NPTS, IMIN', LMAX, LMIN, NPTS, IMIN
             DO 5 I=IMIN,NEM
                X(I-IMIN+1)=E(IB,I)
                WORYT(I-IMIN+1)=A(IB,I)
@@ -11871,6 +11886,7 @@ C this shift allows all points in the grid to be included in the energy
 C interval for which we have data
             NPTS=NPTS-2
             NE(IB)=NPTS
+c            write(*,*) 'INTPOL: NE(IB)  = ',IB, NE(IB) 
             CALL SPLINE(X,WORYT,NEM,YP1,YPN,WORYT2)
             CALL SPLINE(X,WORYT2,NEM,YP1,YPN,WORYT4)
                DO 10 I=1,NPTS
@@ -13743,9 +13759,16 @@ C
 C SHIFT THE ENERGY ACCORDING TO THE SHIFT OF THE INNER POTENTIAL
 C DETERMINED BY THE SEARCH ALGORITHM
 C
+cjcm      write(*,*) 'RFAC: shifting energy, check for <0 ??'
       DO 101 I=1,NBMAX
         DO 102 J=1,NERG
-         ETH(I,J)=ETH(I,J)-BV0-DVOPT
+           ETH(I,J)=ETH(I,J)-BV0-DVOPT
+cjcm check for negative energy and write out warning
+           if(ETH(I,J) .LT. 0.0) THEN
+              write(*,*) '***** WARNING: ETH < 0 *****'
+              write(*,*) 'i,j, eth(i,j), bv0, dvopt:', I, J, ETH(I,J), 
+     &             BV0, DVOPT
+           endif
 102     CONTINUE
 101   CONTINUE
 C
@@ -13754,15 +13777,21 @@ C data (EEINCR)
 C and smooth as done with the experimental data
 C
          IF (ISMOTH.NE.0) THEN
+cjcm         write(*,*) 'Calling INTPOL: ISMOTH= ', ISMOTH
+c         write(*,*) 'INTPOL: before call', NET
             CALL INTPOL(AT,ATP,ATPP,NT0,NET,NBMAX,ETH,EEINCR,
      &      IPR,XPL,YPL,IEERG)
+cjcm         write(*,*) 'INTPOL: after call, before smooth', NET
             DO 10 I=1,ISMOTH
                CALL SMOOTH(AT,ETH,NT0,NBMAX,NET,IPR,IEERG)
 10          CONTINUE
+         write(*,*) 'INTPOL: after smooth', NET
          ENDIF
 C
 C INTERPOLATE THEORY ONTO WORKING GRID
 C
+c         write(*,*) 'Calling INTPOL: INTP THEORY ONTO WORKING GRID '
+c         write(*,*) 'INTPOL:', NET
       CALL INTPOL(AT,ATP,ATPP,NT0,NET,NBMAX,ETH,EINCR,
      & IPR,XPL,YPL,IEERG)
 C
