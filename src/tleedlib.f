@@ -626,7 +626,7 @@ C              IF(NKRED.GT.KNB2M) NKRED=KNB2M
                  SPQS(I,NKRED)=SPQ(I,J)
                  SPQFS(I,NKRED)=SPQF(I,J)
 80            CONTINUE
-66            IF(J+KMAX.GT.KNT) THEN
+              IF(J+KMAX.GT.KNT) THEN
                  KMAX2=KNT-J
               ELSE
                  KMAX2=KMAX
@@ -983,7 +983,7 @@ C
       DIMENSION DIREC(NLAY,2,2),NL(NLAY,INLIN),LLFLAGC(NLAY)
       DIMENSION ADISP(NLAY,3),ACOORD(12,NLAY,3),NEQ(INLIN)
 C
-177   FORMAT(2F7.4)
+!177   FORMAT(2F7.4)
 C
 C COPY LLFLAG
 C
@@ -1555,7 +1555,8 @@ C               WRITE(*,*) BELM(K)
       END
       FUNCTION BLMT2(L1,M1,L2,M2,L3,M3,LMAX,LMAX3)
 C
-      DOUBLEPRECISION a,b,bn,c,cn
+cjcm      DOUBLEPRECISION a,b,bn,c,cn
+      REAL a,b,bn,c,cn
 C                                ,blmt
 C
 40    FORMAT (' INVALID ARGUMENTS FOR BLMT ',6(I3,','))
@@ -2962,9 +2963,9 @@ C a) purely structural
       COMPLEX TAUINV(NLTU,LEV)
       DIMENSION LAN(LMMAX),KOUNT(LMMAX,LMMAX)
 C
-1610  FORMAT (' NO SYMMETRY in MTNVSYM for GLIDE SYMMETRY. Lower
-     & the symmetry of NSYMS (for the TLEED1.f run) to exclude the
-     & glide ')
+!1610  FORMAT (' NO SYMMETRY in MTNVSYM for GLIDE SYMMETRY. Lower
+!     & the symmetry of NSYMS (for the TLEED1.f run) to exclude the
+!     & glide ')
       COMMON E,AK2,AK3,VPI
       COMMON /MFB/GP,L1,LAY1
       COMMON /MS/LMAX
@@ -4091,7 +4092,7 @@ C
             ENDIF
           ENDIF
       ENDIF
-777   I=I-1
+      I=I-1
       IMAX=I-1
       BNORMS=BNORM
       IMAXS=IMAX
@@ -4277,7 +4278,7 @@ C
       RETURN
 50    WRITE (1,*) ' INST1B is too small, or you did not need INVECT=2'
       STOP
-52    WRITE (1,*) ' Put the mirror plane along the z axis, symmetry
+      WRITE (1,*) ' Put the mirror plane along the z axis, symmetry
      &  treatment in REDMTR will not be correct otherwise'
       STOP
       END
@@ -6101,7 +6102,8 @@ C======================================================================
 C
       FUNCTION BLMT(L1,M1,L2,M2,L3,M3,LMAX)
 C
-      DOUBLEPRECISION a,b,bn,c,cn
+cjcm      DOUBLEPRECISION a,b,bn,c,cn
+      REAL a,b,bn,c,cn
 C                                ,blmt
 C
 40    FORMAT (' INVALID ARGUMENTS FOR BLMT ',6(I3,','))
@@ -6242,7 +6244,8 @@ C============================================================================
 C
       FUNCTION CA(L1,MA1,L2,M2,L3,MA3)
 C
-      DOUBLEPRECISION yint,del,pref,prefa,prefb,preft,sum
+cjcm      DOUBLEPRECISION yint,del,pref,prefa,prefb,preft,sum
+      REAL yint,del,pref,prefa,prefb,preft,sum
 C
       M1=-MA1
       M3=-MA3
@@ -6305,7 +6308,8 @@ C
 C
       DIMENSION CLM(NLM),YLM(NN),FAC2(NN),FAC1(N)
 C      DOUBLEPRECISION FAC(100),blmt,a,b
-       DOUBLEPRECISION FAC(100),a,b
+cjcm       DOUBLEPRECISION FAC(100),a,b
+       REAL FAC(100),a,b
 C
       COMMON /F/FAC
 C
@@ -6436,7 +6440,8 @@ C
       SUBROUTINE CPPP(PPP,N1,N2,N3)
 C
       DIMENSION PPP(N1,N2,N3)
-      DOUBLEPRECISION SUM,A
+cjcm      DOUBLEPRECISION SUM,A
+      REAL SUM,A
 C
       DO 461 I1=1,N1
          DO 462 I2=1,N2
@@ -6753,8 +6758,8 @@ C
       DIMENSION PQF(2,NT),PQFEX(2,NT0)
       COMPLEX XI(NT),XIST(NT0)
 C
-1000  FORMAT (3F7.4)
-1010  FORMAT (30(2E13.5,/))
+!1000  FORMAT (3F7.4)
+!1010  FORMAT (30(2E13.5,/))
 C
 C FIRST REORDER THE AMPLITUDES STORED IN XIST FROM THE ORDER OF THE LIST
 C PQF TO THE ORDER OF THE LIST PQFEX.
@@ -6785,16 +6790,20 @@ C
 C=========================================================================
 C
       FUNCTION FACT(L)
-C
-      DOUBLEPRECISION DFACT,X
+!     jcm why the heck are we writing and using our own factorial program!!!!
+!     does this even compute the correct value? L=1,2,3 don't seem right
+!     jcm      DOUBLEPRECISION DFACT,X
+      
+      REAL DFACT,X
 C
       IF (L.GT.4) THEN
          X=L+1
-         DFACT=DEXP(-X)*(10.0D0**((X-0.5D0)*DLOG10(X)-(X-1.0D0)))*
-     &    (DSQRT(6.283185307179586D0))*(1.0+(1.0/(12.0*X))+(1.0/
+         DFACT=EXP(-X)*(10.0D0**((X-0.5D0)*LOG10(X)-(X-1.0D0)))*
+     &    (SQRT(6.283185307179586D0))*(1.0+(1.0/(12.0*X))+(1.0/
      &    (288.0D0*(X**2)))-(139.0D0/(51840.0D0*(X**3)))-(571.0D0/
      &    (2488320.0D0*(X**4))))
-         FACT=SNGL(DFACT)
+!         FACT=SNGL(DFACT)
+         FACT=DFACT
       ELSE
          IF (L.EQ.0) FACT=1.0
          IF (L.EQ.1) FACT=0.1
@@ -6802,6 +6811,7 @@ C
          IF (L.EQ.3) FACT=6.0*0.001
          IF (L.EQ.4) FACT=24.0*0.0001
       ENDIF
+!jcm      write(*,*), 'FACT: ***** L, FACT = ', L, FACT
       RETURN
       END
 C=========================================================================
@@ -8004,7 +8014,7 @@ c
 c     use subroutine BESSEL
       call bessel(BJ,Z,N1-1,N1)
 c
-  270 CS = CMPLX(1.0,0.0)
+      CS = CMPLX(1.0,0.0)
       FL = 1.0
       DO 280 I = 1, N1
 cc    WRITE(6,*) 'i=',i,' BJ(i)=',BJ(i)
@@ -8431,18 +8441,18 @@ C
 130   FORMAT (' =========================== ')
 200   FORMAT (/' Initial Coordinates in Search ')
 210   FORMAT (' ============================= ')
-220   FORMAT (/' Line Search Information ')
-230   FORMAT (' ======================= ')
-240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
-250   FORMAT (/' Moving Atom Identifiers; ')
-260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
+!220   FORMAT (/' Line Search Information ')
+!230   FORMAT (' ======================= ')
+!240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
+!250   FORMAT (/' Moving Atom Identifiers; ')
+!260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
 270   FORMAT (/' Search Information; ')
 280   FORMAT (/' ALPHA =',F7.4,' BETA =',F7.4,' GAMMA =',F7.4)
 290   FORMAT (/' Max. Number of Iterations =',I3)
 300   FORMAT (/' Down-hill Simplex Search Requested')
 310   FORMAT (/' Powell Direction-set Requested')
 320   FORMAT (/' Direction Set with Principal Directions Requested')
-350   FORMAT (/' Line Search Requested')
+!350   FORMAT (/' Line Search Requested')
 C
 C Loop over the beamsets reading in the beam indices of each desired exit
 C beam.
@@ -8567,7 +8577,7 @@ C
 355   FORMAT (' LMAX = ',1I3)
 360   FORMAT ('E = ',1F7.4,'  1ST ELEMENT',3X,16F8.4)
 361   FORMAT (' ',11X,' ELEMENT # ',I2,3X,16F8.4)
-362   FORMAT (' ',11X,'  3RD ELEMENT',3X,16F8.4)
+!362   FORMAT (' ',11X,'  3RD ELEMENT',3X,16F8.4)
 C
       PI=3.14159265
       IF (IPR.GT.0) WRITE (1,140)
@@ -9424,7 +9434,7 @@ C
       DIMENSION MICUT(ICUT),MJCUT(ICUT)
       DIMENSION AK2M(NT0),AK3M(NT0)
 C
-1000  FORMAT (500(2E13.5,/))
+!1000  FORMAT (500(2E13.5,/))
 C
       A=2.0*E-2.0*VV-AK2M(NEXIT)**2-AK3M(NEXIT)**2
       DO 100 IC=1,ICUT
@@ -10692,7 +10702,7 @@ C
       IH = I + 1
       GO TO 110
 100   IF(X .LT. WORX(1)) GO TO 105
-102   IL = LENGTH - 1
+      IL = LENGTH - 1
       IH = LENGTH
       GO TO 110
 105   IL = 1
@@ -11648,12 +11658,12 @@ C
       COMMON /WIV/NBMAX,EEAVE(30),EEAVT(30)
       COMMON /RFACY/MAXB,IREN,ISMOTH,IRGEXP,NBE,NBED
 C
-501   FORMAT (' ======================= ')
-505   FORMAT (/' CONVERGENCE TOLERANCE ACHIEVED =',F7.6)
-506   FORMAT (/' COORDINATES AT MINIMUM;'/)
-510   FORMAT (3F9.4)
-514   FORMAT (1F7.4)
-515   FORMAT (' OPTIMUM VALUE OF INNER POTENTIAL =',1F7.4)
+!501   FORMAT (' ======================= ')
+!505   FORMAT (/' CONVERGENCE TOLERANCE ACHIEVED =',F7.6)
+!506   FORMAT (/' COORDINATES AT MINIMUM;'/)
+!510   FORMAT (3F9.4)
+!514   FORMAT (1F7.4)
+!515   FORMAT (' OPTIMUM VALUE OF INNER POTENTIAL =',1F7.4)
 C
 C define the vector P corresponding to the minimum configuration,
 C the set of directions along which to evaluate 
@@ -12107,7 +12117,7 @@ C MAXC is the maximum dimension of parameter space, TOL is the
 C tolerance in parameter space ( or fractional tolerance: see BRENT ) 
 C with which we accept this one dimensional minimization
 C
-      PARAMETER (MAXC=100 ,tol=3.e-2)
+      PARAMETER (MAXC=100 ,tol=1.e-4)
 C
       DIMENSION PCOM(MAXC),XICOM(MAXC)
       DIMENSION DIREC(NLAY,2,2),NDIML(NLAY),LSFLAG(NLAY)
@@ -12180,7 +12190,7 @@ C       endif
      & ATP,ATPP,TST,TSTY2,NST1,NST2,RAV,IBK,ROS,R1,R2,RP1,RP2,RPP1,
      & RPP2,RRZJ,RMZJ,RPE,EET,NET,AR,YT,LLFLAG,LSFLAG,IPR,
      & NDIML,DIREC,NLTIN,LPOINT)
-99     do 12 j=1,NNDIM
+      do 12 j=1,NNDIM
         xit(j)=xmin*xit(j)
         p(j)=p(j)+xit(j)
 12    continue
@@ -12311,6 +12321,7 @@ C
      & YT,NLTIN,LPOINT)
       IFUNC=IFUNC+1
       fa=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
       do 2 j=1,NNDIM
         xt(j)=pcom(j)+bx*xicom(j)
 2     continue
@@ -12324,6 +12335,7 @@ C
      & YT,NLTIN,LPOINT)
       IFUNC=IFUNC+1
       fb=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
       if(fb.gt.XMIN.AND.fa.gt.XMIN) then
         cx=bx
         fc=fb
@@ -12353,6 +12365,7 @@ C
      & YT,NLTIN,LPOINT)
       IFUNC=IFUNC+1
       fc=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
 1     if(fb.ge.fc)then
         r=(bx-ax)*(fb-fc)
         q=(bx-cx)*(fb-fa)
@@ -12372,6 +12385,7 @@ C
      & YT,NLTIN,LPOINT)
           IFUNC=IFUNC+1
           fu=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
           if(fu.lt.fc)then
             ax=bx
             fa=fb
@@ -12397,6 +12411,7 @@ C
      & YT,NLTIN,LPOINT)
           IFUNC=IFUNC+1
           fu=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
         else if((cx-u)*(u-ulim).gt.0.)then
           do 6 j=1,NNDIM
             xt(j)=pcom(j)+u*xicom(j)
@@ -12411,6 +12426,7 @@ C
      & YT,NLTIN,LPOINT)
           IFUNC=IFUNC+1
           fu=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
           if(fu.lt.fc)then
             bx=cx
             cx=u
@@ -12430,6 +12446,7 @@ C
      & YT,NLTIN,LPOINT)
             IFUNC=IFUNC+1
             fu=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
           endif
         else if((u-ulim)*(ulim-cx).ge.0.)then
           u=ulim
@@ -12446,6 +12463,7 @@ C
      & YT,NLTIN,LPOINT)
           IFUNC=IFUNC+1
           fu=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
         else
           u=cx+gold*(cx-bx)
           do 9 j=1,NNDIM
@@ -12461,6 +12479,7 @@ C
      & YT,NLTIN,LPOINT)
           IFUNC=IFUNC+1
           fu=fval
+cjcm      write(*,*) 'BRENT: ', IFUNC, fval
         endif
         ax=bx
         bx=cx
@@ -12631,12 +12650,15 @@ C
 515   FORMAT (' OPTIMUM VALUE OF INNER POTENTIAL =',1F7.4)
 516   FORMAT (/' NUMBER OF ITERATIONS =',1I3)
 520   FORMAT (' SEARCH HAS EXCEEDED MAXIMUM NUMBER OF ITERATIONS')
-521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
-522   FORMAT (' R-FACTOR =',1F7.4)
-523   FORMAT (I4,F7.4,70F7.4)
+!521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
+!522   FORMAT (' R-FACTOR =',1F7.4)
+!523   FORMAT (I4,F7.4,70F7.4)
 
-C?
-             IF(LRFLAG.EQ.0) THEN
+cjcm  del2 unitialized?
+      del2 = 0.0
+cjcm      write(*,*) 'powell: ******************************************'
+      
+      IF(LRFLAG.EQ.0) THEN
 C?
       SCAL=VSTEP/ASTEP
       IF (ISTART.EQ.0) THEN
@@ -12775,7 +12797,8 @@ C      I2=MCLOCK()
      & TSE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,ETH,DISP,
      & ATP,ATPP,TST,TSTY2,NST1,NST2,RAV,IBK,ROS,R1,R2,RP1,RP2,RPP1,
      & RPP2,RRZJ,RMZJ,RPE,EET,NET,AR,YT,LLFLAG,LSFLAG,IPR,
-     & NDIML,DIREC,NLTIN,LPOINT)
+     &      NDIML,DIREC,NLTIN,LPOINT)
+cjcm      write(*,*) 'powell: after linmin, i, fret', i, fret
 C      I3=MCLOCK()
 C      FTIME=FLOAT(I3-I2)
 C      CPU=FTIME/100.0
@@ -12789,12 +12812,14 @@ C
 C          write(*,*) 'ibig=',i
           ibig=i
       endif
-300   CONTINUE
+
 13    continue
       FRAC=2.*abs(fp-fret)/(abs(fp)+abs(fret))
 C
 C are we done?
 C
+cjcm
+cjcm      write(*,*) 'powell: ', iter, fret, frac
       if(FRAC.LE.FTOL2)GOTO 1001
       if(iter.eq.itmax)GOTO 1002  
 C
@@ -12861,7 +12886,10 @@ C
 C
 C Convergence achieved in R factor value. 
 C
-1001  CONTINUE
+ 1001 CONTINUE
+cjcm      
+cjcm      write(*,*) 'powell: converged ', iter, fret, frac
+cjcm      write(*,*) 'powell: ******************************************'
       CALL SETCOR2(LSFLAG,NDIML,DIREC,P,DISP,ADISP,
      & NLAY,NNDIM)
 
@@ -12940,7 +12968,6 @@ C      WRITE(0,*) 'rfacter = ',FVAL
              ENDIF
 C?
 Cga
- 152  CONTINUE
 
       powell = fret
 
@@ -13082,9 +13109,9 @@ C
 515   FORMAT (' OPTIMUM VALUE OF INNER POTENTIAL =',1F7.4)
 516   FORMAT (/' NUMBER OF ITERATIONS =',1I3)
 520   FORMAT (' SEARCH HAS EXCEEDED MAXIMUM NUMBER OF ITERATIONS')
-521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
-522   FORMAT (' R-FACTOR =',1F7.4)
-523   FORMAT (I4,F7.4,70F7.4)
+!521   FORMAT (' OTHER VERTICES HAVE COORDINATES; ')
+!522   FORMAT (' R-FACTOR =',1F7.4)
+!523   FORMAT (I4,F7.4,70F7.4)
 C
       SCAL=VSTEP/ASTEP
       IF (ISTART.EQ.0) THEN
@@ -13468,7 +13495,7 @@ C
 50    FORMAT ('AVERAGING SCHEME OF EXP. BEAMS',5(25I3,/))
 60    FORMAT (20A4)
 10    FORMAT (20A4)
-70    FORMAT ('EXP. BEAM ',1I3,' (',5A4,')')
+!70    FORMAT ('EXP. BEAM ',1I3,' (',5A4,')')
 35    FORMAT (1I3,1E13.4)
 36    FORMAT (5F7.4)
 80    FORMAT ('  EXP. ENERGIES AND INTENSITIES',/,50(5(1F7.2,1E13.4,
@@ -13619,8 +13646,8 @@ C
 C
       COMMON /ENY/EI,EF,DE,NERG,NSYM,NDOM,VV,VPIS
 C
-1000  FORMAT (3F7.4)
-1010  FORMAT (500(2E13.5,/))
+!1000  FORMAT (3F7.4)
+!1010  FORMAT (500(2E13.5,/))
 1020  FORMAT (' **** ERROR: ENERGIES FROM TLEED5 AND SHORT.T DO NOT 
      & AGREE ')
 C
@@ -14136,6 +14163,7 @@ C
             BARAV=AR(11)
 C            BV0=VO
          ENDIF
+!jcm         write(*,*) 'RFAC: BARAV(FVAL)', BARAV
       RETURN
       END
 C ==========================================================================
@@ -14161,13 +14189,13 @@ C
       COMMON /RFACY/MAXB,IREN,ISMOTH,IRGEXP,NBE,NBED
 C
 100   FORMAT (40I3)
-110   FORMAT (40F7.4)
+!110   FORMAT (40F7.4)
 140   FORMAT (/' Beam Averaging Information; ')
 150   FORMAT (' =========================== ')
 160   FORMAT (/' R-Factor Information; ')
 170   FORMAT (' ===================== ')
 180   FORMAT (/' Interpolation Step Size;',1F7.4)
-190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+!190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
 C
 C Read in the information needed to link together the experimental and
 C theoretical beams. If IBP(i)=IBP(j) then theoretical beams i and j will
@@ -15387,7 +15415,7 @@ C
 111   FORMAT (' RFAC',I2)
 500   FORMAT (/' THE NUMBER OF THEORETICAL AND EXPERIMENTAL BEAMS 
      & DISAGREE ')
-100   FORMAT(20A4)
+!100   FORMAT(20A4)
       IF (NBMAX.NE.NBE) THEN
          WRITE (48,500)
          RETURN

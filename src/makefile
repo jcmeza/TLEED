@@ -4,11 +4,11 @@
 ###############################################################
 # gcc compilers
 FC     = gfortran 
-FFLAGS  = -O2 -Wall -Wsurprising -Waliasing -std=f2008 -pedantic -fbacktrace -fcheck=bounds -Wuninitialized
-#FFLAGS  = -O2 -fimplicit-none -Wall -Wline-truncation -Wcharacter-truncation -Wsurprising -Waliasing -Wimplicit-interface -Wunused-parameter -std=f2008 -pedantic -fbacktrace -Wuninitialized
+FFLAGS  = -O2 -Wall -Wsurprising -Waliasing  -fbacktrace -fcheck=bounds -Wuninitialized -fdefault-real-8
+
 # Intel compiler
 #FC     = ifort 
-#FFLAGS	= -g -O0 -check bounds -check stack -traceback  	
+#FFLAGS	= -O -check bounds -check stack -traceback -autodouble  	
 
 FLINKER = $(FC)
 ###############################################################
@@ -37,4 +37,4 @@ runkleed.exe: runkleed.o evalkleed.o kleedsub.o kleedlib.o
 	$(FC) $(FFLAGS) -o runkleed.exe runkleed.o evalkleed.o kleedsub.o kleedlib.o
 
 clean:
-	rm -f *.o *.exe *~
+	rm -f *.o *.exe *~ *.f90 *.mod

@@ -13,21 +13,23 @@ c
       real  xparm(42),minb(42), maxb(42)
       real  fx, t1, t2
       integer ntype(nmax), dir, rank, num_fcn
+      integer maxfcn
 
       data_dir = "./tleed_data"
       problem_dir = "."
       dir   = 0
       rank  = 0
+      maxfcn = 10
 c
 c     open parms file
 c
       parmsfile = trim(data_dir)//'/tleedparms.dat'
       open(unit=3,file=parmsfile,status='old')
       
-      do num_fcn=1,10
+      do num_fcn=1,maxfcn
 
          write(*,*) '******************************'
-         write(*,*) 'runkleed: num_fcn = ', num_fcn
+         write(*,*) 'runtleed: num_fcn = ', num_fcn
          call setuptleed(ntype,xparm,minb,maxb)
 
          call cpu_time(t1)
@@ -89,15 +91,15 @@ c
       return
       end
 
-c     dummy routine for debugging purposes
-      
-      subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
-     &     ntype,fx)
-      
-      PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
-      REAL XPARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FX
-      INTEGER DIR,RANK,NTYPE(NMAX)
-      character*(*) problem_dir
-     
-      return
-      end
+cjcm     dummy routine for debugging purposes
+!      
+!      subroutine evaltleedstub(problem_dir,dir,rank,xparm,minb,maxb,
+!     &     ntype,fx)
+!      
+!      PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
+!      REAL XPARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FX
+!      INTEGER DIR,RANK,NTYPE(NMAX)
+!      character*(*) problem_dir
+!     
+!      return
+!      end

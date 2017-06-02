@@ -85,7 +85,7 @@
   2  0  0                          MFLAG NGRID NIV          
 100                                ITMAX                    
  1.0000 0.5000 2.0000              ALPHA,BETA,GAMMA         
- 0.0005 0.0020                     FTOL1,FTOL2              
+ 0.0005 0.000001                     FTOL1,FTOL2              
  30  .01000                        NSTEP,STSZ               
 1.000  0.000  0.000  0.000                                  
 1.000  1.000  0.000  0.000                                  
