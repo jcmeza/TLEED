@@ -37,12 +37,10 @@ c    length, then ANGLE_RAD_2D is set to 0.
 c
 c  implicit none
 
-        PARAMETER (PI=3.141592653589793D+00)
+        real, parameter :: PI = 3.141592653589793D+00
 
         REAL      P,P1,P2,P3
         DIMENSION P(2),P1(2),P2(2),P3(2)  
-
-
 
 
         p(1) = ( p3(1) - p2(1) ) * ( p1(1) - p2(1) ) + 
@@ -60,7 +58,7 @@ c  implicit none
         ENDIF
 
         IF (ANGLE_RAD_2D.LT.0.0D+00) THEN
-            angle_rad_2d = angle_rad_2d + 2.0D+00 * pi
+            angle_rad_2d = angle_rad_2d + 2.0 * pi
         ELSE
         ENDIF
 
@@ -443,7 +441,7 @@ C
       IH = I + 1
       GO TO 110
 100   IF(X .LT. WORX(1)) GO TO 105
-102   IL = LENGTH - 1
+      IL = LENGTH - 1
       IH = LENGTH
       GO TO 110
 105   IL = 1
@@ -474,7 +472,7 @@ C======================================================================
 C
       FUNCTION BLMT(L1,M1,L2,M2,L3,M3,LMAX)
 C
-      DOUBLEPRECISION FAC(100),a,b,bn,c,cn,blmt
+      REAL FAC(100),a,b,bn,c,cn,blmt
 C
       COMMON /F/FAC
 C
@@ -666,7 +664,7 @@ C============================================================================
 C
       FUNCTION CA(L1,MA1,L2,M2,L3,MA3)
 C
-      DOUBLEPRECISION yint,del,pref,prefa,prefb,preft,sum
+      REAL yint,del,pref,prefa,prefb,preft,sum
 C
       M1=-MA1
       M3=-MA3
@@ -729,7 +727,7 @@ C
       SUBROUTINE CELMG(CLM,NLM,YLM,FAC2,NN,FAC1,N,LMAX)
 C
       DIMENSION CLM(NLM),YLM(NN),FAC2(NN),FAC1(N)
-      DOUBLEPRECISION FAC(100),blmt,a,b
+      REAL FAC(100),blmt,a,b
 C
       COMMON /F/FAC
 C
@@ -898,7 +896,7 @@ C
       SUBROUTINE CPPP(PPP,N1,N2,N3)
 C
       DIMENSION PPP(N1,N2,N3)
-      DOUBLEPRECISION F(100),SUM,A
+      REAL F(100),SUM,A
 C
       COMMON /F/F
 C
@@ -1188,7 +1186,7 @@ C
 120   FORMAT(/' ERROR IN READE:MORE EXPERIMENTAL BEAMS THAN HAVE BEEN 
      & DIMENSIONED')
 CAGL hurrengo lerroa
-50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
+!50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
 
 C
 C  READ AND PRINT DESCRIPTION OF EXPERIMENT
@@ -1322,7 +1320,7 @@ C
 C
 110   FORMAT (48H EXP. ENERG. AND INTENS. AFTER AVERAGING IN BEAM,1I4,
      & /,50(5(1F7.2,1E13.4,3X),/))
-30    FORMAT (5(25I3,/))
+!30    FORMAT (5(25I3,/))
 
 C
       NBE=1
@@ -1413,15 +1411,16 @@ C=========================================================================
 C
       FUNCTION FACT(L)
 C
-      DOUBLEPRECISION DFACT,X
+      REAL DFACT,X
 C
       IF (L.GT.4) THEN
          X=L+1
-         DFACT=DEXP(-X)*(10.0D0**((X-0.5D0)*DLOG10(X)-(X-1.0D0)))*
-     &    (DSQRT(6.283185307179586D0))*(1.0+(1.0/(12.0*X))+(1.0/
+         DFACT=EXP(-X)*(10.0D0**((X-0.5D0)*LOG10(X)-(X-1.0D0)))*
+     &    (SQRT(6.283185307179586D0))*(1.0+(1.0/(12.0*X))+(1.0/
      &    (288.0D0*(X**2)))-(139.0D0/(51840.0D0*(X**3)))-(571.0D0/
      &    (2488320.0D0*(X**4))))
-         FACT=SNGL(DFACT)
+!         FACT=SNGL(DFACT)
+         FACT=DFACT
       ELSE
          IF (L.EQ.0) FACT=1.0
          IF (L.EQ.1) FACT=0.1
@@ -1950,19 +1949,20 @@ C ==========================================================================
 C
 CAGL      SUBROUTINE INTENTF(NLAY,ADISP,PSQ,NTAU,NT0,
        FUNCTION VINTENTF(NLAY,ADISP,PSQ,NTAU,NT0,
-     & PHSSEL,EI,EF,DE,
-     & NL1,NL2,IELEMOLTF,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
-     & INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
-     & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
+     &     PHSSEL,EI,EF,DE,
+     &     NL1,NL2,IELEMOLTF,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
+     &     INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
+     &     SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,
+     &     NERG,L1,ITEMP)
 C
       DIMENSION ADISP(NLAY,3)
       DIMENSION PSQ(2,NT0),PQFEX(2,NT0)
       DIMENSION AT(NT0,NERG)  
       DIMENSION AT2(NT0,IEERG)  
       DIMENSION ETH(NT0,IEERG)
-	DIMENSION ASA(10,3)
+      DIMENSION ASA(10,3)
 cjcm need to add dimension for missing parameters to rfactf
-	DIMENSION AP(INBED,IEERG), APP(INBED,IEERG), YE(INBED,IEERG)
+      DIMENSION AP(INBED,IEERG), APP(INBED,IEERG), YE(INBED,IEERG)
       DIMENSION AE(INBED,IEERG),EE(INBED,IEERG),NEE(INBED),YPL(IEERG)
       DIMENSION NBEA(INBED),BENAME(5,INBED),XPL(IEERG),NNN(IEERG)
       DIMENSION TSE(INBED),TSE2(INBED),TSEP(INBED),TSEP2(INBED)
@@ -1996,9 +1996,9 @@ C
       COMMON /WIV2/PERSH,NIV,NSE1(30),NSE2(30)
       COMMON /NSTR/VOPT,NNST,NNSTEF
 C
-1000  FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/,13X,1HX,14X,1HY,14X,
-     & 1HZ)
-1010  FORMAT (7X,F10.7,2(5X,F10.7))
+!1000  FORMAT (/,10X,25HCOORDINATES AFTER SORTING,/,13X,1HX,14X,1HY,14X,
+!     & 1HZ)
+!1010  FORMAT (7X,F10.7,2(5X,F10.7))
 500   FORMAT (/' DIRECTION SET SEARCH COMPLETE ')
 501   FORMAT (' ======================= ')
 502   FORMAT (' DIMENSIONALITY OF SEARCH=',I5)
@@ -2020,7 +2020,7 @@ C
         CI=CMPLX(0.0,1.0)
 
         ANORM1=1.0E-6
-c        ANORM1=1.0E-16
+        ANORM1=1.0E-16
 
 
 C
@@ -2857,9 +2857,9 @@ c        implicit none
 
 
         REAL DPB1,DPB2
-        REAL P, Q1,Q2,Q3,Q4
-        REAL RX,RY,RXM11,RXP11,RYP12,RXM12
-        REAL RXM21,RXP21,RYP22,RXM22
+        REAL Q1,Q2,Q3,Q4
+        REAL RX,RY,RXM11,RXP11,RYP12
+        REAL RXM21,RXP21,RYP22
         DIMENSION P(2), Q1(2),Q2(2),Q3(2),Q4(2)
         DIMENSION PB(200,2),AB1(2),AB2(2),PBC(4,2)
         DIMENSION PBB(200,2)
@@ -3005,12 +3005,6 @@ c          ELSE
             ELSE
             ENDIF
            ENDIF
-
-
-
-
-401        CONTINUE
-
 
 103        CONTINUE
 102        CONTINUE              
@@ -3356,7 +3350,7 @@ C
 50    FORMAT (30HAVERAGING SCHEME OF EXP. BEAMS,5(25I3,/))
 60    FORMAT (20A4)
 10    FORMAT (20A4)
-70    FORMAT (10HEXP. BEAM ,1I3,2H (,5A4,1H))
+!70    FORMAT (10HEXP. BEAM ,1I3,2H (,5A4,1H))
 35    FORMAT (1I3,1E13.4)
 36    FORMAT (5F7.4)
 80    FORMAT (31H  EXP. ENERGIES AND INTENSITIES,/,50(5(1F7.2,1E13.4,
@@ -3446,18 +3440,18 @@ C
 130   FORMAT (' =========================== ')
 200   FORMAT (/' Initial Coordinates in Search ')
 210   FORMAT (' ============================= ')
-220   FORMAT (/' Line Search Information ')
-230   FORMAT (' ======================= ')
-240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
-250   FORMAT (/' Moving Atom Identifiers; ')
-260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
+!220   FORMAT (/' Line Search Information ')
+!230   FORMAT (' ======================= ')
+!240   FORMAT (/' Moving coordinate ',I3,' with ',I3,' moving atoms ')
+!250   FORMAT (/' Moving Atom Identifiers; ')
+!260   FORMAT (/' Number of steps in Line Search ',I3,' Step Size',F7.4)
 270   FORMAT (/' Search Information; ')
 280   FORMAT (/' ALPHA =',F7.4,' BETA =',F7.4,' GAMMA =',F7.4)
 290   FORMAT (/' Max. Number of Iterations =',I3)
 300   FORMAT (/' Down-hill Simplex Search Requested')
 310   FORMAT (/' Powell Direction-set Requested')
 320   FORMAT (/' Direction Set with Principal Directions Requested')
-350   FORMAT (/' Line Search Requested')
+!350   FORMAT (/' Line Search Requested')
 C
 C Loop over the beamsets reading in the beam indices of each desired exit
 C beam.
@@ -4247,12 +4241,13 @@ C
                   DO 220 I=1,10
                      WS=WS+WR(I)
 220               CONTINUE
-                  RAV(IBE)=(WR(1)*ROS(IBE)+WR(2)*R1(IBE)+WR(3)*R2
-     &             (IBE)+WR(4)*RP1(IBE)+WR(5)*RP2(IBE)+WR(6)*RPP1
-     &             (IBE)+WR(7)*RPP2(IBE)+WR(8)*RRZJ(IBE)+WR(9)
-     &             *RMZJ(IBE)+WR(10)*RPE(IBE))/WS
-                  ARAV=ARAV+WB(IBE)*EET(IBE)*RAV(IBE)
-                  ERANG=ERANG+WB(IBE)*EET(IBE)
+                  RAV(IBE)=(
+     &               WR(1)*ROS(IBE) + WR(2)*R1(IBE) + WR(3)*R2(IBE) +
+     &               WR(4)*RP1(IBE) + WR(5)*RP2(IBE) + WR(6)*RPP1(IBE) + 
+     &               WR(7)*RPP2(IBE)+ WR(8)*RRZJ(IBE)+ WR(9)*RMZJ(IBE) +
+     &               WR(10)*RPE(IBE)) / WS
+                  ARAV = ARAV + WB(IBE)*EET(IBE)*RAV(IBE)
+                  ERANG= ERANG + WB(IBE)*EET(IBE)
                ENDIF
 C
 C EITHER IBE OR IBT IS 0. THEREFOE, DON'T BOTHER WITH THIS BEAM
@@ -4280,6 +4275,7 @@ C
             BARAV=AR(11)
 C            BV0=VO
          ENDIF
+!jcm         write(*,*) 'RFAC: BARAV(FVAL)', BARAV
       RETURN
       END
 
@@ -4316,7 +4312,7 @@ C
 160   FORMAT (/' R-Factor Information; ')
 170   FORMAT (' ===================== ')
 180   FORMAT (/' Interpolation Step Size;',1F7.4)
-190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+!190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
 C
 C Read in the information needed to link together the experimental and
 C theoretical beams. If IBP(i)=IBP(j) then theoretical beams i and j will
@@ -4394,7 +4390,7 @@ C
 160   FORMAT (/' R-Factor Information; ')
 170   FORMAT (' ===================== ')
 180   FORMAT (/' Interpolation Step Size;',1F7.4)
-190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
+!190   FORMAT (' Inner Potential Range;',2F7.4,' Step Size ',1F7.4)
 C
 C Read in the information needed to link together the experimental and
 C theoretical beams. If IBP(i)=IBP(j) then theoretical beams i and j will
@@ -5520,10 +5516,10 @@ C110   FORMAT (11H#TitleText: ,5A4,6H Beam ,5A4,5H Rfac,I2,
 C     & 1H=,F5.4)
 110   FORMAT (11H#TitleText: ,5A4,6H Beam ,5A4,5H Rfac,I2,
      & 1H=,F13.4)
-111   FORMAT (5H RFAC,I2)
+!111   FORMAT (5H RFAC,I2)
 500   FORMAT (/' THE NUMBER OF THEORETICAL AND EXPERIMENTAL BEAMS 
      & DISAGREE ')
-100   FORMAT(20A4)
+!100   FORMAT(20A4)
       IF (NBMAX.NE.NBE) THEN
          WRITE (48,500)
          RETURN
@@ -5572,14 +5568,12 @@ C
       NBB=NOUT+NBEAMS-1
       DO 1 I=1,NBE
           IF (NOUT.LE.NBB) THEN
-c              IF (I.LT.10) IVNAME='/scratch/aran/run1/'//IV//NC(I)
-c              IF (I.GE.10) IVNAME='/scratch/aran/run1/'//IV//NC2(I-9)
-              IF (I.LT.10) IVNAME='./kleedIV/'//IV//NC(I)
-              IF (I.GE.10) IVNAME='./kleedIV/'//IV//NC2(I-9)
+              IF (I.LT.10) IVNAME='./kwork000/'//IV//NC(I)
+              IF (I.GE.10) IVNAME='./kwork000/'//IV//NC2(I-9)
               OPEN(UNIT=NOUT,FILE=IVNAME,STATUS='UNKNOWN')
               WRITE (NOUT,110) (TITLE(II),II=1,5),
      &        (BENAME(II,I),II=1,5),NRFAC,RFAC(I) 
-              WRITE (NOUT,*) '#"IV exp'
+              WRITE (NOUT,*) 'IV exp'
           ENDIF  
 C         DO 2 K=1,NEE(I)
           DO 2 K=NSE1(I),NSE2(I)
@@ -5609,14 +5603,12 @@ C
       NBB=NOUT2+NBEAMS-1
       DO 3 I=1,NBE
            IF (NOUT2.LE.NBB) THEN
-c              IF (I.LT.10) IVNAME2='/scratch/aran/run1/'//IV2//NC(I)
-c              IF (I.GE.10) IVNAME2='/scratch/aran/run1/'//IV2//NC2(I-9)
-              IF (I.LT.10) IVNAME2='./kleedIV/' //IV2//NC(I)
-              IF (I.GE.10) IVNAME2='./kleedIV/'//IV2//NC2(I-9)
+              IF (I.LT.10) IVNAME2='./kwork000/' //IV2//NC(I)
+              IF (I.GE.10) IVNAME2='./kwork000/'//IV2//NC2(I-9)
               OPEN(UNIT=NOUT2,FILE=IVNAME2,STATUS='UNKNOWN')
               WRITE (NOUT2,110) (TITLE(II),II=1,5),
      &        (BENAME(II,I),II=1,5),NRFAC,RFAC(I)
-              WRITE (NOUT2,*) '#"IV theory'
+              WRITE (NOUT2,*) 'IV theory'
           ENDIF
 
         IBT=IBK(I)

@@ -10,7 +10,7 @@ c       subroutine kleed(problem_dir,dir,rank,nerror_report,rfactor)
       character*(*) :: dir
       character*(*) :: rank
       character(len=100) :: kleed4i, kleed5i
-      character(len=100) :: tleedo,gleedo,searchs,prdird,restartd
+      character(len=100) :: kleedo,gleedo,searchs,prdird,restartd
       character(len=100) :: expdotd,rfacdotd
       character(len=100) :: xpin
       real :: rfactor
@@ -263,8 +263,8 @@ cjcm      write(*,*) "kleedsub: problem_dir: ", trim(problem_dir)
 C
 C Now output channels
 C
-      tleedo = trim(problem_dir)//'/tleedo'
-      OPEN (UNIT=1,FILE=tleedo,STATUS='unknown')
+      kleedo = trim(problem_dir)//'/kleedo'
+      OPEN (UNIT=1,FILE=kleedo,STATUS='unknown')
       rewind(1)
 
       searchs = trim(problem_dir)//'/searchs'
@@ -287,7 +287,8 @@ C
 C
 C  EMACH is machine accuracy.
 C
-      EMACH=1.0E-6
+cjcm
+      EMACH=1.0E-16
 C
 C Read in pass number, print control parameter and dummy parameter for
 C consistency with TLEED2

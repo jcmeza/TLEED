@@ -1,0 +1,42 @@
+ ******************************
+ runkleed: num_fcn =            1
+ evalkleed: valid structure
+ runkleed:    1.0403998292511840       0.11138999999999999     
+ ******************************
+ runkleed: num_fcn =            2
+ evalkleed: valid structure
+ runkleed:   0.90386347085819541       0.10997400000000000     
+ ******************************
+ runkleed: num_fcn =            3
+ evalkleed: valid structure
+ runkleed:   0.87470986406132323       0.10648700000000000     
+ ******************************
+ runkleed: num_fcn =            4
+ evalkleed: valid structure
+ runkleed:    1.0153964867353777        9.9528000000000005E-002
+ ******************************
+ runkleed: num_fcn =            5
+ evalkleed: valid structure
+ runkleed:   0.91453294498748916       0.10188199999999997     
+ ******************************
+ runkleed: num_fcn =            6
+ evalkleed: valid structure
+ runkleed:   0.95293725647532745       0.11013000000000006     
+ ******************************
+ runkleed: num_fcn =            7
+ Invalid structure, return for GRAVSTUC
+ evalkleed: invalid structure
+ runkleed:    1.6000000000000001        2.4599999999996847E-004
+ ******************************
+ runkleed: num_fcn =            8
+ Invalid structure, return for GRAVSTUC
+ evalkleed: invalid structure
+ runkleed:    1.6000000000000001        1.2199999999995548E-004
+ ******************************
+ runkleed: num_fcn =            9
+ evalkleed: valid structure
+ runkleed:    1.1093527213356951       0.10986700000000005     
+ ******************************
+ runkleed: num_fcn =           10
+ evalkleed: valid structure
+ runkleed:   0.97725116013355662       0.10920300000000005     
