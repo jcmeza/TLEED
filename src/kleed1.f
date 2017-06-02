@@ -616,7 +616,8 @@ c  Experimental results stored in ivexp# files
        rfactor = VINTENTF(INLTOT,DISP,PSQ,INTAU,NT0,PHSSEL,EI,EF,DE,
      & NL1,NL2,IELEMOL2,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
      & INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
-     & SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP)
+     &       SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,ITEMP,
+     &     problem_dir)
 
 c	write(*,*) 'kleed1: rfactor',rfactor
 c	CLOSE(4)

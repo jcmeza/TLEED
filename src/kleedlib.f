@@ -1953,8 +1953,9 @@ CAGL      SUBROUTINE INTENTF(NLAY,ADISP,PSQ,NTAU,NT0,
      &     NL1,NL2,IELEMOLTF,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
      &     INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
      &     SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,
-     &     NERG,L1,ITEMP)
+     &     NERG,L1,ITEMP,problem_dir)
 C
+       character*(*) :: problem_dir
       DIMENSION ADISP(NLAY,3)
       DIMENSION PSQ(2,NT0),PQFEX(2,NT0)
       DIMENSION AT(NT0,NERG)  
@@ -2324,7 +2325,7 @@ cjcm        write(*,*) 'before wrivtf'
         CALL WRIVTF(AT2,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,
      & IBK,WR,WB,
      & ROS,R1,R2,RP1,RP2,RPP1,RPP2,RRZJ,RMZJ,RPE,BENAME,
-     & NBE,NST1,NST2)
+     & NBE,NST1,NST2,problem_dir)
 c      VOPT=VOPT+DVOPT+VV*27.21
       WRITE (2,505) FRAC
       WRITE (2,502) NNDIM
@@ -5487,7 +5488,8 @@ C ==========================================================================
 C
       SUBROUTINE WRIVTF(AT,ETH,AE,EE,NET,NEE,IEERG,NT0,NBED,VOPT,IBK,
      & WR,WB,ROS,R1,R2,RP1,RP2,RPP1,RPP2,RRZJ,RMZJ,RPE,BENAME,
-     & NBE,NST1,NST2)
+     &     NBE,NST1,NST2,problem_dir)
+      character*(*) :: problem_dir
 C
       DIMENSION ETH(NT0,IEERG),AT(NT0,IEERG)
       DIMENSION AE(NBED,IEERG),EE(NBED,IEERG)
@@ -5499,8 +5501,7 @@ C
       CHARACTER(LEN=5) IV
       CHARACTER(LEN=2) NC2(21)
       CHARACTER(LEN=4) IV2
-      CHARACTER(LEN=100) IVNAME
-      CHARACTER(LEN=100) IVNAME2
+      CHARACTER(LEN=100) IVROOT, IVNAME, IVNAME2
 C
       COMMON /WIV/NBMAX,EEAVE(30),EEAVT(30)
       COMMON /WIV2/PERSH,NIV,NSE1(30),NSE2(30)
@@ -5562,23 +5563,24 @@ C write down the experimental beams(remembering the shift in intensity
 C for the Pendry Rfactor)
 C
       IV='ivexp'
+      IVROOT=trim(problem_dir)//'/'//IV
 
       NBEAMS=NBE
       NOUT=48
       NBB=NOUT+NBEAMS-1
       DO 1 I=1,NBE
-          IF (NOUT.LE.NBB) THEN
-              IF (I.LT.10) IVNAME='./kwork000/'//IV//NC(I)
-              IF (I.GE.10) IVNAME='./kwork000/'//IV//NC2(I-9)
-              OPEN(UNIT=NOUT,FILE=IVNAME,STATUS='UNKNOWN')
-              WRITE (NOUT,110) (TITLE(II),II=1,5),
-     &        (BENAME(II,I),II=1,5),NRFAC,RFAC(I) 
-              WRITE (NOUT,*) 'IV exp'
-          ENDIF  
-C         DO 2 K=1,NEE(I)
-          DO 2 K=NSE1(I),NSE2(I)
-                E=EE(I,K) 
-                ZI=AE(I,K)
+         IF (NOUT.LE.NBB) THEN
+            IF (I.LT.10) IVNAME=trim(IVROOT)//NC(I)
+            IF (I.GE.10) IVNAME=trim(IVROOT)//NC2(I-9)
+            OPEN(UNIT=NOUT,FILE=IVNAME,STATUS='UNKNOWN')
+            WRITE (NOUT,110) (TITLE(II),II=1,5),
+     &           (BENAME(II,I),II=1,5),NRFAC,RFAC(I) 
+            WRITE (NOUT,*) 'IV exp'
+         ENDIF  
+C     DO 2 K=1,NEE(I)
+         DO 2 K=NSE1(I),NSE2(I)
+            E=EE(I,K) 
+            ZI=AE(I,K)
 C
 C shift according to an average intensities for all beams
 C
@@ -5599,12 +5601,13 @@ C
 
 
       IV2='ivth'
+      IVROOT=trim(problem_dir)//'/'//IV2
       NOUT2=48
       NBB=NOUT2+NBEAMS-1
       DO 3 I=1,NBE
            IF (NOUT2.LE.NBB) THEN
-              IF (I.LT.10) IVNAME2='./kwork000/' //IV2//NC(I)
-              IF (I.GE.10) IVNAME2='./kwork000/'//IV2//NC2(I-9)
+            IF (I.LT.10) IVNAME2=trim(IVROOT)//NC(I)
+            IF (I.GE.10) IVNAME2=trim(IVROOT)//NC2(I-9)
               OPEN(UNIT=NOUT2,FILE=IVNAME2,STATUS='UNKNOWN')
               WRITE (NOUT2,110) (TITLE(II),II=1,5),
      &        (BENAME(II,I),II=1,5),NRFAC,RFAC(I)
