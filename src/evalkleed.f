@@ -93,7 +93,7 @@ C********************************************************
       real parm_t(NMAX,NDIM)
       integer ntype_t(NMAX)
 
-      DOUBLE PRECISION PARM_out(NMAX,NDIM)
+      real PARM_out(NMAX,NDIM)
 
 
       INTEGER DIR,RANK,NTYPE(NMAX)

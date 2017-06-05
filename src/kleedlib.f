@@ -37,7 +37,7 @@ c    length, then ANGLE_RAD_2D is set to 0.
 c
 c  implicit none
 
-        real, parameter :: PI = 3.141592653589793D+00
+        real, parameter :: PI = 3.141592653589793d0
 
         REAL      P,P1,P2,P3
         DIMENSION P(2),P1(2),P2(2),P3(2)  
@@ -1415,18 +1415,18 @@ C
 C
       IF (L.GT.4) THEN
          X=L+1
-         DFACT=EXP(-X)*(10.0D0**((X-0.5D0)*LOG10(X)-(X-1.0D0)))*
-     &    (SQRT(6.283185307179586D0))*(1.0+(1.0/(12.0*X))+(1.0/
-     &    (288.0D0*(X**2)))-(139.0D0/(51840.0D0*(X**3)))-(571.0D0/
-     &    (2488320.0D0*(X**4))))
+         DFACT=EXP(-X)*(10.0d0**((X-0.5d0)*LOG10(X)-(X-1.0d0)))*
+     &    (SQRT(6.283185307179586d0))*(1.0d0+(1.0d0/(12.0d0*X))+(1.0d0/
+     &    (288.0d0*(X**2)))-(139.0d0/(51840.0d0*(X**3)))-(571.0d0/
+     &    (2488320.0d0*(X**4))))
 !         FACT=SNGL(DFACT)
          FACT=DFACT
       ELSE
-         IF (L.EQ.0) FACT=1.0
-         IF (L.EQ.1) FACT=0.1
-         IF (L.EQ.2) FACT=0.02
-         IF (L.EQ.3) FACT=6.0*0.001
-         IF (L.EQ.4) FACT=24.0*0.0001
+         IF (L.EQ.0) FACT=1.0d0
+         IF (L.EQ.1) FACT=0.1d0
+         IF (L.EQ.2) FACT=0.02d0
+         IF (L.EQ.3) FACT=6.0*0.001d0
+         IF (L.EQ.4) FACT=24.0*0.0001d0
       ENDIF
       RETURN
       END
@@ -1948,43 +1948,51 @@ C Author: Garcia-Lekue
 C ==========================================================================
 C
 CAGL      SUBROUTINE INTENTF(NLAY,ADISP,PSQ,NTAU,NT0,
-       FUNCTION VINTENTF(NLAY,ADISP,PSQ,NTAU,NT0,
+       REAL FUNCTION VINTENTF(NLAY,ADISP,PSQ,NTAU,NT0,
      &     PHSSEL,EI,EF,DE,
      &     NL1,NL2,IELEMOLTF,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
      &     INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
      &     SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,
      &     NERG,L1,ITEMP,problem_dir)
-C
+Cjcm
+c declare parameters
+c
+       integer NLAY, NTAU, NT0, NL1, NL2, INVECT
+       integer INBED, IEERG, IPR, NERG, L1, ITEMP
+       integer NEE(INBED), NBEA(INBED), IBP(NT0), IELEMOLTF(NLAY)
        character*(*) :: problem_dir
-      DIMENSION ADISP(NLAY,3)
-      DIMENSION PSQ(2,NT0),PQFEX(2,NT0)
-      DIMENSION AT(NT0,NERG)  
-      DIMENSION AT2(NT0,IEERG)  
-      DIMENSION ETH(NT0,IEERG)
-      DIMENSION ASA(10,3)
+       real ADISP(NLAY,3), PSQ(2,NT0), PQFEX(2,NT0)
+       real AT(NT0,NERG)  
+       real AT2(NT0,IEERG)  
+       real ETH(NT0,IEERG)
+       real ASA(10,3)
+       
 cjcm need to add dimension for missing parameters to rfactf
-      DIMENSION AP(INBED,IEERG), APP(INBED,IEERG), YE(INBED,IEERG)
-      DIMENSION AE(INBED,IEERG),EE(INBED,IEERG),NEE(INBED),YPL(IEERG)
-      DIMENSION NBEA(INBED),BENAME(5,INBED),XPL(IEERG),NNN(IEERG)
-      DIMENSION TSE(INBED),TSE2(INBED),TSEP(INBED),TSEP2(INBED)
-      DIMENSION TSEPP(INBED),WR(10),WB(NT0),TSEPP2(INBED)
-      DIMENSION TSEY(INBED), TSEY2(INBED),IBP(NT0)
-      DIMENSION ATP(NT0,IEERG),ATPP(NT0,IEERG),TST(NT0),TSTY2(NT0)
-      DIMENSION NST1(NT0),NST2(NT0),RAV(NT0),IBK(NT0),EET(NT0)
-      DIMENSION ROS(NT0),R1(NT0),R2(NT0),RP1(NT0),RP2(NT0),RPP1(NT0)
-      DIMENSION RPP2(NT0),RRZJ(NT0),RMZJ(NT0),RPE(NT0),NET(NT0)
-      DIMENSION AR(11),YT(NT0,IEERG)
-      DIMENSION LPS2(NLAY),IELEMOLTF(NLAY)
-      DIMENSION POSTF(30,3), WPOSTF(100,3)
-      DIMENSION SPOSTF1(30,3)
-      DIMENSION SPOSTF(20,30,3)
-      DIMENSION PLGND(L1)
-      COMPLEX F(3),FS,FJ
-      COMPLEX AAK,AAJ,PRE,CI
-      COMPLEX XIST(NT0,NERG)
-      COMPLEX PHSSEL(NERG,NTAU,L1),PHSS(NTAU,L1)
-      COMPLEX XISTF,XISTFOL,XISTFS,XISTFSTOT,XISTFS1
-      COMPLEX CAPPA
+      real AP(INBED,IEERG), APP(INBED,IEERG), YE(INBED,IEERG)
+      real AE(INBED,IEERG),EE(INBED,IEERG),YPL(IEERG)
+      integer NNN(IEERG)
+      real BENAME(5,INBED),XPL(IEERG)
+      real TSE(INBED),TSE2(INBED),TSEP(INBED),TSEP2(INBED)
+      real TSEPP(INBED),WR(10),WB(NT0),TSEPP2(INBED)
+      real TSEY(INBED), TSEY2(INBED)
+      real ATP(NT0,IEERG),ATPP(NT0,IEERG),TST(NT0),TSTY2(NT0)
+      integer NST1(NT0),NST2(NT0),IBK(NT0)
+      real RAV(NT0), EET(NT0)
+      real ROS(NT0),R1(NT0),R2(NT0),RP1(NT0),RP2(NT0),RPP1(NT0)
+      real RPP2(NT0),RRZJ(NT0),RMZJ(NT0),RPE(NT0)
+      integer NET(NT0)
+      real AR(11),YT(NT0,IEERG)
+      integer LPS2(NLAY)
+      real POSTF(30,3), WPOSTF(100,3)
+      real SPOSTF1(30,3)
+      real SPOSTF(20,30,3)
+      real PLGND(L1)
+      complex F(3),FS,FJ
+      complex AAK,AAJ,PRE,CI
+      complex XIST(NT0,NERG)
+      complex PHSSEL(NERG,NTAU,L1),PHSS(NTAU,L1)
+      complex XISTF,XISTFOL,XISTFS,XISTFSTOT,XISTFS1
+      complex CAPPA
 C
       COMMON /VINY/VMIN,VMAX,DV,EINCR,THETA(1),FI(1)
       COMMON /ADS/ASL,FR,ASE,VPIS,VPIO,VO,VV

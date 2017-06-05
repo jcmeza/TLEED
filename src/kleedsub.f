@@ -14,7 +14,7 @@ c       subroutine kleed(problem_dir,dir,rank,nerror_report,rfactor)
       character(len=100) :: expdotd,rfacdotd
       character(len=100) :: xpin
       real :: rfactor
-
+      real VINTENF
 
 C
 C PROGRAM DESCRIPTION:
@@ -660,14 +660,14 @@ c  Experimental results stored in ivexp# files
 98        CONTINUE
 99        CONTINUE
         
-       write(*,*) 'kleedsub: compute rfactor in vintentf'
-       write(*,*) 'NT0 = ', NT0
+c       write(*,*) 'kleedsub: compute rfactor in vintentf'
+c       write(*,*) 'NT0 = ', NT0
        rfactor = VINTENTF(INLTOT,DISP,PSQ,INTAU,NT0,PHSSEL,EI,EF,DE,
      & NL1,NL2,IELEMOL2,WPOSTF,TVA,SPOSTF1,PQFEX,ASA,INVECT,
      & INBED,IEERG,AE,EE,NEE,NBEA,BENAME,IPR,AP,APP,YE,
      &      SE,TSE2,TSEP,TSEP2,TSEPP,TSEPP2,TSEY2,WR,WB,IBP,NERG,L1,
      &      ITEMP, problem_dir)
-       write(*,*) 'kleedsub: after vintentf'
+c       write(*,*) 'kleedsub: after vintentf'
 
 c       write(*,*) 'kleedsub: rfactor = ',rfactor
 c        CLOSE(4)
