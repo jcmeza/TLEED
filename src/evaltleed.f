@@ -258,7 +258,7 @@ C           WRITE (0,*) PROCID," Calling tleed1: ",PROCID
            WRITE (99,*) PROCID," Calling tleed1: ",PROCID
            CLOSE (UNIT=99)
 
-           write(*,*) 'evaltleed: Calling tleed1'
+c           write(*,*) 'evaltleed: Calling tleed1'
            CALL tleed1(workdir, WORKID,PROCID,nerror_report)
 
            if (nerror_report.eq.1) then
@@ -276,7 +276,7 @@ C          PROBLEM: Handle opening and closing the the searchs file here.
 C          Otherwise the file was not closed in time by the OS for tleed2
 C          to read a complete file. 
            OPEN (UNIT=2,FILE=SEARCHS,STATUS='UNKNOWN')
-           write(*,*) 'evaltleed: Calling tleed2'
+c           write(*,*) 'evaltleed: Calling tleed2'
            CALL tleed2(workdir, WORKID,PROCID,FITVAL)
            CLOSE(2)       
            end if
@@ -359,10 +359,10 @@ c Sort the coordinates in a increasing order.
         CALL SORTLOCAL(NMAX,COORD,NTYPE,NCODE)
 c        write(99,*) 'Put the parameter in order, finished'
         IF(RESULT.EQ.'PENALTY') THEN 
-           write(*,*) 'Invalid structure, return for GRAVSTUC'
+cjcm           write(*,*) 'Invalid structure, returning PENALTY'
            RETURN
         ENDIF
-       write(*,*) 'valuate  : Valid structure'
+cjcm       write(*,*) 'valuate  : Valid structure'
 c Separate the surface into several composite layers,
 c DSPC IS THE MINIMUM SPACING BETWEEN TWO COMPOSITE LAYERS.
         DO I=1,NLAY

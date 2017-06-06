@@ -1,14 +1,28 @@
+UNAME := $(shell uname)
+
 KEXE                = nomad_kleed.exe
 TEXE                = nomad_tleed.exe
 COMPILATOR          = g++
 LINKER              = g++
 FC         	    = gfortran
 COMPILATOR_OPTIONS  = -Wall -g
-L1                  = $(NOMAD_HOME)/lib/nomad.a
+#L1                  = $(NOMAD_HOME)/lib/nomad.a
 #LIBS                = $(L1) -L/usr/lib/gcc/5 -lgfortran -lm
-INCLUDE             = -I$(NOMAD_HOME)/src -I.
+LIB_DIR                = $(NOMAD_HOME)/lib
+LIB_NOMAD              = libnomad.so 
+
+CXXFLAGS               =           
+ifeq ($(UNAME), Linux)
+CXXFLAGS              += -Wl,-rpath,'$(LIB_DIR)'
+CXXFLAGS              += -ansi
+endif
+
+LDLIBS                 = -lm -lnomad -lgfortran
+
+INCLUDE                = -I$(NOMAD_HOME)/src -I$(NOMAD_HOME)/ext/sgtelib/src -I.
 COMPILE             = $(COMPILATOR) $(COMPILATOR_OPTIONS) $(INCLUDE) -c
-FCOMPILE            = $(FC) -g -c
+FFLAGS		    = -Wall -Wsurprising -Waliasing  -fbacktrace -Wuninitialized -fdefault-real-8
+FCOMPILE            = $(FC) -g -c $(FFLAGS)
 OBJS		    =
 KLEEDOBJS	    = bb_kleed.o evalkleed.o kleedsub.o kleedlib.o
 TLEEDOBJS	    = bb_tleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
@@ -28,11 +42,11 @@ all:	$(TEXE)
 
 $(EXE): $(L1) nomad_kleed.o $(KLEEDOBJS)
 	$(ECHO_NOMAD)
-	$(COMPILATOR) -o $(EXE) $(OBJS) nomad_kleed.o $(KLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS)
+	$(COMPILATOR) -o $(EXE) $(OBJS) nomad_kleed.o $(KLEEDOBJS) $(CXXFLAGS) $(LDLIBS) -L$(LIB_DIR) 
 
 $(TEXE): $(L1) nomad_tleed.o $(TLEEDOBJS)
 	$(ECHO_NOMAD)
-	$(LINKER) -o $(TEXE) $(OBJS) nomad_tleed.o $(TLEEDOBJS) $(LIBS) $(COMPILATOR_OPTIONS) -lgfortran
+	$(LINKER) -o $(TEXE) $(OBJS) nomad_tleed.o $(TLEEDOBJS)  $(CXXFLAGS) $(LDLIBS) -L$(LIB_DIR) 
 #
 # LEED objs
 #

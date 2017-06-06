@@ -1,17 +1,17 @@
       subroutine bb_tleed(xparm,fx)
-      real*8  xparm(42)
-      real*8  fx(1)
+      real  xparm(42)
+      real  fx(1)
       integer i
 c
 c     tleed variables
 c
       PARAMETER (NMAX=14,NDIM=3)
-      REAL*8 PARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FITVAL
+      REAL PARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FITVAL
       REAL PARM_f(NMAX,NDIM),MINB_f(NMAX,NDIM),MAXB_f(NMAX,NDIM),
      & FITVAL_f
       INTEGER DIR,RANK,NTYPE(NMAX)
       character(100) problem_dir
-      problem_dir = "/Users/meza/MyProjects/TLEED"
+      problem_dir = "/home/jcmeza/TLEED"
 C
 C
 C

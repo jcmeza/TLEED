@@ -4,11 +4,12 @@
 ###############################################################
 # gcc compilers
 FC     = gfortran 
-FFLAGS  = -O2 -Wall -Wsurprising -Waliasing  -fbacktrace -fcheck=bounds -Wuninitialized -fdefault-real-8
+FFLAGS  = -O2 -Wall -Wsurprising -Waliasing  -fbacktrace -Wuninitialized -fdefault-real-8
 
 # Intel compiler
 #FC     = ifort 
 #FFLAGS	= -O -check bounds -check stack -traceback -autodouble  	
+#FFLAGS	= -O2 -autodouble  	
 
 FLINKER = $(FC)
 ###############################################################
