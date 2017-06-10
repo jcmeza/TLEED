@@ -1990,7 +1990,11 @@ cjcm need to add dimension for missing parameters to rfactf
       complex F(3),FS,FJ
       complex AAK,AAJ,PRE,CI
       complex XIST(NT0,NERG)
-      complex PHSSEL(NERG,NTAU,L1),PHSS(NTAU,L1)
+c     original  -  complex PHSSEL(NERG,NTAU,L1)
+      integer, parameter :: IINERG=100, INTAU=2
+      complex PHSSEL(IINERG,INTAU,16)
+
+      complex PHSS(NTAU,L1)
       complex XISTF,XISTFOL,XISTFS,XISTFSTOT,XISTFS1
       complex CAPPA
 C
@@ -5231,7 +5235,10 @@ C
      & PHS,DEL,NERG,IEEV,NEL,PHSSEL)
 C
       COMPLEX CI,DEL(10),CA,AF(L1),CAF(L1),TSF0(6,10),TSF(6,10)
-      COMPLEX PHSSEL(NERG,NEL,10)
+c     original -  COMPLEX PHSSEL(NERG,NEL,10)
+      integer, parameter :: IINERG=100, INTAU=2
+      complex PHSSEL(IINERG,INTAU,16)
+
       DIMENSION PHSS(NPSI,50),PHSS2(NPSI,50),ES(NPSI)
       DIMENSION PPP(NN1,NN2,NN3)
       DIMENSION PHS(10),PHSL(90),PHSL2(90)

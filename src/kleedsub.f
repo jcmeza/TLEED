@@ -10,11 +10,10 @@ c       subroutine kleed(problem_dir,dir,rank,nerror_report,rfactor)
       character*(*) :: dir
       character*(*) :: rank
       character(len=100) :: kleed4i, kleed5i
-      character(len=100) :: kleedo,gleedo,searchs,prdird,restartd
+      character(len=100) :: kleedo,searchs
       character(len=100) :: expdotd,rfacdotd
-      character(len=100) :: xpin
       real :: rfactor
-      real VINTENF
+      real VINTENTF
 
 C
 C PROGRAM DESCRIPTION:
