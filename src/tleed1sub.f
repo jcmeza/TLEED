@@ -646,12 +646,20 @@ C
             DO 55 NCL=1,NST1
                NLAY=LAFLAG(NCL)
                LMNI=NLAY*LMMAX
+c     jcm 6/15/17
+c     LMNBD was never initialized before leading to bug later on
+c     when LMNBD(2,NCL) has suspiciously large value          
+c     SYMCL appears to set first entry but not the second one
+               LMNBD(1,NCL) = 0
+               LMNBD(2,NCL) = 0
+               
                CALL SYMCL(NINEQ,LAFLAG2,NDOMBD,IROT,IMIR,NLMAX,LMNI,
      &         NCL,LPBD,ILKBD,WBDS(1,NCL),IDXS(1,NCL),IDXN(1,NCL),
      &         ZRED(1,NCL),NST1,LMMAX,LX,LXM,LMNBD(1,NCL),NSU,NSTEF,
      &         NLAY)
                LMNM=LMNBD(1,NCL)
                IF(LMNBD(2,NCL).GT.LMNM) LMNM=LMNBD(2,NCL)
+               
                IF(LMNM.GT.JLMNI) THEN
                   WRITE(1,114) LMNM
                   GOTO 1400
@@ -660,6 +668,12 @@ C
 C repeat call for tensor extension
 C
                LMNI2=NLAY*LSM
+c     jcm 6/15/17
+c     LMNBD2 was never initialized before leading to bug later on
+c     when LMNBD2(2,NCL) has suspiciously large value
+c     SYMCL appears to set first entry but not the second one
+               LMNBD2(1,NCL) = 0
+               LMNBD2(2,NCL) = 0
                IF(NCL.LE.NSTEF) THEN
                  CALL SYMCL(NINEQ,LAFLAG2,NDOMBD,IROT,IMIR,NLMAX,LMNI2,
      &           NCL,LPBD,ILKBD,WBDS2(1,NCL),IDXS2(1,NCL),IDXN2(1,NCL),
