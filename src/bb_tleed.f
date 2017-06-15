@@ -1,16 +1,18 @@
-      subroutine bb_tleed(xparm,fx)
+      subroutine bb_tleed(xparm,fx,success)
       real  xparm(42)
       real  fx(1)
       integer i
+      logical success
+
 c
 c     tleed variables
 c
       PARAMETER (NMAX=14,NDIM=3)
       REAL PARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FITVAL
-      REAL PARM_f(NMAX,NDIM),MINB_f(NMAX,NDIM),MAXB_f(NMAX,NDIM),
-     & FITVAL_f
+      REAL PARM_f(NMAX,NDIM),MINB_f(NMAX,NDIM),MAXB_f(NMAX,NDIM)
       INTEGER DIR,RANK,NTYPE(NMAX)
       character(100) problem_dir
+
 C     on my mac
       problem_dir = "/Users/meza/MyProjects/TLEED"
 c     on merced cluster
@@ -18,6 +20,7 @@ c      problem_dir = "/home/jcmeza/TLEED"
 C
 C
 C
+      success = .false.
       DIR   = 0
       DELTA = 0.4
       RANK  = 0
@@ -60,9 +63,10 @@ c      write(*,*) NTYPE
 cjcm
 
       call evaltleed(problem_dir,dir,rank,parm_f,minb_f,maxb_f,
-     &     ntype,fitval_f)
-      fx(1) = fitval_f
-c      write(*,*) 'bb_tleed: fitval from GPSTleed1  = ', fitval_f
+     &     ntype,fitval,success)
+      fx(1) = fitval
+c      write(*,*) 'bb_tleed: success  = ', success
+c      write(*,*) 'bb_tleed: fitval from evaltleed  = ', fitval_f
       
       return
       end

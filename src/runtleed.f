@@ -14,7 +14,8 @@ c
       real  fx, t1, t2
       integer ntype(nmax), dir, rank, num_fcn
       integer maxfcn
-
+      logical success
+      
       data_dir = "./tleed_data"
       problem_dir = "."
       dir   = 0
@@ -34,7 +35,7 @@ c
 
          call cpu_time(t1)
          call evaltleed(problem_dir,dir,rank,xparm,minb,maxb,
-     &        ntype,fx)
+     &        ntype,fx,success)
          call cpu_time(t2)
 
          write(*,*) 'runtleed: ', fx, t2-t1

@@ -85,11 +85,13 @@ CGPS      to solve optimization problem instead of genetic optimization
 C********************************************************
 
       SUBROUTINE evaltleed(problem_dir,DIR,RANK,PARM,MINB,MAXB,NTYPE,
-     &     FITVAL)
+     &     FITVAL, success)
       
-      PARAMETER (NMAX=14,NSUB=6,NIDEN=5,NDIM=3,PENALTY=1.6)
+      integer, parameter :: NMAX=14, NSUB=6, NIDEN=5, NDIM=3
+      real, parameter :: PENALTY=1.6
       
       REAL PARM(NMAX,NDIM),MINB(NMAX,NDIM),MAXB(NMAX,NDIM),FITVAL
+      logical success
 
       real parm_t(NMAX,NDIM)
       integer ntype_t(NMAX)
@@ -108,7 +110,8 @@ CGPS      CHARACTER*32 TLEED4,TLEED5,SEARCHS,TRACE
       character(LEN=100) tleed4doti, tleed5doti, workdir
       CHARACTER(LEN=3) PROCID
       CHARACTER(LEN=3) WORKID
-     
+
+      
       common /doti/tleed4doti, tleed5doti
       COMMON TLEED4,TLEED5,SEARCHS,TRACE
       
@@ -120,7 +123,8 @@ CGPS      CHARACTER*32 TLEED4,TLEED5,SEARCHS,TRACE
      &0.1,0.1,0.1,0.3,0.3,0.5/
 
       FITVAL=0.0
-
+      success = .false.
+      
 C Define the symmetry code.
         SYMC='P4M' 
         RESULT=' '
@@ -196,9 +200,9 @@ C alone (not touched by any atom).
       itimes = 0
  20   continue
       if (itimes.gt.0) then
-c         write(*,*) PROCID,' :returning with penalty'
+         write(*,*) 'evaltleed:	invalid structure, returning penalty'
          fitval = penalty
-         write(*,*) 'evaltleed:	invalid structure'
+         success = .false.
          return
       endif
 c      write(*,*) PROCID,' :calling valuate'
@@ -262,8 +266,9 @@ c           write(*,*) 'evaltleed: Calling tleed1'
            CALL tleed1(workdir, WORKID,PROCID,nerror_report)
 
            if (nerror_report.eq.1) then
-               fitval=1.64 
-               return
+              fitval=1.64
+              success = .false.
+              return
            else
            OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
 C           WRITE (0,*) WORKID,":",PROCID,
@@ -284,19 +289,21 @@ c           write(*,*) 'evaltleed: Calling tleed2'
 C          Assign penalty when r-factor is less than .1
            IF (FITVAL.LT.0.1) then
               FITVAL = PENALTY+1
+              success = .false.
            else if (fitval.eq. 100.) then
               Fitval=1.62
+              success = .false.
            else
+              success = .true.
            end if
+
            OPEN(UNIT=99,FILE=TRACE,STATUS='OLD',POSITION='APPEND')
 
-C           WRITE (0,*) WORKID,":",PROCID,
-C     &          " ...Returned tleed2 fitval=",fitval
            WRITE (99,*) WORKID,":",PROCID,
      &          " ...Returned tleed2 fitval=",fitval
            CLOSE (UNIT=99)
         ENDIF
-c        write(*,*) 'evaltleed: fitval = ', fitval
+
         RETURN
         END
 C********************************************************
@@ -359,7 +366,7 @@ c Sort the coordinates in a increasing order.
         CALL SORTLOCAL(NMAX,COORD,NTYPE,NCODE)
 c        write(99,*) 'Put the parameter in order, finished'
         IF(RESULT.EQ.'PENALTY') THEN 
-cjcm           write(*,*) 'Invalid structure, returning PENALTY'
+c     jcm           write(*,*) 'Invalid structure, returning PENALTY'
            RETURN
         ENDIF
 cjcm       write(*,*) 'valuate  : Valid structure'

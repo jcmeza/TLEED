@@ -92,7 +92,7 @@ C                   matrices computed in MSMFT
 C ============================================================================
 C
       PARAMETER (INT0=20,IPCUT=45,JSMAX=4)
-      PARAMETER (NLMB2=10000,NROM=973)
+      integer, parameter :: NLMB2=10000, NROM=3000
 C
 C ============================================================================
 C
@@ -111,10 +111,9 @@ C            of the matrix TH
 C  INLTOT    is the total number of sublayers in all CL's
 C  INLIN     Total number of inequivalent subplanes in all composite layers
 C
-      PARAMETER (INLTOT=68,NROMR=137,NROM2R=85)
-      PARAMETER (INLIN=25)
-c      PARAMETER (JLMNI=160,JLMNI2=160)
-      PARAMETER (JLMNI=320,JLMNI2=550)
+      integer, parameter :: INLTOT=68, NROMR=274, NROM2R=170
+      integer, parameter :: INLIN=25
+      integer, parameter :: JLMNI=320,JLMNI2=550
 C
 C ============================================================================
 C
