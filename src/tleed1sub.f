@@ -15,6 +15,7 @@ CGPS      subroutine tleed1(dir,rank)
 c      subroutine tleed1(tleed5i,shortt)
 CGPS      character*32 tleed4i, tleed5i, shortt, tleedo
       character(len=100) tleed4i, tleed5i, shortt, tleedo
+      integer, parameter :: shorttunit = 22, tleedounit = 1
       integer nerror_report
 C 
 C PROGRAM DESCRIPTION: 
@@ -91,7 +92,7 @@ C NROM              Maximum (symmetry unreduced) dimension of substrate
 C                   matrices computed in MSMFT
 C ============================================================================
 C
-      PARAMETER (INT0=20,IPCUT=45,JSMAX=4)
+      integer, parameter :: INT0=20, IPCUT=45, JSMAX=4
       integer, parameter :: NLMB2=10000, NROM=3000
 C
 C ============================================================================
@@ -360,10 +361,13 @@ C
       tleedo = trim(problem_dir)//'/tleedo'
       shortt = trim(problem_dir)//'/shortt'
 
-      OPEN (UNIT=1,FILE=tleedo,STATUS='unknown')
-      OPEN (UNIT=22,FILE=shortt,STATUS='unknown',FORM='unformatted')
-      rewind(1)
-      rewind(22)
+c    tleedounit = 1, shorttunit = 22
+      OPEN (UNIT=tleedounit,FILE=tleedo,STATUS='unknown')
+      OPEN (UNIT=shorttunit,FILE=shortt,STATUS='unknown',
+     & FORM='unformatted')
+
+c      rewind(tleedounit)
+c      rewind(shorttunit)
 
 C
 C ============================================================================
@@ -900,7 +904,7 @@ C
 C
 C Dump intensities of exit beams to transfer file
 C
-                      CALL DUMP(PQF,PQFEX2,NT0,NT,XI,XIST,E,22)
+                      CALL DUMP(PQF,PQFEX2,NT0,NT,XI,XIST,E,shorttunit)
 C
 C Propagate the plane wave amplitudes through the composite layer
 C using the intelayer (1-X) matrix. Store results for the time forward
@@ -965,8 +969,8 @@ C
 C Dump the truncated Q matrix to the transfer file
 C
 C                          CALL SHORT(Q,LSMMAX,22,E,VV,AK2M,AK3M, changed by ZZ on 09/07/04
-                          CALL SHORT_own(Q,LSMMAX,22,E,VV,AK2M,AK3M,
-     &                      NT0,NEXIT,ICUT,QCUT,MICUT,MJCUT)
+                          CALL SHORT_own(Q,LSMMAX,shorttunit,E,VV,AK2M,
+     &                     AK3M, NT0,NEXIT,ICUT,QCUT,MICUT,MJCUT)
 1200                    CONTINUE
 1250                  CONTINUE
                      ENDIF
@@ -998,7 +1002,7 @@ c      call ieee_flags("clear", "exception", "all", out)
       close(1)
       close(4)
       close(5)
-      close(22)
+      close(shorttunit)
 
 
       return
