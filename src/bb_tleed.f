@@ -11,7 +11,10 @@ c
      & FITVAL_f
       INTEGER DIR,RANK,NTYPE(NMAX)
       character(100) problem_dir
-      problem_dir = "/home/jcmeza/TLEED"
+C     on my mac
+      problem_dir = "/Users/meza/MyProjects/TLEED"
+c     on merced cluster
+c      problem_dir = "/home/jcmeza/TLEED"
 C
 C
 C

@@ -75,14 +75,16 @@ int main ( int argc , char ** argv ) {
     // parameters creation:
     Parameters p ( out );
     int i;
-    int maxbb = 500;
+    int maxbb = 100;
 
     if ( USE_SURROGATE )
       p.set_HAS_SGTE ( true );
 
     p.set_DIMENSION (42);             // number of variables
-    vector<bb_output_type> bbot (1); // definition of
+    vector<bb_output_type> bbot (3); // definition of
     bbot[0] = OBJ;                 // output types
+    bbot[1] = PB;
+    bbot[2] = EB;
     p.set_BB_OUTPUT_TYPE ( bbot );
 
     p.set_DISPLAY_ALL_EVAL(true);   // displays all evaluations.
@@ -119,7 +121,7 @@ int main ( int argc , char ** argv ) {
     p.set_INITIAL_MESH_SIZE(.1);
 
     p.set_MAX_BB_EVAL (maxbb);     // the algorithm terminates after
-                                 // 500 black-box evaluations
+                                 // 2000 black-box evaluations
     // p.set_TMP_DIR ("/tmp");      // repertory for
                                    // temporary files
     p.set_DISPLAY_DEGREE(2);

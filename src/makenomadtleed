@@ -2,8 +2,8 @@ UNAME := $(shell uname)
 
 KEXE                = nomad_kleed.exe
 TEXE                = nomad_tleed.exe
-COMPILATOR          = g++-7
-LINKER              = g++-7
+COMPILATOR          = g++
+LINKER              = g++
 FC         	    = gfortran
 COMPILATOR_OPTIONS  = -ansi -Wall -g
 
@@ -13,13 +13,16 @@ COMPILATOR_OPTIONS  = -ansi -Wall -g
 LIB_DIR                = $(NOMAD_HOME)/lib
 LIB_NOMAD              = libnomad.so 
 
-CXXFLAGS               =           
+#CXXFLAGS               =  -Wl,-no_compact_unwind
+#CXXFLAGS               =  -Wl,-rpath,'$(LIB_DIR)'
+CXXFLAGS               = 
 ifeq ($(UNAME), Linux)
 CXXFLAGS              += -Wl,-rpath,'$(LIB_DIR)'
 CXXFLAGS              += -ansi
 endif
 
-LDLIBS                 = -lm -lnomad -lgfortran
+LDLIBS                 = -lgfortran -lm -lnomad
+#LDLIBS                 = -lm -lnomad
 
 INCLUDE                = -I$(NOMAD_HOME)/src -I$(NOMAD_HOME)/ext/sgtelib/src -I.
 COMPILE             = $(COMPILATOR) $(COMPILATOR_OPTIONS) $(INCLUDE) -c
@@ -44,13 +47,19 @@ endif
 
 all:	$(TEXE)
 
-$(EXE): $(L1) nomad_kleed.o $(KLEEDOBJS)
+$(KEXE): $(L1) nomad_kleed.o $(KLEEDOBJS)
 	$(ECHO_NOMAD)
-	$(COMPILATOR) -o $(EXE) nomad_kleed.o $(KLEEDOBJS) $(CXXFLAGS) $(LDLIBS) -L$(LIB_DIR) 
+	$(LINKER) -o $(KEXE) nomad_kleed.o $(KLEEDOBJS) $(CXXFLAGS) $(LDLIBS) -L$(LIB_DIR) 
+ifeq ($(UNAME), Darwin)
+	@install_name_tool -change $(LIB_NOMAD) $(NOMAD_HOME)/lib/$(LIB_NOMAD) $(KEXE)
+endif
 
 $(TEXE): $(L1) nomad_tleed.o $(TLEEDOBJS)
 	$(ECHO_NOMAD)
 	$(LINKER) -o $(TEXE) nomad_tleed.o $(TLEEDOBJS)  $(CXXFLAGS) $(LDLIBS) -L$(LIB_DIR) 
+ifeq ($(UNAME), Darwin)
+	@install_name_tool -change $(LIB_NOMAD) $(NOMAD_HOME)/lib/$(LIB_NOMAD) $(TEXE)
+endif
 #
 # LEED objs
 #

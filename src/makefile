@@ -4,7 +4,8 @@
 ###############################################################
 # gcc compilers
 FC     = gfortran 
-FFLAGS  = -O2 -Wall -Wsurprising -Waliasing  -fbacktrace -Wuninitialized -fdefault-real-8
+FFLAGS  = -O2 -Wall -Wsurprising -Waliasing  -fbacktrace -fdefault-real-8
+#FFLAGS  = -O2 -Wall -Wsurprising -Waliasing  -fbacktrace -Wuninitialized -fdefault-real-8
 
 # Intel compiler
 #FC     = ifort 
@@ -36,6 +37,9 @@ runtleed.exe: runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
 
 runkleed.exe: runkleed.o evalkleed.o kleedsub.o kleedlib.o
 	$(FC) $(FFLAGS) -o runkleed.exe runkleed.o evalkleed.o kleedsub.o kleedlib.o
+
+nomad:
+	make -f makenomadtleed
 
 clean:
 	rm -f *.o *.exe *~ *.f90 *.mod
