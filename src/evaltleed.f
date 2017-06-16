@@ -140,7 +140,7 @@ C Input substrate coordinates, COORSUB0, AA is the length of unit cell.
            COORSUB(I,2)=AA*COORSUB0(I,2)
            COORSUB(I,3)=AA*COORSUB0(I,3)
            NTYPSUB(I)=2
-c          write(*,*) 'COORSUB=',(coorsub(i,j),j=1,3)
+          write(*,*) 'COORSUB=',(coorsub(i,j),j=1,3)
         ENDDO
 
 C     Setup input files and write structure to the trace file
@@ -853,12 +853,12 @@ c Converge atoms belong to edge, corner, center.
               DO J=1,3
                  COORD(I,J)=COORD(I,J)*AA
               ENDDO
-c          write(*,*) 'COORD=',(coord(i,j),j=1,3)
+          write(*,*) 'COORD=',(coord(i,j),j=1,3)
            ENDDO
            DO I=1,5
               RMIN(I)=RMIN(I)*AA
               RMAX(I)=RMAX(I)*AA
-c          write(*,*) 'RMIN,RMAX=',rmin(i),rmax(i)
+              write(*,*) 'RMIN,RMAX,AA=',rmin(i),rmax(i),AA
            ENDDO
         RETURN
         END
@@ -912,8 +912,12 @@ c distance and touching priciple.
               A3=(COORD(I,3)-COORD(J,3))**2
               DIST=SQRT(A1+A2+A3)
               IF(DIST.LT.RIJS) THEN
-c                 WRITE(99,*) 'DIST,RIJS',DIST,RIJS
-c                 WRITE(99,*) 'PENALTY FOR ATOM I AND J',I,J
+                 WRITE(99,*) 'DIST,RIJS',DIST,RIJS
+                 WRITE(99,*) 'PENALTY FOR ATOM I AND J',I,J
+                 WRITE(*,*) 'DIST,RIJS',DIST,RIJS
+                 WRITE(*,*) 'PENALTY FOR ATOM I AND J',I,J
+                 WRITE(*,*) COORD(I,1), COORD(I,2), COORD(I,3)
+                 WRITE(*,*) COORD(J,1), COORD(J,2), COORD(J,3)
                  RESULT='PENALTY'
                  RETURN
               ENDIF
@@ -934,13 +938,15 @@ c
               ENDIF
 20         ENDDO
            IF(KBONUS.LT.1) THEN
-c              WRITE(99,*) 'ATOM DOESNT TOUCH ANY OTHER ATOMS',I
+              WRITE(99,*) 'ATOM DOESNT TOUCH ANY OTHER ATOMS',I
+              WRITE(*,*) 'ATOM DOESNT TOUCH ANY OTHER ATOMS',I
+              WRITE(*,*) COORD(I,1), COORD(I,2), COORD(I,3), RIJL
               RESULT='PENALTY'
               RETURN
            ENDIF
         ENDDO
         RESULT='SUCCESS'
-c        WRITE(99,*) '          Success!!'
+        WRITE(*,*) '          Success!!'
         RETURN
         END
 C********************************************************

@@ -5077,7 +5077,18 @@ C
       CNM=1./SQRT(2.)
       CNAX=1./SQRT(FLOAT(IROT))
       CNMAX=1./SQRT(2.*FLOAT(IROT))
-C
+      
+cjcm 6/16/2017
+c     These 2 LMNBD values needed to be initialized to avoid errors when calling
+c     This was fixed in calling routine tleed1sub.f, but this may be the better
+c     place to set them in case other routines call SYMCL
+c     N.B. For good measure initialize the 4 output arrays as well, since it is
+c     not clear if all values will be set due to multiple if statements
+      
+      LMNBD(1) = 0
+      LMNBD(2) = 0
+
+C 
 C Inversion Symmetry and/or 2-d Point Group Symmetry?
 C Inversion symmetry of the composite layer can be used if present.
 C Remember however that, even if a composite layer has I symmetry,
