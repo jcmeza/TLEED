@@ -16,7 +16,7 @@ FLINKER = $(FC)
 ###############################################################
 
 SOURCES = evaltleed.f evalkleed.f tleed1.f tleed2.f tleedlib.f kleed.f tleed1sub.f tleed2sub.f kleedsub.f kleedlib.f
-EXECS   = tleed1 tleed2 kleed runtleed.exe runkleed.exe
+EXECS   = tleed1 tleed2 kleed runtleed.exe runkleed.exe kleedfcn.exe
 
 %.o:	%.f	
 	$(FC) $(FFLAGS) -c $< -o $@
@@ -37,6 +37,10 @@ runtleed.exe: runtleed.o evaltleed.o tleed1sub.o tleed2sub.o tleedlib.o
 
 runkleed.exe: runkleed.o evalkleed.o kleedsub.o kleedlib.o
 	$(FC) $(FFLAGS) -o runkleed.exe runkleed.o evalkleed.o kleedsub.o kleedlib.o
+#
+# Matlab/KLEED interface routine
+kleedfcn.exe: kleedfcn.o evalkleed.o kleedsub.o kleedlib.o
+	$(FC) $(FFLAGS) -o kleedfcn.exe kleedfcn.o evalkleed.o kleedsub.o kleedlib.o
 
 nomad:
 	make -f makenomadtleed

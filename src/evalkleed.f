@@ -219,7 +219,7 @@ c     write(*,*) PROCID,' :GRAVSTUC finished',itimes
          GOTO 20
       ELSE
 CGPS
-         write(*,*) 'evalkleed: valid structure'
+cjcm         write(*,*) 'evalkleed: valid structure'
 C         return
 C         DO I=1,NMAX
 C            IF ((PARM(I,1).LT.MINB(I,1)).OR.
