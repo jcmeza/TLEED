@@ -1,0 +1,58 @@
+ ******************************
+ runtleed: num_fcn =            1
+ valuate  : Valid structure
+ evaltleed: Calling tleed1
+ evaltleed: Calling tleed2
+ runtleed:   0.28854687949481234        11.943116999999999     
+ ******************************
+ runtleed: num_fcn =            2
+ valuate  : Valid structure
+ evaltleed: Calling tleed1
+ evaltleed: Calling tleed2
+ runtleed:   0.27991336517400145        11.917966999999999     
+ ******************************
+ runtleed: num_fcn =            3
+ valuate  : Valid structure
+ evaltleed: Calling tleed1
+ evaltleed: Calling tleed2
+ runtleed:   0.57971308589671466        12.055768000000004     
+ ******************************
+ runtleed: num_fcn =            4
+ valuate  : Valid structure
+ evaltleed: Calling tleed1
+ evaltleed: Calling tleed2
+ runtleed:   0.68293609780334175        12.080144000000004     
+ ******************************
+ runtleed: num_fcn =            5
+ valuate  : Valid structure
+ evaltleed: Calling tleed1
+ evaltleed: Calling tleed2
+ runtleed:   0.49492597284757278        12.697306000000005     
+ ******************************
+ runtleed: num_fcn =            6
+ valuate  : Valid structure
+ evaltleed: Calling tleed1
+ evaltleed: Calling tleed2
+ runtleed:   0.66381900624150370        11.522092000000001     
+ ******************************
+ runtleed: num_fcn =            7
+ Invalid structure, return for GRAVSTUC
+ evaltleed:	invalid structure
+ runtleed:    1.6000000000000001        2.3099999999942611E-004
+ ******************************
+ runtleed: num_fcn =            8
+ Invalid structure, return for GRAVSTUC
+ evaltleed:	invalid structure
+ runtleed:    1.6000000000000001        1.1800000000050659E-004
+ ******************************
+ runtleed: num_fcn =            9
+ valuate  : Valid structure
+ evaltleed: Calling tleed1
+ evaltleed: Calling tleed2
+ runtleed:   0.67825480278727002        12.177758999999995     
+ ******************************
+ runtleed: num_fcn =           10
+ valuate  : Valid structure
+ evaltleed: Calling tleed1
+ evaltleed: Calling tleed2
+ runtleed:   0.52299660006137783        12.805690999999996     

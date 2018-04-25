@@ -1,0 +1,66 @@
+ ******************************
+ runkleed: num_fcn =            1
+ evalkleed: valid structure
+ kleedsub: compute rfactor in vintentf
+ NT0 =           20
+ kleedsub: after vintentf
+ runkleed:    1.0403998802939762        8.5604000000000000E-002
+ ******************************
+ runkleed: num_fcn =            2
+ evalkleed: valid structure
+ kleedsub: compute rfactor in vintentf
+ NT0 =           20
+ kleedsub: after vintentf
+ runkleed:   0.90386357476701762        9.8475000000000007E-002
+ ******************************
+ runkleed: num_fcn =            3
+ evalkleed: valid structure
+ kleedsub: compute rfactor in vintentf
+ NT0 =           20
+ kleedsub: after vintentf
+ runkleed:   0.87470986676121409       0.11537000000000000     
+ ******************************
+ runkleed: num_fcn =            4
+ evalkleed: valid structure
+ kleedsub: compute rfactor in vintentf
+ NT0 =           20
+ kleedsub: after vintentf
+ runkleed:    1.0153966551846778       0.11141999999999996     
+ ******************************
+ runkleed: num_fcn =            5
+ evalkleed: valid structure
+ kleedsub: compute rfactor in vintentf
+ NT0 =           20
+ kleedsub: after vintentf
+ runkleed:   0.91453294840788557        8.1579999999999986E-002
+ ******************************
+ runkleed: num_fcn =            6
+ evalkleed: valid structure
+ kleedsub: compute rfactor in vintentf
+ NT0 =           20
+ kleedsub: after vintentf
+ runkleed:   0.95293725736890245        7.8187999999999924E-002
+ ******************************
+ runkleed: num_fcn =            7
+ Invalid structure, return for GRAVSTUC
+ evalkleed: invalid structure
+ runkleed:    1.6000000000000001        1.9800000000003148E-004
+ ******************************
+ runkleed: num_fcn =            8
+ Invalid structure, return for GRAVSTUC
+ evalkleed: invalid structure
+ runkleed:    1.6000000000000001        1.0200000000004650E-004
+ ******************************
+ runkleed: num_fcn =            9
+ evalkleed: valid structure
+ kleedsub: compute rfactor in vintentf
+ NT0 =           20
+ kleedsub: after vintentf
+ runkleed:    1.1093527122030014        8.3069999999999977E-002
+ ******************************
+ runkleed: num_fcn =           10
+ evalkleed: valid structure
+ kleedsub: compute rfactor in vintentf
+ NT0 =           20
+ kleedsub: after vintentf
+ runkleed:   0.97725119516099390        7.8434000000000004E-002
