@@ -203,7 +203,7 @@ C alone (not touched by any atom).
       itimes = 0
  20   continue
       if (itimes.gt.0) then
-         write(*,*) 'evalkleed: invalid structure'
+cjcm         write(*,*) 'evalkleed: invalid structure'
          fitval = penalty
          return
       endif
@@ -380,7 +380,7 @@ c Sort the coordinates in a increasing order.
         CALL SORTLOCAL(NMAX,COORD,NTYPE,NCODE)
 c        write(99,*) 'Put the parameter in order, finished'
         IF(RESULT.EQ.'PENALTY') THEN 
-          write(*,*) 'Invalid structure, return for GRAVSTUC'
+cjcm          write(*,*) 'Invalid structure, return for GRAVSTUC'
            RETURN
         ENDIF
 c       write(*,*) 'Valid structure'

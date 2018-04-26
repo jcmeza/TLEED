@@ -20,7 +20,7 @@ c
       problem_dir = "."
       dir   = 0
       rank  = 0
-      maxfcn = 10
+      maxfcn = 1
 c
 c     open parms file
 c

@@ -140,7 +140,9 @@ C Input substrate coordinates, COORSUB0, AA is the length of unit cell.
            COORSUB(I,2)=AA*COORSUB0(I,2)
            COORSUB(I,3)=AA*COORSUB0(I,3)
            NTYPSUB(I)=2
-          write(*,*) 'COORSUB=',(coorsub(i,j),j=1,3)
+cdebug           
+c          write(*,*) 'COORSUB=',(coorsub(i,j),j=1,3)
+cdebug
         ENDDO
 
 C     Setup input files and write structure to the trace file
@@ -200,7 +202,7 @@ C alone (not touched by any atom).
       itimes = 0
  20   continue
       if (itimes.gt.0) then
-         write(*,*) 'evaltleed:	invalid structure, returning penalty'
+cjcm         write(*,*) 'evaltleed:	invalid structure, returning penalty'
          fitval = penalty
          success = .false.
          return
@@ -366,7 +368,7 @@ c Sort the coordinates in a increasing order.
         CALL SORTLOCAL(NMAX,COORD,NTYPE,NCODE)
 c        write(99,*) 'Put the parameter in order, finished'
         IF(RESULT.EQ.'PENALTY') THEN 
-c     jcm           write(*,*) 'Invalid structure, returning PENALTY'
+cjcm           write(*,*) 'Invalid structure, returning PENALTY'
            RETURN
         ENDIF
 cjcm       write(*,*) 'valuate  : Valid structure'
@@ -853,12 +855,16 @@ c Converge atoms belong to edge, corner, center.
               DO J=1,3
                  COORD(I,J)=COORD(I,J)*AA
               ENDDO
-          write(*,*) 'COORD=',(coord(i,j),j=1,3)
+cdebug              
+c          write(*,*) 'COORD=',(coord(i,j),j=1,3)
+cdebug
            ENDDO
            DO I=1,5
               RMIN(I)=RMIN(I)*AA
               RMAX(I)=RMAX(I)*AA
-              write(*,*) 'RMIN,RMAX,AA=',rmin(i),rmax(i),AA
+cdebug              
+c              write(*,*) 'RMIN,RMAX,AA=',rmin(i),rmax(i),AA
+c
            ENDDO
         RETURN
         END
@@ -946,7 +952,7 @@ c
            ENDIF
         ENDDO
         RESULT='SUCCESS'
-        WRITE(*,*) '          Success!!'
+cjcm        WRITE(*,*) '          Success!!'
         RETURN
         END
 C********************************************************
