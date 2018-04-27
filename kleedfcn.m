@@ -35,6 +35,7 @@ if (message == "") % file exists so presumably KLEED worked
 else % trouble reading file - return error value
     kleedfval = kleed_err;
 end
+fclose(fileID);
 
 fx = kleedfval;
 

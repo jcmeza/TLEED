@@ -920,10 +920,10 @@ c distance and touching priciple.
               IF(DIST.LT.RIJS) THEN
                  WRITE(99,*) 'DIST,RIJS',DIST,RIJS
                  WRITE(99,*) 'PENALTY FOR ATOM I AND J',I,J
-                 WRITE(*,*) 'DIST,RIJS',DIST,RIJS
-                 WRITE(*,*) 'PENALTY FOR ATOM I AND J',I,J
-                 WRITE(*,*) COORD(I,1), COORD(I,2), COORD(I,3)
-                 WRITE(*,*) COORD(J,1), COORD(J,2), COORD(J,3)
+c                 WRITE(*,*) 'DIST,RIJS',DIST,RIJS
+c                 WRITE(*,*) 'PENALTY FOR ATOM I AND J',I,J
+c                 WRITE(*,*) COORD(I,1), COORD(I,2), COORD(I,3)
+c                 WRITE(*,*) COORD(J,1), COORD(J,2), COORD(J,3)
                  RESULT='PENALTY'
                  RETURN
               ENDIF
