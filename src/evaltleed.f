@@ -918,8 +918,8 @@ c distance and touching priciple.
               A3=(COORD(I,3)-COORD(J,3))**2
               DIST=SQRT(A1+A2+A3)
               IF(DIST.LT.RIJS) THEN
-                 WRITE(99,*) 'DIST,RIJS',DIST,RIJS
-                 WRITE(99,*) 'PENALTY FOR ATOM I AND J',I,J
+c                 WRITE(99,*) 'DIST,RIJS',DIST,RIJS
+c                 WRITE(99,*) 'PENALTY FOR ATOM I AND J',I,J
 c                 WRITE(*,*) 'DIST,RIJS',DIST,RIJS
 c                 WRITE(*,*) 'PENALTY FOR ATOM I AND J',I,J
 c                 WRITE(*,*) COORD(I,1), COORD(I,2), COORD(I,3)
@@ -944,9 +944,9 @@ c
               ENDIF
 20         ENDDO
            IF(KBONUS.LT.1) THEN
-              WRITE(99,*) 'ATOM DOESNT TOUCH ANY OTHER ATOMS',I
-              WRITE(*,*) 'ATOM DOESNT TOUCH ANY OTHER ATOMS',I
-              WRITE(*,*) COORD(I,1), COORD(I,2), COORD(I,3), RIJL
+c              WRITE(99,*) 'ATOM DOESNT TOUCH ANY OTHER ATOMS',I
+c              WRITE(*,*) 'ATOM DOESNT TOUCH ANY OTHER ATOMS',I
+c              WRITE(*,*) COORD(I,1), COORD(I,2), COORD(I,3), RIJL
               RESULT='PENALTY'
               RETURN
            ENDIF

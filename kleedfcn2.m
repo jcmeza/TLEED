@@ -1,4 +1,4 @@
-function fx = kleedfcn(x, parms)
+function fx = kleedfcn2(xp)
 % kleedfcn matlab/Fortran executable interface
 % This matlab function takes care of writing the parameters to 
 % the necessary files for KLEED to read and do one run. 
@@ -9,9 +9,15 @@ function fx = kleedfcn(x, parms)
 
 kleed_err = NaN;
 invalid_kleed = 1.6;
+%invalid_kleed = fbound;
 
 % open tleed input file
 fileID = fopen('kleedinputs.dat','w');
+
+n = length(xp);
+parms = xp(1:14);
+parms = round(parms); % need to make sure parms are integers
+x = xp(15:n);
 
 % write x and p to input file
 fprintf(fileID,'%4d ', parms);

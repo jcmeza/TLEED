@@ -13805,9 +13805,9 @@ cjcm      write(*,*) 'RFAC: shifting energy, check for <0 ??'
            ETH(I,J)=ETH(I,J)-BV0-DVOPT
 cjcm check for negative energy and write out warning
            if(ETH(I,J) .LT. 0.0) THEN
-              write(*,*) 'RFAC: ***** WARNING: ETH < 0 *****'
-              write(*,*) 'RFAC: i,j, eth(i,j), bv0, dvopt:',
-     &         I, J, ETH(I,J), BV0, DVOPT
+cjcm              write(*,*) 'RFAC: ***** WARNING: ETH < 0 *****'
+cjcm              write(*,*) 'RFAC: i,j, eth(i,j), bv0, dvopt:',
+cjcm     &         I, J, ETH(I,J), BV0, DVOPT
            endif
 102     CONTINUE
 101   CONTINUE

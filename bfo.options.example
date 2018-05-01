@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                           BFO options file example
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Ph. Toint (10 XII 2016).
+
+verbosity                      'silent'           %  some comment here
+maxeval                        3800
+xtype                          'ssccccc'
+xlower                         [ -Inf, -Inf, -2, -2, -2, -2, -2 ]
+xupper                         [  Inf,  Inf,  2,  2,  2,  2,  2 ]
+cat-states                     {{ {'fruity', 'mixed', 'veggy' }, {'homely','exotic'}, ...
+	                            '', '', '', '', '' }}
