@@ -1,0 +1,12 @@
+curl --request POST "https://eu-wap.tplinkcloud.com/?token=YOUR_TOKEN_HERE HTTP/1.1" \
+  --data '{"method":"passthrough", "params": {"deviceId": "YOUR_DEVICEID_HERE", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":1}}}" }}' \
+  --header "Content-Type: application/json"
+
+
+curl --request POST "https://eu-wap.tplinkcloud.com/?token=YOUR_TOKEN_HERE HTTP/1.1" \
+ --data '{"method":"passthrough", "params": {"deviceId": "YOUR_DEVICEID_HERE", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":0}}}" }}' \
+ --header "Content-Type: application/json"
+
+curl -s --request POST "https://wap.tplinkcloud.com?token=YOUR_TOKEN_HERE HTTP/1.1" \
+ --data '{"method":"getDeviceList"}' \
+ --header "Content-Type: application/json"
