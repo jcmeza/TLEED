@@ -7,7 +7,7 @@ function fx = tleedfcn2(xp)
 % in a file called 'kleedfval.dat', which this function reads
 % and passes back to the calling routine
 
-tleed_err = NaN;
+tleed_err = 1.6;
 invalid_tleed = 1.6;
 %invalid_kleed = fbound;
 
