@@ -1,4 +1,5 @@
  ID: 000 original Parms passed to evaluat     e.f 
+<<<<<<< HEAD
  ID: 000 Parms passed to tleed codes:      (may be changed by VALUATE)
    1 -1.9791  0.0000  0.0000
    2 -1.8095  2.8848  2.8848
@@ -32,3 +33,5 @@
  000 Calling kleed: 000
  000:000...returned kleed...
  000:000 ...Returned tleed2 fitval=  0.71106102351503220     
+=======
+>>>>>>> origin/master
