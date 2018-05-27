@@ -7,7 +7,7 @@ function fx = tleedfcn(x, parms)
 % in a file called 'tleedfval.dat', which this function reads
 % and passes back to the calling routine
 
-tleed_err = NaN;
+tleed_err = 1.6; % Could also set this to NaN
 invalid_tleed = 1.0;
 
 % open tleed input file
@@ -43,7 +43,7 @@ if (message == "") % file exists so presumably KLEED ran to completion
         fx = tleed_err; % invalid structure so return NaN
     end
 else % trouble reading file - return Nan
-    fx = tleed_err; 
+    fx = tleed_err; % set to invalid rfactor, but could also use NaN
 end
 fclose(fileID);
 
