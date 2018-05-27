@@ -1,6 +1,6 @@
 %
 % set numerical run
-run = 1;
+run = 4;
 %
 % set initial iterate value
 init_x0 = tleed_x0;
@@ -8,7 +8,7 @@ x0 = init_x0(run).x;
 p0  = cell2mat(init_x0(run).p);
 xp = [ p0 x0']; % optimize with respect to both p and (z,x,y)
 xp0 = xp;
-disp(xp0); % display initial guess
+disp(xp0'); % display initial guess
 
 % first 14 variables are discrete; all others continuous
 xdisc  = repmat('i',14,1)';
@@ -25,7 +25,7 @@ xplower = [plower xlower'];
 xpupper = [pupper xupper'];
 
 fbound = 1.0; % Not used for now
-
+disp(run);
 [ x, fx, msg, wrn, neval, f_hist] = bfo(@(x)tleedfcn2(x), xp0, ...
         'epsilon', 0.0001, 'maxeval', 3000, ... 
         'xlower', xplower, 'xupper', xpupper, ...
