@@ -11,6 +11,11 @@ a.out
 work000/*
 kwork000/*
 twork000/*
+*restart
+tleedfval.dat
+tleedinputs.dat
+kleedfval.dat
+kleedinputs.dat
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
